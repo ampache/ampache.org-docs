@@ -1,11 +1,12 @@
-This is a sample config for using Alsa and MPD on a Raspeberry P3 or P4.   This conjuration Allows correction of those who might have song that will not play with MPD but fine whit Gnome which is good to use for testing MPD.. 
- 
+# Sample MPD config file
+
+This is a sample config for using Alsa and MPD on a Raspeberry P3 or P4.   This conjuration Allows correction of those who might have song that will not play with MPD but fine whit Gnome which is good to use for testing MPD..
 
 ```shell
 # Files and directories #######################################################
 #
 # This is your Music directory's topmost level and needs to match your Ampache Catalogs starting directory
-music_directory		"/media/Music/MyMusic"
+music_directory    "/media/Music/MyMusic"
 #
 # This setting sets the MPD internal playlist directory. The purpose of this
 # directory is storage for playlists created by MPD. The server will use
@@ -14,7 +15,7 @@ music_directory		"/media/Music/MyMusic"
 #
 
 # Important if using playlist so formating and directory location is matched
-playlist_directory		"/var/lib/mpd/playlists"
+playlist_directory    "/var/lib/mpd/playlists"
 playlist_plugin {
     name "m3u"
     enabled "true"
@@ -26,7 +27,7 @@ playlist_plugin {
 # MPD to accept files over ipc socket (using file:// protocol) or streaming
 # files over an accepted protocol.
 #
-#db_file			"/var/lib/mpd/tag_cache"
+#db_file        "/var/lib/mpd/tag_cache"
 #
 # These settings are the locations for the daemon log files for the daemon.
 # These logs are great for troubleshooting, depending on your log_level
@@ -36,20 +37,20 @@ playlist_plugin {
 # setting defaults to logging to syslog, or to journal if mpd was started as
 # a systemd service.
 #
-log_file			"/var/log/mpd/mpd.log"
+log_file        "/var/log/mpd/mpd.log"
 #
 # This setting sets the location of the file which stores the process ID
 # for use of mpd --kill and some init scripts. This setting is disabled by
 # default and the pid file will not be stored.
 #
-pid_file			"/run/mpd/pid"
+pid_file        "/run/mpd/pid"
 #
 # This setting sets the location of the file which contains information about
 # most variables to get MPD back into the same general shape it was in before
 # it was brought down. This setting is disabled by default and the server
 # state will be reset on server start up.
 #
-state_file			"/var/lib/mpd/state"
+state_file        "/var/lib/mpd/state"
 #
 # The location of the sticker database.  This is a database which
 # manages dynamic information attached to songs.
@@ -58,7 +59,6 @@ sticker_file                   "/var/lib/mpd/sticker.sql"
 #
 ###############################################################################
 
-
 # General music daemon options ################################################
 #
 # This setting specifies the user that MPD will run as. MPD should never run as
@@ -66,7 +66,7 @@ sticker_file                   "/var/lib/mpd/sticker.sql"
 # initialization. This setting is disabled by default and MPD is run as the
 # current user.
 #
-user				"mpd"
+user        "mpd"
 #
 # This setting specifies the group that MPD will run as. If not specified
 # primary group of user specified with "user" setting will be used (if set).
@@ -83,22 +83,22 @@ user				"mpd"
 #
 # For network
 # **Do not bind to localhost this causes lags and delays for some.**
-bind_to_address		"192.168.???.???"
+bind_to_address    "192.168.???.???"
 #
 # And for Unix Socket
-#bind_to_address		"/run/mpd/socket"
+#bind_to_address    "/run/mpd/socket"
 #
 # This setting is the TCP port that is desired for the daemon to get assigned
 # to.
 #
-port				"6600"
+port        "6600"
 #
 # This setting controls the type of information which is logged. Available
 # setting arguments are "default", "secure" or "verbose". The "verbose" setting
 # argument is recommended for troubleshooting, though can quickly stretch
 # available resources on limited hardware storage.
 #
-#log_level			"default"
+#log_level        "default"
 #
 # Setting "restore_paused" to "yes" puts MPD into pause mode instead
 # of starting playback after startup.
@@ -108,10 +108,8 @@ port				"6600"
 # This setting enables MPD to create playlists in a format usable by other
 # music players.
 #
-save_absolute_paths_in_playlists	"yes"
+save_absolute_paths_in_playlists    "yes"
 #
-
-
 
 # Permissions #################################################################
 #
@@ -120,7 +118,6 @@ save_absolute_paths_in_playlists	"yes"
 #
 #password                        "password@read,add,control,admin"
 #
-
 
 # Database #######################################################################
 #
@@ -190,13 +187,13 @@ decoder {
 # An example of an ALSA output:
 #
 #audio_output {
-#	type		"alsa"
-#	name		"My ALSA Device"
-#	device		"hw:0,0"	# optional
-#	mixer_type      "software"      # optional
-#	mixer_device	"default"	# optional
-#	mixer_control	"PCM"		# optional
-#	mixer_index	"0"		# optional
+#    type    "alsa"
+#    name    "My ALSA Device"
+#    device    "hw:0,0"    # optional
+#    mixer_type      "software"      # optional
+#    mixer_device    "default"    # optional
+#    mixer_control    "PCM"    # optional
+#    mixer_index    "0"    # optional
 #}
 #
 audio_output {
@@ -210,35 +207,35 @@ audio_output {
 }# An example of an OSS output:
 #
 #audio_output {
-#	type		"oss"
-#	name		"My OSS Device"
-#	device		"/dev/dsp"	# optional
-#	mixer_type      "hardware"      # optional
-#	mixer_device	"/dev/mixer"	# optional
-#	mixer_control	"PCM"		# optional
+#    type    "oss"
+#    name    "My OSS Device"
+#    device    "/dev/dsp"    # optional
+#    mixer_type      "hardware"      # optional
+#    mixer_device    "/dev/mixer"    # optional
+#    mixer_control    "PCM"    # optional
 #}
 #
 # An example of a shout output (for streaming to Icecast):
 #
 #audio_output {
-#	type		"shout"
-#	encoder		"vorbis"		# optional
-#	name		"My Shout Stream"
-#	host		"localhost"
-#	port		"8000"
-#	mount		"/mpd.ogg"
-#	password	"hackme"
-#	quality		"5.0"
-#	bitrate		"128"
-#	format		"44100:16:1"
-#	protocol	"icecast2"		# optional
-#	user		"source"		# optional
-#	description	"My Stream Description"	# optional
-#	url             "http://example.com"    # optional
-#	genre		"jazz"			# optional
-#	public		"no"			# optional
-#	timeout		"2"			# optional
-#	mixer_type      "software"              # optional
+#    type    "shout"
+#    encoder    "vorbis"    # optional
+#    name    "My Shout Stream"
+#    host    "localhost"
+#    port    "8000"
+#    mount    "/mpd.ogg"
+#    password    "hackme"
+#    quality    "5.0"
+#    bitrate    "128"
+#    format    "44100:16:1"
+#    protocol    "icecast2"    # optional
+#    user    "source"    # optional
+#    description    "My Stream Description"    # optional
+#    url             "http://example.com"    # optional
+#    genre    "jazz"        # optional
+#    public    "no"        # optional
+#    timeout    "2"        # optional
+#    mixer_type      "software"              # optional
 #}
 #
 # An example of a recorder output:
@@ -256,15 +253,15 @@ audio_output {
 # An example of a httpd output (built-in HTTP streaming server):
 #
 #audio_output {
-#	type		"httpd"
-#	name		"My HTTP Stream"
-#	encoder		"vorbis"		# optional, vorbis or lame
-#	port		"8000"
-#	bind_to_address "0.0.0.0"               # optional, IPv4 or IPv6
-#	quality		"5.0"			# do not define if bitrate is defined
-#	bitrate		"128"			# do not define if quality is defined
-#	format		"44100:16:1"
-#	max_clients     "0"                     # optional 0=no limit
+#    type    "httpd"
+#    name    "My HTTP Stream"
+#    encoder    "vorbis"    # optional, vorbis or lame
+#    port    "8000"
+#    bind_to_address "0.0.0.0"               # optional, IPv4 or IPv6
+#    quality    "5.0"        # do not define if bitrate is defined
+#    bitrate    "128"        # do not define if quality is defined
+#    format    "44100:16:1"
+#    max_clients     "0"                     # optional 0=no limit
 #}
 #
 # An example of a pulseaudio output (streaming to a remote pulseaudio server)
@@ -272,54 +269,53 @@ audio_output {
 # daemon started as part of your graphical desktop session!
 #
 #audio_output {
-#	type		"pulse"
-#	name		"My Pulse Output"
-#	server		"remote_server"		# optional
-#	sink		"remote_server_sink"	# optional
+#    type    "pulse"
+#    name    "My Pulse Output"
+#    server    "remote_server"    # optional
+#    sink    "remote_server_sink"    # optional
 #}
 #
 # An example of a winmm output (Windows multimedia API).
 #
 #audio_output {
-#	type		"winmm"
-#	name		"My WinMM output"
-#	device		"Digital Audio (S/PDIF) (High Definition Audio Device)" # optional
-#		or
-#	device		"0"		# optional
-#	mixer_type	"hardware"	# optional
+#    type    "winmm"
+#    name    "My WinMM output"
+#    device    "Digital Audio (S/PDIF) (High Definition Audio Device)" # optional
+#    or
+#    device    "0"    # optional
+#    mixer_type    "hardware"    # optional
 #}
 #
 # An example of an openal output.
 #
 #audio_output {
-#	type		"openal"
-#	name		"My OpenAL output"
-#	device		"Digital Audio (S/PDIF) (High Definition Audio Device)" # optional
+#    type    "openal"
+#    name    "My OpenAL output"
+#    device    "Digital Audio (S/PDIF) (High Definition Audio Device)" # optional
 #}
 #
 ## Example "pipe" output:
 #
 #audio_output {
-#	type		"pipe"
-#	name		"my pipe"
-#	command		"aplay -f cd 2>/dev/null"
+#    type    "pipe"
+#    name    "my pipe"
+#    command    "aplay -f cd 2>/dev/null"
 ## Or if you're want to use AudioCompress
-#	command		"AudioCompress -m | aplay -f cd 2>/dev/null"
+#    command    "AudioCompress -m | aplay -f cd 2>/dev/null"
 ## Or to send raw PCM stream through PCM:
-#	command		"nc example.org 8765"
-#	format		"44100:16:2"
+#    command    "nc example.org 8765"
+#    format    "44100:16:2"
 #}
 #
 ## An example of a null output (for no audio output):
 #
 #audio_output {
-#	type		"null"
-#	name		"My Null Output"
-#	mixer_type      "none"                  # optional
+#    type    "null"
+#    name    "My Null Output"
+#    mixer_type      "none"                  # optional
 #}
 #
 ###############################################################################
-
 
 # Normalization automatic volume adjustments ##################################
 #
@@ -330,17 +326,17 @@ audio_output {
 # See <http://www.replaygain.org> for more details about ReplayGain.
 # This setting is off by default.
 #
-replaygain			"track"
+replaygain        "track"
 #
 # This setting sets the pre-amp used for files that have ReplayGain tags. By
 # default this setting is disabled.
 #
-#replaygain_preamp		"0"
+#replaygain_preamp    "0"
 #
 # This setting sets the pre-amp used for files that do NOT have ReplayGain tags.
 # By default this setting is disabled.
 #
-#replaygain_missing_preamp	"0"
+#replaygain_missing_preamp    "0"
 #
 # This setting enables or disables ReplayGain limiting.
 # MPD calculates actual amplification based on the ReplayGain tags
@@ -349,13 +345,13 @@ replaygain			"track"
 # above its original level. If replaygain_limit is disabled such amplification
 # might occur. By default this setting is enabled.
 #
-#replaygain_limit		"yes"
+#replaygain_limit    "yes"
 #
 # This setting enables on-the-fly normalization volume adjustment. This will
 # result in the volume of all playing audio to be adjusted so the output has
 # equal "loudness". This setting is disabled by default.
 #
-#volume_normalization		"no"
+#volume_normalization    "no"
 #
 ###############################################################################
 
@@ -364,11 +360,11 @@ replaygain			"track"
 # If file or directory names do not display correctly for your locale then you
 # may need to modify this setting.
 #
-filesystem_charset		"UTF-8"
+filesystem_charset    "UTF-8"
 #
 ###############################################################################
 ```
 
 Hope this helps the Large Database people with skipping issues  If you find a skipping song check with Gnome for File integrity.  This config does not make on the fly Adjestments other than a Gain in replay.
 
-JC 
+JC

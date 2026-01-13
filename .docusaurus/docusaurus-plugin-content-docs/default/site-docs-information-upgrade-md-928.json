@@ -1,0 +1,14 @@
+{
+  "id": "information/Upgrade",
+  "title": "Upgrade",
+  "description": "As an assumption we assume you know the path to your Ampache folder and how to manage your permissions.",
+  "source": "@site/docs/information/Upgrade.md",
+  "sourceDirName": "information",
+  "slug": "/information/Upgrade",
+  "permalink": "/docs/information/Upgrade",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

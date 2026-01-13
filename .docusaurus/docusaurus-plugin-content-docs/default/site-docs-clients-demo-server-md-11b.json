@@ -1,0 +1,14 @@
+{
+  "id": "clients/demo-server",
+  "title": "demo.ampache.dev",
+  "description": "The official Ampache demo server is now up and running!",
+  "source": "@site/docs/clients/demo-server.md",
+  "sourceDirName": "clients",
+  "slug": "/clients/demo-server",
+  "permalink": "/docs/clients/demo-server",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

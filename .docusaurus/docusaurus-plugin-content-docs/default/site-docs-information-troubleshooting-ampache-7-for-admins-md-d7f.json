@@ -1,0 +1,23 @@
+{
+  "id": "information/troubleshooting/ampache7-for-admins",
+  "title": "Ampache7 for Admins",
+  "description": "This page will cover the visual, backend and Admin specific changes to Ampache.",
+  "source": "@site/docs/information/troubleshooting/ampache7-for-admins.md",
+  "sourceDirName": "information/troubleshooting",
+  "slug": "/information/troubleshooting/ampache7-for-admins",
+  "permalink": "/docs/information/troubleshooting/ampache7-for-admins",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "api",
+  "previous": {
+    "title": "Troubleshooting",
+    "permalink": "/docs/information/troubleshooting"
+  },
+  "next": {
+    "title": "Ampache7 for Users",
+    "permalink": "/docs/information/troubleshooting/ampache7-for-users"
+  }
+}

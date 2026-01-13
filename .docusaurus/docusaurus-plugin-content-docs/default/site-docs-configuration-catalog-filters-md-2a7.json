@@ -1,0 +1,14 @@
+{
+  "id": "configuration/catalog-filters",
+  "title": "Private Catalogs",
+  "description": "Want to organize catalogs so your kids can't hear your music or your wife can safely avoid Malaysian Gore-Grind?",
+  "source": "@site/docs/configuration/catalog-filters.md",
+  "sourceDirName": "configuration",
+  "slug": "/configuration/catalog-filters",
+  "permalink": "/docs/configuration/catalog-filters",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

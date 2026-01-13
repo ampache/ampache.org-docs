@@ -1,0 +1,19 @@
+{
+  "id": "index",
+  "title": "Ampache Wiki",
+  "description": "Ampache is",
+  "source": "@site/docs/index.md",
+  "sourceDirName": ".",
+  "slug": "/",
+  "permalink": "/docs/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "api",
+  "next": {
+    "title": "Ampache Wiki",
+    "permalink": "/docs/"
+  }
+}

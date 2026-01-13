@@ -1,0 +1,14 @@
+{
+  "id": "configuration/localplay/MPD-With-ALSA-Config",
+  "title": "Sample MPD config file",
+  "description": "This is a sample config for using Alsa and MPD on a Raspeberry P3 or P4.   This conjuration Allows correction of those who might have song that will not play with MPD but fine whit Gnome which is good to use for testing MPD..",
+  "source": "@site/docs/configuration/localplay/MPD-With-ALSA-Config.md",
+  "sourceDirName": "configuration/localplay",
+  "slug": "/configuration/localplay/MPD-With-ALSA-Config",
+  "permalink": "/docs/configuration/localplay/MPD-With-ALSA-Config",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

@@ -10,7 +10,7 @@ _Note on CORS_: If you plan on using any of the API provided by Ampache from a b
 
 ### Creating the API/RPC ACL Entry
 
-As of Ampache 3.5.4 the API should work out of the box without any modifications. If you are upgrading from a previous version you will need to add an API/RPC [Access Control List](ACL) for any IP addresses that you wish to use the API from.
+As of Ampache 3.5.4 the API should work out of the box without any modifications. If you are upgrading from a previous version you will need to add an API/RPC [Access Control List](/docs/configuration/acl) for any IP addresses that you wish to use the API from.
 
 In most cases people will want to open up all addresses to use the API, which can be accomplished by entering _0.0.0.0_ for the Start IP and _255.255.255.255_ for the end IP. When creating the ACL entry leave everything as default until you know what the settings are for. If you are familiar with the networks you will be connecting from, feel free to customize these ACL's for your setup. You should also check and make sure that `access_control=true` is set in your config file. If you have upgraded Ampache from a version before 3.4.x access_control was disabled by default.
 
@@ -18,7 +18,7 @@ Troubleshooting:
 
 * The 3.5.x and newer APIs use your web interface username and password. If you have recently upgraded from Ampache 3.4.x you will need to log into the web interface and reset your password before the API will work.
 
-* If you receive an ACL error it is because your Ampache install is either missing the API/RPC [Access Control List](ACL) or the IP you are accessing from is outside the currently defined ACL. Verify your ACLs and, if needed [enable logging](Troubleshooting#Enable-Logging) to get more detailed debug information.
+* If you receive an ACL error it is because your Ampache install is either missing the API/RPC [Access Control List](/docs/configuration/acl) or the IP you are accessing from is outside the currently defined ACL. Verify your ACLs and, if needed [enable logging](/docs/information/troubleshooting/#enable-logging) to get more detailed debug information.
 
 * It's possible that an ACL error is an erroneous error message, particularly in regard to Amarok. Amarok fails because your RPC version is too old, but doesn't report it. It then attempts to get through the ACL and you get the ACL message not because the ACL itself is failing, but your client cannot connect do to the previous Version Too Old. Amarok only reports the last error it got, not the first.
 
@@ -85,7 +85,7 @@ url.rewrite-if-not-file += (
 In general for all kind of webservers:
 
 * You must enable _SubSonic Backend_ in System settings in the Web UI.
-* Access control and XML-API must be [enabled](API#enabling-use-of-the-api)
+* Access control and XML-API must be [enabled](/docs/configuration/api#enabling-use-of-the-api)
 * PHP cUrl mod is highly recommended
 * (Apache only) To not break few clients, Authorization header should be passed (some Apache module can remove this header for security reason). To be sure, please add the following directive in your Apache configuration : `SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1`
 * Most SubSonic client will request cover thumbnail. To return real thumbnail on the fly, PHP-GD module is recommended.

@@ -1,0 +1,14 @@
+{
+  "id": "configuration/localplay/VLC",
+  "title": "Configuring VLC for Localplay",
+  "description": "Ampache has the ability to remote control VLC over the network via it's http interface. VLC or VLC media player is a cross-platform open source media player that can play most known media formats. This document will walk you through the steps on how to setup localplay with VLC. It is assumed that you have Admin rights on your Ampache instance.",
+  "source": "@site/docs/configuration/localplay/VLC.md",
+  "sourceDirName": "configuration/localplay",
+  "slug": "/configuration/localplay/VLC",
+  "permalink": "/docs/configuration/localplay/VLC",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

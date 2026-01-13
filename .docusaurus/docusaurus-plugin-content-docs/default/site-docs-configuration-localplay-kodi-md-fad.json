@@ -1,0 +1,14 @@
+{
+  "id": "configuration/localplay/Kodi",
+  "title": "Kodi",
+  "description": "Ampache-Xbmc-Plugin Overview",
+  "source": "@site/docs/configuration/localplay/Kodi.md",
+  "sourceDirName": "configuration/localplay",
+  "slug": "/configuration/localplay/Kodi",
+  "permalink": "/docs/configuration/localplay/Kodi",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

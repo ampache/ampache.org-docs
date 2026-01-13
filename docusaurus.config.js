@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Ampache Docs',
+  title: 'Ampache Wiki',
   tagline: 'For the love of music',
   url: 'https://ampache.org/',
   baseUrl: '/docs/',
@@ -58,7 +58,7 @@ const config = {
         },
       },
       navbar: {
-        title: 'Ampache API',
+        title: 'Ampache Wiki',
         logo: {
           alt: 'Ampache Logo',
           src: 'img/ampache-logo.png',

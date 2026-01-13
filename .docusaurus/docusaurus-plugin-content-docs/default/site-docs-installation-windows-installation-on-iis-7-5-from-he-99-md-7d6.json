@@ -1,0 +1,14 @@
+{
+  "id": "installation/Windows-installation-on-IIS7.5-(from-he99)",
+  "title": "Windows-installation-on-IIS",
+  "description": "Cloned from he99's guide: github.com/he99",
+  "source": "@site/docs/installation/Windows-installation-on-IIS7.5-(from-he99).md",
+  "sourceDirName": "installation",
+  "slug": "/installation/Windows-installation-on-IIS7.5-(from-he99)",
+  "permalink": "/docs/installation/Windows-installation-on-IIS7.5-(from-he99)",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

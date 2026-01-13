@@ -1,0 +1,14 @@
+{
+  "id": "configuration/multi-artist",
+  "title": "Ampache with Multi Artist support",
+  "description": "Ampache 5.3.0 includes support for connecting multiple artist objects to a single song or album.",
+  "source": "@site/docs/configuration/multi-artist.md",
+  "sourceDirName": "configuration",
+  "slug": "/configuration/multi-artist",
+  "permalink": "/docs/configuration/multi-artist",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

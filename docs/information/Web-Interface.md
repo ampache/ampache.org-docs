@@ -2,7 +2,7 @@
 
 The standard interface is a web-based graphical user interface available via web browsers. It enables the user to search and browse media, playback media, construct random or custom playlists, make changes to options, and administer the server.
 
-The playback process one uses depends largely on the playlist method configured for that account. In the default configuration, the playback process involves browsing or searching for media, adding the media to a playlist, and then, in the final step, instructing the playlist to play to the media client. By default, Ampache streams media to a compatible media player client. However, other playback options exist, including the following: [Localplay](Localplay), [Democratic](Democratic), and HTML5 Player.
+The playback process one uses depends largely on the playlist method configured for that account. In the default configuration, the playback process involves browsing or searching for media, adding the media to a playlist, and then, in the final step, instructing the playlist to play to the media client. By default, Ampache streams media to a compatible media player client. However, other playback options exist, including the following: [Localplay/docs/configuration/localplay), [Democratic](/docs/configuration/democratic), and HTML5 Player.
 
 ## Selecting Media
 

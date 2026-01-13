@@ -6,7 +6,7 @@ Ampache has the ability to remote control an MPD instance over the network. MPD 
 
 In all new installs of Ampache the MPD module is, by default, enabled. To verify that it is currently enabled click on _Modules_ and then look under _Localplay Modules_.
 
-When you activate the MPD module Ampache automatically enables Localplay globally, sets your play type to _Localplay_, sets your [Localplay Access](Localplay#Localplay-Permission-Levels) to _Admin_ and sets your Localplay type to _MPD_. You must do the same for any other user you would like to be able to use MPD.
+When you activate the MPD module Ampache automatically enables Localplay globally, sets your play type to _Localplay_, sets your [Localplay Access](/docs/configuration/localplay#localplay-permission-levels) to _Admin_ and sets your Localplay type to _MPD_. You must do the same for any other user you would like to be able to use MPD.
 
 ## Adding a localplay instance
 
@@ -25,31 +25,33 @@ Once you created an instance you the name of the instance should show up under _
 ### Tips & Tricks
 
 * **Ampache can't connect to MPD but I'm sure I've got the host set correctly**: If MPD is not on the same box as your ampache instance you need to make sure that MPD is not listening on localhost, instead it will need to listen on all addresses so that it can accept the stream from Ampache.
-* **I can add songs but I can't stop or start MPD**: Most likely your [Localplay Access](Localplay#Localplay-Permission-Levels) is set to user, change it to Manager or Admin.
+* **I can add songs but I can't stop or start MPD**: Most likely your [Localplay Access](/docs/configuration/localplay#localplay-permission-levels) is set to user, change it to Manager or Admin.
 * **MPD localplay stops for no apparent reason** : It's MPD's config dropping connections. Switching to a Physical address instead of allowing MPD to use local host solve most of it. Example of a part of a config file:
-```
-   audio_output {  
-         type                    "alsa"  
-         name                    "My ALSA Device"  
-         device                  "hw:0,0"     # optional  
- #        format                  "44100:16:2" # optional  
+
+```conf
+   audio_output { 
+         type                    "alsa" 
+         name                    "My ALSA Device" 
+         device                  "hw:0,0"     # optional 
+ #        format                  "44100:16:2" # optional 
  #        mixer_control                   "Master"
-         use_mmap                                "yes"  
-         auto_resample                   "yes"  
+         use_mmap                                "yes" 
+         auto_resample                   "yes" 
  ```
 
-[Here a more complete example](Sample-MPD-Config-For-Ampache)
-
+[Here a more complete example](/docs/configuration/localplay/Sample-MPD-Config-For-Ampache)
 
 ### Sample settings in mpd.conf
 
 These settings affect your MPD localplay instance. If you have large playlists then the max settings need to be adjusted.
 
+```conf
     bind_to_address                 "any"
     port                            "6600"
     password                        "yourpassword@read,add,control,admin"
     max_playlist_length             "65535"
     max_command_list_size           "65535"
+```
 
 ## Ampache and Mopidy
 

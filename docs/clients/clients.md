@@ -1,8 +1,8 @@
 # Clients
 
-Ampache runs on a web interface allowing you to play media directly from your web browser. See the [Web Interface](Web-Interface) page for more information.
+Ampache runs on a web interface allowing you to play media directly from your web browser. See the [Web Interface](/docs/information/Web-Interface) page for more information.
 
-Thanks to its API, Ampache has also been integrated and can be used with many clients on several platforms. You should take a look at the [API](API) page for details on how to setup these APIs.
+Thanks to its API, Ampache has also been integrated and can be used with many clients on several platforms. You should take a look at the [API](/docs/clients/api) page for details on how to setup these APIs.
 
 ## Playlist only clients
 
@@ -24,7 +24,7 @@ If you can use the playlist simply import it into your player.
 
 If you're using Develop (Ampache 6.0.0+) you can use a [Streaming Token](https://github.com/ampache/ampache/wiki/ampache6-details#allow-permalink-user-streams) to make these links permanent.
 
-```
+```URL
 https://music.com.au/play/index.php?ssid=streamingtoken&type=song&oid=123&uid=1&action=stream&name=Dad%20Rocks-%20-%20Weapons.mp3
 https://music.com.au/play/index.php?ssid=streamingtoken&uid=1&random=1&random_type=search&random_id=123
 https://music.com.au/play/ssid/streamingtoken/uid/1/random/1/random_type/search/random_id/123
@@ -41,7 +41,7 @@ And almost any media player able to play http streams.
 
 ## XML-API clients
 
-Check out the [API Client](https://github.com/ampache/ampache/wiki/client-api) page for information about the clients, libraries ad plugins that use the Ampache API
+Check out the [API Client](https://github.com/ampache/ampache/wiki/api) page for information about the clients, libraries ad plugins that use the Ampache API
 
 ## Subsonic API clients
 

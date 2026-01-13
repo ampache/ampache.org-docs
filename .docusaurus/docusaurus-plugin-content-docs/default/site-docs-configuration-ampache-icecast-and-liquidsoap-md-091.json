@@ -1,0 +1,14 @@
+{
+  "id": "configuration/Ampache-Icecast-and-Liquidsoap",
+  "title": "Ampache + Icecast&Liquidsoap",
+  "description": "Channels suck, I can't fix them without taking a lot of time for something that is already done better elsewhere.",
+  "source": "@site/docs/configuration/Ampache-Icecast-and-Liquidsoap.md",
+  "sourceDirName": "configuration",
+  "slug": "/configuration/Ampache-Icecast-and-Liquidsoap",
+  "permalink": "/docs/configuration/Ampache-Icecast-and-Liquidsoap",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

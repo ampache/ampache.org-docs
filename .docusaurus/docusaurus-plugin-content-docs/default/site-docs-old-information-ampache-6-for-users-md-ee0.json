@@ -1,0 +1,14 @@
+{
+  "id": "old-information/ampache6-for-users",
+  "title": "Ampache6 for Users",
+  "description": "This page will cover some of the visual and feature changes you'll see in Ampache6",
+  "source": "@site/docs/old-information/ampache6-for-users.md",
+  "sourceDirName": "old-information",
+  "slug": "/old-information/ampache6-for-users",
+  "permalink": "/docs/old-information/ampache6-for-users",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

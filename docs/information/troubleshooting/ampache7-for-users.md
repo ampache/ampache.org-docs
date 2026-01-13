@@ -76,7 +76,6 @@ If you use the light sidebar you might want users to avoid the browse pages. use
 
 ![image](https://github.com/user-attachments/assets/8efb2f3a-11cf-4519-b85e-0793913b50a6)
 
-
 ### Skip stat recording on API streams
 
 This preference functions the same way as `subsonic_always_download` but for the Ampache API

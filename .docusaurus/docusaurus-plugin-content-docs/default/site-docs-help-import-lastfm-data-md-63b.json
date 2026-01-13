@@ -1,0 +1,14 @@
+{
+  "id": "help/import-lastfm-data",
+  "title": "Import Last.FM info into Ampache",
+  "description": "Before I started really using Ampache I scrobbled. I had years of information kept in Last.FM and that data is really important.",
+  "source": "@site/docs/help/import-lastfm-data.md",
+  "sourceDirName": "help",
+  "slug": "/help/import-lastfm-data",
+  "permalink": "/docs/help/import-lastfm-data",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

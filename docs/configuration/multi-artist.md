@@ -22,7 +22,7 @@ Right now there isn't an easy way to edit this mapping outside of updating your 
 
 But it's not something you should need to do very much once you've updated your catalog.
 
-### You will now see 'Additional Artists' on Album and Song edit pages.
+### You will now see 'Additional Artists' on Album and Song edit pages
 
 The first item in the array will be set as the primary artist
 
@@ -40,7 +40,6 @@ The first item in the array will be set as the primary artist
 
 ![image](https://user-images.githubusercontent.com/1305249/161687361-f3c04490-7184-45ec-becf-a00818e299cc.png)
 
-
 ## Notes regarding tag issues
 
 We have found that some arrays of tags are not being read / recorded / assigned blame correctly.
@@ -50,7 +49,6 @@ If you are sure your tags are correct but can't see the extra artists on a verif
 ![image](https://user-images.githubusercontent.com/1305249/161686529-3c0d04d2-8a9d-4fd8-b61d-cc9be5f2dad5.png)
 
 This seems to be mostly affecting QuickTime (MP4) files but has been seen in some ASF (WMA) files as well.
-
 
 ## Issues with old Artist names
 

@@ -1,0 +1,14 @@
+{
+  "id": "installation/Sephtan-Installation-Guide",
+  "title": "Guide to setup Ampache server using APACHE2 or NGINX with PHP7.4-FPM",
+  "description": "This my first guide i write for other people, mainly i do such things only for myself in my personal DokuWiki.",
+  "source": "@site/docs/installation/Sephtan-Installation-Guide.md",
+  "sourceDirName": "installation",
+  "slug": "/installation/Sephtan-Installation-Guide",
+  "permalink": "/docs/installation/Sephtan-Installation-Guide",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

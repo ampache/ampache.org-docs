@@ -1,0 +1,23 @@
+{
+  "id": "help/help",
+  "title": "help",
+  "description": "",
+  "source": "@site/docs/help/help.md",
+  "sourceDirName": "help",
+  "slug": "/help/",
+  "permalink": "/docs/help/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "api",
+  "previous": {
+    "title": "development",
+    "permalink": "/docs/development/"
+  },
+  "next": {
+    "title": "help",
+    "permalink": "/docs/help/"
+  }
+}

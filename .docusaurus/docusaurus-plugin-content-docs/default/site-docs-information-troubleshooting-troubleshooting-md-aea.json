@@ -1,0 +1,14 @@
+{
+  "id": "information/troubleshooting/troubleshooting",
+  "title": "Troubleshooting",
+  "description": "Ask people for help",
+  "source": "@site/docs/information/troubleshooting/troubleshooting.md",
+  "sourceDirName": "information/troubleshooting",
+  "slug": "/information/troubleshooting/",
+  "permalink": "/docs/information/troubleshooting/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

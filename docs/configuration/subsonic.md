@@ -2,18 +2,18 @@
 
 Your Ampache server can be accessed through the SubSonic API.
 
-|Parameter|Required|Default|Comment|
-|---------|--------|-------|-------|
-|u        |Yes     |       |The username.|
-|p        |Yes*    |       |The password, either in clear text or hex-encoded with a "enc:" prefix. Since 4.0.0 this should only be used for testing purposes.|
-|t        |Yes*    |       |(Since 4.0.0) The authentication token computed as md5(apikey + salt). See below for details.|
-|s        |Yes*    |       |(Since 4.0.0) A random string ("salt") used as input for computing the password hash. See below for details.|
-|v        |Yes     |       |The protocol version implemented by the client, i.e., the version of the subsonic-rest-api.xsd schema used (see below).|
-|c        |Yes     |       |A unique string identifying the client application.|
-|f        |No      |xml    |Request data to be returned in this format. Supported values are "xml", "json", "jsonp". If using jsonp, specify name of javascript callback function using a callback parameter.|
+| Parameter | Required | Default | Comment                                                                                                                                                                           |
+|-----------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| u         | Yes      |         | The username.                                                                                                                                                                     |
+| p         | Yes*     |         | The password, either in clear text or hex-encoded with a "enc:" prefix. Since 4.0.0 this should only be used for testing purposes.                                                |
+| t         | Yes*     |         | (Since 4.0.0) The authentication token computed as md5(apikey + salt). See below for details.                                                                                     |
+| s         | Yes*     |         | (Since 4.0.0) A random string ("salt") used as input for computing the password hash. See below for details.                                                                      |
+| v         | Yes      |         | The protocol version implemented by the client, i.e., the version of the subsonic-rest-api.xsd schema used (see below).                                                           |
+| c         | Yes      |         | A unique string identifying the client application.                                                                                                                               |
+| f         | No       | xml     | Request data to be returned in this format. Supported values are "xml", "json", "jsonp". If using jsonp, specify name of javascript callback function using a callback parameter. |
 
- *) Either p or both t and s must be specified.
- 
+ (*) Either p or both t and s must be specified.
+
 **Note** token auth in Ampache requires a user apikey. This is due to the differences in how Subsonic and Ampache store passwords.
 
 Remember to URL encode the request parameters. All methods (except those that return binary data) returns XML documents conforming to the subsonic-rest-api.xsd schema. The XML documents are encoded with UTF-8.
@@ -21,7 +21,7 @@ Authentication
 
 If Ampache version 3.x.x, authentication is performed by sending the password as clear text or hex-encoded. Examples:
 
-```
+```URL
 http://your-server/rest/ping.view?u=joe&p=sesame&v=1.12.0&c=myapp
 http://your-server/rest/ping.view?u=joe&p=enc:736573616d65&v=1.12.0&c=myapp
 ```
@@ -36,14 +36,14 @@ This involves two steps:
 
 For example: if the password is sesame and the random salt is c19b2d, then token = md5("sesamec19b2d") = 26719a1196d2a940705a59634eb18eab. The corresponding request URL then becomes:
 
-```REST
-http://your-server/rest/ping.view?u=joe&t=26719a1196d2a940705a59634eb18eab&s=c19b2d&v=1.12.0&c=myapp 
+```URL
+http://your-server/rest/ping.view?u=joe&t=26719a1196d2a940705a59634eb18eab&s=c19b2d&v=1.12.0&c=myapp
 ```
 
 Example from the Subsonic API documentation:
 
-```REST
-http://your-server/rest/ping.view?u=joe&p=sesame&v=1.12.0&c=myapp`
+```URL
+http://your-server/rest/ping.view?u=joe&p=sesame&v=1.12.0&c=myapp
 ```
 
 **Note**: Default configuration assumes your Ampache installation resides at the root of your webserver.
@@ -59,26 +59,31 @@ web_path = "/ampache"
 * Edit the `.htaccess` file accordingly, e.g. replacing `/play/` by `/ampache/play`.
 
 ## Errors during Playback
+
 When your Subsonic Client can successfully login to your Ampache server, brwose the Library,
 but fails to play music (Client status is "Downloading 0 B"), try one of the following:
 
 ### Allow access from your Ampache server to your external IP-address on port 443
+
 Applies when you see something like the following in your Ampache log (Provided logging is turned on):
 `2020-09-15T19:02:29+00:00 [bbl] (subsonic_api.class) -> Stream error: Failed to connect to your-external-hostname port 443: Connection timed out`
 
 ### Set the local_web_path
+
 This applies if Ampache is running behind a reverse proxy.
 The following are typical error messages:
-```sh
-(Ampache\Module\Api\Subsonic_Api) -> Stream error: 
+
+```shell
+(Ampache\Module\Api\Subsonic_Api) -> Stream error:
 (Ampache\Module\Api\Subsonic_Api) -> Stream error: The requested URL returned error: 404 Not Found
 ```
 
 In `ampache.cfg.php` set `local_web_path` to `localhost`.
 There are various discussions and issues with more detail on this,
-see for example: https://github.com/ampache/ampache/issues/1639
+see for example: [Issue 1639](https://github.com/ampache/ampache/issues/1639)
 
 ### Make sure you are not accessing an https site in http
+
 Changing `server preferences` can solve that problem :
 > forcing http streaming must be set to `inactive`
 ![image](https://github.com/ampache/ampache/assets/3218235/cd40a343-ba37-422d-bf0e-1c2eec678bce)

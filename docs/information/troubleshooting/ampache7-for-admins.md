@@ -24,7 +24,7 @@ If you see this error you can safely delete the lock file and then try your pull
 
 ![image](https://github.com/ampache/ampache/assets/1305249/24277173-47a8-463a-b916-23ebd34bc15b)
 
-```
+```shell
 rm ./package-lock.json
 ```
 
@@ -34,14 +34,13 @@ You might see other errors in the first composer sync as well.
 
 You can run composer manually with interaction to deal with these
 
-```
+```shell
 composer install --no-dev --prefer-source
 ```
 
 Press `y` and enter to discard the change.
 
 ![image](https://github.com/ampache/ampache/assets/1305249/78238033-49c7-4798-988c-55c01e3a7471)
-
 
 ## Try it out
 
@@ -57,7 +56,7 @@ Check out the patch7 branch to try it out on your own server.
 
 Check out the [wiki - Installation](https://github.com/ampache/ampache/wiki/Installation) page for more information
 
-```
+```shell
 git clone -b patch7 https://github.com/ampache/ampache.git ampache
 ```
 
@@ -79,7 +78,7 @@ Builds will no longer support other versions. Stay on Ampache6 until you can mov
 
 You can stay on the `patch6` or `release6` branch by checking out the git branch.
 
-```
+```shell
 git checkout origin/patch6
 ```
 
@@ -96,6 +95,7 @@ When you update Ampache you need to add another step to the update processes.
 In addition to composer install you need to update the NPM packages.
 
 The minimum nodejs version is **v15** or higher and supported packages are available in:
+
 * Debian bookworm (stable)
 * Ubuntu 23.10
 * Ubuntu LTS 24.04
@@ -106,7 +106,7 @@ Check your version prior to upgrading.
 
 When you're updating from git add the npm commands to the end of your scripts.
 
-```
+```shell
 cd /var/www/ampache
 git pull
 composer install --no-dev --prefer-source --no-interaction
@@ -160,13 +160,13 @@ Do you use your user profile picture in other areas? (I like to use may avatar a
 
 The old links used the show action like all other objects
 
-```
+```URL
 https://music.com.au/image.php?action=show&object_id=1&thumb=4
 ```
 
 Ampache7 user avatar links now use their own action
 
-```
+```URL
 https://music.com.au/image.php?action=show_user_avatar&object_id=1&thumb=4
 ```
 
@@ -187,28 +187,28 @@ Now it can be used for more complicated error handling.
 
 ## New Config Options
 
-```
+```conf
 ; By defualt Ampache doesn't install dev packages using the --no-dev parameter
 ; disable this setting to install dev packages (e.g. composer install --prefer-source --no-interaction)
 ; DEFAULT: "true"
 composer_no_dev = "true"
 ```
 
-```
+```conf
 ; This value allows to override the npm binary path to distinguish between multiple npm versions
 ; Either a binary name in $PATH as well as a fully qualified path is possible
 ; DEFAULT: npm
 npm_binary_path = "npm"
 ```
 
-```
+```conf
 ; Set a default table engine for your database
 ; Don't change this unless you understand how to BACKUP and RESTORE a database!
 ; DEFAULT: "InnoDB"
 database_engine = "InnoDB"
 ```
 
-```
+```conf
 ; Webplayer Access Level
 ; Set a minimum access level required to access the webplayer.
 ; When a user does not meet the access requirements then you

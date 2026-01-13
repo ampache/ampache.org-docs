@@ -1,0 +1,23 @@
+{
+  "id": "plugins/plugins",
+  "title": "Ampache Plugins",
+  "description": "Ampache contains a number of plugins that are included with each install.",
+  "source": "@site/docs/plugins/plugins.md",
+  "sourceDirName": "plugins",
+  "slug": "/plugins/",
+  "permalink": "/docs/plugins/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "api",
+  "previous": {
+    "title": "Clients",
+    "permalink": "/docs/clients/"
+  },
+  "next": {
+    "title": "Ampache Plugins",
+    "permalink": "/docs/plugins/"
+  }
+}

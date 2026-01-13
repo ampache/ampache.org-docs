@@ -1,0 +1,14 @@
+{
+  "id": "configuration/broadcasts",
+  "title": "Broadcasts",
+  "description": "Broadcast what you're currently playing in your web player to other users.",
+  "source": "@site/docs/configuration/broadcasts.md",
+  "sourceDirName": "configuration",
+  "slug": "/configuration/broadcasts",
+  "permalink": "/docs/configuration/broadcasts",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

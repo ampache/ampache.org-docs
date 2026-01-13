@@ -12,7 +12,7 @@ With BubbleUPnP you can search your local network and find your local renderer.
 
 For example; there is a local renderer on my network running on Kodi so the URL for my Upnp instance is:
 
-```
+```URL
 http://192.168.1.18:1221
 ```
 

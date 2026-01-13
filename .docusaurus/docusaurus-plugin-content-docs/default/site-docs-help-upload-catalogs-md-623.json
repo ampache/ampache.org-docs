@@ -1,0 +1,14 @@
+{
+  "id": "help/upload-catalogs",
+  "title": "Managing Upload Catalogs",
+  "description": "Set up your catalogs",
+  "source": "@site/docs/help/upload-catalogs.md",
+  "sourceDirName": "help",
+  "slug": "/help/upload-catalogs",
+  "permalink": "/docs/help/upload-catalogs",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

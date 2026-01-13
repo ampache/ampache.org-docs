@@ -1,0 +1,23 @@
+{
+  "id": "clients/clients",
+  "title": "Clients",
+  "description": "Ampache runs on a web interface allowing you to play media directly from your web browser. See the Web Interface page for more information.",
+  "source": "@site/docs/clients/clients.md",
+  "sourceDirName": "clients",
+  "slug": "/clients/",
+  "permalink": "/docs/clients/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "api",
+  "previous": {
+    "title": "Basic Configuration",
+    "permalink": "/docs/configuration/"
+  },
+  "next": {
+    "title": "Clients",
+    "permalink": "/docs/clients/"
+  }
+}

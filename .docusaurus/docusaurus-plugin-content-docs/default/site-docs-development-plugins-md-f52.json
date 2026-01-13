@@ -1,0 +1,14 @@
+{
+  "id": "development/plugins",
+  "title": "Ampache Plugins",
+  "description": "It can be a bit daunting to write a plugin for Ampache but this page will be written up to help people with a bit of knowledge take the plunge and write a plugin!",
+  "source": "@site/docs/development/plugins.md",
+  "sourceDirName": "development",
+  "slug": "/development/plugins",
+  "permalink": "/docs/development/plugins",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

@@ -1,0 +1,14 @@
+{
+  "id": "installation/Tutorial-to-install-Ampache-on-Xampp",
+  "title": "Tutorial to install Ampache on Xampp",
+  "description": "1. Download xampp",
+  "source": "@site/docs/installation/Tutorial-to-install-Ampache-on-Xampp.md",
+  "sourceDirName": "installation",
+  "slug": "/installation/Tutorial-to-install-Ampache-on-Xampp",
+  "permalink": "/docs/installation/Tutorial-to-install-Ampache-on-Xampp",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

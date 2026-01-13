@@ -1,14 +1,14 @@
 # Ampache Wiki
 
-## Ampache is...
+## Ampache is
 
 * A web based audio/video streaming application and file manager allowing you to access your music & videos from anywhere, using almost any internet enabled device.
 * A back-end for supplying the player of your choice (with http streaming support) with all of your music.
 * Both a front-end and back-end for various Localplay options meaning you can use Ampache to control mpd as well as supply mpd with the music it is to play.
 
-## Ampache is not...
+## Ampache is not
 
-* A universal player. Ampache doesn't use codecs. It simply streams the music to your player / web browser. If set up properly, it can convert music on the fly in case you use a player that doesn't read a specific format. For instance, if your player doesn't support FLAC, Ampache can [Transcode](Transcoding) it on the fly to mp3 or any other format.
+* A universal player. Ampache doesn't use codecs. It simply streams the music to your player / web browser. If set up properly, it can convert music on the fly in case you use a player that doesn't read a specific format. For instance, if your player doesn't support FLAC, Ampache can [Transcode](/docs/configuration/transcoding/) it on the fly to mp3 or any other format.
 
 ## Why Ampache
 
@@ -20,7 +20,7 @@ There are some great options out there for streaming you media. However, they us
 
 ### Powerful API and streaming to any client
 
-If you use Plex, you're stuck with their proprietary apps. You would be hard-pressed to find a music client not compatible with Ampache. By default, you can use the web interface which requires nothing! Otherwise you have the option of a number of native Ampache apps, playlist streaming to apps like VLC, WinAMP, Foobar2000, Windows Media Player, Subsonic API allowing use of all Subsonic clients, UPnP/DLNA, and DAAP with iTunes. Visit the [clients page](Clients) for more information.
+If you use Plex, you're stuck with their proprietary apps. You would be hard-pressed to find a music client not compatible with Ampache. By default, you can use the web interface which requires nothing! Otherwise you have the option of a number of native Ampache apps, playlist streaming to apps like VLC, WinAMP, Foobar2000, Windows Media Player, Subsonic API allowing use of all Subsonic clients, UPnP/DLNA, and DAAP with iTunes. Visit the [clients page/docs/clients) for more information.
 
 ### Flexible catalogs
 
@@ -49,10 +49,10 @@ Originally released in 2001, Ampache has maintained a somewhat small but fiercel
 ## Features
 
 * Modern HTML5 [Web Player](https://github.com/ampache/ampache/wiki/Web-Player) (embedded or popup)
-* [Subsonic Backend](API#subsonic-api) - Compatibility with any Subsonic client
-* [DAAP Backend](API#daap-api)
-* [UPnP Backend](API#upnp-api)
-* [Localplay for Httpq/MPD/VLC/XBMC](Localplay), [Stream](Stream), and [Democratic Playlists](Democratic)
+* [Subsonic Backend](/docs/configuration/subsonic) - Compatibility with any Subsonic client
+* [DAAP Backend](/docs/configuration/api#daap-api)
+* [UPnP Backend](/docs/configuration/api#upnp--dlna-api)
+* [Localplay for Httpq/MPD/VLC/XBMC](/docs/configuration/localplay) and [Democratic Playlists](/docs/configuration/democratic)
 * Live streams/radio
 * Subsonic remote catalog (you can import music coming from an existing Subsonic instance)
 * SoundCloud remote catalog
@@ -72,7 +72,7 @@ Originally released in 2001, Ampache has maintained a somewhat small but fiercel
 
 ## Is Ampache Right for Me?
 
-If you would like more information to make a decision, please check out the various [use cases](Ampache-Use-Cases) for the ways others are using Ampache. 
+If you would like more information to make a decision, please check out the various [use cases](/docs/information/ampache-use-cases) for the ways others are using Ampache.
 
 ## Try Ampache
 

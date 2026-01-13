@@ -1,0 +1,14 @@
+{
+  "id": "installation/Windows-Installation-Guide",
+  "title": "Windows Installation Guide",
+  "description": "IMPORTANT : PHP 8.1 IT IS NOT SUPPORTED, CHECK THE PHP VERSION BEFORE INSTALLING",
+  "source": "@site/docs/installation/Windows-Installation-Guide.md",
+  "sourceDirName": "installation",
+  "slug": "/installation/Windows-Installation-Guide",
+  "permalink": "/docs/installation/Windows-Installation-Guide",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

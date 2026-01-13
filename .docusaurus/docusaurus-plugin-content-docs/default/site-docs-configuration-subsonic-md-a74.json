@@ -1,0 +1,14 @@
+{
+  "id": "configuration/subsonic",
+  "title": "SubSonic API",
+  "description": "Your Ampache server can be accessed through the SubSonic API.",
+  "source": "@site/docs/configuration/subsonic.md",
+  "sourceDirName": "configuration",
+  "slug": "/configuration/subsonic",
+  "permalink": "/docs/configuration/subsonic",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

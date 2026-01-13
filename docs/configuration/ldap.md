@@ -22,13 +22,10 @@ You now need to set the `ldap_*` variables that will define the behaviour of Amp
 
 You **MUST** set the following variables:
 
-- `ldap_url` (format: `ldap://my.domain.tld/`, `ldaps://123.456.7.89/`)
-
-- `ldap_search_dn`: The DN in which the users will be searched for (usually something like `ou=people,dc=my,dc=domain,dc=tld`)
-
-- `ldap_objectclass`: The objectClass common to all users. In OpenLDAP, this is usually `posixAccount`; In Microsoft Active Directory, `organizationalPerson`
-
-- `ldap_filter`: The filter that will be used when searching for the user. The `%v` string will be replaced by the username. For OpenLDAP, try `(uid=%v)`. For Microsoft Active Directory, try `(sAMAaccountName=%v)`.
+* `ldap_url` (format: `ldap://my.domain.tld/`, `ldaps://123.456.7.89/`)
+* `ldap_search_dn`: The DN in which the users will be searched for (usually something like `ou=people,dc=my,dc=domain,dc=tld`)
+* `ldap_objectclass`: The objectClass common to all users. In OpenLDAP, this is usually `posixAccount`; In Microsoft Active Directory, `organizationalPerson`
+* `ldap_filter`: The filter that will be used when searching for the user. The `%v` string will be replaced by the username. For OpenLDAP, try `(uid=%v)`. For Microsoft Active Directory, try `(sAMAaccountName=%v)`.
 
 If you want Ampache to use a specific username/password combination instead of the anonymous login, you'll have to set the `ldap_username` and `ldap_password` variables. Be carefull: `ldap_username` takes a **DN**.
 
@@ -57,4 +54,4 @@ Once the libraries are installed, you may need to restart Apache if it is alread
 
 ### Miscellaneous
 
-- Specifying an `ldap_objectclass` value other than `"*"` may cause authentication to fail. Check this value if you are getting authentication failure messages from the login page.
+* Specifying an `ldap_objectclass` value other than `"*"` may cause authentication to fail. Check this value if you are getting authentication failure messages from the login page.

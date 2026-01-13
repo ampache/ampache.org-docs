@@ -6,7 +6,7 @@
 4. unzip the ampache zip file, rename the resulting folder as ampache
 5. Move the folder in htdocs xampp folder
 6. Open php.ini in xampp and uncomment extension=intl
-7. Open on a browser and write 
+7. Open on a browser and write
 http://localhost/ampache/public/install.php  ( normal version )
 http://localhost/ampache/install.php  ( squash version )
 8. Follow the installation

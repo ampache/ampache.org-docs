@@ -1,0 +1,14 @@
+{
+  "id": "configuration/transcoding/Transcode-Caching",
+  "title": "What is Transcode Caching",
+  "description": "Managing your files can be complicated; trancoding helps smooth out the experience by converting your files on demand into preset types and bit rates. It's also useful when you have a file format that's massive like a wav file, a type that's incompatible with your chosen player or an application that can't support your chosen format.",
+  "source": "@site/docs/configuration/transcoding/Transcode-Caching.md",
+  "sourceDirName": "configuration/transcoding",
+  "slug": "/configuration/transcoding/Transcode-Caching",
+  "permalink": "/docs/configuration/transcoding/Transcode-Caching",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

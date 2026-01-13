@@ -19,7 +19,7 @@ To access Ampache from outside your local network, you will most likely need to 
 
 ### Manage music library (sorting, arranging playlists, play songs)
 
-The Ampache [Web Interface](Web-Interface) provides many different methods for managing your library. By navigating the interface, you can browse and play back single tracks, whole albums, or all music from an artist. The global search located at the top right of the interface will return all artists/albums/songs matching your query. Advanced search allows fine grained results such as searching specific genres, years, artists, etc. Ampache also supports creating custom playlists, as well as smart playlists which automatically update from an advanced search query. Finally, if you're not sure what to listen to, Ampache can randomly select songs, albums, artists, or playlists.
+The Ampache [Web Interface](/docs/information/Web-Interface) provides many different methods for managing your library. By navigating the interface, you can browse and play back single tracks, whole albums, or all music from an artist. The global search located at the top right of the interface will return all artists/albums/songs matching your query. Advanced search allows fine grained results such as searching specific genres, years, artists, etc. Ampache also supports creating custom playlists, as well as smart playlists which automatically update from an advanced search query. Finally, if you're not sure what to listen to, Ampache can randomly select songs, albums, artists, or playlists.
 
 ### Sync local changes with the central server
 
@@ -27,4 +27,4 @@ With Ampache, any changes made through the web interface are immediately saved t
 
 ### Download music/playlists locally for offline use
 
-You are able to download songs, albums, or playlists through the web interface as a zip file. It is not yet possible to sync music, or play music while offline. Ampache also provides several backends for different applications (Subsonic, XML-API, UPnp/DLNA) that are fully compatible, which can provide functionality such as saving music for offline play. Please visit the [Clients](Clients) page to know more.
+You are able to download songs, albums, or playlists through the web interface as a zip file. It is not yet possible to sync music, or play music while offline. Ampache also provides several backends for different applications (Subsonic, XML-API, UPnp/DLNA) that are fully compatible, which can provide functionality such as saving music for offline play. Please visit the [Clients](/docs/clients) page to know more.

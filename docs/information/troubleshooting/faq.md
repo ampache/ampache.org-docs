@@ -64,7 +64,7 @@ default_auth_level = "admin"
 
 Don't forget to change them back after you've used the admin panel to reset the password!
 
-Another option is to create a new admin account using the [command line tools](CLI)
+Another option is to create a new admin account using the [command line tools](/docs/information/troubleshooting/cli)
 
 ## Unable to get transcoding working
 
@@ -93,4 +93,4 @@ Today, none. At one point Ampache development had somewhat stopped, and was fork
 
 Ampache Laravel is an effort to migrate Ampache to the [Laravel](https://laravel.com/) framework so that the code could be improved and re-organized. Most Ampache features are missing so it is not ready yet as a replacement. It was originally going to be version 4 of Ampache, but development has slowed from the original authors and focus has shifted to updating the current Ampache to fix bugs, improve the API, and generally modernize the codebase.
 
-To check out Laravel, read the available documentation: [Ampache Laravel Next Generation Preview](Ampache-Laravel-Next-Generation-Preview)
+To check out Laravel, read the available documentation: [Ampache Laravel Next Generation Preview](/docs/old-information/Ampache-Laravel-Next-Generation-Preview)

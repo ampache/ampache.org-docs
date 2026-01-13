@@ -10,7 +10,7 @@ The Interface setting is found in the Preferences section
 
 ![image](https://user-images.githubusercontent.com/1305249/128667845-292bbc5d-e20e-4214-b193-114fb7053dc4.png)
 
-As an example "Y/m/d H:i" will convert to "2020/04/14 10:42" Check the [date function](https://www.php.net/manual/en/function.date.php) in the PHP manual for help making your desired string. 
+As an example "Y/m/d H:i" will convert to "2020/04/14 10:42" Check the [date function](https://www.php.net/manual/en/function.date.php) in the PHP manual for help making your desired string.
 
 ## Private catalogs are available
 
@@ -38,7 +38,7 @@ Now you have a few extra options to hide or show things you want.
 
 ![image](https://user-images.githubusercontent.com/1305249/129854169-932dc380-01c2-4e2b-9e1a-260cd27e9f50.png)
 
-## You can now browse by the original year instead of release year.
+## You can now browse by the original year instead of release year
 
 When enabled you will see the release year next to the title (if it's not the same as the original year)
 

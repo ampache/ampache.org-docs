@@ -1,0 +1,343 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/docs/",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/docs/",
+          "mainDocId": "index",
+          "docs": [
+            {
+              "id": "clients/api",
+              "path": "/docs/clients/api"
+            },
+            {
+              "id": "clients/clients",
+              "path": "/docs/clients/",
+              "sidebar": "api"
+            },
+            {
+              "id": "clients/demo-server",
+              "path": "/docs/clients/demo-server"
+            },
+            {
+              "id": "configuration/acl",
+              "path": "/docs/configuration/acl"
+            },
+            {
+              "id": "configuration/Ampache-Icecast-and-Liquidsoap",
+              "path": "/docs/configuration/Ampache-Icecast-and-Liquidsoap"
+            },
+            {
+              "id": "configuration/api",
+              "path": "/docs/configuration/api"
+            },
+            {
+              "id": "configuration/broadcasts",
+              "path": "/docs/configuration/broadcasts"
+            },
+            {
+              "id": "configuration/catalog-filters",
+              "path": "/docs/configuration/catalog-filters"
+            },
+            {
+              "id": "configuration/configuration",
+              "path": "/docs/configuration/",
+              "sidebar": "api"
+            },
+            {
+              "id": "configuration/cron",
+              "path": "/docs/configuration/cron"
+            },
+            {
+              "id": "configuration/democratic",
+              "path": "/docs/configuration/democratic"
+            },
+            {
+              "id": "configuration/ldap",
+              "path": "/docs/configuration/ldap"
+            },
+            {
+              "id": "configuration/localplay/HttpQ",
+              "path": "/docs/configuration/localplay/HttpQ"
+            },
+            {
+              "id": "configuration/localplay/Kodi",
+              "path": "/docs/configuration/localplay/Kodi"
+            },
+            {
+              "id": "configuration/localplay/localplay",
+              "path": "/docs/configuration/localplay/"
+            },
+            {
+              "id": "configuration/localplay/Localplay-API",
+              "path": "/docs/configuration/localplay/Localplay-API"
+            },
+            {
+              "id": "configuration/localplay/mpd",
+              "path": "/docs/configuration/localplay/mpd"
+            },
+            {
+              "id": "configuration/localplay/MPD-With-ALSA-Config",
+              "path": "/docs/configuration/localplay/MPD-With-ALSA-Config"
+            },
+            {
+              "id": "configuration/localplay/Sample-Config-With-ALSA-and-Raspberry-PI",
+              "path": "/docs/configuration/localplay/Sample-Config-With-ALSA-and-Raspberry-PI"
+            },
+            {
+              "id": "configuration/localplay/Sample-MPD-Config-For-Ampache",
+              "path": "/docs/configuration/localplay/Sample-MPD-Config-For-Ampache"
+            },
+            {
+              "id": "configuration/localplay/Upnp",
+              "path": "/docs/configuration/localplay/Upnp"
+            },
+            {
+              "id": "configuration/localplay/VLC",
+              "path": "/docs/configuration/localplay/VLC"
+            },
+            {
+              "id": "configuration/multi-artist",
+              "path": "/docs/configuration/multi-artist"
+            },
+            {
+              "id": "configuration/podcasts",
+              "path": "/docs/configuration/podcasts"
+            },
+            {
+              "id": "configuration/remote-catalogs",
+              "path": "/docs/configuration/remote-catalogs"
+            },
+            {
+              "id": "configuration/services",
+              "path": "/docs/configuration/services"
+            },
+            {
+              "id": "configuration/subsonic",
+              "path": "/docs/configuration/subsonic"
+            },
+            {
+              "id": "configuration/transcoding/Transcode-Caching",
+              "path": "/docs/configuration/transcoding/Transcode-Caching"
+            },
+            {
+              "id": "configuration/transcoding/transcoding",
+              "path": "/docs/configuration/transcoding/"
+            },
+            {
+              "id": "development/Branch-Layout",
+              "path": "/docs/development/Branch-Layout"
+            },
+            {
+              "id": "development/CONTRIBUTING",
+              "path": "/docs/development/CONTRIBUTING"
+            },
+            {
+              "id": "development/development",
+              "path": "/docs/development/",
+              "sidebar": "api"
+            },
+            {
+              "id": "development/Enhancement-Requests",
+              "path": "/docs/development/Enhancement-Requests"
+            },
+            {
+              "id": "development/issue-template",
+              "path": "/docs/development/issue-template"
+            },
+            {
+              "id": "development/plugins",
+              "path": "/docs/development/plugins"
+            },
+            {
+              "id": "development/TRANSLATIONS",
+              "path": "/docs/development/TRANSLATIONS"
+            },
+            {
+              "id": "help/help",
+              "path": "/docs/help/",
+              "sidebar": "api"
+            },
+            {
+              "id": "help/import-lastfm-data",
+              "path": "/docs/help/import-lastfm-data"
+            },
+            {
+              "id": "help/preferences-explained",
+              "path": "/docs/help/preferences-explained"
+            },
+            {
+              "id": "help/upload-catalogs",
+              "path": "/docs/help/upload-catalogs"
+            },
+            {
+              "id": "index",
+              "path": "/docs/",
+              "sidebar": "api"
+            },
+            {
+              "id": "information/ampache-use-cases",
+              "path": "/docs/information/ampache-use-cases",
+              "sidebar": "api"
+            },
+            {
+              "id": "information/information",
+              "path": "/docs/information/"
+            },
+            {
+              "id": "information/multi-artist",
+              "path": "/docs/information/multi-artist"
+            },
+            {
+              "id": "information/mysql-faq",
+              "path": "/docs/information/mysql-faq"
+            },
+            {
+              "id": "information/troubleshooting",
+              "path": "/docs/information/troubleshooting",
+              "sidebar": "api"
+            },
+            {
+              "id": "information/troubleshooting/ampache7-for-admins",
+              "path": "/docs/information/troubleshooting/ampache7-for-admins",
+              "sidebar": "api"
+            },
+            {
+              "id": "information/troubleshooting/ampache7-for-users",
+              "path": "/docs/information/troubleshooting/ampache7-for-users",
+              "sidebar": "api"
+            },
+            {
+              "id": "information/troubleshooting/chart-faq",
+              "path": "/docs/information/troubleshooting/chart-faq",
+              "sidebar": "api"
+            },
+            {
+              "id": "information/troubleshooting/cli",
+              "path": "/docs/information/troubleshooting/cli"
+            },
+            {
+              "id": "information/troubleshooting/faq",
+              "path": "/docs/information/troubleshooting/faq",
+              "sidebar": "api"
+            },
+            {
+              "id": "information/troubleshooting/troubleshooting",
+              "path": "/docs/information/troubleshooting/"
+            },
+            {
+              "id": "information/TV-Shows-and-Movies",
+              "path": "/docs/information/TV-Shows-and-Movies"
+            },
+            {
+              "id": "information/Upgrade",
+              "path": "/docs/information/Upgrade"
+            },
+            {
+              "id": "information/Web-Interface",
+              "path": "/docs/information/Web-Interface"
+            },
+            {
+              "id": "information/Web-Player",
+              "path": "/docs/information/Web-Player"
+            },
+            {
+              "id": "information/which-zip",
+              "path": "/docs/information/which-zip"
+            },
+            {
+              "id": "installation/catalog",
+              "path": "/docs/installation/catalog"
+            },
+            {
+              "id": "installation/Cloudron-Installation-Guide",
+              "path": "/docs/installation/Cloudron-Installation-Guide"
+            },
+            {
+              "id": "installation/install-ampache-on-ubuntu2204",
+              "path": "/docs/installation/install-ampache-on-ubuntu2204"
+            },
+            {
+              "id": "installation/installation",
+              "path": "/docs/installation/",
+              "sidebar": "api"
+            },
+            {
+              "id": "installation/Installation-v4",
+              "path": "/docs/installation/Installation-v4"
+            },
+            {
+              "id": "installation/Sephtan-Installation-Guide",
+              "path": "/docs/installation/Sephtan-Installation-Guide"
+            },
+            {
+              "id": "installation/Tutorial-to-install-Ampache-on-Xampp",
+              "path": "/docs/installation/Tutorial-to-install-Ampache-on-Xampp"
+            },
+            {
+              "id": "installation/Windows-Installation-Guide",
+              "path": "/docs/installation/Windows-Installation-Guide"
+            },
+            {
+              "id": "installation/Windows-installation-on-IIS7.5-(from-he99)",
+              "path": "/docs/installation/Windows-installation-on-IIS7.5-(from-he99)"
+            },
+            {
+              "id": "old-information/Ampache-Laravel-Next-Generation-Preview",
+              "path": "/docs/old-information/Ampache-Laravel-Next-Generation-Preview"
+            },
+            {
+              "id": "old-information/ampache5-details",
+              "path": "/docs/old-information/ampache5-details"
+            },
+            {
+              "id": "old-information/ampache5-for-users",
+              "path": "/docs/old-information/ampache5-for-users"
+            },
+            {
+              "id": "old-information/ampache6-details",
+              "path": "/docs/old-information/ampache6-details"
+            },
+            {
+              "id": "old-information/ampache6-for-users",
+              "path": "/docs/old-information/ampache6-for-users"
+            },
+            {
+              "id": "old-information/old-information",
+              "path": "/docs/old-information/",
+              "sidebar": "api"
+            },
+            {
+              "id": "plugins/plugins",
+              "path": "/docs/plugins/",
+              "sidebar": "api"
+            },
+            {
+              "id": "plugins/writing-plugins",
+              "path": "/docs/plugins/writing-plugins"
+            },
+            {
+              "id": "themes/themes",
+              "path": "/docs/themes/",
+              "sidebar": "api"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "api": {
+              "link": {
+                "path": "/docs/",
+                "label": "Ampache Wiki"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}

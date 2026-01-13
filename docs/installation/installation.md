@@ -3,6 +3,7 @@
 This document is built to help you install to your local server.
 
 Alternative installations can be found here:
+
 * A pre-built [docker](https://github.com/ampache/ampache-docker) repo is also available.
 * [Ampache 4 Installation](https://github.com/ampache/ampache/wiki/Installation-v4)
 
@@ -39,7 +40,7 @@ Alternative installations can be found here:
   * MySQL
 
 * Supported databases:
-  * MySQL 8.x / MariaDB 10.x 
+  * MySQL 8.x / MariaDB 10.x
 
 Using Debian? This should cover you
 
@@ -82,6 +83,7 @@ When you update Ampache you need to add another step to the update processes.
 In addition to composer install you need to update the NPM packages.
 
 The minimum nodejs version is **v15** or higher and supported packages are available in:
+
 * Debian bookworm (stable)
 * Ubuntu 23.10
 * Ubuntu LTS 24.04
@@ -92,7 +94,7 @@ Check your version prior to upgrading.
 
 When you're updating from git add the npm commands to the end of your scripts.
 
-```
+```shell
 cd /var/www/ampache
 git pull
 composer install --no-dev --prefer-source --no-interaction
@@ -130,7 +132,7 @@ cd ampache
 composer install
 ```
 
-You now have an Ampache 6 server ready to install. (http://localhost if you followed these commands)
+You now have an Ampache 6 server ready to install. (`http://localhost` if you followed these commands)
 
 ### MySQL database creation
 
@@ -140,6 +142,7 @@ Don't know how to set up MariaDB? Need it on the same server? Lets install it
 sudo apt install mariadb-server
 sudo mariadb-secure-installation
 ```
+
 You will see the following
 
 ![image](https://user-images.githubusercontent.com/1305249/129307818-6b89703c-1309-47e8-b6ac-27843c46df80.png)
@@ -170,8 +173,8 @@ After you follow the web installation make sure you check out the [Basic Configu
 
 ### Apache
 
-Go to your web browser and direct it at the Ampache install page. For instance, if the local IP of your Ampache install is on IP 192.168.1.100, you would enter:<br>
-[http://192.168.1.100/install.php](http://192.168.1.100/install.php)<br>
+Go to your web browser and direct it at the Ampache install page. For instance, if the local IP of your Ampache install is on IP 192.168.1.100, you would enter:
+[http://192.168.1.100/install.php](http://192.168.1.100/install.php)
 
 Ampache is developed to work instantly with Apache without additional configuration except setting up a regular vhost.
 
@@ -184,17 +187,18 @@ If you followed the easy example for a Debian/Ubuntu webserver above (see: [Empl
 
 * mod_rewrite should be enabled, but you can check with `sudo apache2ctl -M` for the line `rewrite_module (shared)`.
 * The server config file is /etc/apache2/sites-enabled/000-default.conf and the following lines need to be added for the .htaccess files to take effect and the url rewriting to work correctly:
-```
+
+```conf
 <Directory /var/www>
         AllowOverride All
 </Directory>
 ```
 
-Issues have been reported in recent Apache versions. https://github.com/ampache/ampache/issues/3993#issue-2434020443
+Issues have been reported in recent Apache versions. [issue 3993](https://github.com/ampache/ampache/issues/3993#issue-2434020443)
 
 In your server conf you can bypass that security measure by enabling `ap_trust_cgilike_cl`
 
-```
+```conf
 <Directory /var/www/ampache/public/play>
     SetEnv ap_trust_cgilike_cl 1
 </Directory>
@@ -202,8 +206,8 @@ In your server conf you can bypass that security measure by enabling `ap_trust_c
 
 ### Nginx
 
-Working Nginx configuration sample for Ampache.<br>
-If Ampache is served behind a reverse proxy using SSL, you will have to uncomment `fastcgi_param HTTPS on;` to prevent mixed content to be served.<br>
+Working Nginx configuration sample for Ampache.
+If Ampache is served behind a reverse proxy using SSL, you will have to uncomment `fastcgi_param HTTPS on;` to prevent mixed content to be served.
 
 ```Nginx
 server {
@@ -467,12 +471,15 @@ If you want transcoding to be available make sure you pick something in the "All
 ![image](https://user-images.githubusercontent.com/1305249/129309887-dce7c474-5c5a-40e1-b4d6-d256adb4b645.png)
 
 ## Installation Type
+
 ### Default
+
 Standard installation
 
 ### Minimalist
 
 Disables the following by default
+
 * ratings
 * sociable
 * wanted
@@ -484,7 +491,9 @@ Disables the following by default
 Also defaults the sidebar to collapsed mode, as well as album/artist views as lists instead of grids
 
 ### Community
+
 Sets the following values
+
 * use_auth = false
 * licensing = true
 * wanted = false
@@ -497,6 +506,7 @@ Sets the following values
 * home_recently_played = false
 
 ## Create administrative user
+
 The final step of installation is to create the initial administrative user.
 
 ![image](https://user-images.githubusercontent.com/1305249/129310109-6fe3eb4e-d6c1-45fd-83f0-7c76073b2b76.png)

@@ -1,0 +1,14 @@
+{
+  "id": "information/mysql-faq",
+  "title": "MySQL FAQ",
+  "description": "PHP7.4 is out and stable",
+  "source": "@site/docs/information/mysql-faq.md",
+  "sourceDirName": "information",
+  "slug": "/information/mysql-faq",
+  "permalink": "/docs/information/mysql-faq",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

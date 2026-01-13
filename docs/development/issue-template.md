@@ -32,4 +32,4 @@ Put here a description of your settings or attach ampache.cfg.php after removing
 
 ## Logs
 
-[Ampache logs](Troubleshooting#enable-logging) and web server access/error logs in attached files. Please also add client application logs if appropriate.
+[Ampache logs](/docs/information/troubleshooting/#enable-logging) and web server access/error logs in attached files. Please also add client application logs if appropriate.

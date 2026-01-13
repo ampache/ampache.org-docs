@@ -1,0 +1,14 @@
+{
+  "id": "configuration/localplay/localplay",
+  "title": "Localplay",
+  "description": "Ampache has the ability to remote control 3rd party programs through the web interface. Localplay works on the principle of a Controller written by someone and placed in your /modules/localplay directory and then individual Instances of a given Localplay Controller. Each instance has its own distinct settings, owner and permissions.",
+  "source": "@site/docs/configuration/localplay/localplay.md",
+  "sourceDirName": "configuration/localplay",
+  "slug": "/configuration/localplay/",
+  "permalink": "/docs/configuration/localplay/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

@@ -1,0 +1,315 @@
+{
+  "/docs/-af6": {
+    "__comp": "5e95c892",
+    "__context": {
+      "plugin": "aba21aa0"
+    }
+  },
+  "/docs/-4fb": {
+    "__comp": "a7bd4aaa",
+    "__props": "11b43341"
+  },
+  "/docs/-80d": {
+    "__comp": "a94703ab"
+  },
+  "/docs/clients/-f5f": {
+    "__comp": "17896441",
+    "content": "52a48e36"
+  },
+  "/docs/clients/api-73a": {
+    "__comp": "17896441",
+    "content": "9ec43005"
+  },
+  "/docs/clients/demo-server-b4b": {
+    "__comp": "17896441",
+    "content": "11bc6420"
+  },
+  "/docs/configuration/-61d": {
+    "__comp": "17896441",
+    "content": "8abe7791"
+  },
+  "/docs/configuration/acl-e12": {
+    "__comp": "17896441",
+    "content": "f59d5890"
+  },
+  "/docs/configuration/Ampache-Icecast-and-Liquidsoap-836": {
+    "__comp": "17896441",
+    "content": "091b5cbf"
+  },
+  "/docs/configuration/api-fab": {
+    "__comp": "17896441",
+    "content": "b05e33b4"
+  },
+  "/docs/configuration/broadcasts-f42": {
+    "__comp": "17896441",
+    "content": "36ce385c"
+  },
+  "/docs/configuration/catalog-filters-902": {
+    "__comp": "17896441",
+    "content": "2a7c3e0c"
+  },
+  "/docs/configuration/cron-2d8": {
+    "__comp": "17896441",
+    "content": "e233df1a"
+  },
+  "/docs/configuration/democratic-a3d": {
+    "__comp": "17896441",
+    "content": "fed49c30"
+  },
+  "/docs/configuration/ldap-2d9": {
+    "__comp": "17896441",
+    "content": "029ad4e6"
+  },
+  "/docs/configuration/localplay/-d6b": {
+    "__comp": "17896441",
+    "content": "9b649abe"
+  },
+  "/docs/configuration/localplay/HttpQ-d4f": {
+    "__comp": "17896441",
+    "content": "e83ba5cd"
+  },
+  "/docs/configuration/localplay/Kodi-7bd": {
+    "__comp": "17896441",
+    "content": "fad46341"
+  },
+  "/docs/configuration/localplay/Localplay-API-d0b": {
+    "__comp": "17896441",
+    "content": "64836709"
+  },
+  "/docs/configuration/localplay/mpd-a92": {
+    "__comp": "17896441",
+    "content": "18e47e35"
+  },
+  "/docs/configuration/localplay/MPD-With-ALSA-Config-510": {
+    "__comp": "17896441",
+    "content": "4e54095b"
+  },
+  "/docs/configuration/localplay/Sample-Config-With-ALSA-and-Raspberry-PI-ef5": {
+    "__comp": "17896441",
+    "content": "4eccf0e0"
+  },
+  "/docs/configuration/localplay/Sample-MPD-Config-For-Ampache-bca": {
+    "__comp": "17896441",
+    "content": "598d26d5"
+  },
+  "/docs/configuration/localplay/Upnp-861": {
+    "__comp": "17896441",
+    "content": "35d1b03f"
+  },
+  "/docs/configuration/localplay/VLC-e61": {
+    "__comp": "17896441",
+    "content": "c9efbeb3"
+  },
+  "/docs/configuration/multi-artist-dfb": {
+    "__comp": "17896441",
+    "content": "000f1320"
+  },
+  "/docs/configuration/podcasts-148": {
+    "__comp": "17896441",
+    "content": "f3b246e3"
+  },
+  "/docs/configuration/remote-catalogs-559": {
+    "__comp": "17896441",
+    "content": "40bb1502"
+  },
+  "/docs/configuration/services-8aa": {
+    "__comp": "17896441",
+    "content": "b9cb708a"
+  },
+  "/docs/configuration/subsonic-2fd": {
+    "__comp": "17896441",
+    "content": "a74b18a7"
+  },
+  "/docs/configuration/transcoding/-a5e": {
+    "__comp": "17896441",
+    "content": "e9855d2d"
+  },
+  "/docs/configuration/transcoding/Transcode-Caching-c18": {
+    "__comp": "17896441",
+    "content": "f7568650"
+  },
+  "/docs/development/-1ed": {
+    "__comp": "17896441",
+    "content": "3bc8a2c6"
+  },
+  "/docs/development/Branch-Layout-384": {
+    "__comp": "17896441",
+    "content": "ac60ceff"
+  },
+  "/docs/development/CONTRIBUTING-3e3": {
+    "__comp": "17896441",
+    "content": "b2ab4693"
+  },
+  "/docs/development/Enhancement-Requests-959": {
+    "__comp": "17896441",
+    "content": "f4a3874e"
+  },
+  "/docs/development/issue-template-144": {
+    "__comp": "17896441",
+    "content": "e1ec6575"
+  },
+  "/docs/development/plugins-8f6": {
+    "__comp": "17896441",
+    "content": "f52e67bc"
+  },
+  "/docs/development/TRANSLATIONS-caf": {
+    "__comp": "17896441",
+    "content": "8d6a32f0"
+  },
+  "/docs/help/-73b": {
+    "__comp": "17896441",
+    "content": "49639cc1"
+  },
+  "/docs/help/import-lastfm-data-1d8": {
+    "__comp": "17896441",
+    "content": "63b7b324"
+  },
+  "/docs/help/preferences-explained-6ed": {
+    "__comp": "17896441",
+    "content": "ffd399e8"
+  },
+  "/docs/help/upload-catalogs-7bf": {
+    "__comp": "17896441",
+    "content": "623fdf3e"
+  },
+  "/docs/information/-4e4": {
+    "__comp": "17896441",
+    "content": "b3a1411d"
+  },
+  "/docs/information/ampache-use-cases-d83": {
+    "__comp": "17896441",
+    "content": "958a7a6a"
+  },
+  "/docs/information/multi-artist-57b": {
+    "__comp": "17896441",
+    "content": "9f422441"
+  },
+  "/docs/information/mysql-faq-d1f": {
+    "__comp": "17896441",
+    "content": "23692be6"
+  },
+  "/docs/information/troubleshooting-eff": {
+    "__comp": "17896441",
+    "content": "663f9541"
+  },
+  "/docs/information/troubleshooting/-d83": {
+    "__comp": "17896441",
+    "content": "aea64e99"
+  },
+  "/docs/information/troubleshooting/ampache7-for-admins-6c4": {
+    "__comp": "17896441",
+    "content": "d7f5adea"
+  },
+  "/docs/information/troubleshooting/ampache7-for-users-595": {
+    "__comp": "17896441",
+    "content": "6e41d4a9"
+  },
+  "/docs/information/troubleshooting/chart-faq-205": {
+    "__comp": "17896441",
+    "content": "bf85378b"
+  },
+  "/docs/information/troubleshooting/cli-169": {
+    "__comp": "17896441",
+    "content": "286513d7"
+  },
+  "/docs/information/troubleshooting/faq-df5": {
+    "__comp": "17896441",
+    "content": "264246e2"
+  },
+  "/docs/information/TV-Shows-and-Movies-9bd": {
+    "__comp": "17896441",
+    "content": "bc60e8ac"
+  },
+  "/docs/information/Upgrade-abf": {
+    "__comp": "17896441",
+    "content": "928eb3e5"
+  },
+  "/docs/information/Web-Interface-968": {
+    "__comp": "17896441",
+    "content": "c773e565"
+  },
+  "/docs/information/Web-Player-4ed": {
+    "__comp": "17896441",
+    "content": "a841857e"
+  },
+  "/docs/information/which-zip-460": {
+    "__comp": "17896441",
+    "content": "020e508e"
+  },
+  "/docs/installation/-a44": {
+    "__comp": "17896441",
+    "content": "1e924268"
+  },
+  "/docs/installation/catalog-fde": {
+    "__comp": "17896441",
+    "content": "66a5613f"
+  },
+  "/docs/installation/Cloudron-Installation-Guide-b8d": {
+    "__comp": "17896441",
+    "content": "b10a8933"
+  },
+  "/docs/installation/install-ampache-on-ubuntu2204-89a": {
+    "__comp": "17896441",
+    "content": "472b21cc"
+  },
+  "/docs/installation/Installation-v4-be8": {
+    "__comp": "17896441",
+    "content": "6e8499a6"
+  },
+  "/docs/installation/Sephtan-Installation-Guide-45c": {
+    "__comp": "17896441",
+    "content": "20c03f78"
+  },
+  "/docs/installation/Tutorial-to-install-Ampache-on-Xampp-669": {
+    "__comp": "17896441",
+    "content": "adb13090"
+  },
+  "/docs/installation/Windows-Installation-Guide-1bf": {
+    "__comp": "17896441",
+    "content": "2d59dcfd"
+  },
+  "/docs/installation/Windows-installation-on-IIS7.5-(from-he99)-467": {
+    "__comp": "17896441",
+    "content": "7d63aea4"
+  },
+  "/docs/old-information/-16b": {
+    "__comp": "17896441",
+    "content": "b58b782a"
+  },
+  "/docs/old-information/Ampache-Laravel-Next-Generation-Preview-594": {
+    "__comp": "17896441",
+    "content": "0b2a6ba5"
+  },
+  "/docs/old-information/ampache5-details-08e": {
+    "__comp": "17896441",
+    "content": "a47b5dab"
+  },
+  "/docs/old-information/ampache5-for-users-b24": {
+    "__comp": "17896441",
+    "content": "c20ba22c"
+  },
+  "/docs/old-information/ampache6-details-0a2": {
+    "__comp": "17896441",
+    "content": "d8f6537e"
+  },
+  "/docs/old-information/ampache6-for-users-ce0": {
+    "__comp": "17896441",
+    "content": "ee01087b"
+  },
+  "/docs/plugins/-fbc": {
+    "__comp": "17896441",
+    "content": "e7cdaca4"
+  },
+  "/docs/plugins/writing-plugins-532": {
+    "__comp": "17896441",
+    "content": "e9f57850"
+  },
+  "/docs/themes/-096": {
+    "__comp": "17896441",
+    "content": "3f9f4ad4"
+  },
+  "/docs/-8bd": {
+    "__comp": "17896441",
+    "content": "c377a04b"
+  }
+}

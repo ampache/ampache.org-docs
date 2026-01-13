@@ -1,0 +1,14 @@
+{
+  "id": "development/CONTRIBUTING",
+  "title": "Contributing to ampache",
+  "description": "Ampache is an open source project that loves to receive contributions from our community — you!",
+  "source": "@site/docs/development/CONTRIBUTING.md",
+  "sourceDirName": "development",
+  "slug": "/development/CONTRIBUTING",
+  "permalink": "/docs/development/CONTRIBUTING",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

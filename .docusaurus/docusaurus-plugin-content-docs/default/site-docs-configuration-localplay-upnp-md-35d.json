@@ -1,0 +1,14 @@
+{
+  "id": "configuration/localplay/Upnp",
+  "title": "Upnp Localplay",
+  "description": "Upnp is a protocol for remote controlling a music/video player over a network. Commonly it's found in TVs network media players and software like Kodi. If you use a controller like BubbleUPnP you can control the renderer remotely.",
+  "source": "@site/docs/configuration/localplay/Upnp.md",
+  "sourceDirName": "configuration/localplay",
+  "slug": "/configuration/localplay/Upnp",
+  "permalink": "/docs/configuration/localplay/Upnp",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

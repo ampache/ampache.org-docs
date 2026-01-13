@@ -1,0 +1,23 @@
+{
+  "id": "configuration/configuration",
+  "title": "Basic Configuration",
+  "description": "Configuring Ampache",
+  "source": "@site/docs/configuration/configuration.md",
+  "sourceDirName": "configuration",
+  "slug": "/configuration/",
+  "permalink": "/docs/configuration/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "api",
+  "previous": {
+    "title": "Installing Ampache 5+",
+    "permalink": "/docs/installation/"
+  },
+  "next": {
+    "title": "Basic Configuration",
+    "permalink": "/docs/configuration/"
+  }
+}

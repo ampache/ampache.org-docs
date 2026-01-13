@@ -1,7 +1,8 @@
+# Sample MPD config file
+
 This is a sample config for ALSA and Raspberry. The settings in this file allow for you to use Gnome music player for single song testing of your catalog without and interaction of Ampache trying to modify the stream output. It only does a Replay gain. This Should help with those who have problems with songs skipping and not being able to control the player.
 
-```
-
+```conf
 # An example configuration file for MPD.
 # Read the user manual for documentation: http://www.musicpd.org/doc/user/
 # or /usr/share/doc/mpd/html/user.html
@@ -106,7 +107,7 @@ port "6600"
 #log_level "default"
 #
 # Setting "restore_paused" to "yes" puts MPD into pause mode instead
-# of starting playback after startup.  
+# of starting playback after startup. 
 # This should be yes for Democratic playback that gets interrupted by System reboots
 #
 #restore_paused "no"

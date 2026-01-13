@@ -19,7 +19,7 @@ As well as php 7.4 Ampache 5.0.0 will also require **php-intl** module/dll to be
 
 If you are unable to upgrade or want to remain on Ampache 4 you need to check out the release 4 branch.
 
-```
+```shell
 git remote add release4 https://github.com/ampache/ampache.git
 git fetch release4
 git checkout release4
@@ -35,9 +35,10 @@ The new folder is **public** and you will need to update your web server config.
 DocumentRoot /var/www/ampache
 DocumentRoot /var/www/ampache/public
 ```
+
 If you're using Apache2 make sure you copy the htaccess files as well
 
-```
+```shell
 cp /var/www/ampache/public/rest/.htaccess.dist /var/www/ampache/public/rest/.htaccess
 cp /var/www/ampache/public/play/.htaccess.dist /var/www/ampache/public/play/.htaccess
 cp /var/www/ampache/public/channel/.htaccess.dist /var/www/ampache/public/channel/.htaccess
@@ -49,7 +50,7 @@ While updating from git there will be some left over files that are not deleted 
 
 You can manually delete these folders
 
-```
+```shell
 rm -rf ./channel
 rm -rf ./play
 rm -rf ./rest
@@ -62,7 +63,7 @@ You will need to make sure you've run composer install again.
 
 It should run but it's good to manually check.
 
-```
+```shell
 composer install
 ```
 
@@ -72,21 +73,22 @@ Composer 1 and 2 are both supported now so it should not matter which version yo
 
 The /bin folder has combined each script into a single application.
 
-```
+```shell
 bin/cli
 ```
 
 All your commands will need to be updated to match the new command structure.
 
 For example the cron.service command has changed to the following
-```
+
+```conf
 ExecStart=php bin/cron.inc
 ExecStart=php bin/cli run:cronProcess
 ```
 
 Arguments and options remain the same (with some minor exceptions)
 
-Check out the [cli faq](https://github.com/ampache/ampache/wiki/cli-faq) to migrate your commands.
+Check out the [cli faq](/docs/information/troubleshooting/cli) to migrate your commands.
 
 The cli program has a --help switch for all commands.
 

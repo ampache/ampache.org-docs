@@ -2,7 +2,7 @@
 
 A common complaint is that Ampache can be slow! Lets look at making that a things of the past!
 
-We have added new options to the database and some example systemd units/timers into /docs/examples. The concept is simply to preload caches that Ampache queries in the background instead of each time you use them. 
+We have added new options to the database and some example systemd units/timers into /docs/examples. The concept is simply to preload caches that Ampache queries in the background instead of each time you use them.
 
 By default Ampache tries to do everything at once but lets do things a bit smarter!
 
@@ -15,22 +15,30 @@ Then enable the cron_cache option in the Admin settings page.
 ![image](https://user-images.githubusercontent.com/1305249/79296198-18338f00-7f1e-11ea-824a-0a627ab1156f.png)
 
 * Copy or create the unit file and timer using the example below. (Edit to match your web path and web user.)
-```
+
+```shell
 sudo cp /var/www/html/docs/examples/ampache_cron.* /etc/systemd/system/
 ```
+
 * Enable the service and timer.
-```
+
+```shell
 sudo systemctl unmask ampache_cron.service
 sudo systemctl unmask ampache_cron.timer
 sudo systemctl enable ampache_cron.timer
 sudo systemctl enable ampache_cron.service
+
 ```
+
 * Start the service
-```
+
+```shell
 sudo systemctl start ampache_cron.timer
 ```
+
 * Check the status
-```
+
+```shell
 root@web:~# systemctl status ampache_cron
 ● ampache_cron.service - ampache_cron
      Loaded: loaded (/etc/systemd/system/ampache_cron.service; enabled; vendor preset: enabled)
@@ -44,6 +52,7 @@ Apr 15 13:30:01 web systemd[1]: Starting ampache_cron...
 Apr 15 13:32:19 web systemd[1]: ampache_cron.service: Succeeded.
 Apr 15 13:32:19 web systemd[1]: Finished ampache_cron.
 ```
+
 * Enjoy!
 
 ## Unit File (ampache_cron.service)
@@ -51,13 +60,14 @@ Apr 15 13:32:19 web systemd[1]: Finished ampache_cron.
 This unit file will run channel 7 from the /var/www/html folder.
 Set your correct channel (and update the PID file to match)
 
-```[Unit]
+```conf
+[Unit]
 Description=ampache_cron
 After=network.target remote-fs.target nss-lookup.target
 Documentation=https://github.com/ampache/ampache/wiki/cron
 
-[Service] 
-PrivateTmp=true 
+[Service]
+PrivateTmp=true
 KillMode=mixed
 Type=oneshot
 User=www-data
@@ -66,9 +76,8 @@ ExecStart= php bin/cron.inc
 WorkingDirectory=/var/www/html
 ProtectSystem=yes
 
-[Install] 
+[Install]
 WantedBy=multi-user.target
-
 ```
 
 ## Run the cron on a timer
@@ -78,7 +87,7 @@ Now that your cron is running you want it to keep running. The timer below will 
 
 ### Timer file (ampache_cron.timer)
 
-```
+```conf
 [Unit]
 Description=start ampache_cron.service
 
@@ -96,7 +105,7 @@ For Windows servers you can do the same thing just using the inbuilt Windows [ta
 
 This example files uses the same path as the [Windows Installation Guide](https://github.com/ampache/ampache/wiki/Windows-Installation-Guide) make sure you update the file after importing to match your environment.
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-16"?>
 <Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
   <RegistrationInfo>

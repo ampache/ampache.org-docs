@@ -1,0 +1,14 @@
+{
+  "id": "development/Enhancement-Requests",
+  "title": "Where to make enhancement requests",
+  "description": "Requests are being maintained in a single issue the reduce the amount of old and open issues.",
+  "source": "@site/docs/development/Enhancement-Requests.md",
+  "sourceDirName": "development",
+  "slug": "/development/Enhancement-Requests",
+  "permalink": "/docs/development/Enhancement-Requests",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

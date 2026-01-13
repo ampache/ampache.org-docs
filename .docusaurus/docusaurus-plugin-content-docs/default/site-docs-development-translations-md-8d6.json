@@ -1,0 +1,14 @@
+{
+  "id": "development/TRANSLATIONS",
+  "title": "TRANSLATIONS - Ampache Translation Guide",
+  "description": "The official way to send in translations is via Transifex.",
+  "source": "@site/docs/development/TRANSLATIONS.md",
+  "sourceDirName": "development",
+  "slug": "/development/TRANSLATIONS",
+  "permalink": "/docs/development/TRANSLATIONS",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

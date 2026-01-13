@@ -1,0 +1,23 @@
+{
+  "id": "information/troubleshooting/chart-faq",
+  "title": "Charts and Graphs in Ampache",
+  "description": "Ampache uses a GPLv3 library for generating graphs szymach/c-pchart",
+  "source": "@site/docs/information/troubleshooting/chart-faq.md",
+  "sourceDirName": "information/troubleshooting",
+  "slug": "/information/troubleshooting/chart-faq",
+  "permalink": "/docs/information/troubleshooting/chart-faq",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "api",
+  "previous": {
+    "title": "Frequently Asked Questions",
+    "permalink": "/docs/information/troubleshooting/faq"
+  },
+  "next": {
+    "title": "Installing Ampache 5+",
+    "permalink": "/docs/installation/"
+  }
+}

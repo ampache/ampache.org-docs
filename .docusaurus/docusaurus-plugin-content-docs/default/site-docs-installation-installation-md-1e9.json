@@ -1,0 +1,23 @@
+{
+  "id": "installation/installation",
+  "title": "Installing Ampache 5+",
+  "description": "This document is built to help you install to your local server.",
+  "source": "@site/docs/installation/installation.md",
+  "sourceDirName": "installation",
+  "slug": "/installation/",
+  "permalink": "/docs/installation/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "api",
+  "previous": {
+    "title": "Charts and Graphs in Ampache",
+    "permalink": "/docs/information/troubleshooting/chart-faq"
+  },
+  "next": {
+    "title": "Installing Ampache 5+",
+    "permalink": "/docs/installation/"
+  }
+}

@@ -14,7 +14,7 @@ First up, you need to export your data to a local file.
 
 Download this python export script [lastexport3](https://github.com/lachlan-00/lastscrape-gui/blob/master/lastexport3.py) to pull down the data from Last.FM.
 
-```
+```shell
 python3 lastexport3.py -u UserName -o dump.txt
 python3 lastexport3.py -u UserName -o loved.txt -t loved
 ```
@@ -29,20 +29,20 @@ The exported data is tab separated (tsv) and will give you the date, title, arti
 
 scrobbles
 
-```
-1722981225	Watch Out	Marvel’s Spidey and His Amazing Friends - Cast	Disney Junior Music: Marvel's Spidey and His Amazing Friends - Glow Webs Glow			
-1722980076	Watch Out	Marvel’s Spidey and His Amazing Friends - Cast	Disney Junior Music: Marvel's Spidey and His Amazing Friends - Glow Webs Glow			
-1722979963	Pickle Family	Blaze and the Monster Machines	Rockin' Ride-Along Songs, Vol. 2			
-1722979866	Pickle Family	Blaze and the Monster Machines	Rockin' Ride-Along Songs, Vol. 2			
-1722979755	My Bath, My Bubbles and Me	SuperKitties - Cast	Disney Junior Music: SuperKitties Su-purr Edition
+```tsv
+1722981225    Watch Out    Marvel’s Spidey and His Amazing Friends - Cast    Disney Junior Music: Marvel's Spidey and His Amazing Friends - Glow Webs Glow            
+1722980076    Watch Out    Marvel’s Spidey and His Amazing Friends - Cast    Disney Junior Music: Marvel's Spidey and His Amazing Friends - Glow Webs Glow            
+1722979963    Pickle Family    Blaze and the Monster Machines    Rockin' Ride-Along Songs, Vol. 2            
+1722979866    Pickle Family    Blaze and the Monster Machines    Rockin' Ride-Along Songs, Vol. 2            
+1722979755    My Bath, My Bubbles and Me    SuperKitties - Cast    Disney Junior Music: SuperKitties Su-purr Edition
 ```
 
 loved
 
-```
-1665559412	Dig	Mudvayne		03a58365-bdb0-3ffa-a5e3-c37dd9ad9d21	f1c8da15-b408-4149-b863-f1cbe9971f19	
-1665559411	I Am Nothing	Stabbing Westward		b7700d8d-36a8-436e-ab27-5035924209ac	6f29020d-49c1-4e26-869a-0603d14b7ca7	
-1652361377	Agony	Neuroticfish		889451c3-831a-46f8-a93f-ed478a367d6c	7d83bd42-d2c7-4b56-90d1-16717cfbcc98
+```tsv
+1665559412    Dig    Mudvayne        03a58365-bdb0-3ffa-a5e3-c37dd9ad9d21    f1c8da15-b408-4149-b863-f1cbe9971f19    
+1665559411    I Am Nothing    Stabbing Westward        b7700d8d-36a8-436e-ab27-5035924209ac    6f29020d-49c1-4e26-869a-0603d14b7ca7    
+1652361377    Agony    Neuroticfish        889451c3-831a-46f8-a93f-ed478a367d6c    7d83bd42-d2c7-4b56-90d1-16717cfbcc98
 ```
 
 ## Import to date into Ampache
@@ -55,7 +55,7 @@ You can hardcode the variables inside the file or use a CSV config file in the s
 
 If you want to create a config file, call it ampache.csv and put in your details
 
-```
+```csv
 # Ampache variables
 ampache_url,https://music..com.au
 ampache_user,username
@@ -66,7 +66,7 @@ When you have your dump and loved files, copy them and call them dump.txt and lo
 
 There are CLI switches you can use or manually hardcode things as well in the file.
 
-```
+```shell
 /d:filename.txt   Use a different dump file name (default dump.txt)
 /l:filename.txt   Use a different loved file name (default loved.txt))
 /c:filename.txt   Check a file has the full tab separated rows
@@ -95,7 +95,8 @@ When Ampache scrobbles a track it checks against the client agent that made the 
 When you import it will only reject a scrobble if the agent matches so you'll get dupes. We can find out which ones are duplicates manually. So if you ran this script on top of existing data you will get duplicates (same `object_id`, `object_type`, `date`, `user` but under a different `agent`)
 
 This query will give you an idea of duplicate plays in your database. (I had 3 in my database)
-```
+
+```mysql
 SELECT *
 FROM `object_count`
 WHERE `count_type` = 'stream' AND
@@ -111,21 +112,22 @@ ORDER BY `date`, `object_type`;
 ```
 
 This action is destructive and will the delete the highest `id` for these plays which will be the most recent inserted row. (we get the dates from songs and podcasts because you can have multiple artist entries for object_count)
-```
+
+```mysql
 DELETE FROM `object_count` WHERE `id` IN (
-	SELECT `id` FROM (
-	    SELECT max(`id`) as `id`
-	    FROM `object_count`
-	    WHERE `count_type` = 'stream' AND
-	          `date` IN (
-	                     SELECT `date`
-	                     FROM `object_count`
-	                     WHERE `count_type` = 'stream' AND
-	                           `object_type` IN ('song', 'podcast')
-	                     GROUP BY `object_id`, `object_type`, `date`, `user`, `count_type`
-	                     HAVING COUNT(CONCAT(`object_id`, `object_type`, `date`, `user`, `count_type`)) > 1
-	    ) GROUP BY `object_id`, `object_type`, `date`, `user`, `count_type`
-	) AS `duplicate`
+    SELECT `id` FROM (
+        SELECT max(`id`) as `id`
+        FROM `object_count`
+        WHERE `count_type` = 'stream' AND
+              `date` IN (
+                         SELECT `date`
+                         FROM `object_count`
+                         WHERE `count_type` = 'stream' AND
+                               `object_type` IN ('song', 'podcast')
+                         GROUP BY `object_id`, `object_type`, `date`, `user`, `count_type`
+                         HAVING COUNT(CONCAT(`object_id`, `object_type`, `date`, `user`, `count_type`)) > 1
+        ) GROUP BY `object_id`, `object_type`, `date`, `user`, `count_type`
+    ) AS `duplicate`
 );
 ```
 

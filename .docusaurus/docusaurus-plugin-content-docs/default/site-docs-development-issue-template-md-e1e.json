@@ -1,0 +1,14 @@
+{
+  "id": "development/issue-template",
+  "title": "Issues",
+  "description": "1. Delete any not relevant section in this template.",
+  "source": "@site/docs/development/issue-template.md",
+  "sourceDirName": "development",
+  "slug": "/development/issue-template",
+  "permalink": "/docs/development/issue-template",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

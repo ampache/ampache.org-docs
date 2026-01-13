@@ -28,7 +28,7 @@ You can also temporary open the binding port (8100 here) to internet access and 
 
 ## General configuration
 
-See <http://socketo.me/docs/deploy#serverconfiguration>
+See [socketo.me](http://socketo.me/docs/deploy#serverconfiguration)
 
 ### Ampache settings
 

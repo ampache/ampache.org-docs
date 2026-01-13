@@ -1,0 +1,14 @@
+{
+  "id": "installation/catalog",
+  "title": "Catalog",
+  "description": "Creating a Catalog",
+  "source": "@site/docs/installation/catalog.md",
+  "sourceDirName": "installation",
+  "slug": "/installation/catalog",
+  "permalink": "/docs/installation/catalog",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

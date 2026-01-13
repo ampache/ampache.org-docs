@@ -1,0 +1,14 @@
+{
+  "id": "configuration/podcasts",
+  "title": "Podcasts",
+  "description": "Subscribe Configuration",
+  "source": "@site/docs/configuration/podcasts.md",
+  "sourceDirName": "configuration",
+  "slug": "/configuration/podcasts",
+  "permalink": "/docs/configuration/podcasts",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

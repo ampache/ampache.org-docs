@@ -1,0 +1,14 @@
+{
+  "id": "configuration/cron",
+  "title": "Speed up Ampache using cron",
+  "description": "A common complaint is that Ampache can be slow! Lets look at making that a things of the past!",
+  "source": "@site/docs/configuration/cron.md",
+  "sourceDirName": "configuration",
+  "slug": "/configuration/cron",
+  "permalink": "/docs/configuration/cron",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

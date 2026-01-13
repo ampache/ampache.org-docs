@@ -1,0 +1,14 @@
+{
+  "id": "configuration/remote-catalogs",
+  "title": "Ampache Remote Catalogs",
+  "description": "You can remotely connect one more Ampache servers to one or more other Ampache servers. This is accomplished using API-RPC. The below documentation will walk you through configuring two Ampache installs and connecting one to the other. This functionality is disabled by default.",
+  "source": "@site/docs/configuration/remote-catalogs.md",
+  "sourceDirName": "configuration",
+  "slug": "/configuration/remote-catalogs",
+  "permalink": "/docs/configuration/remote-catalogs",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

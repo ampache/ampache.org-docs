@@ -1,0 +1,14 @@
+{
+  "id": "configuration/ldap",
+  "title": "LDAP",
+  "description": "Configuring Ampache for LDAP authentication",
+  "source": "@site/docs/configuration/ldap.md",
+  "sourceDirName": "configuration",
+  "slug": "/configuration/ldap",
+  "permalink": "/docs/configuration/ldap",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

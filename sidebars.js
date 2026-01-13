@@ -14,19 +14,41 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
   api: [
-    'index',
     {
       type: 'category',
-      label: 'Information',
-      link: {type: 'doc', id: 'information'},
+      label: 'Ampache Wiki',
+      link: {type: 'doc', id: 'index'},
       items: [
-        'browse/information',
+        'index',
+        {
+          type: 'link',
+          label: 'Current Release',
+          href: 'https://github.com/ampache/ampache/releases',
+        },
+        'information/ampache-use-cases',
+        {
+          type: 'link',
+          label: 'Screenshots',
+          href: 'https://ampache.org/#preview',
+        },
+        {
+          type: 'category',
+          label: 'TroubleShooting',
+          link: {type: 'doc', id: 'information/troubleshooting'},
+          items: [
+            'information/troubleshooting',
+            'information/troubleshooting/ampache7-for-admins',
+            'information/troubleshooting/ampache7-for-users',
+            'information/troubleshooting/faq',
+            'information/troubleshooting/chart-faq',
+          ],
+        },
       ],
     },
     {
       type: 'category',
       label: 'Installation',
-      link: {type: 'doc', id: 'installation'},
+      link: {type: 'doc', id: 'installation/installation'},
       items: [
         'installation/installation',
       ],
@@ -34,7 +56,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Configuration',
-      link: {type: 'doc', id: 'configuration'},
+      link: {type: 'doc', id: 'configuration/configuration'},
       items: [
         'configuration/configuration',
       ],
@@ -42,7 +64,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Clients',
-      link: {type: 'doc', id: 'clients'},
+      link: {type: 'doc', id: 'clients/clients'},
       items: [
         'clients/clients',
       ],
@@ -50,7 +72,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Plugins',
-      link: {type: 'doc', id: 'plugins'},
+      link: {type: 'doc', id: 'plugins/plugins'},
       items: [
         'plugins/plugins',
       ],
@@ -58,7 +80,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Themes',
-      link: {type: 'doc', id: 'themes'},
+      link: {type: 'doc', id: 'themes/themes'},
       items: [
         'themes/themes',
       ],
@@ -66,7 +88,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Development',
-      link: {type: 'doc', id: 'development'},
+      link: {type: 'doc', id: 'development/development'},
       items: [
         'development/development',
       ],
@@ -74,7 +96,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Help',
-      link: {type: 'doc', id: 'help'},
+      link: {type: 'doc', id: 'help/help'},
       items: [
         'help/help',
       ],
@@ -82,7 +104,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Old Information',
-      link: {type: 'doc', id: 'old-information'},
+      link: {type: 'doc', id: 'old-information/old-information'},
       items: [
         'old-information/old-information',
       ],

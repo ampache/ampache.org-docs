@@ -1,0 +1,14 @@
+{
+  "id": "configuration/cli-faq",
+  "title": "Explaining the Ampache CLI",
+  "description": "The Ampache bin folder has been cleaned up into a 2 files. bin/cli and bin/installer",
+  "source": "@site/docs/configuration/cli-faq.md",
+  "sourceDirName": "configuration",
+  "slug": "/configuration/cli-faq",
+  "permalink": "/docs/configuration/cli-faq",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

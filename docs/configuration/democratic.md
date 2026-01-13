@@ -24,7 +24,7 @@ When a player requests a democratic playlist item Ampache uses the following rul
 
 First you must enable Democratic Play in your Ampache installation. It is found under _Preferences, Server Config, System_. Next switch to the _Home_ sidebar menu and click on _Configure Democratic Playlist_ under _Democratic_ to create your first democratic playlist. Once you have created the democratic playlist any users who wishes to vote on the playlist must be set to the _Democratic_ play type. In order to actually start using the Democratic Playlist you must click on the _Play Democratic Playlist_ icon in the democratic playlist section. This will generate and send the correct URL based on your current play method. To avoid abnormal results it is recommended to only have one source reading any one democratic playlist at any one time.
 
-Once you have created your democratic playlist all you need to do to vote for songs is set your play type to **Democratic** and then use ampache as you would normally, selecting songs and streaming them to the democratic playlist. As an admin if you would like your users to not have the option to change their play method away from democratic play see [Web Preferences](Basic#Web-Interface-Configuration-Options).
+Once you have created your democratic playlist all you need to do to vote for songs is set your play type to **Democratic** and then use ampache as you would normally, selecting songs and streaming them to the democratic playlist. As an admin if you would like your users to not have the option to change their play method away from democratic play see [Web Preferences](/docs/configuration#web-interface-configuration-options).
 
 ## Frequently Asked Questions
 

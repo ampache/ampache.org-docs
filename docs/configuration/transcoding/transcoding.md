@@ -85,7 +85,7 @@ The arguments may need to be adjusted depending on the specific external program
 
 ## Network Based Transcoding
 
-You can also force transcoding based on the IP address of the user streaming. This allows you to automatically downsample and transcode music if the user is off of your local network. To enable this you first need to define a [Local Network ACL](ACL) and then enable _downsample_remote_ in the ampache.cfg.php
+You can also force transcoding based on the IP address of the user streaming. This allows you to automatically downsample and transcode music if the user is off of your local network. To enable this you first need to define a [Local Network ACL](/docs/configuration/acl) and then enable _downsample_remote_ in the ampache.cfg.php
 
 ```INI
 ; Downsample Remote

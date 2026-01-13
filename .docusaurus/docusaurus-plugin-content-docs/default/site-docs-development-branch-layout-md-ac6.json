@@ -1,0 +1,14 @@
+{
+  "id": "development/Branch-Layout",
+  "title": "Ampache Branch Layouts",
+  "description": "To help structure code a bit better Ampache has split repo activity into the following types",
+  "source": "@site/docs/development/Branch-Layout.md",
+  "sourceDirName": "development",
+  "slug": "/development/Branch-Layout",
+  "permalink": "/docs/development/Branch-Layout",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

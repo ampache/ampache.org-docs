@@ -1,0 +1,14 @@
+{
+  "id": "installation/Installation-v4",
+  "title": "Installation",
+  "description": "This document is built to help you install to your local server.",
+  "source": "@site/docs/installation/Installation-v4.md",
+  "sourceDirName": "installation",
+  "slug": "/installation/Installation-v4",
+  "permalink": "/docs/installation/Installation-v4",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

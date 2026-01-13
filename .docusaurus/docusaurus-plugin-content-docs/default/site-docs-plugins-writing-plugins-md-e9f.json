@@ -1,0 +1,14 @@
+{
+  "id": "plugins/writing-plugins",
+  "title": "Ampache Plugins",
+  "description": "Plugins are placed in modules/plugins; the name of the file must be \"./Name/Name.plugin.php\". e.g. Dummy/Dummy.plugin.php.",
+  "source": "@site/docs/plugins/writing-plugins.md",
+  "sourceDirName": "plugins",
+  "slug": "/plugins/writing-plugins",
+  "permalink": "/docs/plugins/writing-plugins",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

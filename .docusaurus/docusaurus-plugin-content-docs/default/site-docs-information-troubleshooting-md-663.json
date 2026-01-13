@@ -1,0 +1,23 @@
+{
+  "id": "information/troubleshooting",
+  "title": "Troubleshooting",
+  "description": "Ask people for help",
+  "source": "@site/docs/information/troubleshooting.md",
+  "sourceDirName": "information",
+  "slug": "/information/troubleshooting",
+  "permalink": "/docs/information/troubleshooting",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "api",
+  "previous": {
+    "title": "Ampache Use Cases",
+    "permalink": "/docs/information/ampache-use-cases"
+  },
+  "next": {
+    "title": "Troubleshooting",
+    "permalink": "/docs/information/troubleshooting"
+  }
+}

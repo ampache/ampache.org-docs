@@ -1,0 +1,14 @@
+{
+  "id": "information/Web-Interface",
+  "title": "Standard Web Interface",
+  "description": "The standard interface is a web-based graphical user interface available via web browsers. It enables the user to search and browse media, playback media, construct random or custom playlists, make changes to options, and administer the server.",
+  "source": "@site/docs/information/Web-Interface.md",
+  "sourceDirName": "information",
+  "slug": "/information/Web-Interface",
+  "permalink": "/docs/information/Web-Interface",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

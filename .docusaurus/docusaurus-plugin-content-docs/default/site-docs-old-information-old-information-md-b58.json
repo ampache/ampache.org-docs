@@ -1,0 +1,23 @@
+{
+  "id": "old-information/old-information",
+  "title": "old-information",
+  "description": "",
+  "source": "@site/docs/old-information/old-information.md",
+  "sourceDirName": "old-information",
+  "slug": "/old-information/",
+  "permalink": "/docs/old-information/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "api",
+  "previous": {
+    "title": "help",
+    "permalink": "/docs/help/"
+  },
+  "next": {
+    "title": "old-information",
+    "permalink": "/docs/old-information/"
+  }
+}

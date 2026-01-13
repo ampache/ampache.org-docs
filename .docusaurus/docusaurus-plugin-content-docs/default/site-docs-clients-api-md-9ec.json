@@ -1,0 +1,14 @@
+{
+  "id": "clients/api",
+  "title": "Ampache API Clients",
+  "description": "A list of clients that use the Ampache API",
+  "source": "@site/docs/clients/api.md",
+  "sourceDirName": "clients",
+  "slug": "/clients/api",
+  "permalink": "/docs/clients/api",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

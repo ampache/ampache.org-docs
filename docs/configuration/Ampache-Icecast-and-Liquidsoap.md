@@ -21,7 +21,8 @@ For a user to hear your streams you need sockets.
 In the config below I'm using socket 8000 to stream to clients (Proxied through my Apache server over ssl) and 8200 is a radio input stream.
 
 Configure as many sockets as you want (I have 3 radio streams at home using ports 8200, 8201 and 8202)
-```
+
+```conf
 <listen-socket>
     <port>8000</port>
     <bind-address>0.0.0.0</bind-address>
@@ -37,10 +38,11 @@ Configure as many sockets as you want (I have 3 radio streams at home using port
 
 ### Configure ssl for your client socket
 
-If you want to connect directly to icecast instead of through your webserver you'll probably want ssl configured. 
+If you want to connect directly to icecast instead of through your webserver you'll probably want ssl configured.
 
 Make sure the ssl-certificate line is uncommented.
-```
+
+```conf
 <ssl-certificate>/usr/share/icecast2/icecast.pem</ssl-certificate>
 ```
 
@@ -49,7 +51,8 @@ To make an ssl cert for your server you need to combine the cert, chain and key 
 If you're using letsencrypt it's pretty easy to do. You just need to know where the cert is
 
 Combine the cert into a single file and change perms for icecast to read it.
-```
+
+```shell
 cat /etc/letsencrypt/live/MYSITENAME/privkey.pem /etc/letsencrypt/live/MYSITENAME/cert.pem /etc/letsencrypt/live/MYSITENAME/fullchain.pem >/usr/share/icecast2/icecast.pem
 chmod 600 /usr/share/icecast2/icecast.pem
 chown icecast2:icecast /usr/share/icecast2/icecast.pem
@@ -60,7 +63,8 @@ chown icecast2:icecast /usr/share/icecast2/icecast.pem
 ## Configure a mount point
 
 Now you need a mount point is where you'll be serving music from.
-```
+
+```conf
 <mount>
     <mount-name>/radio1</mount-name>
     <username>radio</username>
@@ -94,19 +98,22 @@ First up install liquidsoap from your package manger. Debian is using 1.4.3 whic
 With the Ampache cli you can add liquidsoap to the www-group, pull down the playlists and then serve the files to icecast
 
 Add the www-data group to liquidsoap
-```
+
+```shell
 usermod -a -G www-data liquidsoap
 ```
 
 Log in as liquidsoap and create the playlists
-```
+
+```shell
 su - liquidsoap -s /bin/bash
 mkdir /usr/share/liquidsoap/playlists
 /var/www/ampache/bin/cli export:playlist /usr/share/liquidsoap/playlists/
 ```
 
 You should have an export of all your playlists exported to the playlists folder.
-```
+
+```shell
 ls /usr/share/liquidsoap/playlists/
 ```
 
@@ -117,14 +124,16 @@ _Note: Ampache 6 add the possibility to export juste one playlist. Think about i
 Now that you're installed and have your playlists with a working Icecast you can start streaming!
 
 Create a config file and make it executable
-```
+
+```shell
 touch /usr/share/liquidsoap/ampache.liq
 chmod +x /usr/share/liquidsoap/ampache.liq
 nano /usr/share/liquidsoap/ampache.liq
 ```
 
 Here is my config, make sure you alter to your setup!
-```
+
+```txt
 #!/usr/bin/liquidsoap
 # Log dir
 set("log.file.path","/var/log/liquidsoap/liquidsoap.log")
@@ -151,15 +160,18 @@ output.icecast(%mp3.fxp(channels=2,samplerate=44100,bitrate=128),
 ```
 
 Now that you're configured you can run the liq file as liquidsoap and check out that it's working
-```
+
+```shell
 /usr/share/liquidsoap/ampache.liq
 ```
+
 You should get a mount point on the icecast page
 
 ![image](https://user-images.githubusercontent.com/1305249/136313478-de076b3b-e38c-4779-bc82-8c9cf2c43991.png)
 
 Radio will now be available from your mount point (https/https depending on your setup)
-```
+
+```URL
 http://MYHOST:8000/bangersradio
 https://MYHOST:8000/bangersradio
 ```
@@ -183,13 +195,15 @@ Can't get the ports outside your lan? Add a proxy to your site config and use yo
 In Debian Apache stores the active sites in `/etc/apache2/sites-enabled/`
 
 First up make sure you've enabled proxy_html in Apache
-```
+
+```shell
 a2enmod proxy_html
 systemctl restart apache2
 ```
 
 Here I've set up an ssl proxy here to redirect my streams from `https://MYHOST:8000/bangersradio` to `https://MYHOST/bangersradio`
-```
+
+```conf
 SSLProxyEngine on
 SSLProxyVerify none
 SSLProxyCheckPeerCN off
@@ -202,11 +216,10 @@ ProxyPassReverse /rebelradio https://MYHOST:8000/rebelradio
 ```
 
 Don't want icecast on ssl? That's basically the same as https.
-```
+
+```conf
 ProxyPass /bangersradio http://MYHOST:8000/bangersradio
 ProxyPassReverse /bangersradio http://MYHOST:8000/bangersradio
 ProxyPass /rebelradio http://MYHOST:8000/rebelradio
 ProxyPassReverse /rebelradio http://MYHOST:8000/rebelradio
-
 ```
-

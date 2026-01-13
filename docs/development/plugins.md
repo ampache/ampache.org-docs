@@ -17,12 +17,12 @@ e.g. ```class AmpacheDummy```
 The following public variables must be declared:
 
 * (string) name
-* (string) description 
+* (string) description
 * (int)    version     - This plugin's version
 * (string) min_ampache - Minimum Ampache DB version required
 * (string) max_ampache - Maximum Ampache DB version supported
 
-```
+```php
     public $name        = 'Dummy Plugin';
     public $description = 'Dummy Plugin to hopefully explain this a bit better';
     public $version     = '000002';

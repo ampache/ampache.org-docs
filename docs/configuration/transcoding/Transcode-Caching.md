@@ -26,7 +26,7 @@ Here's a copy of the config section so you can have a look over the options.
 * You must have an accessible path, a target format and uncommented at least 1 file format to use this feature
 * You can start the cache process using the cli only (e.g. `php bin/cli run:cacheProcess`)
 
-```
+```conf
 ;#########################################################
 ; Transcode Caching                                      #
 ;#########################################################

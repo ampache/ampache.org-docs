@@ -14,7 +14,7 @@ A pre-built [docker](https://github.com/ampache/ampache-docker) repo is also ava
   * nginx
   * IIS
 * PHP => 7.1 and < 8.0 (Currently tested on php7.4-fpm)
-  * Note: you will need PHP => 7.4 if you want to use [Composer](#Composer) to manage dependencies
+  * Note: you will need PHP => 7.4 if you want to use [Composer](#composer) to manage dependencies
 
 * PHP modules:
   * PDO
@@ -57,14 +57,14 @@ Whichever method you choose, place the extracted source tree somewhere served by
 
 ### git checkout example (Gentoo)
 
-```ShellSession
+```shell
 cd /var/www/localhost/htdocs
 git clone https://github.com/ampache/ampache.git
 ```
 
 ### tarball example (Fedora)
 
-```ShellSession
+```shell
 cd /var/tmp
 wget https://github.com/ampache/ampache/archive/release4.tar.gz
 tar -xvzf release4.tar.gz
@@ -74,7 +74,8 @@ mv release4 /var/www/html/ampache
 ### Raspbian / RaspiOS example (Debian)
 
 The process for a Raspberry Pi is essentially the same as installing an Apache webserver, which Ampache runs on. The following guides may be useful:
-* [Random Nerd tutorials - most useful](https://randomnerdtutorials.com/raspberry-pi-apache-mysql-php-lamp-server/)
+
+* [Random Nerd tutorials * most useful](https://randomnerdtutorials.com/raspberry-pi-apache-mysql-php-lamp-server/)
 * [Instructables guide](https://www.instructables.com/Installing-LAMP-Linux-Apache-MySQL-PHP-on-a-Raspbe/)
 * [DigitalOcean guide](https://www.digitalocean.com/community/tutorials/how-to-install-the-ampache-music-streaming-server-on-ubuntu-18-04)
 * [Howtoforge guide](https://www.howtoforge.com/how-to-install-the-ampache-music-streaming-server-on-ubuntu-2004/)
@@ -88,138 +89,170 @@ Attention: Composer version 2.x is not compatible to Ampache. Take care to use t
 
 If you cannot use Composer, you should download the release archive *ampache-x.x.x_all.zip* which contains all dependencies.
 
-For Mac users ( High Sierra & Mojave) - brew install composer
+For Mac users ( High Sierra & Mojave) * brew install composer
 
-## MySQL database creation - Debian / Raspberry Pi (PiOS) ##
+## MySQL database creation * Debian / Raspberry Pi (PiOS)
 
-Open a new terminal window and run:<br>
-`sudo apt-get install apache2 mariadb-server mysqld php7.0 php7.0-mbstring php-mysql php7.0-gd php7.0-mcrypt php7.0-mysql php7.0-cli php7.0-curl php7.0-xml ffmpeg links git`<br>
-Hit 'y' when asked if you want to install the above programs<br>
+Open a new terminal window and run:
+`sudo apt-get install apache2 mariadb-server mysqld php7.0 php7.0-mbstring php-mysql php7.0-gd php7.0-mcrypt php7.0-mysql php7.0-cli php7.0-curl php7.0-xml ffmpeg links git`
+Hit 'y' when asked if you want to install the above programs
 
-`sudo systemctl enable mariadb`<br>
-depending on your setup, you might still need to use:<br>
-`sudo mysql_secure_installation`<br>
+`sudo systemctl enable mariadb`
+depending on your setup, you might still need to use:
+`sudo mysql_secure_installation`
 
-You should see MariaDB installation instructions:<br>
-- press enter to enter no root password<br>
-- change the root password when prompted to something you will remember<br>
-- re-enter<br>
-- remove anonymous users: Y<br>
-- disallow root login remotely: N<br>
-- remove test DB: Y<br>
-- reload privilege tables: Y<br>
+You should see MariaDB installation instructions:
 
-Now run:<br>
-`sudo sync`<br>
-`sudo mysql -u root -p`<br>
-- enter password you just created<br>
+* press enter to enter no root password
+* change the root password when prompted to something you will remember
+* re-enter
+* remove anonymous users: Y
+* disallow root login remotely: N
+* remove test DB: Y
+* reload privilege tables: Y
+
+Now run:
+
+```shell
+sudo sync
+sudo mysql -u root -p
+```
+
+* enter password you just created
 
 You are now within the MySql DB, so the following commands are not Linux ones, but go straight into the MySQL DB and you will see:
-`MariaDB [(none)]>`<br>
-At the above prompt, you will create the _ampache_ DB, user called _amp_ (the standard _root_ one probably won't work) and an example password of _password123_, enter:<br>
-`CREATE DATABASE ampache;`
-`CREATE USER 'amp'@'localhost' IDENTIFIED BY 'password123';`<br>
-Then setup the above user you just created:<br>
-`GRANT ALL PRIVILEGES ON ampache.* TO 'amp'@'localhost';`<br>
-Then type:<br>
-`FLUSH PRIVILEGES;`<br>
-and:<br>
-`EXIT;`<br>
-After each of the above command (except the last), you should get a return stating 'Query OK..'. If the line returns to the next one down without any reply, then your commands are not being received correctly.<br>
 
-See also: [Ampache wiki - MySQL](https://github.com/ampache/ampache/wiki/mysql-faq)<br>
+```mysql
+MariaDB [(none)]>
+```
 
-Now move/rename the following files with the following commands:<br>
-Move these files easily when using Linux with the following commands:<br>
-`sudo mv /var/www/ampache/rest/.htaccess.dist /var/www/ampache/rest/.htaccess`<br>
-`sudo mv /var/www/ampache/play/.htaccess.dist /var/www/ampache/play/.htaccess`<br>
-`sudo mv /var/www/ampache/channel/.htaccess.dist /var/www/ampache/channel/.htaccess`<br>
+At the above prompt, you will create the `ampache` DB, user called `amp` (the standard `root` one probably won't work) and an example password of `password123`, enter:
 
-Copy the ampache configuration ampache.cfg.php.dist file, the original ampache.cfg.php.dist is needed for admin backend as pattern for generating a new config from backend changed settings.<br>
-`sudo mv /var/www/html/ampache/config/ampache.cfg.php.dist /var/www/html/ampache/config/ampache.cfg.php`<br>
+```mysql
+CREATE DATABASE ampache;
+```
 
-After copying you can easily adapt it to your needs following the [Basic Configuration](https://github.com/ampache/ampache/wiki/Basic#basic-configuration)<br>
+```mysql
+CREATE USER 'amp'@'localhost' IDENTIFIED BY 'password123';
+```
+
+Then setup the above user you just created:
+
+```mysql
+GRANT ALL PRIVILEGES ON ampache.* TO 'amp'@'localhost';
+```
+
+Then type:
+
+```mysql
+FLUSH PRIVILEGES;
+```
+
+and:
+
+```mysql
+EXIT;
+```
+
+After each of the above command (except the last), you should get a return stating 'Query OK..'. If the line returns to the next one down without any reply, then your commands are not being received correctly.
+
+See also: [Ampache wiki * MySQL](https://github.com/ampache/ampache/wiki/mysql-faq)
+
+Now move/rename the following files with the following commands:
+Move these files easily when using Linux with the following commands:
+`sudo mv /var/www/ampache/rest/.htaccess.dist /var/www/ampache/rest/.htaccess`
+`sudo mv /var/www/ampache/play/.htaccess.dist /var/www/ampache/play/.htaccess`
+`sudo mv /var/www/ampache/channel/.htaccess.dist /var/www/ampache/channel/.htaccess`
+
+Copy the ampache configuration ampache.cfg.php.dist file, the original ampache.cfg.php.dist is needed for admin backend as pattern for generating a new config from backend changed settings.
+`sudo mv /var/www/html/ampache/config/ampache.cfg.php.dist /var/www/html/ampache/config/ampache.cfg.php`
+
+After copying you can easily adapt it to your needs following the [Basic Configuration](https://github.com/ampache/ampache/wiki/Basic#basic-configuration)
 'nano /var/www/html/ampache/config/ampache.cfg.php'
 
+In your terminal window, we will use nano to edit an Apache file (you might use a different text editor to nano, such as vim):
+`sudo nano /etc/apache2/apache2.conf`
+Find the following section headed:
+`<Directory /var/www/html/>`
+So that it reads:
+`<Directory /var/www/html/>`
+        `Options Indexes FollowSymLinks`
+        `AllowOverride All`
+        `Require all granted`
+`</Directory>`
+Close the window with Ctrl+X then Y to confirm changes.
 
-In your terminal window, we will use nano to edit an Apache file (you might use a different text editor to nano, such as vim):<br>
-`sudo nano /etc/apache2/apache2.conf`<br>
-Find the following section headed:<br>
-`<Directory /var/www/html/>`<br>
-So that it reads:<br>
-`<Directory /var/www/html/>`<br>
-        `Options Indexes FollowSymLinks`<br>
-        `AllowOverride All`<br>
-        `Require all granted`<br>
-`</Directory>`<br>
-Close the window with Ctrl+X then Y to confirm changes.<br>
+Then:
+`sudo nano /etc/apache2/sites-available/ampache.conf`
+There should be one section, change the ServerName from localhost to your IP such as the one below. Note the folder changes too:
+`<VirtualHost *:80>`
+    `ServerName 192.168.1.100`
+    `DocumentRoot /var/www/ampache`
+    `<Directory /var/www/ampache/>`
+        `AllowOverride All`
+        `Require all granted`
+    `</Directory>`
+    `RewriteEngine on`
+    `CustomLog /var/log/apache2/ampache.access.log common`
+    `ErrorLog  /var/log/apache2/ampache.error.log`
+`</VirtualHost>`
 
-Then:<br>
-`sudo nano /etc/apache2/sites-available/ampache.conf`<br>
-There should be one section, change the ServerName from localhost to your IP such as the one below. Note the folder changes too:<br>
-`<VirtualHost *:80>`<br>
-    `ServerName 192.168.1.100`<br>
-    `DocumentRoot /var/www/ampache`<br>
-    `<Directory /var/www/ampache/>`<br>
-        `AllowOverride All`<br>
-        `Require all granted`<br>
-    `</Directory>`<br>
-    `RewriteEngine on`<br>
-    `CustomLog /var/log/apache2/ampache.access.log common`<br>
-    `ErrorLog  /var/log/apache2/ampache.error.log`<br>
-`</VirtualHost>`<br>
+Run:
 
-Run: <br>
-`sudo chmod 777 /var/www/html`<br>
-`sudo systemctl restart apache2`<br>
-`sudo a2enmod rewrite`<br>
-`a2ensite ampache.conf`<br>
-`a2enmod rewrite`<br>
-`a2enmod expires`<br>
-`systemctl restart apache2.service`<br>
+`sudo chmod 777 /var/www/html`
+`sudo systemctl restart apache2`
+`sudo a2enmod rewrite`
+`a2ensite ampache.conf`
+`a2enmod rewrite`
+`a2enmod expires`
+`systemctl restart apache2.service`
 
-N.B. If you have issues in adding the source for the catalogue when setting up the webserver and the source is an external USB drive plugged into the Pi, this may be a permissions issue. Try the following to allow Ampache to read the drive correctly:<br>
-`sudo chmod 777 /mnt/USB/media`<br>
-(The above example assumes your USB drive is under the /mnt directory and your files are within a folder called USB/media. If this doesn't work, try a lower level folder i.e. /mnt/USB for the above example).<br>
+N.B. If you have issues in adding the source for the catalogue when setting up the webserver and the source is an external USB drive plugged into the Pi, this may be a permissions issue. Try the following to allow Ampache to read the drive correctly:
+`sudo chmod 777 /mnt/USB/media`
+(The above example assumes your USB drive is under the /mnt directory and your files are within a folder called USB/media. If this doesn't work, try a lower level folder i.e. /mnt/USB for the above example).
 
 ## Web server configuration
 
 ### Apache
 
-Go to your web browser and direct it at the Ampache install page. For instance, if the local IP of your Ampache install is on IP 192.168.1.100, you would enter:<br>
-[http://192.168.1.100/ampache/install.php](http://192.168.1.100/ampache/install.php)<br>
+Go to your web browser and direct it at the Ampache install page. For instance, if the local IP of your Ampache install is on IP 192.168.1.100, you would enter:
+[http://192.168.1.100/ampache/install.php](http://192.168.1.100/ampache/install.php)
 
-Ampache is developed to work instantly with Apache without additional configuration except setting up a regular vhost.<br>
+Ampache is developed to work instantly with Apache without additional configuration except setting up a regular vhost.
 
 Some features requires url rewriting to work correctly. It is highly recommended to enable it.
 
 * Be sure mod_rewrite is enable on your Apache installation. Otherwise install/activate it and restart your Apache service
 * Check that Ampache website is allowed to override Apache settings (`AllowOverride All` in vhost config file for instance).
-* After Ampache installation, check that .htaccess files are installed properly. If not, copy the following files as bellow and edit them to match your Ampache public address (eg., `RewriteRule ^(/[^/]+|[^/]+/|/?)$ /play/index.php` become `RewriteRule ^(/[^/]+|[^/]+/|/?)$ /ampache/play/index.php` if your Ampache public url is `http://localhost/ampache/`).<br>
+* After Ampache installation, check that .htaccess files are installed properly. If not, copy the following files as bellow and edit them to match your Ampache public address (eg., `RewriteRule ^(/[^/]+|[^/]+/|/?)$ /play/index.php` become `RewriteRule ^(/[^/]+|[^/]+/|/?)$ /ampache/play/index.php` if your Ampache public url is `http://localhost/ampache/`).
 
-* `/rest/.htaccess.dist` => `/rest/.htaccess`<br>
-* `/play/.htaccess.dist` => `/play/.htaccess`<br>
-* `/channel/.htaccess.dist` => `/channel/.htaccess`<br>
+* `/rest/.htaccess.dist` => `/rest/.htaccess`
+* `/play/.htaccess.dist` => `/play/.htaccess`
+* `/channel/.htaccess.dist` => `/channel/.htaccess`
 
-Move these files easily when using Linux with the following commands:<br>
+Move these files easily when using Linux with the following commands:
 
-`sudo mv /var/www/ampache/rest/.htaccess.dist /var/www/ampache/rest/.htaccess`<br>
-`sudo mv /var/www/ampache/play/.htaccess.dist /var/www/ampache/play/.htaccess`<br>
-`sudo mv /var/www/ampache/channel/.htaccess.dist /var/www/ampache/channel/.htaccess`<br>
+```shell
+sudo mv /var/www/ampache/rest/.htaccess.dist /var/www/ampache/rest/.htaccess
+sudo mv /var/www/ampache/play/.htaccess.dist /var/www/ampache/play/.htaccess
+sudo mv /var/www/ampache/channel/.htaccess.dist /var/www/ampache/channel/.htaccess
+```
 
-Copy the ampache configuration ampache.cfg.php.dist file, the original ampache.cfg.php.dist is needed for admin backend as pattern for generating a new config from backend changed settings.<br>
-`sudo cp /var/www/html/ampache/config/ampache.cfg.php.dist /var/www/html/ampache/config/ampache.cfg.php`<br>
+Copy the ampache configuration ampache.cfg.php.dist file, the original ampache.cfg.php.dist is needed for admin backend as pattern for generating a new config from backend changed settings.
 
-After copying you can easily adapt it to your needs following the [Basic Configuration](https://github.com/ampache/ampache/wiki/Basic#basic-configuration)<br>
+```shell
+sudo cp /var/www/html/ampache/config/ampache.cfg.php.dist /var/www/html/ampache/config/ampache.cfg.php
+```
+
+After copying you can easily adapt it to your needs following the [Basic Configuration](https://github.com/ampache/ampache/wiki/Basic#basic-configuration)
 'nano /var/www/html/ampache/config/ampache.cfg.php'
-
 
 ### Nginx
 
-Working Nginx configuration sample for Ampache.<br>
-If Ampache is served behind a reverse proxy using SSL, you will have to uncomment `fastcgi_param HTTPS on;` to prevent mixed content to be served.<br>
+Working Nginx configuration sample for Ampache.
+If Ampache is served behind a reverse proxy using SSL, you will have to uncomment `fastcgi_param HTTPS on;` to prevent mixed content to be served.
 
-```Nginx
+```conf
 server {
 
     # listen to
@@ -453,25 +486,25 @@ Assuming your web stack is set up properly and you chose the standard web path, 
 
 Any potential problems with your PHP installation should show up on this initial page.
 
-![Installation screenshot](images/ampache_installation_01.png)
+![Installation screenshot](https://ampache.org/img/ampache_installation_01.png)
 
 Select a language and press "Start Configuration".
 
-![Installation screenshot](images/ampache_installation_02.png)
+![Installation screenshot](https://ampache.org/img/ampache_installation_02.png)
 
 Check all errors and warnings about your environment.
 
-![Installation screenshot](images/ampache_installation_03.png)
+![Installation screenshot](https://ampache.org/img/ampache_installation_03.png)
 
 Fill out the form with the database information.
 
-![Installation screenshot](images/ampache_installation_04-1.png)
-![Installation screenshot](images/ampache_installation_04-2.png)
+![Installation screenshot](https://ampache.org/img/ampache_installation_04-1.png)
+![Installation screenshot](https://ampache.org/img/ampache_installation_04-2.png)
 
 Fill out the form with the configuration information if needed (blank database password are not accepted). If PHP is able to write to the config/ directory, you will be able to write out the config file directly from this page. If not, or if you just prefer to do it manually, show File Insight and select "Download" and then copy it into the config/ directory manually.
 You also define on this screen the general Ampache behavior (installation type, transcoding default settings and player backends to enable) ; if you don't know about this at this stage, you can change this settings later in ampache.cfg.php and Ampache preferences.
 
-![Installation screenshot](images/ampache_installation_05.png)
+![Installation screenshot](https://ampache.org/img/ampache_installation_05.png)
 
 The final step of installation is to create the initial administrative user.
 

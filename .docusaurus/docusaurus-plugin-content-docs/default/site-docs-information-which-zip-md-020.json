@@ -1,0 +1,14 @@
+{
+  "id": "information/which-zip",
+  "title": "Which zip file do I use?",
+  "description": "Ampache supports a lot of different install options.",
+  "source": "@site/docs/information/which-zip.md",
+  "sourceDirName": "information",
+  "slug": "/information/which-zip",
+  "permalink": "/docs/information/which-zip",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

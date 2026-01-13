@@ -5,7 +5,7 @@ The file must declare a corresponding class and the name of the class must be pr
 
 Copying an existing plugin is the easiest way to write a new one.
 
-There is an empty example template available [here.](https://github.com/ampache/ampache/blob/develop/docs/examples/AmpacheExample.php)
+There is an empty example template available [here](https://github.com/ampache/ampache/blob/develop/docs/examples/AmpacheExample.php).
 
 This should let you expand and develop your own plugin quickly.
 

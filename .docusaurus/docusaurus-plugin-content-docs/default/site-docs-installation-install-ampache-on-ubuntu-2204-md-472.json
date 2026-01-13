@@ -1,0 +1,14 @@
+{
+  "id": "installation/install-ampache-on-ubuntu2204",
+  "title": "How To Install the Ampache Music Streaming Server on Ubuntu 22.04",
+  "description": "TAKEN FROM howtoforge",
+  "source": "@site/docs/installation/install-ampache-on-ubuntu2204.md",
+  "sourceDirName": "installation",
+  "slug": "/installation/install-ampache-on-ubuntu2204",
+  "permalink": "/docs/installation/install-ampache-on-ubuntu2204",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

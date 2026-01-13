@@ -1,0 +1,14 @@
+{
+  "id": "installation/Cloudron-Installation-Guide",
+  "title": "Cloudron",
+  "description": "Ampache is available as a 1-click install on Cloudron.  Cloudron makes it easy to run apps like Ampache on your server and keep them up-to-date and secure.",
+  "source": "@site/docs/installation/Cloudron-Installation-Guide.md",
+  "sourceDirName": "installation",
+  "slug": "/installation/Cloudron-Installation-Guide",
+  "permalink": "/docs/installation/Cloudron-Installation-Guide",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

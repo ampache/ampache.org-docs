@@ -1,0 +1,14 @@
+{
+  "id": "old-information/ampache5-details",
+  "title": "Ampache 5.0.0 is a major change",
+  "description": "The incoming release of Ampache 5.0.0 has made a lot of changes to the PHP structure of the project.",
+  "source": "@site/docs/old-information/ampache5-details.md",
+  "sourceDirName": "old-information",
+  "slug": "/old-information/ampache5-details",
+  "permalink": "/docs/old-information/ampache5-details",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

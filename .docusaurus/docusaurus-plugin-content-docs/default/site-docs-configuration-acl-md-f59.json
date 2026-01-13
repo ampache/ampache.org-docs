@@ -1,0 +1,14 @@
+{
+  "id": "configuration/acl",
+  "title": "Access Control Lists",
+  "description": "Ampache supports internal Access Control Lists, these are IP/DNS based restrictions on different actions and interactions with Ampache. By Default Access Controls lists are turned off in Ampache. In order to turn them on you must modify the /config/ampache.cfg.php and set access_control to true",
+  "source": "@site/docs/configuration/acl.md",
+  "sourceDirName": "configuration",
+  "slug": "/configuration/acl",
+  "permalink": "/docs/configuration/acl",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

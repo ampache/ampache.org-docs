@@ -1,6 +1,6 @@
 # Understanding Ampache Preferences
 
-**WIP**
+**WIP** Work In Progress
 
 One thing that isn't very easy to understand are all the extra options, preferences and ways of setting things up on your server
 
@@ -15,7 +15,6 @@ There are 3 major types of preference:
 User and system preferences are split into 6 categories
 
 ![image](https://user-images.githubusercontent.com/1305249/205497979-c66adec9-9ebe-4231-bd90-de3f9101e3d5.png)
-
 
 ## System Preferences
 

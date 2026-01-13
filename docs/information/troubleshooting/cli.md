@@ -8,7 +8,7 @@ Generally you should only be interested in the cli program; all the old scripts 
 
 ## Migrated actions
 
-In general, simply updating the command should work as expected with 2 [exceptions](#Command-changes).
+In general, simply updating the command should work as expected with 2 [exceptions](#command-changes).
 
 * ./bin/install/add_user.inc => ./bin/cli admin:addUser
 * ./bin/install/install_db.inc => ./bin/installer

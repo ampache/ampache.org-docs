@@ -1,0 +1,14 @@
+{
+  "id": "information/information",
+  "title": "information",
+  "description": "",
+  "source": "@site/docs/information/information.md",
+  "sourceDirName": "information",
+  "slug": "/information/",
+  "permalink": "/docs/information/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

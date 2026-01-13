@@ -15,7 +15,8 @@ Check out the patch6 branch using git to try it out on your own server.
 (Don't replace your existing Ampache5 database if you want to go back!)
 
 Check out the [wiki - Installation](https://github.com/ampache/ampache/wiki/Installation) page for more information
-```
+
+```shell
 git clone -b patch6 https://github.com/ampache/ampache.git ampache
 ```
 
@@ -44,7 +45,9 @@ To allow maintenance of so many versions the composer.json has been split into 2
 
 If you are on git and not using php8.2 you need to replace the `composer.json` file with the `composer_old.json` file. Then you can run `composer update` to get the correct packages for you php version.
 
-`cp -f ./composer_old.json ./composer.json`
+```shell
+cp -f ./composer_old.json ./composer.json`
+```
 
 Release zips will take care of this step for you so if you're using the zips just make sure you grab the correct zip for your PHP version.
 
@@ -115,7 +118,6 @@ If you allow album downloads you should add this even if you keep `album_group` 
 If you're using the CLI to export playlists with web links you should add your site url as the `fallback_url` in your config.
 
 ![image](https://user-images.githubusercontent.com/1305249/229010778-9cc34ca3-7755-42fb-8b08-353a26f6bf57.png)
-
 
 ## New CLI commands and parameters
 
@@ -249,13 +251,13 @@ Access to this mode is set by disabling the preference `album_group`.
 
 Set it for a single user
 
-```
+```txt
 preferences.php?tab=interface
 ````
 
 Set the default in system preferences
 
-```
+```txt
 preferences.php?action=admin&tab=interface
 ```
 
@@ -276,7 +278,7 @@ An AlbumDisk is essentially a sub-type of a parent Album object. It's has it's o
   * album_artist
   * original_year
   * barcode
-  * catalog_number	
+  * catalog_number
   * release_status
   * addition_time
 
@@ -364,8 +366,6 @@ Make sure it's set to 'Clear on send' and set the permissions as above. If you d
 
 ![image](https://github.com/ampache/ampache/assets/1305249/e19f2f5e-b088-4c59-bebc-bf327d27de12)
 
-
-
 ## Channels are gone
 
 Channels have been removed. This feature just isn't comparable to using other streaming servers like [Icecast](https://github.com/ampache/ampache/wiki/Ampache-Icecast-and-Liquidsoap).
@@ -406,4 +406,4 @@ composer update
 
 Also remember that if you're not using php8.2 you need to overwrite the `composer.json` with `composer_old.json`
 
-https://github.com/ampache/ampache/wiki/ampache6-details#php-82-support
+(#php-82-support)

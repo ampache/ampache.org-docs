@@ -112,7 +112,7 @@ From this point, Ampache is now completely installed, and ready to perform the s
 
 ### Initial Ampache Set-Up
 
-Now, fire up your favorite web browser and navigate to <http://localhost/public/install.php>.
+Now, fire up your favorite web browser and navigate to `http://localhost/public/install.php`.
 
 #### Choose Installation Language
 
@@ -134,7 +134,7 @@ On this step, Ampache will create the database with all the required information
 The options on this page will help create the main Ampache configuration file. The following steps will show how to create an Ampache database user.
 
 1. Login to phpMyAdmin
-    1. Open a new tab, and go to <http://localhost/phpmyadmin>.
+    1. Open a new tab, and go to `http://localhost/phpmyadmin`.
     2. Enter "root" for the username, and the same password you created earlier for the password.
     3. Click **Go**.
 2. Create Ampache user
@@ -162,4 +162,4 @@ This is the last step, the database just needs to be updated to the current vers
 
 ## Success
 
-Congratulations! Now you have a working Ampache installation. Now is a good time to restart your computer, as the auto updating feature may not work properly. Then you may proceed to [creating your first catalog](Catalog).
+Congratulations! Now you have a working Ampache installation. Now is a good time to restart your computer, as the auto updating feature may not work properly. Then you may proceed to [creating your first catalog](/docs/installation/catalog).
