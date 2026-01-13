@@ -1,0 +1,8 @@
+public
+build
+.cache
+node_modules
+*DS_Store
+*.env
+.idea/
+package-lock.json
