@@ -1,0 +1,23 @@
+{
+  "id": "donate",
+  "title": "donate",
+  "description": "",
+  "source": "@site/docs/donate.md",
+  "sourceDirName": ".",
+  "slug": "/donate",
+  "permalink": "/docs/donate",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "api",
+  "previous": {
+    "title": "demo",
+    "permalink": "/docs/demo"
+  },
+  "next": {
+    "title": "Ampache Wiki",
+    "permalink": "/docs/"
+  }
+}

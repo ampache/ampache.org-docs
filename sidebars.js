@@ -14,17 +14,19 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
   api: [
+    'index',
+    'demo',
+    'donate',
+    {
+      type: 'link',
+      label: 'Releases',
+      href: 'https://github.com/ampache/ampache/releases',
+    },
     {
       type: 'category',
-      label: 'Ampache Wiki',
-      link: {type: 'doc', id: 'index'},
+      label: 'Wiki',
+      link: {type: 'doc', id: 'wiki'},
       items: [
-        'index',
-        {
-          type: 'link',
-          label: 'Current Release',
-          href: 'https://github.com/ampache/ampache/releases',
-        },
         'information/ampache-use-cases',
         {
           type: 'link',
@@ -36,7 +38,6 @@ const sidebars = {
           label: 'TroubleShooting',
           link: {type: 'doc', id: 'information/troubleshooting'},
           items: [
-            'information/troubleshooting',
             'information/troubleshooting/ampache7-for-admins',
             'information/troubleshooting/ampache7-for-users',
             'information/troubleshooting/faq',

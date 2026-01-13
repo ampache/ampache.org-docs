@@ -129,6 +129,11 @@
               "path": "/docs/configuration/transcoding/"
             },
             {
+              "id": "demo",
+              "path": "/docs/demo",
+              "sidebar": "api"
+            },
+            {
               "id": "development/Branch-Layout",
               "path": "/docs/development/Branch-Layout"
             },
@@ -156,6 +161,11 @@
             {
               "id": "development/TRANSLATIONS",
               "path": "/docs/development/TRANSLATIONS"
+            },
+            {
+              "id": "donate",
+              "path": "/docs/donate",
+              "sidebar": "api"
             },
             {
               "id": "help/help",
@@ -331,7 +341,7 @@
             "api": {
               "link": {
                 "path": "/docs/",
-                "label": "Ampache Wiki"
+                "label": "index"
               }
             }
           }

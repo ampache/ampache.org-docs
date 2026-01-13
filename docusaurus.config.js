@@ -58,13 +58,20 @@ const config = {
         },
       },
       navbar: {
-        title: 'Ampache Wiki',
+        title: 'Ampache',
         logo: {
           alt: 'Ampache Logo',
           src: 'img/ampache-logo.png',
+          href: 'https://ampache.org',
+          className: 'navbar_logo',
         },
         items: [
-          {to: 'https://ampache.org', label: 'Ampache.org', position: 'left'},
+          {to: 'https://ampache.org', label: 'Home', position: 'right'},
+          {to: 'https://ampache.org/demo.html', label: 'Demo', position: 'right'},
+          {to: 'https://ampache.org/donate.html', label: 'Donate', position: 'right'},
+          {to: 'https://github.com/ampache/ampache/releases', label: 'Download', position: 'right'},
+          {to: 'https://ampache.org/docs', label: 'Wiki', position: 'right'},
+          {to: 'https://ampache.org/api', label: 'API', position: 'right'},
         ],
       },
       footer: {

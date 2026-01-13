@@ -1,0 +1,23 @@
+{
+  "id": "demo",
+  "title": "demo",
+  "description": "",
+  "source": "@site/docs/demo.md",
+  "sourceDirName": ".",
+  "slug": "/demo",
+  "permalink": "/docs/demo",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "api",
+  "previous": {
+    "title": "Ampache Wiki",
+    "permalink": "/docs/"
+  },
+  "next": {
+    "title": "donate",
+    "permalink": "/docs/donate"
+  }
+}

@@ -57,6 +57,18 @@
   background-color: #0b333f;
 }
 
+.navbar__title {
+  display: none;
+}
+
+.navbar__logo {
+  margin-right: 0;
+}
+
+.navbar__brand {
+  margin-right: 0;
+}
+
 .margin-right--md,
 .menu__caret,
 .navbar__items--right,
