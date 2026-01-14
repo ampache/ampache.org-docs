@@ -6,3 +6,7 @@ node_modules
 *.env
 .idea/
 package-lock.json
+.docusaurus/docusaurus.config.mjs
+.docusaurus/docusaurus-plugin-content-docs/default/__mdx-loader-dependency.json
+.docusaurus/client-modules.js
+.docusaurus/client-manifest.json
