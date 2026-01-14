@@ -57,6 +57,10 @@
   background-color: #efca1b;
 }
 
+.footer__copyright {
+  color: #32220f;
+}
+
 .navbar__title {
   display: none;
 }
@@ -70,7 +74,7 @@
 }
 
 .menu__link:hover {
-  color: #000;
+  color: #32220f;
 }
 
 .display--flex--start {
