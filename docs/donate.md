@@ -4,9 +4,13 @@ metaTitle: "Donate"
 description: "Ampache donation options"
 ---
 
-Donate?!
-Support us and contribute to Ampache development.
+<div class="article">
+<p class="article-p text--center">
+Donate?!<br/>
+Support us and contribute to Ampache development.<br/>
 Here are several ways to show your love.
+</p>
+</div>
 
 ## Developers
 

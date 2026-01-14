@@ -43,11 +43,11 @@ export default {
       {
         "docs": {
           "routeBasePath": "/",
-          "sidebarPath": "/home/user/GitHub/ampache.org-docs/sidebars.js"
+          "sidebarPath": "/home/user/AMPACHE/www/ampache.org-docs/sidebars.js"
         },
         "blog": false,
         "theme": {
-          "customCss": "/home/user/GitHub/ampache.org-docs/src/css/custom.css"
+          "customCss": "/home/user/AMPACHE/www/ampache.org-docs/src/css/custom.css"
         }
       }
     ]

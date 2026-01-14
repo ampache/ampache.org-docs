@@ -5,7 +5,7 @@ description: "Ampache.org"
 ---
 
 <div class="article">
-<p class="article-p">
+<p class="article-p text--center">
 A web based audio/video streaming application and file manager.<br/>
 Allowing you to access your music &amp; videos from anywhere, using almost any internet enabled device.
 </p>

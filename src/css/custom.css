@@ -96,6 +96,15 @@
   width: 100%;
 }
 
+.article--header {
+  color: #32220f;
+  background-color: #e9e9e9;
+  padding: 12px 12px;
+  display: inline-block;
+  margin-top: 12px;
+  width: 100%;
+}
+
 .article--box {
   color: #32220f;
   background-color: #e9e9e9;
@@ -115,6 +124,16 @@
 
 .article-p {
   margin: 20px;
+}
+
+.icon--150 {
+  height: 150px;
+  align-content: center;
+}
+
+/* Hide header title on page */
+.theme-doc-markdown > header:nth-child(1) > h1:nth-child(1) {
+  display: none;
 }
 
 .margin-right--md,
