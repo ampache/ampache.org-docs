@@ -1,0 +1,27 @@
+{
+  "id": "docs/help/troubleshooting/ampache7-for-admins",
+  "title": "Ampache7 for Admins",
+  "description": "Ampache7 for Admins",
+  "source": "@site/docs/docs/help/troubleshooting/ampache7-for-admins.md",
+  "sourceDirName": "docs/help/troubleshooting",
+  "slug": "/docs/help/troubleshooting/ampache7-for-admins",
+  "permalink": "/docs/help/troubleshooting/ampache7-for-admins",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Ampache7 for Admins",
+    "metaTitle": "Ampache7 for Admins",
+    "description": "Ampache7 for Admins"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Help",
+    "permalink": "/docs/help/"
+  },
+  "next": {
+    "title": "Ampache7 for Users",
+    "permalink": "/docs/help/troubleshooting/ampache7-for-users"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "docs/old-information/mysql-faq",
+  "title": "MySQL8 FAQ",
+  "description": "MySQ8 FAQ",
+  "source": "@site/docs/docs/old-information/mysql-faq.md",
+  "sourceDirName": "docs/old-information",
+  "slug": "/docs/old-information/mysql-faq",
+  "permalink": "/docs/old-information/mysql-faq",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "MySQL8 FAQ",
+    "metaTitle": "MySQL8 FAQ",
+    "description": "MySQ8 FAQ"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Ampache4 Installation",
+    "permalink": "/docs/old-information/installation-v4"
+  },
+  "next": {
+    "title": "Ampache Laravel",
+    "permalink": "/docs/old-information/ampache-laravel-next-generation-preview"
+  }
+}

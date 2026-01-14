@@ -1,0 +1,27 @@
+{
+  "id": "api/api-3/api-3",
+  "title": "API3",
+  "description": "API documentation",
+  "source": "@site/docs/api/api-3/api-3.md",
+  "sourceDirName": "api/api-3",
+  "slug": "/api/api-3/",
+  "permalink": "/api/api-3/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "API3",
+    "metaTitle": "API3",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "API4 Errors",
+    "permalink": "/api/api-4/api-errors"
+  },
+  "next": {
+    "title": "API3 XML",
+    "permalink": "/api/api-3/api-xml-methods"
+  }
+}

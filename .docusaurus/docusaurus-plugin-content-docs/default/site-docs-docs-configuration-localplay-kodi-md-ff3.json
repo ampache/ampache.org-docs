@@ -1,0 +1,27 @@
+{
+  "id": "docs/configuration/localplay/kodi",
+  "title": "XMBC/Kodi Plugin",
+  "description": "Ampache XMBC/Kodi Plugin Overview",
+  "source": "@site/docs/docs/configuration/localplay/kodi.md",
+  "sourceDirName": "docs/configuration/localplay",
+  "slug": "/docs/configuration/localplay/kodi",
+  "permalink": "/docs/configuration/localplay/kodi",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "XMBC/Kodi Plugin",
+    "metaTitle": "XMBC/Kodi Plugin",
+    "description": "Ampache XMBC/Kodi Plugin Overview"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "MPD",
+    "permalink": "/docs/configuration/localplay/mpd"
+  },
+  "next": {
+    "title": "UPNP",
+    "permalink": "/docs/configuration/localplay/upnp"
+  }
+}

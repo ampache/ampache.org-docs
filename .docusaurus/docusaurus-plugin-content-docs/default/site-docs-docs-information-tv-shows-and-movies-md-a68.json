@@ -1,0 +1,18 @@
+{
+  "id": "docs/information/TV-Shows-and-Movies",
+  "title": "TV Shows and Movies",
+  "description": "TV Shows and Movies",
+  "source": "@site/docs/docs/information/TV-Shows-and-Movies.md",
+  "sourceDirName": "docs/information",
+  "slug": "/docs/information/TV-Shows-and-Movies",
+  "permalink": "/docs/information/TV-Shows-and-Movies",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "TV Shows and Movies",
+    "metaTitle": "TV Shows and Movies",
+    "description": "TV Shows and Movies"
+  }
+}

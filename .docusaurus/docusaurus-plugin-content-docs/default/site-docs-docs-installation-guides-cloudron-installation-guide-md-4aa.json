@@ -1,0 +1,27 @@
+{
+  "id": "docs/installation/guides/cloudron-installation-guide",
+  "title": "Cloudron",
+  "description": "Cloudron",
+  "source": "@site/docs/docs/installation/guides/cloudron-installation-guide.md",
+  "sourceDirName": "docs/installation/guides",
+  "slug": "/docs/installation/guides/cloudron-installation-guide",
+  "permalink": "/docs/installation/guides/cloudron-installation-guide",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Cloudron",
+    "metaTitle": "Cloudron",
+    "description": "Cloudron"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Windows Install on IIS7.5",
+    "permalink": "/docs/installation/guides/windows-installation-on-iis7.5-(from-he99)"
+  },
+  "next": {
+    "title": "Basic Configuration",
+    "permalink": "/docs/configuration/"
+  }
+}

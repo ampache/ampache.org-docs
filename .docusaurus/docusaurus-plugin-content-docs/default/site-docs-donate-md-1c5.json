@@ -1,23 +1,27 @@
 {
   "id": "donate",
-  "title": "donate",
-  "description": "",
+  "title": "Donate",
+  "description": "Ampache donation options",
   "source": "@site/docs/donate.md",
   "sourceDirName": ".",
   "slug": "/donate",
-  "permalink": "/docs/donate",
+  "permalink": "/donate",
   "draft": false,
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
+  "frontMatter": {
+    "title": "Donate",
+    "metaTitle": "Donate",
+    "description": "Ampache donation options"
+  },
   "sidebar": "api",
   "previous": {
-    "title": "demo",
-    "permalink": "/docs/demo"
+    "title": "Demo",
+    "permalink": "/demo"
   },
   "next": {
-    "title": "Ampache Wiki",
-    "permalink": "/docs/"
+    "title": "Docker",
+    "permalink": "/docker"
   }
 }

@@ -1,0 +1,27 @@
+{
+  "id": "api/versions/api-4.2/api-4.2",
+  "title": "API4.2",
+  "description": "API documentation",
+  "source": "@site/docs/api/versions/api-4.2/api-4.2.md",
+  "sourceDirName": "api/versions/api-4.2",
+  "slug": "/api/versions/api-4.2/",
+  "permalink": "/api/versions/api-4.2/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "API4.2",
+    "metaTitle": "API4.2",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "advanced_search 4.3",
+    "permalink": "/api/versions/api-4.3/api-advanced-search"
+  },
+  "next": {
+    "title": "XML 4.2",
+    "permalink": "/api/versions/api-4.2/api-xml-methods"
+  }
+}

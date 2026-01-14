@@ -1,0 +1,27 @@
+{
+  "id": "api/browse/podcast_episode-browse",
+  "title": "Podcast Browse",
+  "description": "API documentation",
+  "source": "@site/docs/api/browse/podcast_episode-browse.md",
+  "sourceDirName": "api/browse",
+  "slug": "/api/browse/podcast_episode-browse",
+  "permalink": "/api/browse/podcast_episode-browse",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Podcast Browse",
+    "metaTitle": "Podcast Browse",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Playlist Browse",
+    "permalink": "/api/browse/playlist-browse"
+  },
+  "next": {
+    "title": "Podcast Browse",
+    "permalink": "/api/browse/podcast-browse"
+  }
+}

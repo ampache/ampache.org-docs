@@ -1,0 +1,27 @@
+{
+  "id": "docs/configuration/broadcasts",
+  "title": "Broadcasts",
+  "description": "Ampache Broadcasts",
+  "source": "@site/docs/docs/configuration/broadcasts.md",
+  "sourceDirName": "docs/configuration",
+  "slug": "/docs/configuration/broadcasts",
+  "permalink": "/docs/configuration/broadcasts",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Broadcasts",
+    "metaTitle": "Broadcasts",
+    "description": "Ampache Broadcasts"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Multi Artist support",
+    "permalink": "/docs/configuration/multi-artist"
+  },
+  "next": {
+    "title": "Podcasts",
+    "permalink": "/docs/configuration/podcasts"
+  }
+}

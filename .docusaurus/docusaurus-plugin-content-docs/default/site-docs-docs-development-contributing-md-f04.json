@@ -1,0 +1,27 @@
+{
+  "id": "docs/development/CONTRIBUTING",
+  "title": "Contributing",
+  "description": "Contributing to ampache",
+  "source": "@site/docs/docs/development/CONTRIBUTING.md",
+  "sourceDirName": "docs/development",
+  "slug": "/docs/development/CONTRIBUTING",
+  "permalink": "/docs/development/CONTRIBUTING",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Contributing",
+    "metaTitle": "Contributing",
+    "description": "Contributing to ampache"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "development",
+    "permalink": "/docs/development/"
+  },
+  "next": {
+    "title": "Translations",
+    "permalink": "/docs/development/TRANSLATIONS"
+  }
+}

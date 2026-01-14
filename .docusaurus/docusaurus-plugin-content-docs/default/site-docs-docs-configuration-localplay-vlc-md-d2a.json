@@ -1,0 +1,27 @@
+{
+  "id": "docs/configuration/localplay/vlc",
+  "title": "VLC",
+  "description": "Ampache VLC",
+  "source": "@site/docs/docs/configuration/localplay/vlc.md",
+  "sourceDirName": "docs/configuration/localplay",
+  "slug": "/docs/configuration/localplay/vlc",
+  "permalink": "/docs/configuration/localplay/vlc",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "VLC",
+    "metaTitle": "VLC",
+    "description": "Ampache VLC"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "UPNP",
+    "permalink": "/docs/configuration/localplay/upnp"
+  },
+  "next": {
+    "title": "HttpQ Localplay",
+    "permalink": "/docs/configuration/localplay/httpq"
+  }
+}

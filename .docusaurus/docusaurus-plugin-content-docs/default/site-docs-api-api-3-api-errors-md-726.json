@@ -1,0 +1,27 @@
+{
+  "id": "api/api-3/api-errors",
+  "title": "API3 Errors",
+  "description": "API documentation",
+  "source": "@site/docs/api/api-3/api-errors.md",
+  "sourceDirName": "api/api-3",
+  "slug": "/api/api-3/api-errors",
+  "permalink": "/api/api-3/api-errors",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "API3 Errors",
+    "metaTitle": "API3 Errors",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "API3 XML",
+    "permalink": "/api/api-3/api-xml-methods"
+  },
+  "next": {
+    "title": "Past Releases",
+    "permalink": "/api/versions/"
+  }
+}

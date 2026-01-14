@@ -1,0 +1,27 @@
+{
+  "id": "docs/development/TRANSLATIONS",
+  "title": "Translations",
+  "description": "Ampache Translation Guide",
+  "source": "@site/docs/docs/development/TRANSLATIONS.md",
+  "sourceDirName": "docs/development",
+  "slug": "/docs/development/TRANSLATIONS",
+  "permalink": "/docs/development/TRANSLATIONS",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Translations",
+    "metaTitle": "Translations",
+    "description": "Ampache Translation Guide"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Contributing",
+    "permalink": "/docs/development/CONTRIBUTING"
+  },
+  "next": {
+    "title": "Branch Layout",
+    "permalink": "/docs/development/branch-layout"
+  }
+}

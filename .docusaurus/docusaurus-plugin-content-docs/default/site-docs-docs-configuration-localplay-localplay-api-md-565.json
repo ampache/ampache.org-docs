@@ -1,0 +1,27 @@
+{
+  "id": "docs/configuration/localplay/localplay-api",
+  "title": "Localplay Controller API",
+  "description": "Requirements for building a Localplay controller",
+  "source": "@site/docs/docs/configuration/localplay/localplay-api.md",
+  "sourceDirName": "docs/configuration/localplay",
+  "slug": "/docs/configuration/localplay/localplay-api",
+  "permalink": "/docs/configuration/localplay/localplay-api",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Localplay Controller API",
+    "metaTitle": "Localplay Controller API",
+    "description": "Requirements for building a Localplay controller"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "HttpQ Localplay",
+    "permalink": "/docs/configuration/localplay/httpq"
+  },
+  "next": {
+    "title": "Sample MPD config file",
+    "permalink": "/docs/configuration/localplay/Sample-MPD-Config-For-Ampache"
+  }
+}

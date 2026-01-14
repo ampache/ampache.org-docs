@@ -1,0 +1,27 @@
+{
+  "id": "api/api-advanced-search",
+  "title": "advanced_search",
+  "description": "API documentation",
+  "source": "@site/docs/api/api-advanced-search.md",
+  "sourceDirName": "api",
+  "slug": "/api/api-advanced-search",
+  "permalink": "/api/api-advanced-search",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "advanced_search",
+    "metaTitle": "advanced_search",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Video Browse",
+    "permalink": "/api/browse/video-browse"
+  },
+  "next": {
+    "title": "Song Search",
+    "permalink": "/api/advanced-search/song-advanced-search"
+  }
+}

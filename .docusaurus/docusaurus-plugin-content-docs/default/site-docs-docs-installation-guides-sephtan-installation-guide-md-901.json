@@ -1,0 +1,27 @@
+{
+  "id": "docs/installation/guides/sephtan-installation-guide",
+  "title": "Sephten's Install guide",
+  "description": "Sephten's Install guide",
+  "source": "@site/docs/docs/installation/guides/sephtan-installation-guide.md",
+  "sourceDirName": "docs/installation/guides",
+  "slug": "/docs/installation/guides/sephtan-installation-guide",
+  "permalink": "/docs/installation/guides/sephtan-installation-guide",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Sephten's Install guide",
+    "metaTitle": "Sephten's Install guide",
+    "description": "Sephten's Install guide"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Install Ampache on Xampp",
+    "permalink": "/docs/installation/guides/tutorial-to-install-ampache-on-xampp"
+  },
+  "next": {
+    "title": "Windows Install on IIS7.5",
+    "permalink": "/docs/installation/guides/windows-installation-on-iis7.5-(from-he99)"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "docs/clients/demo-server",
+  "title": "Demo Servers",
+  "description": "Ampache Demo Servers",
+  "source": "@site/docs/docs/clients/demo-server.md",
+  "sourceDirName": "docs/clients",
+  "slug": "/docs/clients/demo-server",
+  "permalink": "/docs/clients/demo-server",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Demo Servers",
+    "metaTitle": "Demo Servers",
+    "description": "Ampache Demo Servers"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "API Clients",
+    "permalink": "/docs/clients/api"
+  },
+  "next": {
+    "title": "Ampache Plugins",
+    "permalink": "/docs/plugins/"
+  }
+}

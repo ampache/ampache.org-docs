@@ -1,0 +1,27 @@
+{
+  "id": "docs/configuration/localplay/httpq",
+  "title": "HttpQ Localplay",
+  "description": "Ampache HttpQ Localplay",
+  "source": "@site/docs/docs/configuration/localplay/httpq.md",
+  "sourceDirName": "docs/configuration/localplay",
+  "slug": "/docs/configuration/localplay/httpq",
+  "permalink": "/docs/configuration/localplay/httpq",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "HttpQ Localplay",
+    "metaTitle": "HttpQ Localplay",
+    "description": "Ampache HttpQ Localplay"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "VLC",
+    "permalink": "/docs/configuration/localplay/vlc"
+  },
+  "next": {
+    "title": "Localplay Controller API",
+    "permalink": "/docs/configuration/localplay/localplay-api"
+  }
+}

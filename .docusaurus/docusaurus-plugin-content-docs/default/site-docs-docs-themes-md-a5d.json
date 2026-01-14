@@ -1,0 +1,27 @@
+{
+  "id": "docs/themes",
+  "title": "Themes",
+  "description": "Ampache Themes",
+  "source": "@site/docs/docs/themes.md",
+  "sourceDirName": "docs",
+  "slug": "/docs/themes",
+  "permalink": "/docs/themes",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Themes",
+    "metaTitle": "Themes",
+    "description": "Ampache Themes"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Writing Plugins",
+    "permalink": "/docs/plugins/writing-plugins"
+  },
+  "next": {
+    "title": "development",
+    "permalink": "/docs/development/"
+  }
+}

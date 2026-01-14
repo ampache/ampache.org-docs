@@ -1,0 +1,27 @@
+{
+  "id": "docs/clients/api",
+  "title": "API Clients",
+  "description": "Ampache API Clients",
+  "source": "@site/docs/docs/clients/api.md",
+  "sourceDirName": "docs/clients",
+  "slug": "/docs/clients/api",
+  "permalink": "/docs/clients/api",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "API Clients",
+    "metaTitle": "API Clients",
+    "description": "Ampache API Clients"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Clients",
+    "permalink": "/docs/clients/"
+  },
+  "next": {
+    "title": "Demo Servers",
+    "permalink": "/docs/clients/demo-server"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "api/versions/api-4.1/xml-methods",
+  "title": "XML 4.1",
+  "description": "API documentation",
+  "source": "@site/docs/api/versions/api-4.1/xml-methods.md",
+  "sourceDirName": "api/versions/api-4.1",
+  "slug": "/api/versions/api-4.1/xml-methods",
+  "permalink": "/api/versions/api-4.1/xml-methods",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "XML 4.1",
+    "metaTitle": "XML 4.1",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "API4.1",
+    "permalink": "/api/versions/api-4.1/"
+  },
+  "next": {
+    "title": "Links",
+    "permalink": "/links"
+  }
+}

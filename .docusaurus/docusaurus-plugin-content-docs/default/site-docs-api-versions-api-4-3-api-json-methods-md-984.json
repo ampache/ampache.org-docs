@@ -1,0 +1,27 @@
+{
+  "id": "api/versions/api-4.3/api-json-methods",
+  "title": "JSON 4.3",
+  "description": "API documentation",
+  "source": "@site/docs/api/versions/api-4.3/api-json-methods.md",
+  "sourceDirName": "api/versions/api-4.3",
+  "slug": "/api/versions/api-4.3/api-json-methods",
+  "permalink": "/api/versions/api-4.3/api-json-methods",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "JSON 4.3",
+    "metaTitle": "JSON 4.3",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "XML 4.3",
+    "permalink": "/api/versions/api-4.3/api-xml-methods"
+  },
+  "next": {
+    "title": "Errors 4.3",
+    "permalink": "/api/versions/api-4.3/api-errors"
+  }
+}

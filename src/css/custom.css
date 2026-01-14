@@ -54,7 +54,7 @@
 }
 
 .footer {
-  background-color: #0b333f;
+  background-color: #efca1b;
 }
 
 .navbar__title {
@@ -78,6 +78,17 @@
 .display--flex {
   display:flex;
   gap:12px;
+}
+
+.article {
+  color: #32220f;
+  background-color: #f8ac4c;
+  padding: 12px 12px;
+  display: inline-block;
+}
+
+.article-p {
+  margin: 20px;
 }
 
 .margin-right--md,

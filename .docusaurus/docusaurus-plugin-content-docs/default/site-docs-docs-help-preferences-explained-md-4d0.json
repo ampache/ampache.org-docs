@@ -1,0 +1,18 @@
+{
+  "id": "docs/help/preferences-explained",
+  "title": "Preferences",
+  "description": "Understanding Ampache Preferences",
+  "source": "@site/docs/docs/help/preferences-explained.md",
+  "sourceDirName": "docs/help",
+  "slug": "/docs/help/preferences-explained",
+  "permalink": "/docs/help/preferences-explained",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Preferences",
+    "metaTitle": "Preferences",
+    "description": "Understanding Ampache Preferences"
+  }
+}

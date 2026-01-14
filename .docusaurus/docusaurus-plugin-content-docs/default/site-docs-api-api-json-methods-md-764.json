@@ -1,0 +1,27 @@
+{
+  "id": "api/api-json-methods",
+  "title": "JSON Methods",
+  "description": "API documentation",
+  "source": "@site/docs/api/api-json-methods.md",
+  "sourceDirName": "api",
+  "slug": "/api/api-json-methods",
+  "permalink": "/api/api-json-methods",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "JSON Methods",
+    "metaTitle": "JSON Methods",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "XML Methods",
+    "permalink": "/api/api-xml-methods"
+  },
+  "next": {
+    "title": "Errors",
+    "permalink": "/api/api-errors"
+  }
+}

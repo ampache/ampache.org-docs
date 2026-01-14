@@ -1,0 +1,27 @@
+{
+  "id": "api/api-standards",
+  "title": "Standards",
+  "description": "API documentation",
+  "source": "@site/docs/api/api-standards.md",
+  "sourceDirName": "api",
+  "slug": "/api/api-standards",
+  "permalink": "/api/api-standards",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Standards",
+    "metaTitle": "Standards",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Ampache API",
+    "permalink": "/api/"
+  },
+  "next": {
+    "title": "XML Methods",
+    "permalink": "/api/api-xml-methods"
+  }
+}

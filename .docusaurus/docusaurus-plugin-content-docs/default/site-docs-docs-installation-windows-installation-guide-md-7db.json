@@ -1,0 +1,27 @@
+{
+  "id": "docs/installation/windows-installation-guide",
+  "title": "Windows Installation Guide",
+  "description": "Windows Installation Guide",
+  "source": "@site/docs/docs/installation/windows-installation-guide.md",
+  "sourceDirName": "docs/installation",
+  "slug": "/docs/installation/windows-installation-guide",
+  "permalink": "/docs/installation/windows-installation-guide",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Windows Installation Guide",
+    "metaTitle": "Windows Installation Guide",
+    "description": "Windows Installation Guide"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Install on Ubuntu 22.04",
+    "permalink": "/docs/installation/install-ampache-on-ubuntu2204"
+  },
+  "next": {
+    "title": "User Guides",
+    "permalink": "/docs/installation/guides/"
+  }
+}

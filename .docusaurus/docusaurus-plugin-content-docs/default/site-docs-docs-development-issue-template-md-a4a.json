@@ -1,0 +1,27 @@
+{
+  "id": "docs/development/issue-template",
+  "title": "Issues",
+  "description": "Issues",
+  "source": "@site/docs/docs/development/issue-template.md",
+  "sourceDirName": "docs/development",
+  "slug": "/docs/development/issue-template",
+  "permalink": "/docs/development/issue-template",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Issues",
+    "metaTitle": "Issues",
+    "description": "Issues"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Branch Layout",
+    "permalink": "/docs/development/branch-layout"
+  },
+  "next": {
+    "title": "Enhancement Requests",
+    "permalink": "/docs/development/enhancement-requests"
+  }
+}

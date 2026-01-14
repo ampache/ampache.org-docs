@@ -1,0 +1,27 @@
+{
+  "id": "docs/configuration/localplay/mpd",
+  "title": "MPD",
+  "description": "Ampache MPD",
+  "source": "@site/docs/docs/configuration/localplay/mpd.md",
+  "sourceDirName": "docs/configuration/localplay",
+  "slug": "/docs/configuration/localplay/mpd",
+  "permalink": "/docs/configuration/localplay/mpd",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "MPD",
+    "metaTitle": "MPD",
+    "description": "Ampache MPD"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Localplay",
+    "permalink": "/docs/configuration/localplay/"
+  },
+  "next": {
+    "title": "XMBC/Kodi Plugin",
+    "permalink": "/docs/configuration/localplay/kodi"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "api/advanced-search/label-advanced-search",
+  "title": "Label Search",
+  "description": "API documentation",
+  "source": "@site/docs/api/advanced-search/label-advanced-search.md",
+  "sourceDirName": "api/advanced-search",
+  "slug": "/api/advanced-search/label-advanced-search",
+  "permalink": "/api/advanced-search/label-advanced-search",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Label Search",
+    "metaTitle": "Label Search",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Artist Search",
+    "permalink": "/api/advanced-search/artist-advanced-search"
+  },
+  "next": {
+    "title": "Playlist Search",
+    "permalink": "/api/advanced-search/playlist-advanced-search"
+  }
+}

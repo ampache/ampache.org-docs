@@ -1,322 +1,650 @@
 {
-  "/docs/-cdf": {
+  "/-d3c": {
     "__comp": "5e95c892",
     "__context": {
       "plugin": "aba21aa0"
     }
   },
-  "/docs/-6eb": {
+  "/-f18": {
     "__comp": "a7bd4aaa",
-    "__props": "11b43341"
+    "__props": "22dd74f7"
   },
-  "/docs/-a96": {
+  "/-cdb": {
     "__comp": "a94703ab"
   },
-  "/docs/clients/-f5f": {
+  "/api/-e54": {
     "__comp": "17896441",
-    "content": "52a48e36"
+    "content": "5e8c322a"
   },
-  "/docs/clients/api-73a": {
+  "/api/advanced-search/album-advanced-search-8ba": {
     "__comp": "17896441",
-    "content": "9ec43005"
+    "content": "e582c257"
   },
-  "/docs/clients/demo-server-b4b": {
+  "/api/advanced-search/artist-advanced-search-6ad": {
     "__comp": "17896441",
-    "content": "11bc6420"
+    "content": "ad1b31bf"
   },
-  "/docs/configuration/-61d": {
+  "/api/advanced-search/genre-advanced-search-31c": {
     "__comp": "17896441",
-    "content": "8abe7791"
+    "content": "72951159"
   },
-  "/docs/configuration/acl-e12": {
+  "/api/advanced-search/label-advanced-search-77d": {
     "__comp": "17896441",
-    "content": "f59d5890"
+    "content": "f341ae6d"
   },
-  "/docs/configuration/Ampache-Icecast-and-Liquidsoap-836": {
+  "/api/advanced-search/playlist-advanced-search-fde": {
     "__comp": "17896441",
-    "content": "091b5cbf"
+    "content": "153df6b6"
   },
-  "/docs/configuration/api-fab": {
+  "/api/advanced-search/podcast-advanced-search-d84": {
     "__comp": "17896441",
-    "content": "b05e33b4"
+    "content": "e779f320"
   },
-  "/docs/configuration/broadcasts-f42": {
+  "/api/advanced-search/podcast-episode-advanced-search-94f": {
     "__comp": "17896441",
-    "content": "36ce385c"
+    "content": "dee69afc"
   },
-  "/docs/configuration/catalog-filters-902": {
+  "/api/advanced-search/song-advanced-search-e4c": {
     "__comp": "17896441",
-    "content": "2a7c3e0c"
+    "content": "81d7065b"
   },
-  "/docs/configuration/cron-2d8": {
+  "/api/advanced-search/user-advanced-search-b3f": {
     "__comp": "17896441",
-    "content": "e233df1a"
+    "content": "e35948a5"
   },
-  "/docs/configuration/democratic-a3d": {
+  "/api/advanced-search/video-advanced-search-a9e": {
     "__comp": "17896441",
-    "content": "fed49c30"
+    "content": "6d0d11be"
   },
-  "/docs/configuration/ldap-2d9": {
+  "/api/api-3/-36a": {
     "__comp": "17896441",
-    "content": "029ad4e6"
+    "content": "a30617b3"
   },
-  "/docs/configuration/localplay/-d6b": {
+  "/api/api-3/api-errors-07e": {
     "__comp": "17896441",
-    "content": "9b649abe"
+    "content": "726f033e"
   },
-  "/docs/configuration/localplay/HttpQ-d4f": {
+  "/api/api-3/api-xml-methods-044": {
     "__comp": "17896441",
-    "content": "e83ba5cd"
+    "content": "f1ca8204"
   },
-  "/docs/configuration/localplay/Kodi-7bd": {
+  "/api/api-4/-c61": {
     "__comp": "17896441",
-    "content": "fad46341"
+    "content": "dd63b8e6"
   },
-  "/docs/configuration/localplay/Localplay-API-d0b": {
+  "/api/api-4/api-errors-062": {
     "__comp": "17896441",
-    "content": "64836709"
+    "content": "728e62bf"
   },
-  "/docs/configuration/localplay/mpd-a92": {
+  "/api/api-4/api-json-methods-646": {
     "__comp": "17896441",
-    "content": "18e47e35"
+    "content": "93451503"
   },
-  "/docs/configuration/localplay/MPD-With-ALSA-Config-510": {
+  "/api/api-4/api-xml-methods-51e": {
     "__comp": "17896441",
-    "content": "4e54095b"
+    "content": "6b0862e0"
   },
-  "/docs/configuration/localplay/Sample-Config-With-ALSA-and-Raspberry-PI-ef5": {
+  "/api/api-5/-2df": {
     "__comp": "17896441",
-    "content": "4eccf0e0"
+    "content": "86f316e8"
   },
-  "/docs/configuration/localplay/Sample-MPD-Config-For-Ampache-bca": {
+  "/api/api-5/api-advanced-search-2b0": {
     "__comp": "17896441",
-    "content": "598d26d5"
+    "content": "bb078ad8"
   },
-  "/docs/configuration/localplay/Upnp-861": {
+  "/api/api-5/api-errors-874": {
     "__comp": "17896441",
-    "content": "35d1b03f"
+    "content": "649ee774"
   },
-  "/docs/configuration/localplay/VLC-e61": {
+  "/api/api-5/api-json-methods-a92": {
     "__comp": "17896441",
-    "content": "c9efbeb3"
+    "content": "d243ae8e"
   },
-  "/docs/configuration/multi-artist-dfb": {
+  "/api/api-5/api-standards-2b7": {
     "__comp": "17896441",
-    "content": "000f1320"
+    "content": "7bad711c"
   },
-  "/docs/configuration/podcasts-148": {
+  "/api/api-5/api-xml-methods-d3b": {
     "__comp": "17896441",
-    "content": "f3b246e3"
+    "content": "0cc0f53b"
   },
-  "/docs/configuration/remote-catalogs-559": {
+  "/api/api-acls-2b4": {
     "__comp": "17896441",
-    "content": "40bb1502"
+    "content": "4a8e428f"
   },
-  "/docs/configuration/services-8aa": {
+  "/api/api-advanced-search-b41": {
     "__comp": "17896441",
-    "content": "b9cb708a"
+    "content": "af712281"
   },
-  "/docs/configuration/subsonic-2fd": {
+  "/api/api-browse-2e9": {
     "__comp": "17896441",
-    "content": "a74b18a7"
+    "content": "d4274c0f"
   },
-  "/docs/configuration/transcoding/-a5e": {
+  "/api/api-changelog-cac": {
     "__comp": "17896441",
-    "content": "e9855d2d"
+    "content": "8f881495"
   },
-  "/docs/configuration/transcoding/Transcode-Caching-c18": {
+  "/api/api-errors-234": {
     "__comp": "17896441",
-    "content": "f7568650"
+    "content": "4fe6f5f6"
   },
-  "/docs/demo-904": {
+  "/api/api-examples-c2f": {
+    "__comp": "17896441",
+    "content": "0c2cabae"
+  },
+  "/api/api-json-methods-d4e": {
+    "__comp": "17896441",
+    "content": "7648e83e"
+  },
+  "/api/api-media-methods-fee": {
+    "__comp": "17896441",
+    "content": "88a3a317"
+  },
+  "/api/api-standards-bbb": {
+    "__comp": "17896441",
+    "content": "0fe4a661"
+  },
+  "/api/api-xml-methods-736": {
+    "__comp": "17896441",
+    "content": "377cc410"
+  },
+  "/api/browse/album-browse-0cd": {
+    "__comp": "17896441",
+    "content": "7516d9ae"
+  },
+  "/api/browse/artist-browse-b52": {
+    "__comp": "17896441",
+    "content": "c8d5bc76"
+  },
+  "/api/browse/catalog-browse-245": {
+    "__comp": "17896441",
+    "content": "92f1878c"
+  },
+  "/api/browse/follower-browse-a9d": {
+    "__comp": "17896441",
+    "content": "8e74b3d1"
+  },
+  "/api/browse/genre-browse-671": {
+    "__comp": "17896441",
+    "content": "a17b0ce7"
+  },
+  "/api/browse/label-browse-97d": {
+    "__comp": "17896441",
+    "content": "cc44bb07"
+  },
+  "/api/browse/license-browse-9ac": {
+    "__comp": "17896441",
+    "content": "2b605e68"
+  },
+  "/api/browse/live_stream-browse-a39": {
+    "__comp": "17896441",
+    "content": "4191441a"
+  },
+  "/api/browse/playlist-browse-c94": {
+    "__comp": "17896441",
+    "content": "b8e5827c"
+  },
+  "/api/browse/podcast_episode-browse-39b": {
+    "__comp": "17896441",
+    "content": "c492016b"
+  },
+  "/api/browse/podcast-browse-6db": {
+    "__comp": "17896441",
+    "content": "32633d9c"
+  },
+  "/api/browse/share-browse-220": {
+    "__comp": "17896441",
+    "content": "5faceae4"
+  },
+  "/api/browse/song-browse-6dd": {
+    "__comp": "17896441",
+    "content": "0f16c47b"
+  },
+  "/api/browse/user-browse-713": {
+    "__comp": "17896441",
+    "content": "3afb41b9"
+  },
+  "/api/browse/video-browse-3f0": {
+    "__comp": "17896441",
+    "content": "c0d04e3d"
+  },
+  "/api/subsonic-e82": {
+    "__comp": "17896441",
+    "content": "b08b5c0a"
+  },
+  "/api/versions/-a8f": {
+    "__comp": "17896441",
+    "content": "d2ad50d3"
+  },
+  "/api/versions/api-4.1/-33d": {
+    "__comp": "17896441",
+    "content": "b9a7d823"
+  },
+  "/api/versions/api-4.1/api-errors-03f": {
+    "__comp": "17896441",
+    "content": "91d4329f"
+  },
+  "/api/versions/api-4.1/xml-methods-0b5": {
+    "__comp": "17896441",
+    "content": "230d481f"
+  },
+  "/api/versions/api-4.2/-034": {
+    "__comp": "17896441",
+    "content": "35335e9d"
+  },
+  "/api/versions/api-4.2/api-advanced-search-dbc": {
+    "__comp": "17896441",
+    "content": "4c4b4646"
+  },
+  "/api/versions/api-4.2/api-errors-27c": {
+    "__comp": "17896441",
+    "content": "026a7e03"
+  },
+  "/api/versions/api-4.2/api-json-methods-91c": {
+    "__comp": "17896441",
+    "content": "977f5244"
+  },
+  "/api/versions/api-4.2/api-xml-methods-eea": {
+    "__comp": "17896441",
+    "content": "55464df1"
+  },
+  "/api/versions/api-4.3/-8a8": {
+    "__comp": "17896441",
+    "content": "09d6c510"
+  },
+  "/api/versions/api-4.3/api-advanced-search-1a3": {
+    "__comp": "17896441",
+    "content": "bb85ad74"
+  },
+  "/api/versions/api-4.3/api-errors-f3e": {
+    "__comp": "17896441",
+    "content": "45e29da0"
+  },
+  "/api/versions/api-4.3/api-json-methods-565": {
+    "__comp": "17896441",
+    "content": "98416ac1"
+  },
+  "/api/versions/api-4.3/api-xml-methods-5dc": {
+    "__comp": "17896441",
+    "content": "6aa70f5e"
+  },
+  "/api/versions/api-5.0/-555": {
+    "__comp": "17896441",
+    "content": "4f1eb2f2"
+  },
+  "/api/versions/api-5.0/api-advanced-search-ff0": {
+    "__comp": "17896441",
+    "content": "7a29e758"
+  },
+  "/api/versions/api-5.0/api-errors-750": {
+    "__comp": "17896441",
+    "content": "b86d3cce"
+  },
+  "/api/versions/api-5.0/api-json-methods-535": {
+    "__comp": "17896441",
+    "content": "8f143521"
+  },
+  "/api/versions/api-5.0/api-standards-ef1": {
+    "__comp": "17896441",
+    "content": "35d81bf3"
+  },
+  "/api/versions/api-5.0/api-xml-methods-30a": {
+    "__comp": "17896441",
+    "content": "97ffc2a0"
+  },
+  "/api/versions/api-5.1/-7af": {
+    "__comp": "17896441",
+    "content": "5ae43e4f"
+  },
+  "/api/versions/api-5.1/api-advanced-search-40e": {
+    "__comp": "17896441",
+    "content": "740b8166"
+  },
+  "/api/versions/api-5.1/api-errors-1c9": {
+    "__comp": "17896441",
+    "content": "0b4a39ad"
+  },
+  "/api/versions/api-5.1/api-json-methods-2d9": {
+    "__comp": "17896441",
+    "content": "2c67137f"
+  },
+  "/api/versions/api-5.1/api-standards-bda": {
+    "__comp": "17896441",
+    "content": "07fa0d17"
+  },
+  "/api/versions/api-5.1/api-xml-methods-365": {
+    "__comp": "17896441",
+    "content": "b28fc128"
+  },
+  "/api/versions/api-6.0/-413": {
+    "__comp": "17896441",
+    "content": "ad97f3fa"
+  },
+  "/api/versions/api-6.0/api-advanced-search-d5d": {
+    "__comp": "17896441",
+    "content": "1dd48972"
+  },
+  "/api/versions/api-6.0/api-errors-8f0": {
+    "__comp": "17896441",
+    "content": "51ac0b87"
+  },
+  "/api/versions/api-6.0/api-json-methods-d27": {
+    "__comp": "17896441",
+    "content": "7cc76459"
+  },
+  "/api/versions/api-6.0/api-standards-3cb": {
+    "__comp": "17896441",
+    "content": "959b5f6c"
+  },
+  "/api/versions/api-6.0/api-xml-methods-ee7": {
+    "__comp": "17896441",
+    "content": "b9e410ca"
+  },
+  "/demo-b90": {
     "__comp": "17896441",
     "content": "74b23640"
   },
-  "/docs/development/-1ed": {
+  "/docker-f8e": {
     "__comp": "17896441",
-    "content": "3bc8a2c6"
+    "content": "93234bd6"
   },
-  "/docs/development/Branch-Layout-384": {
+  "/docs/-29e": {
     "__comp": "17896441",
-    "content": "ac60ceff"
+    "content": "dcc56147"
   },
-  "/docs/development/CONTRIBUTING-3e3": {
+  "/docs/clients/-f32": {
     "__comp": "17896441",
-    "content": "b2ab4693"
+    "content": "af5b4406"
   },
-  "/docs/development/Enhancement-Requests-959": {
+  "/docs/clients/api-01b": {
     "__comp": "17896441",
-    "content": "f4a3874e"
+    "content": "8afd6f4d"
   },
-  "/docs/development/issue-template-144": {
+  "/docs/clients/demo-server-d1a": {
     "__comp": "17896441",
-    "content": "e1ec6575"
+    "content": "7d652b0d"
   },
-  "/docs/development/plugins-8f6": {
+  "/docs/configuration/-454": {
     "__comp": "17896441",
-    "content": "f52e67bc"
+    "content": "7fd176aa"
   },
-  "/docs/development/TRANSLATIONS-caf": {
+  "/docs/configuration/acl-dda": {
     "__comp": "17896441",
-    "content": "8d6a32f0"
+    "content": "edc1634a"
   },
-  "/docs/donate-d90": {
+  "/docs/configuration/Ampache-Icecast-and-Liquidsoap-488": {
+    "__comp": "17896441",
+    "content": "1a859447"
+  },
+  "/docs/configuration/api-637": {
+    "__comp": "17896441",
+    "content": "c67f2713"
+  },
+  "/docs/configuration/broadcasts-ada": {
+    "__comp": "17896441",
+    "content": "65c46765"
+  },
+  "/docs/configuration/catalog-filters-6ad": {
+    "__comp": "17896441",
+    "content": "b0b46158"
+  },
+  "/docs/configuration/cron-cde": {
+    "__comp": "17896441",
+    "content": "5959ebb0"
+  },
+  "/docs/configuration/democratic-256": {
+    "__comp": "17896441",
+    "content": "12286da7"
+  },
+  "/docs/configuration/ldap-041": {
+    "__comp": "17896441",
+    "content": "05f12e68"
+  },
+  "/docs/configuration/localplay/-339": {
+    "__comp": "17896441",
+    "content": "d8451338"
+  },
+  "/docs/configuration/localplay/httpq-278": {
+    "__comp": "17896441",
+    "content": "59c5affa"
+  },
+  "/docs/configuration/localplay/kodi-0ac": {
+    "__comp": "17896441",
+    "content": "ff34b2e1"
+  },
+  "/docs/configuration/localplay/localplay-api-240": {
+    "__comp": "17896441",
+    "content": "56564767"
+  },
+  "/docs/configuration/localplay/mpd-6c3": {
+    "__comp": "17896441",
+    "content": "5e1fe949"
+  },
+  "/docs/configuration/localplay/Sample-Config-With-ALSA-and-Raspberry-PI-b56": {
+    "__comp": "17896441",
+    "content": "4e3818e6"
+  },
+  "/docs/configuration/localplay/Sample-MPD-Config-For-Ampache-a91": {
+    "__comp": "17896441",
+    "content": "cf9e70eb"
+  },
+  "/docs/configuration/localplay/upnp-7fe": {
+    "__comp": "17896441",
+    "content": "a03bb4ab"
+  },
+  "/docs/configuration/localplay/vlc-51a": {
+    "__comp": "17896441",
+    "content": "d2afa365"
+  },
+  "/docs/configuration/multi-artist-beb": {
+    "__comp": "17896441",
+    "content": "01e4a36f"
+  },
+  "/docs/configuration/podcasts-10e": {
+    "__comp": "17896441",
+    "content": "8da5f991"
+  },
+  "/docs/configuration/remote-catalogs-f33": {
+    "__comp": "17896441",
+    "content": "13f476e6"
+  },
+  "/docs/configuration/subsonic-f76": {
+    "__comp": "17896441",
+    "content": "8a3c7085"
+  },
+  "/docs/configuration/transcoding/-227": {
+    "__comp": "17896441",
+    "content": "eadcafc5"
+  },
+  "/docs/configuration/transcoding/transcode-caching-75f": {
+    "__comp": "17896441",
+    "content": "f08334ec"
+  },
+  "/docs/development/-00a": {
+    "__comp": "17896441",
+    "content": "fa9b9a4b"
+  },
+  "/docs/development/branch-layout-2c7": {
+    "__comp": "17896441",
+    "content": "d5e3924e"
+  },
+  "/docs/development/CONTRIBUTING-145": {
+    "__comp": "17896441",
+    "content": "f04d8643"
+  },
+  "/docs/development/enhancement-requests-e9a": {
+    "__comp": "17896441",
+    "content": "766280b4"
+  },
+  "/docs/development/issue-template-97b": {
+    "__comp": "17896441",
+    "content": "a4abf10d"
+  },
+  "/docs/development/TRANSLATIONS-b7d": {
+    "__comp": "17896441",
+    "content": "253abc64"
+  },
+  "/docs/help/-ebf": {
+    "__comp": "17896441",
+    "content": "437948fb"
+  },
+  "/docs/help/import-lastfm-data-906": {
+    "__comp": "17896441",
+    "content": "83c00340"
+  },
+  "/docs/help/preferences-explained-ac8": {
+    "__comp": "17896441",
+    "content": "4d024272"
+  },
+  "/docs/help/troubleshooting/ampache7-for-admins-6f2": {
+    "__comp": "17896441",
+    "content": "94b8516f"
+  },
+  "/docs/help/troubleshooting/ampache7-for-users-c39": {
+    "__comp": "17896441",
+    "content": "805934d5"
+  },
+  "/docs/help/troubleshooting/chart-faq-859": {
+    "__comp": "17896441",
+    "content": "f221d8e3"
+  },
+  "/docs/help/troubleshooting/cli-86f": {
+    "__comp": "17896441",
+    "content": "92f5c44b"
+  },
+  "/docs/help/troubleshooting/faq-a77": {
+    "__comp": "17896441",
+    "content": "37a8d742"
+  },
+  "/docs/help/upload-catalogs-a77": {
+    "__comp": "17896441",
+    "content": "299c14fb"
+  },
+  "/docs/information/-fb1": {
+    "__comp": "17896441",
+    "content": "6e93acd9"
+  },
+  "/docs/information/ampache-use-cases-d6a": {
+    "__comp": "17896441",
+    "content": "1fc41555"
+  },
+  "/docs/information/ampache7-client-structure-install-type-976": {
+    "__comp": "17896441",
+    "content": "feeae3c9"
+  },
+  "/docs/information/TV-Shows-and-Movies-96d": {
+    "__comp": "17896441",
+    "content": "a680a6c4"
+  },
+  "/docs/information/upgrade-69c": {
+    "__comp": "17896441",
+    "content": "2c05c577"
+  },
+  "/docs/information/Web-Interface-2e3": {
+    "__comp": "17896441",
+    "content": "21cebfea"
+  },
+  "/docs/information/web-player-97f": {
+    "__comp": "17896441",
+    "content": "067a7861"
+  },
+  "/docs/information/which-zip-fed": {
+    "__comp": "17896441",
+    "content": "948d7fb8"
+  },
+  "/docs/installation/-bba": {
+    "__comp": "17896441",
+    "content": "1bf865ac"
+  },
+  "/docs/installation/catalog-b3f": {
+    "__comp": "17896441",
+    "content": "aeecb04c"
+  },
+  "/docs/installation/guides/-45f": {
+    "__comp": "17896441",
+    "content": "cca4f788"
+  },
+  "/docs/installation/guides/cloudron-installation-guide-408": {
+    "__comp": "17896441",
+    "content": "4aade0fb"
+  },
+  "/docs/installation/guides/sephtan-installation-guide-fdc": {
+    "__comp": "17896441",
+    "content": "901d16cd"
+  },
+  "/docs/installation/guides/tutorial-to-install-ampache-on-xampp-ed4": {
+    "__comp": "17896441",
+    "content": "b9e3d05a"
+  },
+  "/docs/installation/guides/windows-installation-on-iis7.5-(from-he99)-e06": {
+    "__comp": "17896441",
+    "content": "7126dc4e"
+  },
+  "/docs/installation/install-ampache-on-ubuntu2204-79f": {
+    "__comp": "17896441",
+    "content": "d2fc4b74"
+  },
+  "/docs/installation/windows-installation-guide-e63": {
+    "__comp": "17896441",
+    "content": "7dbfc63e"
+  },
+  "/docs/old-information/-1c4": {
+    "__comp": "17896441",
+    "content": "44277341"
+  },
+  "/docs/old-information/ampache-laravel-next-generation-preview-dcd": {
+    "__comp": "17896441",
+    "content": "cce1fb7f"
+  },
+  "/docs/old-information/ampache5-changes-b48": {
+    "__comp": "17896441",
+    "content": "20cfd3bf"
+  },
+  "/docs/old-information/ampache5-for-users-575": {
+    "__comp": "17896441",
+    "content": "84a903ad"
+  },
+  "/docs/old-information/ampache6-details-878": {
+    "__comp": "17896441",
+    "content": "199e6b3c"
+  },
+  "/docs/old-information/ampache6-for-users-78d": {
+    "__comp": "17896441",
+    "content": "d29cc269"
+  },
+  "/docs/old-information/installation-v4-6d4": {
+    "__comp": "17896441",
+    "content": "346ac758"
+  },
+  "/docs/old-information/mysql-faq-fcf": {
+    "__comp": "17896441",
+    "content": "e3065b78"
+  },
+  "/docs/plugins/-a66": {
+    "__comp": "17896441",
+    "content": "194fe6c3"
+  },
+  "/docs/plugins/writing-plugins-f54": {
+    "__comp": "17896441",
+    "content": "bcc060e0"
+  },
+  "/docs/themes-a24": {
+    "__comp": "17896441",
+    "content": "a5df7bf5"
+  },
+  "/donate-d13": {
     "__comp": "17896441",
     "content": "1c56b476"
   },
-  "/docs/help/-73b": {
+  "/download-f55": {
     "__comp": "17896441",
-    "content": "49639cc1"
+    "content": "f9e23376"
   },
-  "/docs/help/import-lastfm-data-1d8": {
+  "/links-c0e": {
     "__comp": "17896441",
-    "content": "63b7b324"
+    "content": "ff3a37c9"
   },
-  "/docs/help/preferences-explained-6ed": {
-    "__comp": "17896441",
-    "content": "ffd399e8"
-  },
-  "/docs/help/upload-catalogs-7bf": {
-    "__comp": "17896441",
-    "content": "623fdf3e"
-  },
-  "/docs/information/-4e4": {
-    "__comp": "17896441",
-    "content": "b3a1411d"
-  },
-  "/docs/information/ampache-use-cases-d83": {
-    "__comp": "17896441",
-    "content": "958a7a6a"
-  },
-  "/docs/information/multi-artist-57b": {
-    "__comp": "17896441",
-    "content": "9f422441"
-  },
-  "/docs/information/mysql-faq-d1f": {
-    "__comp": "17896441",
-    "content": "23692be6"
-  },
-  "/docs/information/troubleshooting-eff": {
-    "__comp": "17896441",
-    "content": "663f9541"
-  },
-  "/docs/information/troubleshooting/-d83": {
-    "__comp": "17896441",
-    "content": "aea64e99"
-  },
-  "/docs/information/troubleshooting/ampache7-for-admins-6c4": {
-    "__comp": "17896441",
-    "content": "d7f5adea"
-  },
-  "/docs/information/troubleshooting/ampache7-for-users-595": {
-    "__comp": "17896441",
-    "content": "6e41d4a9"
-  },
-  "/docs/information/troubleshooting/chart-faq-205": {
-    "__comp": "17896441",
-    "content": "bf85378b"
-  },
-  "/docs/information/troubleshooting/cli-169": {
-    "__comp": "17896441",
-    "content": "286513d7"
-  },
-  "/docs/information/troubleshooting/faq-df5": {
-    "__comp": "17896441",
-    "content": "264246e2"
-  },
-  "/docs/information/TV-Shows-and-Movies-9bd": {
-    "__comp": "17896441",
-    "content": "bc60e8ac"
-  },
-  "/docs/information/Upgrade-abf": {
-    "__comp": "17896441",
-    "content": "928eb3e5"
-  },
-  "/docs/information/Web-Interface-968": {
-    "__comp": "17896441",
-    "content": "c773e565"
-  },
-  "/docs/information/Web-Player-4ed": {
-    "__comp": "17896441",
-    "content": "a841857e"
-  },
-  "/docs/information/which-zip-460": {
-    "__comp": "17896441",
-    "content": "020e508e"
-  },
-  "/docs/installation/-a44": {
-    "__comp": "17896441",
-    "content": "1e924268"
-  },
-  "/docs/installation/catalog-fde": {
-    "__comp": "17896441",
-    "content": "66a5613f"
-  },
-  "/docs/installation/Cloudron-Installation-Guide-b8d": {
-    "__comp": "17896441",
-    "content": "b10a8933"
-  },
-  "/docs/installation/install-ampache-on-ubuntu2204-89a": {
-    "__comp": "17896441",
-    "content": "472b21cc"
-  },
-  "/docs/installation/Installation-v4-be8": {
-    "__comp": "17896441",
-    "content": "6e8499a6"
-  },
-  "/docs/installation/Sephtan-Installation-Guide-45c": {
-    "__comp": "17896441",
-    "content": "20c03f78"
-  },
-  "/docs/installation/Tutorial-to-install-Ampache-on-Xampp-669": {
-    "__comp": "17896441",
-    "content": "adb13090"
-  },
-  "/docs/installation/Windows-Installation-Guide-1bf": {
-    "__comp": "17896441",
-    "content": "2d59dcfd"
-  },
-  "/docs/installation/Windows-installation-on-IIS7.5-(from-he99)-467": {
-    "__comp": "17896441",
-    "content": "7d63aea4"
-  },
-  "/docs/old-information/-16b": {
-    "__comp": "17896441",
-    "content": "b58b782a"
-  },
-  "/docs/old-information/Ampache-Laravel-Next-Generation-Preview-594": {
-    "__comp": "17896441",
-    "content": "0b2a6ba5"
-  },
-  "/docs/old-information/ampache5-details-08e": {
-    "__comp": "17896441",
-    "content": "a47b5dab"
-  },
-  "/docs/old-information/ampache5-for-users-b24": {
-    "__comp": "17896441",
-    "content": "c20ba22c"
-  },
-  "/docs/old-information/ampache6-details-0a2": {
-    "__comp": "17896441",
-    "content": "d8f6537e"
-  },
-  "/docs/old-information/ampache6-for-users-ce0": {
-    "__comp": "17896441",
-    "content": "ee01087b"
-  },
-  "/docs/plugins/-fbc": {
-    "__comp": "17896441",
-    "content": "e7cdaca4"
-  },
-  "/docs/plugins/writing-plugins-532": {
-    "__comp": "17896441",
-    "content": "e9f57850"
-  },
-  "/docs/themes/-096": {
-    "__comp": "17896441",
-    "content": "3f9f4ad4"
-  },
-  "/docs/-8bd": {
+  "/-928": {
     "__comp": "17896441",
     "content": "c377a04b"
   }

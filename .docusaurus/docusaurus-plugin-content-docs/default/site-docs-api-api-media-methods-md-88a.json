@@ -1,0 +1,27 @@
+{
+  "id": "api/api-media-methods",
+  "title": "Media Methods",
+  "description": "API documentation",
+  "source": "@site/docs/api/api-media-methods.md",
+  "sourceDirName": "api",
+  "slug": "/api/api-media-methods",
+  "permalink": "/api/api-media-methods",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Media Methods",
+    "metaTitle": "Media Methods",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Access Control Lists",
+    "permalink": "/api/api-acls"
+  },
+  "next": {
+    "title": "API Browse methods",
+    "permalink": "/api/api-browse"
+  }
+}

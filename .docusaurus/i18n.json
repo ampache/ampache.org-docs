@@ -14,7 +14,7 @@
       "path": "en",
       "translate": false,
       "url": "https://ampache.org",
-      "baseUrl": "/docs/"
+      "baseUrl": "/"
     }
   }
 }

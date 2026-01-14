@@ -4,8 +4,12 @@ metaTitle: "Ampache"
 description: "Ampache.org"
 ---
 
-A web based audio/video streaming application and file manager.  
-Allowing you to access your music & videos from anywhere, using almost any internet enabled device.
+<div class="article">
+<p class="article-p">
+A web based audio/video streaming application and file manager.<br/>
+Allowing you to access your music &amp; videos from anywhere, using almost any internet enabled device.
+</p>
+</div>
 
 ## Features
 

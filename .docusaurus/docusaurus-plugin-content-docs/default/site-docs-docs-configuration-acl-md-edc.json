@@ -1,0 +1,27 @@
+{
+  "id": "docs/configuration/acl",
+  "title": "Access Control Lists",
+  "description": "Ampache Access Control Lists",
+  "source": "@site/docs/docs/configuration/acl.md",
+  "sourceDirName": "docs/configuration",
+  "slug": "/docs/configuration/acl",
+  "permalink": "/docs/configuration/acl",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Access Control Lists",
+    "metaTitle": "Access Control Lists",
+    "description": "Ampache Access Control Lists"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Basic Configuration",
+    "permalink": "/docs/configuration/"
+  },
+  "next": {
+    "title": "Remote Catalogs",
+    "permalink": "/docs/configuration/remote-catalogs"
+  }
+}

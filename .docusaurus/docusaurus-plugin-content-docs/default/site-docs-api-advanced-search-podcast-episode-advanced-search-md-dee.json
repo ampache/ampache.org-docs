@@ -1,0 +1,27 @@
+{
+  "id": "api/advanced-search/podcast-episode-advanced-search",
+  "title": "Podcast Episode Search",
+  "description": "API documentation",
+  "source": "@site/docs/api/advanced-search/podcast-episode-advanced-search.md",
+  "sourceDirName": "api/advanced-search",
+  "slug": "/api/advanced-search/podcast-episode-advanced-search",
+  "permalink": "/api/advanced-search/podcast-episode-advanced-search",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Podcast Episode Search",
+    "metaTitle": "Podcast Episode Search",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Podcast Search",
+    "permalink": "/api/advanced-search/podcast-advanced-search"
+  },
+  "next": {
+    "title": "User Search",
+    "permalink": "/api/advanced-search/user-advanced-search"
+  }
+}

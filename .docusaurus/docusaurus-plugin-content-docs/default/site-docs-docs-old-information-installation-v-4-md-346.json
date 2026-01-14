@@ -1,0 +1,27 @@
+{
+  "id": "docs/old-information/installation-v4",
+  "title": "Ampache4 Installation",
+  "description": "Ampache4 Installation",
+  "source": "@site/docs/docs/old-information/installation-v4.md",
+  "sourceDirName": "docs/old-information",
+  "slug": "/docs/old-information/installation-v4",
+  "permalink": "/docs/old-information/installation-v4",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Ampache4 Installation",
+    "metaTitle": "Ampache4 Installation",
+    "description": "Ampache4 Installation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Ampache5 for Users",
+    "permalink": "/docs/old-information/ampache5-for-users"
+  },
+  "next": {
+    "title": "MySQL8 FAQ",
+    "permalink": "/docs/old-information/mysql-faq"
+  }
+}

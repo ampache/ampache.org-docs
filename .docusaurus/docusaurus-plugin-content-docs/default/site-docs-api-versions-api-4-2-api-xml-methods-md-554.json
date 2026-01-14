@@ -1,0 +1,27 @@
+{
+  "id": "api/versions/api-4.2/api-xml-methods",
+  "title": "XML 4.2",
+  "description": "API documentation",
+  "source": "@site/docs/api/versions/api-4.2/api-xml-methods.md",
+  "sourceDirName": "api/versions/api-4.2",
+  "slug": "/api/versions/api-4.2/api-xml-methods",
+  "permalink": "/api/versions/api-4.2/api-xml-methods",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "XML 4.2",
+    "metaTitle": "XML 4.2",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "API4.2",
+    "permalink": "/api/versions/api-4.2/"
+  },
+  "next": {
+    "title": "JSON 4.2",
+    "permalink": "/api/versions/api-4.2/api-json-methods"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "docs/configuration/democratic",
+  "title": "Democratic Play",
+  "description": "Ampache Democratic Play",
+  "source": "@site/docs/docs/configuration/democratic.md",
+  "sourceDirName": "docs/configuration",
+  "slug": "/docs/configuration/democratic",
+  "permalink": "/docs/configuration/democratic",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Democratic Play",
+    "metaTitle": "Democratic Play",
+    "description": "Ampache Democratic Play"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Private Catalogs",
+    "permalink": "/docs/configuration/catalog-filters"
+  },
+  "next": {
+    "title": "Ampache + Icecast & Liquidsoap",
+    "permalink": "/docs/configuration/Ampache-Icecast-and-Liquidsoap"
+  }
+}

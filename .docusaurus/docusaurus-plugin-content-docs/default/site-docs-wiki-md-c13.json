@@ -1,0 +1,23 @@
+{
+  "id": "wiki",
+  "title": "Ampache Wiki",
+  "description": "Ampache is",
+  "source": "@site/docs/wiki.md",
+  "sourceDirName": ".",
+  "slug": "/wiki",
+  "permalink": "/docs/wiki",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "api",
+  "previous": {
+    "title": "donate",
+    "permalink": "/docs/donate"
+  },
+  "next": {
+    "title": "Ampache Use Cases",
+    "permalink": "/docs/information/ampache-use-cases"
+  }
+}

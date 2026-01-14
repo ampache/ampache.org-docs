@@ -1,0 +1,27 @@
+{
+  "id": "docs/configuration/configuration",
+  "title": "Basic Configuration",
+  "description": "Ampache Basic Configuration",
+  "source": "@site/docs/docs/configuration/configuration.md",
+  "sourceDirName": "docs/configuration",
+  "slug": "/docs/configuration/",
+  "permalink": "/docs/configuration/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Basic Configuration",
+    "metaTitle": "Basic Configuration",
+    "description": "Ampache Basic Configuration"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Cloudron",
+    "permalink": "/docs/installation/guides/cloudron-installation-guide"
+  },
+  "next": {
+    "title": "Basic Configuration",
+    "permalink": "/docs/configuration/"
+  }
+}

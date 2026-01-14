@@ -1,0 +1,27 @@
+{
+  "id": "docs/old-information/ampache5-changes",
+  "title": "Ampache5 for Admins",
+  "description": "Ampache5 for Admins",
+  "source": "@site/docs/docs/old-information/ampache5-changes.md",
+  "sourceDirName": "docs/old-information",
+  "slug": "/docs/old-information/ampache5-changes",
+  "permalink": "/docs/old-information/ampache5-changes",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Ampache5 for Admins",
+    "metaTitle": "Ampache5 for Admins",
+    "description": "Ampache5 for Admins"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Ampache6 for Users",
+    "permalink": "/docs/old-information/ampache6-for-users"
+  },
+  "next": {
+    "title": "Ampache5 for Users",
+    "permalink": "/docs/old-information/ampache5-for-users"
+  }
+}

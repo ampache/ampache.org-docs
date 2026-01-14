@@ -1,0 +1,27 @@
+{
+  "id": "api/api-xml-methods",
+  "title": "XML Methods",
+  "description": "API documentation",
+  "source": "@site/docs/api/api-xml-methods.md",
+  "sourceDirName": "api",
+  "slug": "/api/api-xml-methods",
+  "permalink": "/api/api-xml-methods",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "XML Methods",
+    "metaTitle": "XML Methods",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Standards",
+    "permalink": "/api/api-standards"
+  },
+  "next": {
+    "title": "JSON Methods",
+    "permalink": "/api/api-json-methods"
+  }
+}

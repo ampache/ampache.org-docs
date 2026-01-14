@@ -1,0 +1,27 @@
+{
+  "id": "api/versions/versions",
+  "title": "Past Releases",
+  "description": "API documentation",
+  "source": "@site/docs/api/versions/versions.md",
+  "sourceDirName": "api/versions",
+  "slug": "/api/versions/",
+  "permalink": "/api/versions/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Past Releases",
+    "metaTitle": "Past Releases",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "API3 Errors",
+    "permalink": "/api/api-3/api-errors"
+  },
+  "next": {
+    "title": "API6.0",
+    "permalink": "/api/versions/api-6.0/"
+  }
+}

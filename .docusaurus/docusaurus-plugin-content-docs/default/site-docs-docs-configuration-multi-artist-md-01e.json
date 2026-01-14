@@ -1,0 +1,27 @@
+{
+  "id": "docs/configuration/multi-artist",
+  "title": "Multi Artist support",
+  "description": "Ampache and Multi Artist support",
+  "source": "@site/docs/docs/configuration/multi-artist.md",
+  "sourceDirName": "docs/configuration",
+  "slug": "/docs/configuration/multi-artist",
+  "permalink": "/docs/configuration/multi-artist",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Multi Artist support",
+    "metaTitle": "Multi Artist support",
+    "description": "Ampache and Multi Artist support"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Ampache + Icecast & Liquidsoap",
+    "permalink": "/docs/configuration/Ampache-Icecast-and-Liquidsoap"
+  },
+  "next": {
+    "title": "Broadcasts",
+    "permalink": "/docs/configuration/broadcasts"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "api/browse/user-browse",
+  "title": "User Browse",
+  "description": "API documentation",
+  "source": "@site/docs/api/browse/user-browse.md",
+  "sourceDirName": "api/browse",
+  "slug": "/api/browse/user-browse",
+  "permalink": "/api/browse/user-browse",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "User Browse",
+    "metaTitle": "User Browse",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Song Browse",
+    "permalink": "/api/browse/song-browse"
+  },
+  "next": {
+    "title": "Video Browse",
+    "permalink": "/api/browse/video-browse"
+  }
+}

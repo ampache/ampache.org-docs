@@ -1,0 +1,27 @@
+{
+  "id": "docs/configuration/localplay/localplay",
+  "title": "Localplay",
+  "description": "Ampache Localplay",
+  "source": "@site/docs/docs/configuration/localplay/localplay.md",
+  "sourceDirName": "docs/configuration/localplay",
+  "slug": "/docs/configuration/localplay/",
+  "permalink": "/docs/configuration/localplay/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Localplay",
+    "metaTitle": "Localplay",
+    "description": "Ampache Localplay"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Cron",
+    "permalink": "/docs/configuration/cron"
+  },
+  "next": {
+    "title": "MPD",
+    "permalink": "/docs/configuration/localplay/mpd"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "docs/installation/catalog",
+  "title": "Creating a Catalog",
+  "description": "Creating a Catalog",
+  "source": "@site/docs/docs/installation/catalog.md",
+  "sourceDirName": "docs/installation",
+  "slug": "/docs/installation/catalog",
+  "permalink": "/docs/installation/catalog",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Creating a Catalog",
+    "metaTitle": "Creating a Catalog",
+    "description": "Creating a Catalog"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Installing Ampache",
+    "permalink": "/docs/installation/"
+  },
+  "next": {
+    "title": "Install on Ubuntu 22.04",
+    "permalink": "/docs/installation/install-ampache-on-ubuntu2204"
+  }
+}

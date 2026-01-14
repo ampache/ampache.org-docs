@@ -1,0 +1,27 @@
+{
+  "id": "api/browse/follower-browse",
+  "title": "Follower Browse",
+  "description": "API documentation",
+  "source": "@site/docs/api/browse/follower-browse.md",
+  "sourceDirName": "api/browse",
+  "slug": "/api/browse/follower-browse",
+  "permalink": "/api/browse/follower-browse",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Follower Browse",
+    "metaTitle": "Follower Browse",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Catalog Browse",
+    "permalink": "/api/browse/catalog-browse"
+  },
+  "next": {
+    "title": "Genre Browse",
+    "permalink": "/api/browse/genre-browse"
+  }
+}

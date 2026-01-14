@@ -1,0 +1,27 @@
+{
+  "id": "docs/configuration/ldap",
+  "title": "LDAP",
+  "description": "Ampache and LDAP",
+  "source": "@site/docs/docs/configuration/ldap.md",
+  "sourceDirName": "docs/configuration",
+  "slug": "/docs/configuration/ldap",
+  "permalink": "/docs/configuration/ldap",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "LDAP",
+    "metaTitle": "LDAP",
+    "description": "Ampache and LDAP"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Remote Catalogs",
+    "permalink": "/docs/configuration/remote-catalogs"
+  },
+  "next": {
+    "title": "Ampache API",
+    "permalink": "/docs/configuration/api"
+  }
+}

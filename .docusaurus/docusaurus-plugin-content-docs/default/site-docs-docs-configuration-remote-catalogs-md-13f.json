@@ -1,0 +1,27 @@
+{
+  "id": "docs/configuration/remote-catalogs",
+  "title": "Remote Catalogs",
+  "description": "Ampache Remote Catalogs",
+  "source": "@site/docs/docs/configuration/remote-catalogs.md",
+  "sourceDirName": "docs/configuration",
+  "slug": "/docs/configuration/remote-catalogs",
+  "permalink": "/docs/configuration/remote-catalogs",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Remote Catalogs",
+    "metaTitle": "Remote Catalogs",
+    "description": "Ampache Remote Catalogs"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Access Control Lists",
+    "permalink": "/docs/configuration/acl"
+  },
+  "next": {
+    "title": "LDAP",
+    "permalink": "/docs/configuration/ldap"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "api/browse/album-browse",
+  "title": "Album Browse",
+  "description": "API documentation",
+  "source": "@site/docs/api/browse/album-browse.md",
+  "sourceDirName": "api/browse",
+  "slug": "/api/browse/album-browse",
+  "permalink": "/api/browse/album-browse",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Album Browse",
+    "metaTitle": "Album Browse",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "API Browse methods",
+    "permalink": "/api/api-browse"
+  },
+  "next": {
+    "title": "Artist Browse",
+    "permalink": "/api/browse/artist-browse"
+  }
+}

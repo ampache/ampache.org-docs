@@ -1,0 +1,27 @@
+{
+  "id": "docs/installation/guides/windows-installation-on-iis7.5-(from-he99)",
+  "title": "Windows Install on IIS7.5",
+  "description": "Windows Install on IIS7.5",
+  "source": "@site/docs/docs/installation/guides/windows-installation-on-iis7.5-(from-he99).md",
+  "sourceDirName": "docs/installation/guides",
+  "slug": "/docs/installation/guides/windows-installation-on-iis7.5-(from-he99)",
+  "permalink": "/docs/installation/guides/windows-installation-on-iis7.5-(from-he99)",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Windows Install on IIS7.5",
+    "metaTitle": "Windows Install on IIS7.5",
+    "description": "Windows Install on IIS7.5"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Sephten's Install guide",
+    "permalink": "/docs/installation/guides/sephtan-installation-guide"
+  },
+  "next": {
+    "title": "Cloudron",
+    "permalink": "/docs/installation/guides/cloudron-installation-guide"
+  }
+}

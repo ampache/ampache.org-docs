@@ -1,0 +1,27 @@
+{
+  "id": "docs/help/troubleshooting/chart-faq",
+  "title": "Charts and Graphs",
+  "description": "Charts and Graphs in Ampache",
+  "source": "@site/docs/docs/help/troubleshooting/chart-faq.md",
+  "sourceDirName": "docs/help/troubleshooting",
+  "slug": "/docs/help/troubleshooting/chart-faq",
+  "permalink": "/docs/help/troubleshooting/chart-faq",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Charts and Graphs",
+    "metaTitle": "Charts and Graphs",
+    "description": "Charts and Graphs in Ampache"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Frequently Asked Questions",
+    "permalink": "/docs/help/troubleshooting/faq"
+  },
+  "next": {
+    "title": "old-information",
+    "permalink": "/docs/old-information/"
+  }
+}

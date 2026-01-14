@@ -1,0 +1,27 @@
+{
+  "id": "docs/installation/install-ampache-on-ubuntu2204",
+  "title": "Install on Ubuntu 22.04",
+  "description": "Install on Ubuntu 22.04",
+  "source": "@site/docs/docs/installation/install-ampache-on-ubuntu2204.md",
+  "sourceDirName": "docs/installation",
+  "slug": "/docs/installation/install-ampache-on-ubuntu2204",
+  "permalink": "/docs/installation/install-ampache-on-ubuntu2204",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Install on Ubuntu 22.04",
+    "metaTitle": "Install on Ubuntu 22.04",
+    "description": "Install on Ubuntu 22.04"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Creating a Catalog",
+    "permalink": "/docs/installation/catalog"
+  },
+  "next": {
+    "title": "Windows Installation Guide",
+    "permalink": "/docs/installation/windows-installation-guide"
+  }
+}

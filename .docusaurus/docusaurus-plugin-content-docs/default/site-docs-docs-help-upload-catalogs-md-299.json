@@ -1,0 +1,18 @@
+{
+  "id": "docs/help/upload-catalogs",
+  "title": "Upload Catalogs",
+  "description": "Managing Upload Catalogs",
+  "source": "@site/docs/docs/help/upload-catalogs.md",
+  "sourceDirName": "docs/help",
+  "slug": "/docs/help/upload-catalogs",
+  "permalink": "/docs/help/upload-catalogs",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Upload Catalogs",
+    "metaTitle": "Upload Catalogs",
+    "description": "Managing Upload Catalogs"
+  }
+}

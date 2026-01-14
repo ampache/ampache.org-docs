@@ -1,0 +1,27 @@
+{
+  "id": "api/advanced-search/playlist-advanced-search",
+  "title": "Playlist Search",
+  "description": "API documentation",
+  "source": "@site/docs/api/advanced-search/playlist-advanced-search.md",
+  "sourceDirName": "api/advanced-search",
+  "slug": "/api/advanced-search/playlist-advanced-search",
+  "permalink": "/api/advanced-search/playlist-advanced-search",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Playlist Search",
+    "metaTitle": "Playlist Search",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Label Search",
+    "permalink": "/api/advanced-search/label-advanced-search"
+  },
+  "next": {
+    "title": "Podcast Search",
+    "permalink": "/api/advanced-search/podcast-advanced-search"
+  }
+}

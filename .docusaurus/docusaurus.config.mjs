@@ -4,10 +4,10 @@
  * Modify the docusaurus.config.js file at your site's root instead.
  */
 export default {
-  "title": "Ampache Wiki",
+  "title": "Ampache",
   "tagline": "For the love of music",
   "url": "https://ampache.org",
-  "baseUrl": "/docs/",
+  "baseUrl": "/",
   "onBrokenLinks": "throw",
   "favicon": "img/favicon.ico",
   "organizationName": "ampache",
@@ -64,40 +64,45 @@ export default {
       "title": "Ampache",
       "logo": {
         "alt": "Ampache Logo",
-        "src": "img/ampache-logo.png",
-        "href": "https://ampache.org",
-        "className": "navbar_logo"
+        "src": "img/logo/ampache-logo.png",
+        "href": "/"
       },
       "items": [
         {
-          "to": "https://ampache.org",
-          "label": "Home",
-          "position": "right"
-        },
-        {
-          "to": "https://ampache.org/demo.html",
+          "to": "/demo",
           "label": "Demo",
           "position": "right"
         },
         {
-          "to": "https://ampache.org/donate.html",
+          "to": "/donate",
           "label": "Donate",
           "position": "right"
         },
         {
-          "to": "https://github.com/ampache/ampache/releases",
+          "to": "/docker",
+          "label": "Docker",
+          "position": "right"
+        },
+        {
+          "to": "/download",
           "label": "Download",
           "position": "right"
         },
         {
-          "to": "https://ampache.org/docs",
+          "to": "/docs",
           "label": "Wiki",
           "position": "right"
         },
         {
-          "to": "https://ampache.org/api",
+          "to": "/api",
           "label": "API",
           "position": "right"
+        },
+        {
+          "to": "/links",
+          "label": "Links",
+          "position": "right",
+          "className": "navbar-links"
         }
       ],
       "hideOnScroll": false
@@ -310,6 +315,16 @@ export default {
           }
         }
       ]
+    },
+    "zoom": {
+      "selector": ".markdown .zoomable img:not(.no-zoom)",
+      "background": {
+        "light": "rgb(255, 255, 255)",
+        "dark": "rgb(50, 50, 50)"
+      },
+      "config": {
+        "container": ".zoomable"
+      }
     },
     "colorMode": {
       "defaultMode": "light",

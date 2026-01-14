@@ -1,0 +1,27 @@
+{
+  "id": "api/versions/api-6.0/api-xml-methods",
+  "title": "API6 XML Methods",
+  "description": "API documentation",
+  "source": "@site/docs/api/versions/api-6.0/api-xml-methods.md",
+  "sourceDirName": "api/versions/api-6.0",
+  "slug": "/api/versions/api-6.0/api-xml-methods",
+  "permalink": "/api/versions/api-6.0/api-xml-methods",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "API6 XML Methods",
+    "metaTitle": "API6 XML Methods",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "API6 Standards",
+    "permalink": "/api/versions/api-6.0/api-standards"
+  },
+  "next": {
+    "title": "API6 JSON Methods",
+    "permalink": "/api/versions/api-6.0/api-json-methods"
+  }
+}

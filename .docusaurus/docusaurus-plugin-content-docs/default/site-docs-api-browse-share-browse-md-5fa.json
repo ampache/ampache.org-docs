@@ -1,0 +1,27 @@
+{
+  "id": "api/browse/share-browse",
+  "title": "Share Browse",
+  "description": "API documentation",
+  "source": "@site/docs/api/browse/share-browse.md",
+  "sourceDirName": "api/browse",
+  "slug": "/api/browse/share-browse",
+  "permalink": "/api/browse/share-browse",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Share Browse",
+    "metaTitle": "Share Browse",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Podcast Browse",
+    "permalink": "/api/browse/podcast-browse"
+  },
+  "next": {
+    "title": "Song Browse",
+    "permalink": "/api/browse/song-browse"
+  }
+}

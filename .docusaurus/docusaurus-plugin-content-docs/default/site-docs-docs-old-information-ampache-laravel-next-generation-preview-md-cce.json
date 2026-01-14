@@ -1,0 +1,27 @@
+{
+  "id": "docs/old-information/ampache-laravel-next-generation-preview",
+  "title": "Ampache Laravel",
+  "description": "Ampache Laravel",
+  "source": "@site/docs/docs/old-information/ampache-laravel-next-generation-preview.md",
+  "sourceDirName": "docs/old-information",
+  "slug": "/docs/old-information/ampache-laravel-next-generation-preview",
+  "permalink": "/docs/old-information/ampache-laravel-next-generation-preview",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Ampache Laravel",
+    "metaTitle": "Ampache Laravel",
+    "description": "Ampache Laravel"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "MySQL8 FAQ",
+    "permalink": "/docs/old-information/mysql-faq"
+  },
+  "next": {
+    "title": "Ampache API",
+    "permalink": "/api/"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "docs/configuration/localplay/Sample-MPD-Config-For-Ampache",
+  "title": "Sample MPD config file",
+  "description": "This is a sample config for ALSA and Raspberry. The settings in this file allow for you to use Gnome music player for single song testing of your catalog without and interaction of Ampache trying to modify the stream output. It only does a Replay gain. This Should help with those who have problems with songs skipping and not being able to control the player.",
+  "source": "@site/docs/docs/configuration/localplay/Sample-MPD-Config-For-Ampache.md",
+  "sourceDirName": "docs/configuration/localplay",
+  "slug": "/docs/configuration/localplay/Sample-MPD-Config-For-Ampache",
+  "permalink": "/docs/configuration/localplay/Sample-MPD-Config-For-Ampache",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "api",
+  "previous": {
+    "title": "Localplay Controller API",
+    "permalink": "/docs/configuration/localplay/localplay-api"
+  },
+  "next": {
+    "title": "Sample MPD config file",
+    "permalink": "/docs/configuration/localplay/Sample-Config-With-ALSA-and-Raspberry-PI"
+  }
+}

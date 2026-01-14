@@ -1,0 +1,27 @@
+{
+  "id": "api/index",
+  "title": "Ampache API",
+  "description": "API documentation",
+  "source": "@site/docs/api/index.md",
+  "sourceDirName": "api",
+  "slug": "/api/",
+  "permalink": "/api/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Ampache API",
+    "metaTitle": "Ampache API",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Ampache Laravel",
+    "permalink": "/docs/old-information/ampache-laravel-next-generation-preview"
+  },
+  "next": {
+    "title": "Standards",
+    "permalink": "/api/api-standards"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "docs/information/which-zip",
+  "title": "Which zip?",
+  "description": "Which zip?",
+  "source": "@site/docs/docs/information/which-zip.md",
+  "sourceDirName": "docs/information",
+  "slug": "/docs/information/which-zip",
+  "permalink": "/docs/information/which-zip",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Which zip?",
+    "metaTitle": "Which zip?",
+    "description": "Which zip?"
+  }
+}

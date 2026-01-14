@@ -1,0 +1,27 @@
+{
+  "id": "docs/configuration/transcoding/transcode-caching",
+  "title": "Transcode Caching",
+  "description": "Transcode Caching",
+  "source": "@site/docs/docs/configuration/transcoding/transcode-caching.md",
+  "sourceDirName": "docs/configuration/transcoding",
+  "slug": "/docs/configuration/transcoding/transcode-caching",
+  "permalink": "/docs/configuration/transcoding/transcode-caching",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Transcode Caching",
+    "metaTitle": "Transcode Caching",
+    "description": "Transcode Caching"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Transcoding",
+    "permalink": "/docs/configuration/transcoding/"
+  },
+  "next": {
+    "title": "Private Catalogs",
+    "permalink": "/docs/configuration/catalog-filters"
+  }
+}

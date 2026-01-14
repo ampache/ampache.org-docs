@@ -1,0 +1,27 @@
+{
+  "id": "docs/configuration/Ampache-Icecast-and-Liquidsoap",
+  "title": "Ampache + Icecast & Liquidsoap",
+  "description": "Ampache Ampache + Icecast & Liquidsoap",
+  "source": "@site/docs/docs/configuration/Ampache-Icecast-and-Liquidsoap.md",
+  "sourceDirName": "docs/configuration",
+  "slug": "/docs/configuration/Ampache-Icecast-and-Liquidsoap",
+  "permalink": "/docs/configuration/Ampache-Icecast-and-Liquidsoap",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Ampache + Icecast & Liquidsoap",
+    "metaTitle": "Ampache + Icecast & Liquidsoap",
+    "description": "Ampache Ampache + Icecast & Liquidsoap"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Democratic Play",
+    "permalink": "/docs/configuration/democratic"
+  },
+  "next": {
+    "title": "Multi Artist support",
+    "permalink": "/docs/configuration/multi-artist"
+  }
+}

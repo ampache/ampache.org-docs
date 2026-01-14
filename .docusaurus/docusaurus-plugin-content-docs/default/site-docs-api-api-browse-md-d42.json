@@ -1,0 +1,27 @@
+{
+  "id": "api/api-browse",
+  "title": "API Browse methods",
+  "description": "API documentation",
+  "source": "@site/docs/api/api-browse.md",
+  "sourceDirName": "api",
+  "slug": "/api/api-browse",
+  "permalink": "/api/api-browse",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "API Browse methods",
+    "metaTitle": "API Browse methods",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Media Methods",
+    "permalink": "/api/api-media-methods"
+  },
+  "next": {
+    "title": "Album Browse",
+    "permalink": "/api/browse/album-browse"
+  }
+}

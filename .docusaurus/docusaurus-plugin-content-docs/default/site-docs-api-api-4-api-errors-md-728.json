@@ -1,0 +1,27 @@
+{
+  "id": "api/api-4/api-errors",
+  "title": "API4 Errors",
+  "description": "API documentation",
+  "source": "@site/docs/api/api-4/api-errors.md",
+  "sourceDirName": "api/api-4",
+  "slug": "/api/api-4/api-errors",
+  "permalink": "/api/api-4/api-errors",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "API4 Errors",
+    "metaTitle": "API4 Errors",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "API4 JSON",
+    "permalink": "/api/api-4/api-json-methods"
+  },
+  "next": {
+    "title": "API3",
+    "permalink": "/api/api-3/"
+  }
+}

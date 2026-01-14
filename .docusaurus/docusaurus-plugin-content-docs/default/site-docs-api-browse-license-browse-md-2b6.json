@@ -1,0 +1,27 @@
+{
+  "id": "api/browse/license-browse",
+  "title": "License Browse",
+  "description": "API documentation",
+  "source": "@site/docs/api/browse/license-browse.md",
+  "sourceDirName": "api/browse",
+  "slug": "/api/browse/license-browse",
+  "permalink": "/api/browse/license-browse",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "License Browse",
+    "metaTitle": "License Browse",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Label Browse",
+    "permalink": "/api/browse/label-browse"
+  },
+  "next": {
+    "title": "Live Stream Browse",
+    "permalink": "/api/browse/live_stream-browse"
+  }
+}

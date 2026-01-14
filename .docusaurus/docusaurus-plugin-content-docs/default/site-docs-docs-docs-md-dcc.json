@@ -1,0 +1,27 @@
+{
+  "id": "docs/docs",
+  "title": "Wiki",
+  "description": "Ampache Wiki",
+  "source": "@site/docs/docs/docs.md",
+  "sourceDirName": "docs",
+  "slug": "/docs/",
+  "permalink": "/docs/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Wiki",
+    "metaTitle": "Wiki",
+    "description": "Ampache Wiki"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Download",
+    "permalink": "/download"
+  },
+  "next": {
+    "title": "Ampache Use Cases",
+    "permalink": "/docs/information/ampache-use-cases"
+  }
+}

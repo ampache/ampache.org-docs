@@ -1,0 +1,27 @@
+{
+  "id": "docs/configuration/cron",
+  "title": "Cron",
+  "description": "Cron",
+  "source": "@site/docs/docs/configuration/cron.md",
+  "sourceDirName": "docs/configuration",
+  "slug": "/docs/configuration/cron",
+  "permalink": "/docs/configuration/cron",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Cron",
+    "metaTitle": "Cron",
+    "description": "Cron"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "SubSonic API",
+    "permalink": "/docs/configuration/subsonic"
+  },
+  "next": {
+    "title": "Localplay",
+    "permalink": "/docs/configuration/localplay/"
+  }
+}

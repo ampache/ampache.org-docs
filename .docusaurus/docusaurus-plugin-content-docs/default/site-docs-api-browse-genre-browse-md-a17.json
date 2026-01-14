@@ -1,0 +1,27 @@
+{
+  "id": "api/browse/genre-browse",
+  "title": "Genre Browse",
+  "description": "API documentation",
+  "source": "@site/docs/api/browse/genre-browse.md",
+  "sourceDirName": "api/browse",
+  "slug": "/api/browse/genre-browse",
+  "permalink": "/api/browse/genre-browse",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Genre Browse",
+    "metaTitle": "Genre Browse",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Follower Browse",
+    "permalink": "/api/browse/follower-browse"
+  },
+  "next": {
+    "title": "Label Browse",
+    "permalink": "/api/browse/label-browse"
+  }
+}

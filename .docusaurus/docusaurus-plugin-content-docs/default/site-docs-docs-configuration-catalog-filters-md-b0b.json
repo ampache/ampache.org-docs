@@ -1,0 +1,27 @@
+{
+  "id": "docs/configuration/catalog-filters",
+  "title": "Private Catalogs",
+  "description": "Ampache Private Catalogs",
+  "source": "@site/docs/docs/configuration/catalog-filters.md",
+  "sourceDirName": "docs/configuration",
+  "slug": "/docs/configuration/catalog-filters",
+  "permalink": "/docs/configuration/catalog-filters",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Private Catalogs",
+    "metaTitle": "Private Catalogs",
+    "description": "Ampache Private Catalogs"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Transcode Caching",
+    "permalink": "/docs/configuration/transcoding/transcode-caching"
+  },
+  "next": {
+    "title": "Democratic Play",
+    "permalink": "/docs/configuration/democratic"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "api/api-acls",
+  "title": "Access Control Lists",
+  "description": "API documentation",
+  "source": "@site/docs/api/api-acls.md",
+  "sourceDirName": "api",
+  "slug": "/api/api-acls",
+  "permalink": "/api/api-acls",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Access Control Lists",
+    "metaTitle": "Access Control Lists",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "API Changelog",
+    "permalink": "/api/api-changelog"
+  },
+  "next": {
+    "title": "Media Methods",
+    "permalink": "/api/api-media-methods"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "docs/installation/guides/guides",
+  "title": "User Guides",
+  "description": "User Guides",
+  "source": "@site/docs/docs/installation/guides/guides.md",
+  "sourceDirName": "docs/installation/guides",
+  "slug": "/docs/installation/guides/",
+  "permalink": "/docs/installation/guides/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "User Guides",
+    "metaTitle": "User Guides",
+    "description": "User Guides"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Windows Installation Guide",
+    "permalink": "/docs/installation/windows-installation-guide"
+  },
+  "next": {
+    "title": "Install Ampache on Xampp",
+    "permalink": "/docs/installation/guides/tutorial-to-install-ampache-on-xampp"
+  }
+}

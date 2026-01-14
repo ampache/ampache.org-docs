@@ -1,0 +1,27 @@
+{
+  "id": "docs/plugins/writing-plugins",
+  "title": "Writing Plugins",
+  "description": "Writing Ampache Plugins",
+  "source": "@site/docs/docs/plugins/writing-plugins.md",
+  "sourceDirName": "docs/plugins",
+  "slug": "/docs/plugins/writing-plugins",
+  "permalink": "/docs/plugins/writing-plugins",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Writing Plugins",
+    "metaTitle": "Writing Plugins",
+    "description": "Writing Ampache Plugins"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Ampache Plugins",
+    "permalink": "/docs/plugins/"
+  },
+  "next": {
+    "title": "Themes",
+    "permalink": "/docs/themes"
+  }
+}

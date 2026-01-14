@@ -1,0 +1,27 @@
+{
+  "id": "api/browse/song-browse",
+  "title": "Song Browse",
+  "description": "API documentation",
+  "source": "@site/docs/api/browse/song-browse.md",
+  "sourceDirName": "api/browse",
+  "slug": "/api/browse/song-browse",
+  "permalink": "/api/browse/song-browse",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Song Browse",
+    "metaTitle": "Song Browse",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Share Browse",
+    "permalink": "/api/browse/share-browse"
+  },
+  "next": {
+    "title": "User Browse",
+    "permalink": "/api/browse/user-browse"
+  }
+}

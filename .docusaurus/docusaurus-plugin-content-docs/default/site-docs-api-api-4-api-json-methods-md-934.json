@@ -1,0 +1,27 @@
+{
+  "id": "api/api-4/api-json-methods",
+  "title": "API4 JSON",
+  "description": "API documentation",
+  "source": "@site/docs/api/api-4/api-json-methods.md",
+  "sourceDirName": "api/api-4",
+  "slug": "/api/api-4/api-json-methods",
+  "permalink": "/api/api-4/api-json-methods",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "API4 JSON",
+    "metaTitle": "API4 JSON",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "API4 XML",
+    "permalink": "/api/api-4/api-xml-methods"
+  },
+  "next": {
+    "title": "API4 Errors",
+    "permalink": "/api/api-4/api-errors"
+  }
+}

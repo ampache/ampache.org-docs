@@ -1,0 +1,27 @@
+{
+  "id": "docs/development/branch-layout",
+  "title": "Branch Layout",
+  "description": "Ampache Branch Layouts",
+  "source": "@site/docs/docs/development/branch-layout.md",
+  "sourceDirName": "docs/development",
+  "slug": "/docs/development/branch-layout",
+  "permalink": "/docs/development/branch-layout",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Branch Layout",
+    "metaTitle": "Branch Layout",
+    "description": "Ampache Branch Layouts"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Translations",
+    "permalink": "/docs/development/TRANSLATIONS"
+  },
+  "next": {
+    "title": "Issues",
+    "permalink": "/docs/development/issue-template"
+  }
+}

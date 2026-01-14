@@ -1,0 +1,27 @@
+{
+  "id": "docs/installation/installation",
+  "title": "Installing Ampache",
+  "description": "Installing Ampache 5+",
+  "source": "@site/docs/docs/installation/installation.md",
+  "sourceDirName": "docs/installation",
+  "slug": "/docs/installation/",
+  "permalink": "/docs/installation/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Installing Ampache",
+    "metaTitle": "Installing Ampache",
+    "description": "Installing Ampache 5+"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Ampache Use Cases",
+    "permalink": "/docs/information/ampache-use-cases"
+  },
+  "next": {
+    "title": "Creating a Catalog",
+    "permalink": "/docs/installation/catalog"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "docs/information/ampache-use-cases",
+  "title": "Ampache Use Cases",
+  "description": "Ampache Use Cases",
+  "source": "@site/docs/docs/information/ampache-use-cases.md",
+  "sourceDirName": "docs/information",
+  "slug": "/docs/information/ampache-use-cases",
+  "permalink": "/docs/information/ampache-use-cases",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Ampache Use Cases",
+    "metaTitle": "Ampache Use Cases",
+    "description": "Ampache Use Cases"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Wiki",
+    "permalink": "/docs/"
+  },
+  "next": {
+    "title": "Installing Ampache",
+    "permalink": "/docs/installation/"
+  }
+}

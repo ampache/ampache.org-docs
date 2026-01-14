@@ -1,0 +1,27 @@
+{
+  "id": "docs/development/enhancement-requests",
+  "title": "Enhancement Requests",
+  "description": "Enhancement Requests",
+  "source": "@site/docs/docs/development/enhancement-requests.md",
+  "sourceDirName": "docs/development",
+  "slug": "/docs/development/enhancement-requests",
+  "permalink": "/docs/development/enhancement-requests",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Enhancement Requests",
+    "metaTitle": "Enhancement Requests",
+    "description": "Enhancement Requests"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Issues",
+    "permalink": "/docs/development/issue-template"
+  },
+  "next": {
+    "title": "Help",
+    "permalink": "/docs/help/"
+  }
+}

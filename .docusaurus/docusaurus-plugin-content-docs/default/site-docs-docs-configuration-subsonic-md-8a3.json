@@ -1,0 +1,27 @@
+{
+  "id": "docs/configuration/subsonic",
+  "title": "SubSonic API",
+  "description": "Ampache SubSonic API",
+  "source": "@site/docs/docs/configuration/subsonic.md",
+  "sourceDirName": "docs/configuration",
+  "slug": "/docs/configuration/subsonic",
+  "permalink": "/docs/configuration/subsonic",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "SubSonic API",
+    "metaTitle": "SubSonic API",
+    "description": "Ampache SubSonic API"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Ampache API",
+    "permalink": "/docs/configuration/api"
+  },
+  "next": {
+    "title": "Cron",
+    "permalink": "/docs/configuration/cron"
+  }
+}

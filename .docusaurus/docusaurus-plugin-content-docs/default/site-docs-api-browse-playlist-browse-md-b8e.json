@@ -1,0 +1,27 @@
+{
+  "id": "api/browse/playlist-browse",
+  "title": "Playlist Browse",
+  "description": "API documentation",
+  "source": "@site/docs/api/browse/playlist-browse.md",
+  "sourceDirName": "api/browse",
+  "slug": "/api/browse/playlist-browse",
+  "permalink": "/api/browse/playlist-browse",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Playlist Browse",
+    "metaTitle": "Playlist Browse",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Live Stream Browse",
+    "permalink": "/api/browse/live_stream-browse"
+  },
+  "next": {
+    "title": "Podcast Browse",
+    "permalink": "/api/browse/podcast_episode-browse"
+  }
+}

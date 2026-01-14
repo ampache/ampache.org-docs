@@ -1,0 +1,23 @@
+{
+  "id": "links",
+  "title": "Links",
+  "description": "Ampache links and Socials",
+  "source": "@site/docs/links.md",
+  "sourceDirName": ".",
+  "slug": "/links",
+  "permalink": "/links",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Links",
+    "metaTitle": "Links",
+    "description": "Ampache links and Socials"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "XML 4.1",
+    "permalink": "/api/versions/api-4.1/xml-methods"
+  }
+}

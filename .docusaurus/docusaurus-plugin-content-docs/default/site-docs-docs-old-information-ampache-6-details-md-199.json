@@ -1,0 +1,27 @@
+{
+  "id": "docs/old-information/ampache6-details",
+  "title": "Ampache6 for Admins",
+  "description": "Ampache6 for Admins",
+  "source": "@site/docs/docs/old-information/ampache6-details.md",
+  "sourceDirName": "docs/old-information",
+  "slug": "/docs/old-information/ampache6-details",
+  "permalink": "/docs/old-information/ampache6-details",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Ampache6 for Admins",
+    "metaTitle": "Ampache6 for Admins",
+    "description": "Ampache6 for Admins"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "old-information",
+    "permalink": "/docs/old-information/"
+  },
+  "next": {
+    "title": "Ampache6 for Users",
+    "permalink": "/docs/old-information/ampache6-for-users"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "api/api-5/api-5",
+  "title": "API5",
+  "description": "API documentation",
+  "source": "@site/docs/api/api-5/api-5.md",
+  "sourceDirName": "api/api-5",
+  "slug": "/api/api-5/",
+  "permalink": "/api/api-5/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "API5",
+    "metaTitle": "API5",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Subsonic API",
+    "permalink": "/api/subsonic"
+  },
+  "next": {
+    "title": "API5 Standards",
+    "permalink": "/api/api-5/api-standards"
+  }
+}

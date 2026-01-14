@@ -1,0 +1,27 @@
+{
+  "id": "docs/configuration/api",
+  "title": "Ampache API",
+  "description": "Ampache API",
+  "source": "@site/docs/docs/configuration/api.md",
+  "sourceDirName": "docs/configuration",
+  "slug": "/docs/configuration/api",
+  "permalink": "/docs/configuration/api",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Ampache API",
+    "metaTitle": "Ampache API",
+    "description": "Ampache API"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "LDAP",
+    "permalink": "/docs/configuration/ldap"
+  },
+  "next": {
+    "title": "SubSonic API",
+    "permalink": "/docs/configuration/subsonic"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "api/versions/api-4.1/api-4.1",
+  "title": "API4.1",
+  "description": "API documentation",
+  "source": "@site/docs/api/versions/api-4.1/api-4.1.md",
+  "sourceDirName": "api/versions/api-4.1",
+  "slug": "/api/versions/api-4.1/",
+  "permalink": "/api/versions/api-4.1/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "API4.1",
+    "metaTitle": "API4.1",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "advanced_search 4.2",
+    "permalink": "/api/versions/api-4.2/api-advanced-search"
+  },
+  "next": {
+    "title": "XML 4.1",
+    "permalink": "/api/versions/api-4.1/xml-methods"
+  }
+}

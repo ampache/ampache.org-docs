@@ -1,0 +1,27 @@
+{
+  "id": "api/subsonic",
+  "title": "Subsonic API",
+  "description": "API documentation",
+  "source": "@site/docs/api/subsonic.md",
+  "sourceDirName": "api",
+  "slug": "/api/subsonic",
+  "permalink": "/api/subsonic",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Subsonic API",
+    "metaTitle": "Subsonic API",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Video Search",
+    "permalink": "/api/advanced-search/video-advanced-search"
+  },
+  "next": {
+    "title": "API5",
+    "permalink": "/api/api-5/"
+  }
+}

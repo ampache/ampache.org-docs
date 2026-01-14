@@ -1,0 +1,27 @@
+{
+  "id": "docs/help/help",
+  "title": "Help",
+  "description": "Troubleshooting",
+  "source": "@site/docs/docs/help/help.md",
+  "sourceDirName": "docs/help",
+  "slug": "/docs/help/",
+  "permalink": "/docs/help/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Help",
+    "metaTitle": "Help",
+    "description": "Troubleshooting"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Enhancement Requests",
+    "permalink": "/docs/development/enhancement-requests"
+  },
+  "next": {
+    "title": "Ampache7 for Admins",
+    "permalink": "/docs/help/troubleshooting/ampache7-for-admins"
+  }
+}

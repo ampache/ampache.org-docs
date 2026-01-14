@@ -1,0 +1,27 @@
+{
+  "id": "docs/configuration/podcasts",
+  "title": "Podcasts",
+  "description": "Ampache Podcasts",
+  "source": "@site/docs/docs/configuration/podcasts.md",
+  "sourceDirName": "docs/configuration",
+  "slug": "/docs/configuration/podcasts",
+  "permalink": "/docs/configuration/podcasts",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Podcasts",
+    "metaTitle": "Podcasts",
+    "description": "Ampache Podcasts"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Broadcasts",
+    "permalink": "/docs/configuration/broadcasts"
+  },
+  "next": {
+    "title": "Clients",
+    "permalink": "/docs/clients/"
+  }
+}

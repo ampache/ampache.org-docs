@@ -1,0 +1,27 @@
+{
+  "id": "api/api-examples",
+  "title": "API Examples",
+  "description": "API documentation",
+  "source": "@site/docs/api/api-examples.md",
+  "sourceDirName": "api",
+  "slug": "/api/api-examples",
+  "permalink": "/api/api-examples",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "API Examples",
+    "metaTitle": "API Examples",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Errors",
+    "permalink": "/api/api-errors"
+  },
+  "next": {
+    "title": "API Changelog",
+    "permalink": "/api/api-changelog"
+  }
+}

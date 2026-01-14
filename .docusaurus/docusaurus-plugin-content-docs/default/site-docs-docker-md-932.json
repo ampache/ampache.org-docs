@@ -1,0 +1,27 @@
+{
+  "id": "docker",
+  "title": "Docker",
+  "description": "Run Ampache with docker",
+  "source": "@site/docs/docker.md",
+  "sourceDirName": ".",
+  "slug": "/docker",
+  "permalink": "/docker",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Docker",
+    "metaTitle": "Docker",
+    "description": "Run Ampache with docker"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Donate",
+    "permalink": "/donate"
+  },
+  "next": {
+    "title": "Download",
+    "permalink": "/download"
+  }
+}
