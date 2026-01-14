@@ -1,6 +1,6 @@
 # Updating ampache.org-api
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+This website is built using [Docusaurus 3](https://docusaurus.io/), a modern static website generator.
 
 ## Requirements
 
@@ -13,5 +13,5 @@ This website is built using [Docusaurus 2](https://docusaurus.io/), a modern sta
 * Make changes to the files in the /docs/ folder
 * Build ```npm run build```
 * Copy the /build folder to the /api folder in [ampache.github.io](https://github.com/ampache/ampache.github.io)
-  * ```cp -rfv ./build/* ../ampache.github.io/api/```
+  * ```cp -rfv ./build/* ../ampache.github.io/```
 * Commit to this repo and ampache.github.io after changes

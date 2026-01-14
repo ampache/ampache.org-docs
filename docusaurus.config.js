@@ -6,10 +6,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Ampache Wiki',
+  title: 'Ampache',
   tagline: 'For the love of music',
   url: 'https://ampache.org/',
-  baseUrl: '/docs/',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   favicon: 'img/favicon.ico',
 
@@ -25,6 +25,8 @@ const config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
+
+  plugins: [require.resolve('docusaurus-plugin-image-zoom')],
 
   markdown: {
     hooks: {
@@ -61,17 +63,17 @@ const config = {
         title: 'Ampache',
         logo: {
           alt: 'Ampache Logo',
-          src: 'img/ampache-logo.png',
-          href: 'https://ampache.org',
-          className: 'navbar_logo',
+          src: 'img/logo/ampache-logo.png',
+          href: '/',
         },
         items: [
-          {to: 'https://ampache.org', label: 'Home', position: 'right'},
-          {to: 'https://ampache.org/demo.html', label: 'Demo', position: 'right'},
-          {to: 'https://ampache.org/donate.html', label: 'Donate', position: 'right'},
-          {to: 'https://github.com/ampache/ampache/releases', label: 'Download', position: 'right'},
-          {to: 'https://ampache.org/docs', label: 'Wiki', position: 'right'},
-          {to: 'https://ampache.org/api', label: 'API', position: 'right'},
+          {to: '/demo', label: 'Demo', position: 'right'},
+          {to: '/donate', label: 'Donate', position: 'right'},
+          {to: '/docker', label: 'Docker', position: 'right'},
+          {to: '/download', label: 'Download', position: 'right'},
+          {to: '/docs', label: 'Wiki', position: 'right'},
+          {to: '/api', label: 'API', position: 'right'},
+          {to: '/links', label: 'Links', position: 'right', className: 'navbar-links' },
         ],
       },
       footer: {
@@ -84,6 +86,17 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      zoom: {
+        selector: '.markdown .zoomable img:not(.no-zoom)',
+        background: {
+            light: 'rgb(255, 255, 255)',
+            dark: 'rgb(50, 50, 50)'
+        },
+        config: {
+          // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
+          container: '.zoomable'
+        }
+      }
     }),
 };
 

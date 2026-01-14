@@ -69,6 +69,17 @@
   margin-right: 0;
 }
 
+.display--flex--start {
+  display:flex;
+  gap:12px;
+  justify-content:flex-start;
+}
+
+.display--flex {
+  display:flex;
+  gap:12px;
+}
+
 .margin-right--md,
 .menu__caret,
 .navbar__items--right,
