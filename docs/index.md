@@ -13,31 +13,47 @@ Allowing you to access your music &amp; videos from anywhere, using almost any i
 
 ## Features
 
-### Music collection
+<div class="display--flex">
+  <div class="article--box">
+    <h2>Music collection</h2>
+    <p class="article-p">
+    Browse and manage your music collection through a simple web interface. Synchronize local and remote catalogs to an unique consistent collection.
+    </p>
+    <p class="article-p">
+    <a class="box--link" href="/docs/installation/catalog" title="read more">read more</a>
+    </p>
+  </div>
+  <div class="article--box">
+    <h2>Music streaming</h2>
+    <p class="article-p">
+    Stream your music to your preferred player, control it with Localplay or directly listen on the web page with HTML5 player.<br/>
+    </p>
+    <p class="article-p">
+    <a class="box--link" href="/docs/configuration" title="read more">read more</a>
+    </p>
+  </div>
+</div>
 
-Browse and manage your music collection through a simple web interface. Synchronize local and remote catalogs to an unique consistent collection.
-
-[read more](/docs/installation/catalog)
-
-### Music streaming
-
-Stream your music to your preferred player, control it with Localplay or directly listen on the web page with HTML5 player.  
-
-[read more](/docs/configuration)
-
-### Open source
-
-Completely Free and Open Source since 2001, AGPLv3 license.  
-  
-Get involved and take control.  
-
-[read more](https://github.com/ampache/ampache)
-
-### Ampache everywhere
-
-Listen to your music from your phone, tablet or television. At home, at work or in vacation: get Ampache everywhere using a compatible client!  
-  
-[read more](/docs/clients)
+<div class="display--flex">
+  <div class="article--box">
+    <h2>Open source</h2>
+    <p class="article-p">
+    Completely Free and Open Source since 2001, AGPLv3 license. Get involved and take control.
+    </p>
+    <p class="article-p">
+    <a class="box--link" href="https://github.com/ampache/ampache" title="GitHub project page">GitHub project page</a>
+    </p>
+  </div>
+  <div class="article--box">
+    <h2>Music Everywhere</h2>
+    <p class="article-p">
+    Listen to your music from your phone, tablet or television. At home, at work or in vacation: get Ampache everywhere using a compatible client!
+    </p>
+    <p class="article-p">
+    <a class="box--link" href="/docs/clients" title="read more">read more</a>
+    </p>
+  </div>
+</div>
 
 ## Preview
 
