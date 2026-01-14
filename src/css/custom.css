@@ -102,7 +102,9 @@
   padding: 12px 12px;
   display: inline-block;
   margin-top: 12px;
-  width: 100%;
+  max-width: 75%;
+  margin-left: 12.5%;
+  margin-right: 12.5%;
 }
 
 .article--box {

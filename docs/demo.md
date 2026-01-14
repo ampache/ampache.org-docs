@@ -5,19 +5,19 @@ description: "Ampache demo sites"
 ---
 
 <div class="article">
-<p class="article-p text--center">
-Trust only what you see... or listen.<br/>
-Only you can know if Ampache is the right solution.<br/>
-Pick a demonstration server and take a look.
-</p>
+  <p class="article-p text--center">
+  Trust only what you see... or listen.<br/>
+  Only you can know if Ampache is the right solution.<br/>
+  Pick a demonstration server and take a look.
+  </p>
 </div>
 
 <div class="article--header">
-<div class="text--center icon--150">
-  <a href="https://demo.ampache.dev" target="_blank" rel="noopener noreferrer" title="demo.ampache.dev">
-    <img src="/img/logo/ampache-logo_x150.png" alt="demo.ampache.dev"/>
-  </a>
-</div>
+  <div class="text--center icon--150">
+    <a href="https://demo.ampache.dev" target="_blank" rel="noopener noreferrer" title="demo.ampache.dev">
+      <img src="/img/logo/ampache-logo_x150.png" alt="demo.ampache.dev"/>
+    </a>
+  </div>
 
 ## Official demo servers
 
@@ -25,23 +25,23 @@ Ampache official demo site provided with funding courtesy of [Linux Australia](h
 It uses the current release version of Ampache and creative commons music from archive.org.<br/>
 Functionality is reduced to allow multiple users to access the account for testing.
 
-<div class="text--center">
-[Stable Branch](https://demo.ampache.dev/)
+  <div class="text--center">
+  [Stable Branch](https://demo.ampache.dev/)
 
-[Develop Branch](https://develop.ampache.dev/)
-</div>
-</div>
+  [Develop Branch](https://develop.ampache.dev/)
+  </div>
 
 ### Accessing the demo
 
-The demo site can be accessed using:
-username "demo"
-password "demodemo"
+  The demo site can be accessed using:<br/>
+  username "demo"<br/>
+  password "demodemo"<br/>
 
-More details about what you can do in the wiki.
+  More details about what you can do in the wiki.
 
-<div class="text--center">
-[read more](docs/clients/demo-server)
+  <div class="text--center">
+  [read more](docs/clients/demo-server)
+  </div>
 </div>
 
 ## Other Servers
@@ -80,6 +80,7 @@ Softaculous is an auto installer for cPanel and DirectAdmin. Softaculous applica
   </div>
   <div class="article--box">
     <div class="text--center icon--150">
+    <img src="/img/play.png" alt="Play"/>
     </div>
 
 ### Your Server
