@@ -10,7 +10,7 @@ The Ampache API Provides methods for pulling out it's meta data in the form of
 simple XML (and JSON!) documents. This was originally created for use by [Amarok](http://amarok.kde.org/),
 but there is no reason it couldn't be used to create other front-ends to the Ampache data.
 
-Access to the API is controlled by the Internal [Access Control Lists](/docs/configuration/acl).
+Access to the API is controlled by the Internal [Access Control Lists](https://ampache.org/docs/configuration/acl).
 Currently all requests are limited to a maximum of 5000 results for performance reasons. To get additional results
 pass offset as an additional parameter.
 
@@ -27,15 +27,15 @@ POST requests offer more privacy than a regular GET request because data is sent
 
 After each release, a documentation page will be created to allow pruning old features from the current version.
 
-* [API 5.6 Documentation](/api/api-5)
-* [API 4.4 Documentation](/api/api-4)
-* [API 3.9 Documentation](/api/api-3)
+* [API 5.6 Documentation](https://ampache.org/api/api-5)
+* [API 4.4 Documentation](https://ampache.org/api/api-4)
+* [API 3.9 Documentation](https://ampache.org/api/api-3)
 
-Ampache supports the last major release of each API version. You can also check out the [past releases](/api/versions/) page for some historical detail but **DO NOT** use these pages as a guide for API development.
+Ampache supports the last major release of each API version. You can also check out the [past releases](https://ampache.org/api/versions/) page for some historical detail but **DO NOT** use these pages as a guide for API development.
 
 ## API Changelog
 
-Take a look at the [API Changelog](/api/api-changelog) to keep an eye on changes between versions
+Take a look at the [API Changelog](https://ampache.org/api/api-changelog) to keep an eye on changes between versions
 
 ## Before you begin
 
@@ -49,7 +49,7 @@ API3 is not recommended for use outside of running old applications and it is re
 
 Multiple authentication methods are available, described in the next sections.
 
-**NOTE** if you use a [Bearer Token](/api/#http-header-authentication) you do not need to send a handshake request.
+**NOTE** if you use a [Bearer Token](https://ampache.org/api/#http-header-authentication) you do not need to send a handshake request.
 
 ### User / Password
 
@@ -206,14 +206,14 @@ All future interactions with the Ampache API must include the `AUTHENTICATION_TO
 
 ## Methods
 
-All methods must be passed as `action=METHODNAME`. All [data methods](/api/#data-methods) can take an optional `offset=XXX` and `limit=XXX`. The limit determines the maximum number of results returned. The offset will tell Ampache where to start in the result set. For example if there are 100 total results and you set the offset to 50, and the limit to 50 Ampache will return results between 50 and 100. The default limit is 5000. The default offset is 0.
+All methods must be passed as `action=METHODNAME`. All [data methods](https://ampache.org/api/#data-methods) can take an optional `offset=XXX` and `limit=XXX`. The limit determines the maximum number of results returned. The offset will tell Ampache where to start in the result set. For example if there are 100 total results and you set the offset to 50, and the limit to 50 Ampache will return results between 50 and 100. The default limit is 5000. The default offset is 0.
 
 You can also pass it `limit=none` to overcome the `limit` limitation and return **all** the matching elements.
 
 For more in depth information regarding the different api servers you can view the following documentation pages.
 
-* [XML Documentation](/api/api-xml-methods)
-* [JSON Documentation](/api/api-json-methods)
+* [XML Documentation](https://ampache.org/api/api-xml-methods)
+* [JSON Documentation](https://ampache.org/api/api-json-methods)
 
 ### Auth Methods
 
@@ -238,7 +238,7 @@ All Non-Data methods return HTTP 200 responses
 
 All Data methods return HTTP 200 responses
 
-* [advanced_search](/api/api-advanced-search)
+* [advanced_search](https://ampache.org/api/api-advanced-search)
 * albums
 * album
 * album_songs
@@ -317,7 +317,7 @@ All Data methods return HTTP 200 responses
 * record_play
 * scrobble
 * search_group **Ampache 6.3.0+**
-* search  **Ampache 6.3.0+** (alias for [advanced_search](/api/api-advanced-search))
+* search  **Ampache 6.3.0+** (alias for [advanced_search](https://ampache.org/api/api-advanced-search))
 * search_rules **Ampache 7.6.0+**
 * search_songs
 * shares
@@ -354,7 +354,7 @@ All Data methods return HTTP 200 responses
 
 All binary methods will not return XML/JSON responses. they will either return the requested file/data or an HTTP error code.
 
-For information about about how playback works and what a client can expect from Ampache check out [API Media Methods](/api/api-media-methods)
+For information about about how playback works and what a client can expect from Ampache check out [API Media Methods](https://ampache.org/api/api-media-methods)
 
 @return (HTTP 200 OK)
 

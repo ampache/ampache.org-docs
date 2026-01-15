@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "api",
-  "previous": {
-    "title": "Themes",
-    "permalink": "/docs/themes"
-  },
-  "next": {
-    "title": "Contributing",
-    "permalink": "/docs/development/CONTRIBUTING"
-  }
+  "frontMatter": {}
 }

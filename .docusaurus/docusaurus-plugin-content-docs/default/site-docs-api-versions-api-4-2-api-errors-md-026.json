@@ -1,6 +1,6 @@
 {
   "id": "api/versions/api-4.2/api-errors",
-  "title": "Errors 4.2",
+  "title": "Errors",
   "description": "API documentation",
   "source": "@site/docs/api/versions/api-4.2/api-errors.md",
   "sourceDirName": "api/versions/api-4.2",
@@ -11,17 +11,17 @@
   "tags": [],
   "version": "current",
   "frontMatter": {
-    "title": "Errors 4.2",
-    "metaTitle": "Errors 4.2",
+    "title": "Errors",
+    "metaTitle": "Errors",
     "description": "API documentation"
   },
   "sidebar": "api",
   "previous": {
-    "title": "JSON 4.2",
+    "title": "JSON Methods",
     "permalink": "/api/versions/api-4.2/api-json-methods"
   },
   "next": {
-    "title": "advanced_search 4.2",
+    "title": "Advanced Search",
     "permalink": "/api/versions/api-4.2/api-advanced-search"
   }
 }

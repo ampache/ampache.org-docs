@@ -13,7 +13,7 @@ Come and talk to us
 
 ## Website archive
 
-* The old site has been archived here [ampache.org/old](/old).
+* The old site has been archived here [ampache.org/old](https://ampache.org/old).
 
 ## Development Links
 

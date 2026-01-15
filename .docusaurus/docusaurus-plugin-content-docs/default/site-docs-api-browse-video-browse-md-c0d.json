@@ -21,7 +21,7 @@
     "permalink": "/api/browse/user-browse"
   },
   "next": {
-    "title": "advanced_search",
+    "title": "Advanced Search",
     "permalink": "/api/api-advanced-search"
   }
 }

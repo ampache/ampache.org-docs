@@ -80,6 +80,10 @@
               "sidebar": "api"
             },
             {
+              "id": "api/api-4/api-advanced-search",
+              "path": "/api/api-4/api-advanced-search"
+            },
+            {
               "id": "api/api-4/api-errors",
               "path": "/api/api-4/api-errors",
               "sidebar": "api"
@@ -122,11 +126,6 @@
             {
               "id": "api/api-5/api-xml-methods",
               "path": "/api/api-5/api-xml-methods",
-              "sidebar": "api"
-            },
-            {
-              "id": "api/api-acls",
-              "path": "/api/api-acls",
               "sidebar": "api"
             },
             {
@@ -575,8 +574,7 @@
             },
             {
               "id": "docs/development/development",
-              "path": "/docs/development/",
-              "sidebar": "api"
+              "path": "/docs/development/"
             },
             {
               "id": "docs/development/enhancement-requests",

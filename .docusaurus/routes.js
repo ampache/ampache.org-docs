@@ -4,15 +4,15 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 export default [
   {
     path: '/',
-    component: ComponentCreator('/', 'd3c'),
+    component: ComponentCreator('/', '5a1'),
     routes: [
       {
         path: '/',
-        component: ComponentCreator('/', 'f18'),
+        component: ComponentCreator('/', '495'),
         routes: [
           {
             path: '/',
-            component: ComponentCreator('/', 'cdb'),
+            component: ComponentCreator('/', '0fd'),
             routes: [
               {
                 path: '/api/',
@@ -104,6 +104,11 @@ export default [
                 sidebar: "api"
               },
               {
+                path: '/api/api-4/api-advanced-search',
+                component: ComponentCreator('/api/api-4/api-advanced-search', '976'),
+                exact: true
+              },
+              {
                 path: '/api/api-4/api-errors',
                 component: ComponentCreator('/api/api-4/api-errors', '062'),
                 exact: true,
@@ -154,12 +159,6 @@ export default [
               {
                 path: '/api/api-5/api-xml-methods',
                 component: ComponentCreator('/api/api-5/api-xml-methods', 'd3b'),
-                exact: true,
-                sidebar: "api"
-              },
-              {
-                path: '/api/api-acls',
-                component: ComponentCreator('/api/api-acls', '2b4'),
                 exact: true,
                 sidebar: "api"
               },
@@ -686,9 +685,8 @@ export default [
               },
               {
                 path: '/docs/development/',
-                component: ComponentCreator('/docs/development/', '00a'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/docs/development/', 'a04'),
+                exact: true
               },
               {
                 path: '/docs/development/branch-layout',

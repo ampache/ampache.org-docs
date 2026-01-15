@@ -21,7 +21,7 @@
     "permalink": "/api/browse/live_stream-browse"
   },
   "next": {
-    "title": "Podcast Browse",
+    "title": "Podcast Episode Browse",
     "permalink": "/api/browse/podcast_episode-browse"
   }
 }

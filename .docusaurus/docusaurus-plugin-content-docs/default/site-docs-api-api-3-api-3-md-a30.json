@@ -17,11 +17,11 @@
   },
   "sidebar": "api",
   "previous": {
-    "title": "API4 Errors",
+    "title": "Errors",
     "permalink": "/api/api-4/api-errors"
   },
   "next": {
-    "title": "API3 XML",
+    "title": "XML Methods",
     "permalink": "/api/api-3/api-xml-methods"
   }
 }

@@ -1,6 +1,6 @@
 {
   "id": "api/versions/api-5.1/api-advanced-search",
-  "title": "API5.1 advanced_search",
+  "title": "Advanced Search",
   "description": "API documentation",
   "source": "@site/docs/api/versions/api-5.1/api-advanced-search.md",
   "sourceDirName": "api/versions/api-5.1",
@@ -11,13 +11,13 @@
   "tags": [],
   "version": "current",
   "frontMatter": {
-    "title": "API5.1 advanced_search",
-    "metaTitle": "API5.1 advanced_search",
+    "title": "Advanced Search",
+    "metaTitle": "Advanced Search",
     "description": "API documentation"
   },
   "sidebar": "api",
   "previous": {
-    "title": "API5.1 Errors",
+    "title": "Errors",
     "permalink": "/api/versions/api-5.1/api-errors"
   },
   "next": {

@@ -17,11 +17,11 @@
   },
   "sidebar": "api",
   "previous": {
-    "title": "advanced_search",
+    "title": "Advanced Search",
     "permalink": "/api/versions/api-6.0/api-advanced-search"
   },
   "next": {
-    "title": "API5.1 Standards",
+    "title": "Standards",
     "permalink": "/api/versions/api-5.1/api-standards"
   }
 }

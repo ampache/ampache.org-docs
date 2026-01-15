@@ -1,6 +1,6 @@
 {
   "id": "api/api-4/api-errors",
-  "title": "API4 Errors",
+  "title": "Errors",
   "description": "API documentation",
   "source": "@site/docs/api/api-4/api-errors.md",
   "sourceDirName": "api/api-4",
@@ -11,13 +11,13 @@
   "tags": [],
   "version": "current",
   "frontMatter": {
-    "title": "API4 Errors",
-    "metaTitle": "API4 Errors",
+    "title": "Errors",
+    "metaTitle": "Errors",
     "description": "API documentation"
   },
   "sidebar": "api",
   "previous": {
-    "title": "API4 JSON",
+    "title": "JSON Methods",
     "permalink": "/api/api-4/api-json-methods"
   },
   "next": {

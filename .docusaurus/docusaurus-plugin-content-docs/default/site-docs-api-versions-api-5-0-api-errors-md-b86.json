@@ -1,6 +1,6 @@
 {
   "id": "api/versions/api-5.0/api-errors",
-  "title": "API5.0 Errors",
+  "title": "Errors",
   "description": "API documentation",
   "source": "@site/docs/api/versions/api-5.0/api-errors.md",
   "sourceDirName": "api/versions/api-5.0",
@@ -11,17 +11,17 @@
   "tags": [],
   "version": "current",
   "frontMatter": {
-    "title": "API5.0 Errors",
-    "metaTitle": "API5.0 Errors",
+    "title": "Errors",
+    "metaTitle": "Errors",
     "description": "API documentation"
   },
   "sidebar": "api",
   "previous": {
-    "title": "API5.0 JSON Methods",
+    "title": "JSON Methods",
     "permalink": "/api/versions/api-5.0/api-json-methods"
   },
   "next": {
-    "title": "API5.0 advanced_search",
+    "title": "Advanced Search",
     "permalink": "/api/versions/api-5.0/api-advanced-search"
   }
 }

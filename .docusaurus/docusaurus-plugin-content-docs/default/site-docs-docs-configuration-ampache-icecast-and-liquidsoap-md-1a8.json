@@ -1,7 +1,7 @@
 {
   "id": "docs/configuration/Ampache-Icecast-and-Liquidsoap",
   "title": "Ampache + Icecast & Liquidsoap",
-  "description": "Ampache Ampache + Icecast & Liquidsoap",
+  "description": "Ampache + Icecast & Liquidsoap",
   "source": "@site/docs/docs/configuration/Ampache-Icecast-and-Liquidsoap.md",
   "sourceDirName": "docs/configuration",
   "slug": "/docs/configuration/Ampache-Icecast-and-Liquidsoap",
@@ -13,7 +13,7 @@
   "frontMatter": {
     "title": "Ampache + Icecast & Liquidsoap",
     "metaTitle": "Ampache + Icecast & Liquidsoap",
-    "description": "Ampache Ampache + Icecast & Liquidsoap"
+    "description": "Ampache + Icecast & Liquidsoap"
   },
   "sidebar": "api",
   "previous": {

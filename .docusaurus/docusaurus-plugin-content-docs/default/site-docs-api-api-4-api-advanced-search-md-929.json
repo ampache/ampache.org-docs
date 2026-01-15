@@ -1,0 +1,18 @@
+{
+  "id": "api/api-4/api-advanced-search",
+  "title": "Advanced Search",
+  "description": "API documentation",
+  "source": "@site/docs/api/api-4/api-advanced-search.md",
+  "sourceDirName": "api/api-4",
+  "slug": "/api/api-4/api-advanced-search",
+  "permalink": "/api/api-4/api-advanced-search",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Advanced Search",
+    "metaTitle": "Advanced Search",
+    "description": "API documentation"
+  }
+}

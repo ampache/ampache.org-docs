@@ -1,6 +1,6 @@
 {
   "id": "api/browse/podcast_episode-browse",
-  "title": "Podcast Browse",
+  "title": "Podcast Episode Browse",
   "description": "API documentation",
   "source": "@site/docs/api/browse/podcast_episode-browse.md",
   "sourceDirName": "api/browse",
@@ -11,8 +11,8 @@
   "tags": [],
   "version": "current",
   "frontMatter": {
-    "title": "Podcast Browse",
-    "metaTitle": "Podcast Browse",
+    "title": "Podcast Episode Browse",
+    "metaTitle": "Podcast Episode Browse",
     "description": "API documentation"
   },
   "sidebar": "api",

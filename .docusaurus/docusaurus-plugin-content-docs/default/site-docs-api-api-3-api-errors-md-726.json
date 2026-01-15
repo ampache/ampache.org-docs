@@ -1,6 +1,6 @@
 {
   "id": "api/api-3/api-errors",
-  "title": "API3 Errors",
+  "title": "Errors",
   "description": "API documentation",
   "source": "@site/docs/api/api-3/api-errors.md",
   "sourceDirName": "api/api-3",
@@ -11,13 +11,13 @@
   "tags": [],
   "version": "current",
   "frontMatter": {
-    "title": "API3 Errors",
-    "metaTitle": "API3 Errors",
+    "title": "Errors",
+    "metaTitle": "Errors",
     "description": "API documentation"
   },
   "sidebar": "api",
   "previous": {
-    "title": "API3 XML",
+    "title": "XML Methods",
     "permalink": "/api/api-3/api-xml-methods"
   },
   "next": {

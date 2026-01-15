@@ -17,11 +17,11 @@
   },
   "sidebar": "api",
   "previous": {
-    "title": "advanced_search 4.2",
+    "title": "Advanced Search",
     "permalink": "/api/versions/api-4.2/api-advanced-search"
   },
   "next": {
-    "title": "XML 4.1",
+    "title": "XML Methods",
     "permalink": "/api/versions/api-4.1/xml-methods"
   }
 }

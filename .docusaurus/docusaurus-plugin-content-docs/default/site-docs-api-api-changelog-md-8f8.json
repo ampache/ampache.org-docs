@@ -22,6 +22,6 @@
   },
   "next": {
     "title": "Access Control Lists",
-    "permalink": "/api/api-acls"
+    "permalink": "/docs/configuration/acl"
   }
 }

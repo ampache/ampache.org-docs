@@ -1,6 +1,6 @@
 {
   "id": "api/api-3/api-xml-methods",
-  "title": "API3 XML",
+  "title": "XML Methods",
   "description": "API documentation",
   "source": "@site/docs/api/api-3/api-xml-methods.md",
   "sourceDirName": "api/api-3",
@@ -11,8 +11,8 @@
   "tags": [],
   "version": "current",
   "frontMatter": {
-    "title": "API3 XML",
-    "metaTitle": "API3 XML",
+    "title": "XML Methods",
+    "metaTitle": "XML Methods",
     "description": "API documentation"
   },
   "sidebar": "api",
@@ -21,7 +21,7 @@
     "permalink": "/api/api-3/"
   },
   "next": {
-    "title": "API3 Errors",
+    "title": "Errors",
     "permalink": "/api/api-3/api-errors"
   }
 }

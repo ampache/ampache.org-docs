@@ -1,6 +1,6 @@
 {
   "id": "api/versions/api-4.1/xml-methods",
-  "title": "XML 4.1",
+  "title": "XML Methods",
   "description": "API documentation",
   "source": "@site/docs/api/versions/api-4.1/xml-methods.md",
   "sourceDirName": "api/versions/api-4.1",
@@ -11,8 +11,8 @@
   "tags": [],
   "version": "current",
   "frontMatter": {
-    "title": "XML 4.1",
-    "metaTitle": "XML 4.1",
+    "title": "XML Methods",
+    "metaTitle": "XML Methods",
     "description": "API documentation"
   },
   "sidebar": "api",

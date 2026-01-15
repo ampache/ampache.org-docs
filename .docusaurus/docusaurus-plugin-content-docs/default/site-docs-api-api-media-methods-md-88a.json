@@ -18,7 +18,7 @@
   "sidebar": "api",
   "previous": {
     "title": "Access Control Lists",
-    "permalink": "/api/api-acls"
+    "permalink": "/docs/configuration/acl"
   },
   "next": {
     "title": "API Browse methods",
