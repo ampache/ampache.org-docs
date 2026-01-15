@@ -1,12 +1,12 @@
 ---
-title: "SubSonic API"
-metaTitle: "SubSonic API"
-description: "Ampache SubSonic API"
+title: "Subsonic API"
+metaTitle: "Subsonic API"
+description: "Ampache Subsonic API"
 ---
 
-## Ampache SubSonic API
+## Ampache Subsonic API
 
-Your Ampache server can be accessed through the SubSonic API.
+Your Ampache server can be accessed through the Subsonic API.
 
 | Parameter | Required | Default | Comment                                                                                                                                                                           |
 |-----------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
