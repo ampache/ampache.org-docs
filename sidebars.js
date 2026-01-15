@@ -35,6 +35,7 @@ const sidebars = {
           label: 'Installation',
           link: {type: 'doc', id: 'docs/installation/installation'},
           items: [
+            'docs/information/which-zip',
             'docs/installation/catalog',
             'docs/installation/install-ampache-on-ubuntu2204',
             'docs/installation/windows-installation-guide',
@@ -99,6 +100,7 @@ const sidebars = {
           label: 'Clients',
           link: {type: 'doc', id: 'docs/clients/clients'},
           items: [
+            'docs/information/Web-Interface',
             'docs/clients/api',
             'docs/clients/demo-server',
           ],
