@@ -14,5 +14,14 @@
     "title": "Upgrading",
     "metaTitle": "Upgrading",
     "description": "Upgrading Ampache"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Basic Configuration",
+    "permalink": "/docs/configuration/"
+  },
+  "next": {
+    "title": "Access Control Lists",
+    "permalink": "/docs/configuration/acl"
   }
 }

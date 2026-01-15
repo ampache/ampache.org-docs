@@ -4,15 +4,15 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 export default [
   {
     path: '/',
-    component: ComponentCreator('/', '819'),
+    component: ComponentCreator('/', '3ba'),
     routes: [
       {
         path: '/',
-        component: ComponentCreator('/', '2e1'),
+        component: ComponentCreator('/', '28a'),
         routes: [
           {
             path: '/',
-            component: ComponentCreator('/', '685'),
+            component: ComponentCreator('/', '27a'),
             routes: [
               {
                 path: '/api/',
@@ -791,8 +791,9 @@ export default [
               },
               {
                 path: '/docs/information/upgrade',
-                component: ComponentCreator('/docs/information/upgrade', '69c'),
-                exact: true
+                component: ComponentCreator('/docs/information/upgrade', '598'),
+                exact: true,
+                sidebar: "api"
               },
               {
                 path: '/docs/information/Web-Interface',

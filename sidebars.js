@@ -56,6 +56,7 @@ const sidebars = {
           label: 'Configuration',
           link: {type: 'doc', id: 'docs/configuration/configuration'},
           items: [
+            'docs/information/upgrade',
             'docs/configuration/acl',
             'docs/configuration/remote-catalogs',
             'docs/configuration/ldap',

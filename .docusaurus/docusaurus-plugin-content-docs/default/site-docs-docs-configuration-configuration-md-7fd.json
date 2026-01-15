@@ -21,7 +21,7 @@
     "permalink": "/docs/installation/guides/cloudron-installation-guide"
   },
   "next": {
-    "title": "Access Control Lists",
-    "permalink": "/docs/configuration/acl"
+    "title": "Upgrading",
+    "permalink": "/docs/information/upgrade"
   }
 }

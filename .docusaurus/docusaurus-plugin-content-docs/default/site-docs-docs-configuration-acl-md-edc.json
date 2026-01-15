@@ -17,8 +17,8 @@
   },
   "sidebar": "api",
   "previous": {
-    "title": "Basic Configuration",
-    "permalink": "/docs/configuration/"
+    "title": "Upgrading",
+    "permalink": "/docs/information/upgrade"
   },
   "next": {
     "title": "Remote Catalogs",
