@@ -13,8 +13,8 @@
   "frontMatter": {},
   "sidebar": "api",
   "previous": {
-    "title": "Charts and Graphs",
-    "permalink": "/docs/help/troubleshooting/chart-faq"
+    "title": "Import Last.FM data",
+    "permalink": "/docs/help/import-lastfm-data"
   },
   "next": {
     "title": "Ampache6 for Admins",

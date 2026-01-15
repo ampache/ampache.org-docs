@@ -17,11 +17,11 @@
   },
   "sidebar": "api",
   "previous": {
-    "title": "Upgrading",
-    "permalink": "/docs/information/upgrade"
+    "title": "Upload Catalogs",
+    "permalink": "/docs/help/upload-catalogs"
   },
   "next": {
-    "title": "Remote Catalogs",
-    "permalink": "/docs/configuration/remote-catalogs"
+    "title": "LDAP",
+    "permalink": "/docs/configuration/ldap"
   }
 }

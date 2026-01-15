@@ -17,11 +17,11 @@
   },
   "sidebar": "api",
   "previous": {
-    "title": "Access Control Lists",
-    "permalink": "/docs/configuration/acl"
+    "title": "Upgrading",
+    "permalink": "/docs/information/upgrade"
   },
   "next": {
-    "title": "LDAP",
-    "permalink": "/docs/configuration/ldap"
+    "title": "Private Catalogs",
+    "permalink": "/docs/configuration/catalog-filters"
   }
 }

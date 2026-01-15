@@ -17,11 +17,11 @@
   },
   "sidebar": "api",
   "previous": {
-    "title": "Transcode Caching",
-    "permalink": "/docs/configuration/transcoding/transcode-caching"
+    "title": "Remote Catalogs",
+    "permalink": "/docs/configuration/remote-catalogs"
   },
   "next": {
-    "title": "Democratic Play",
-    "permalink": "/docs/configuration/democratic"
+    "title": "Upload Catalogs",
+    "permalink": "/docs/help/upload-catalogs"
   }
 }

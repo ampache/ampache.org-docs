@@ -603,11 +603,13 @@
             },
             {
               "id": "docs/help/import-lastfm-data",
-              "path": "/docs/help/import-lastfm-data"
+              "path": "/docs/help/import-lastfm-data",
+              "sidebar": "api"
             },
             {
               "id": "docs/help/preferences-explained",
-              "path": "/docs/help/preferences-explained"
+              "path": "/docs/help/preferences-explained",
+              "sidebar": "api"
             },
             {
               "id": "docs/help/troubleshooting/ampache7-for-admins",
@@ -636,7 +638,8 @@
             },
             {
               "id": "docs/help/upload-catalogs",
-              "path": "/docs/help/upload-catalogs"
+              "path": "/docs/help/upload-catalogs",
+              "sidebar": "api"
             },
             {
               "id": "docs/information/ampache-use-cases",

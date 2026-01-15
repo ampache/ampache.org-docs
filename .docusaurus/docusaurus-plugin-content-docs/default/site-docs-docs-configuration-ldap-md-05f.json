@@ -17,8 +17,8 @@
   },
   "sidebar": "api",
   "previous": {
-    "title": "Remote Catalogs",
-    "permalink": "/docs/configuration/remote-catalogs"
+    "title": "Access Control Lists",
+    "permalink": "/docs/configuration/acl"
   },
   "next": {
     "title": "Ampache API",

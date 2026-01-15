@@ -14,5 +14,14 @@
     "title": "Preferences",
     "metaTitle": "Preferences",
     "description": "Understanding Ampache Preferences"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Ampache7 for Users",
+    "permalink": "/docs/help/troubleshooting/ampache7-for-users"
+  },
+  "next": {
+    "title": "Frequently Asked Questions",
+    "permalink": "/docs/help/troubleshooting/faq"
   }
 }

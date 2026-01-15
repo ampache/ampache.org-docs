@@ -14,5 +14,14 @@
     "title": "Upload Catalogs",
     "metaTitle": "Upload Catalogs",
     "description": "Managing Upload Catalogs"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Private Catalogs",
+    "permalink": "/docs/configuration/catalog-filters"
+  },
+  "next": {
+    "title": "Access Control Lists",
+    "permalink": "/docs/configuration/acl"
   }
 }

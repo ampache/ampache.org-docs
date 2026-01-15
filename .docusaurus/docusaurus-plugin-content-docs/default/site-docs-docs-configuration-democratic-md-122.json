@@ -17,8 +17,8 @@
   },
   "sidebar": "api",
   "previous": {
-    "title": "Private Catalogs",
-    "permalink": "/docs/configuration/catalog-filters"
+    "title": "Transcode Caching",
+    "permalink": "/docs/configuration/transcoding/transcode-caching"
   },
   "next": {
     "title": "Ampache + Icecast & Liquidsoap",

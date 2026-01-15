@@ -14,5 +14,14 @@
     "title": "Import Last.FM data",
     "metaTitle": "Import Last.FM data",
     "description": "Import Last.FM data into Ampache"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Charts and Graphs",
+    "permalink": "/docs/help/troubleshooting/chart-faq"
+  },
+  "next": {
+    "title": "old-information",
+    "permalink": "/docs/old-information/"
   }
 }

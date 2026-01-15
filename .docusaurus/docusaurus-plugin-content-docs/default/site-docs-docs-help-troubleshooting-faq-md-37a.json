@@ -17,8 +17,8 @@
   },
   "sidebar": "api",
   "previous": {
-    "title": "Ampache7 for Users",
-    "permalink": "/docs/help/troubleshooting/ampache7-for-users"
+    "title": "Preferences",
+    "permalink": "/docs/help/preferences-explained"
   },
   "next": {
     "title": "Ampache CLI",

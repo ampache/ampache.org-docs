@@ -4,15 +4,15 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 export default [
   {
     path: '/',
-    component: ComponentCreator('/', '283'),
+    component: ComponentCreator('/', 'a15'),
     routes: [
       {
         path: '/',
-        component: ComponentCreator('/', 'cea'),
+        component: ComponentCreator('/', '2e7'),
         routes: [
           {
             path: '/',
-            component: ComponentCreator('/', '1cf'),
+            component: ComponentCreator('/', '17c'),
             routes: [
               {
                 path: '/api/',
@@ -726,13 +726,15 @@ export default [
               },
               {
                 path: '/docs/help/import-lastfm-data',
-                component: ComponentCreator('/docs/help/import-lastfm-data', '906'),
-                exact: true
+                component: ComponentCreator('/docs/help/import-lastfm-data', 'd9b'),
+                exact: true,
+                sidebar: "api"
               },
               {
                 path: '/docs/help/preferences-explained',
-                component: ComponentCreator('/docs/help/preferences-explained', 'ac8'),
-                exact: true
+                component: ComponentCreator('/docs/help/preferences-explained', 'b00'),
+                exact: true,
+                sidebar: "api"
               },
               {
                 path: '/docs/help/troubleshooting/ampache7-for-admins',
@@ -766,8 +768,9 @@ export default [
               },
               {
                 path: '/docs/help/upload-catalogs',
-                component: ComponentCreator('/docs/help/upload-catalogs', 'a77'),
-                exact: true
+                component: ComponentCreator('/docs/help/upload-catalogs', 'c25'),
+                exact: true,
+                sidebar: "api"
               },
               {
                 path: '/docs/information/ampache-use-cases',
