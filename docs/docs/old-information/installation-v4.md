@@ -7,7 +7,7 @@ description: "Ampache4 Installation"
 ## Installing Ampache 4
 
 This document is built to help you install to your local server.
-A pre-built [docker](https://github.com/ampache/ampache-docker) repo is also available.
+A pre-built [docker](/docker) repo is also available.
 
 * [prerequites](#prerequisites)
 * [Web Server Configuration](#web-server-configuration)

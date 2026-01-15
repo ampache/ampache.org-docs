@@ -58,8 +58,10 @@ const sidebars = {
           link: {type: 'doc', id: 'docs/configuration/configuration'},
           items: [
             'docs/information/upgrade',
-            'docs/configuration/acl',
             'docs/configuration/remote-catalogs',
+            'docs/configuration/catalog-filters',
+            'docs/help/upload-catalogs',
+            'docs/configuration/acl',
             'docs/configuration/ldap',
             'docs/configuration/api',
             'docs/configuration/subsonic',
@@ -87,7 +89,6 @@ const sidebars = {
                 'docs/configuration/transcoding/transcode-caching',
               ],
             },
-            'docs/configuration/catalog-filters',
             'docs/configuration/democratic',
             'docs/configuration/Ampache-Icecast-and-Liquidsoap',
             'docs/configuration/multi-artist',
@@ -132,9 +133,11 @@ const sidebars = {
           items: [
             'docs/help/troubleshooting/ampache7-for-admins',
             'docs/help/troubleshooting/ampache7-for-users',
+            'docs/help/preferences-explained',
             'docs/help/troubleshooting/faq',
             'docs/help/troubleshooting/cli',
             'docs/help/troubleshooting/chart-faq',
+            'docs/help/import-lastfm-data',
           ],
         },
         {

@@ -50,7 +50,7 @@ Press `y` and enter to discard the change.
 
 ## Try it out
 
-You can check out the latest builds of Ampache7 using [docker](https://github.com/ampache/ampache-docker).
+You can check out the latest builds of Ampache7 using [docker](/docker).
 
 Just check out the `ampache/ampache:develop` or `ampache/ampache:nosql-develop` tag to get these builds.
 
