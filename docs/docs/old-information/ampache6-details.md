@@ -255,13 +255,13 @@ Access to this mode is set by disabling the preference `album_group`.
 
 Set it for a single user
 
-```txt
+```text
 preferences.php?tab=interface
 ````
 
 Set the default in system preferences
 
-```txt
+```text
 preferences.php?action=admin&tab=interface
 ```
 

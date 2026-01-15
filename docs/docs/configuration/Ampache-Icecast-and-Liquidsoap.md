@@ -137,7 +137,7 @@ nano /usr/share/liquidsoap/ampache.liq
 
 Here is my config, make sure you alter to your setup!
 
-```txt
+```text
 #!/usr/bin/liquidsoap
 # Log dir
 set("log.file.path","/var/log/liquidsoap/liquidsoap.log")

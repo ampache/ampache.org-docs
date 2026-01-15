@@ -91,7 +91,7 @@ $passphrase = hash('sha256', $user . $key);
 
 To standardize how to transfer Ampache connection information, the following Ampache scheme is defined.
 
-```Text
+```text
 ampache://authentication@hostname[:port]/subdirectory[#parameters]
 ```
 

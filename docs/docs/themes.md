@@ -10,7 +10,7 @@ Ampache has an integrated theme system that allows users to modify the CSS/image
 
 The theme directory is fairly straightforward.
 
-```Text
+```text
 Theme Name
 ├─ images/
 │  ├─ icons/

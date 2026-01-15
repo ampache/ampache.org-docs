@@ -6,9 +6,13 @@ description: "Troubleshooting"
 
 ## Ask people for help
 
-* IRC: #ampache on [webchat.freenode.net](https://webchat.freenode.net/#ampache)
-* Google Groups: [Ampache](https://groups.google.com/forum/#!forum/ampache)
+* [Telegram Channel](https://t.me/ampache)
+* [Reddit – r/ampache community](https://www.reddit.com/r/ampache)
 * GitHub: Submit a [new issue](https://github.com/ampache/ampache/issues/new)
+
+* Old and inactive groups. These are historical groups that are not actively used
+  * IRC: #ampache on [webchat.freenode.net](https://webchat.freenode.net/#ampache)
+  * Google Groups: [Ampache](https://groups.google.com/forum/#!forum/ampache)
 
 ## Ask Ampache for help
 

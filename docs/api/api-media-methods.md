@@ -75,7 +75,7 @@ The Ampache config file also allows you configure what you consider to be a skip
 
 The `skip_timer` setting is what the server uses to decide whether the new play is going to override the last play.
 
-```TXT
+```text
 ; Skip Timer Threshold
 ; This allows custom times to decide when a track is skipped
 ; Allows an integer to denote seconds, or a float to denote percentage

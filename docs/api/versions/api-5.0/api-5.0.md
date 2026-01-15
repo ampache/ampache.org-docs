@@ -61,7 +61,7 @@ $passphrase = hash('sha256', $user . $key);
 
 Ampache supports sending your auth parameter to the server using a Bearer Token.
 
-```Text
+```text
 GET https://demo.ampache.dev/server/json.server.php?action=handshake&version=6.0.0 HTTP/1.1
 Authorization: Bearer 000111112233334444455556667777788888899aaaaabbbbcccccdddeeeeeeff
 ```
@@ -72,7 +72,7 @@ Authorization: Bearer 000111112233334444455556667777788888899aaaaabbbbcccccdddee
 
 To standardize how to transfer Ampache connection information, the following Ampache scheme is defined.
 
-```Text
+```text
 ampache://authentication@hostname[:port]/subdirectory[#parameters]
 ```
 

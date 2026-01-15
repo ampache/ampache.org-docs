@@ -59,48 +59,48 @@ Allowing you to access your music &amp; videos from anywhere, using almost any i
 
 <div class="display--flex">
   <a href="/img/previews/login-dark.png" target="_blank" rel="noopener noreferrer" title="login-dark.png">
-    <img src="/img/previews/login-dark.png"/>
+    <img src="/img/previews/login-dark.png" alt="login-dark.png"/>
   </a>
   <a href="/img/previews/login-light.png" target="_blank" rel="noopener noreferrer" title="login-light.png">
-    <img src="/img/previews/login-light.png"/>
+    <img src="/img/previews/login-light.png" alt="login-light.png"/>
   </a>
   <a href="/img/previews/login-custom.png" target="_blank" rel="noopener noreferrer" title="login-custom.png">
-    <img src="/img/previews/login-custom.png"/>
+    <img src="/img/previews/login-custom.png" alt="login-custom.png"/>
   </a>
 </div>
 
 <div class="display--flex">
   <a href="/img/previews/index2.png" target="_blank" rel="noopener noreferrer" title="index2.png">
-    <img src="/img/previews/index2.png"/>
+    <img src="/img/previews/index2.png" alt="index2.png"/>
   </a>
   <a href="/img/previews/index1.png" target="_blank" rel="noopener noreferrer" title="index1.png">
-    <img src="/img/previews/index1.png"/>
+    <img src="/img/previews/index1.png" alt="index1.png"/>
   </a>
   <a href="/img/previews/smartlist.png" target="_blank" rel="noopener noreferrer" title="smartlist.png">
-    <img src="/img/previews/smartlist.png"/>
+    <img src="/img/previews/smartlist.png" alt="smartlist.png"/>
   </a>
 </div>
 
 <div class="display--flex">
   <a href="/img/previews/dashboard-album.png" target="_blank" rel="noopener noreferrer" title="dashboard-album.png">
-    <img src="/img/previews/dashboard-album.png"/>
+    <img src="/img/previews/dashboard-album.png" alt="dashboard-album.png"/>
   </a>
   <a href="/img/previews/browse-album.png" target="_blank" rel="noopener noreferrer" title="browse-album.png">
-    <img src="/img/previews/browse-album.png"/>
+    <img src="/img/previews/browse-album.png" alt="browse-album.png"/>
   </a>
   <a href="/img/previews/browse-playlists.png" target="_blank" rel="noopener noreferrer" title="browse-playlists.png">
-    <img src="/img/previews/browse-playlists.png"/>
+    <img src="/img/previews/browse-playlists.png" alt="browse-playlists.png"/>
   </a>
 </div>
 
 <div class="display--flex">
   <a href="/img/previews/api-foam.png" target="_blank" rel="noopener noreferrer" title="api-foam.png">
-    <img src="/img/previews/api-foam-md.png"/>
+    <img src="/img/previews/api-foam-md.png" alt="api-foam.png"/>
   </a>
   <a href="/img/previews/now_playing.png" target="_blank" rel="noopener noreferrer" title="now_playing.png">
-    <img src="/img/previews/now_playing-md.png"/>
+    <img src="/img/previews/now_playing-md.png" alt="now_playing.png"/>
   </a>
   <a href="/img/previews/api-ample.png" target="_blank" rel="noopener noreferrer" title="api-ample.png">
-    <img src="/img/previews/api-ample-md.png"/>
+    <img src="/img/previews/api-ample-md.png" alt="api-ample.png"/>
   </a>
 </div>

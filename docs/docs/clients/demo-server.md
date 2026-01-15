@@ -4,20 +4,31 @@ metaTitle: "Demo Servers"
 description: "Ampache Demo Servers"
 ---
 
-The official Ampache demo server is now up and running!
+Ampache is running multiple demo servers to allow you to evaluate features and setup options.
 
 The server has been created using funding from the [Linux Australia grants program](https://linux.org.au/grants-program/).
 
 Without the support of Linux Australia we would not be able to provide a server this easily and it is really appreciated.
 We would like to acknowledge their contribution as well as their support to free software in the community.
 
+## Server List
+
+Here is a list of official demos.
+
+The sites are using the same media library and are all accessible to anyone with restricted demo accounts.
+
+* [demo.ampache.dev](https://demo.ampache.dev)
+* [develop.ampache.dev](https://develop.ampache.dev)
+* [public.ampache.dev](https://public.ampache.dev)
+* [client.ampache.dev](https://declientmo.ampache.dev)
+
 ## Access the server
 
 Log in as follows:
 
-* Link: [demo.ampache.dev](http://demo.ampache.dev)
-* User: demo
-* Pass: demodemo
+* Username: demo
+* Password: demodemo
+* APIKey: demodemo
 
 ## What is this server for
 

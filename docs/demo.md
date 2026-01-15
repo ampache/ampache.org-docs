@@ -21,17 +21,21 @@ description: "Ampache demo sites"
 
 ## Official demo servers
 
-Ampache official demo site provided with funding courtesy of [Linux Australia](https://linux.org.au/).<br/>
+Ampache official demo site provided with funding courtesy of <a class="box--link" href="https://linux.org.au" target="_blank" rel="noopener noreferrer" title="Linux Australia">Linux Australia</a>.<br/>
 It uses the current release version of Ampache and creative commons music from archive.org.<br/>
 Functionality is reduced to allow multiple users to access the account for testing.
 
   <div class="text--center">
-  [Stable Branch](https://demo.ampache.dev/)
-
-  [Develop Branch](https://develop.ampache.dev/)
+    <a class="box--link" href="https://demo.ampache.dev" target="_blank" rel="noopener noreferrer" title="Stable Branch">Stable Branch</a>
+    <br/>
+    <a class="box--link" href="https://develop.ampache.dev" target="_blank" rel="noopener noreferrer" title="Develop Branch">Develop Branch</a>
+    <br/>
+    <a class="box--link" href="https://public.ampache.dev" target="_blank" rel="noopener noreferrer" title="Public Branch">Public Branch</a>
+    <br/>
+    <a class="box--link" href="https://client.ampache.dev" target="_blank" rel="noopener noreferrer" title="Client Branch">Client Branch</a>
   </div>
 
-### Accessing the demo
+### Accessing the demo sites
 
   The demo site can be accessed using:<br/>
   username "demo"<br/>
@@ -40,7 +44,7 @@ Functionality is reduced to allow multiple users to access the account for testi
   More details about what you can do in the wiki.
 
   <div class="text--center">
-  [read more](docs/clients/demo-server)
+    <a class="box--link" href="/docs/clients/demo-server" target="_blank" rel="noopener noreferrer" title="read more">read more</a>
   </div>
 </div>
 
@@ -59,7 +63,7 @@ Functionality is reduced to allow multiple users to access the account for testi
 Dogmazic is one of the primary free music download managers in France. Dogmazic was created in December 2004 by the Bordeaux-based Association Musique libre!, a major proponent of the French free music movement.
 
     <div class="text--center">
-    [View](http://play.dogmazic.net)
+      <a class="box--link" href="http://play.dogmazic.net" target="_blank" rel="noopener noreferrer" title="View">View</a>
     </div>
   </div>
   <div class="article--box">
@@ -75,7 +79,7 @@ Ampache Demo (including admin area) on Softaculous.
 Softaculous is an auto installer for cPanel and DirectAdmin. Softaculous applications typically create tables in a database, install software, adjust permissions, and modify web server configuration files.
 
     <div class="text--center">
-    [View](http://www.softaculous.com/softaculous/demos/Ampache)
+      <a class="box--link" href="http://www.softaculous.com/softaculous/demos/Ampache" target="_blank" rel="noopener noreferrer" title="View">View</a>
     </div>
   </div>
   <div class="article--box">
@@ -89,7 +93,9 @@ Add your public server to this list.
 
 We all love music.
 
-[Suggest](https://groups.google.com/d/topic/ampache/ACaW9hmffdo/discussion)
+    <div class="text--center">
+      <a class="box--link" href="https://github.com/ampache/ampache.org-docs/issues" target="_blank" rel="noopener noreferrer" title="Open an Issue">Open an Issue</a>
+    </div>
 
   </div>
 </div>

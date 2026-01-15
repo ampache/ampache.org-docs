@@ -37,7 +37,7 @@ My setup is pretty much automated through a script i use to setup all what is ne
 Though the setup it's generates has functionality, it is somewhat basic. Some webapplications have special needs that can't be taken into account in a basic setup. That's also not the intention of that script, and the resulting vHost's and PHP-FPM pool configuration have to be adjusted for the individual use case.
 To understand the configuration it generates, knowledge of the directory Structure is needed:
 
-```txt
+```text
 /var/www
 ├── [ampache  ampache ]  ampache
 │   ├── [ampache  ampache ]  conf             # folder for the php-fpm socket

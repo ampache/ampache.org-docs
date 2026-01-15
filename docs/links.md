@@ -6,11 +6,23 @@ description: "Ampache links and Socials"
 
 <div class="article">
 <p class="article-p text--center">
-TODO<br/>
-Expand for social accounts and include all valid active groups
+Links and social media accounts.<br/>
+Come and talk to us
 </p>
 </div>
 
-[![github](/img/GitHub-Mark-32px.png)](https://github.com/ampache/ampache "github")
+## Development Links
 
-[![twitter](/img/Twitter_Social_Icon_Rounded_Square_Color-32px.png)](https://twitter.com/ampache "twitter")
+* [Ampache GitHub](https://github.com/ampache/ampache)
+* [Docker Hub](https://hub.docker.com/repository/docker/ampache/ampache)
+
+## Social Media Accounts
+
+* [Twitter Profile](https://twitter.com/ampache)
+* [Mastodon Profile](https://fosstodon.org/@ampache)
+* [Bluesky Profile](https://bsky.app/profile/ampache.bsky.social)
+
+## Community Groups
+
+* [Telegram Channel](https://t.me/ampache)
+* [Reddit – r/ampache community](https://www.reddit.com/r/ampache)

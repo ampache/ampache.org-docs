@@ -133,6 +133,6 @@ msgid "" is the only dupe you want to see. (This is used for multiline translati
 
 I used a regex to delete the dupes, alter to match your issues. Dupes will generally come from these generated files.
 
-```txt
+```text
 \n+#:\s*(?:Database preference subcategory table id [0-9]+|\.\/untranslated-strings\.txt:[0-9]+)\nmsgid "(?:backend|browse|catalog|custom|feature|home|httpq|lastfm|library|localplay|mpd|metadata|notification|player|podcast|privacy|query|share|Show current song in Web Player page title|sidebar|theme|transcoding|update|upload)"\nmsgstr "[^"]*"
 ```

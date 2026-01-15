@@ -106,6 +106,6 @@ If you used ./php-cs-fixer from root it's still there in the vendor folder (/ven
 
 Anyone who wants to create a pull for Ampache can check their code by executing the test scripts.
 
-```bash
+```shell
 bash ./resources/scripts/tests/*
 ```

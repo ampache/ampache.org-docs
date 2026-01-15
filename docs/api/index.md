@@ -93,7 +93,7 @@ Ampache supports sending your auth parameter to the server using a Bearer Token.
 
 The `auth` parameter does not need to be sent with your URL. We will check your header for a token first
 
-```Text
+```text
 GET https://demo.ampache.dev/server/json.server.php?action=handshake&version=6.0.0 HTTP/1.1
 Authorization: Bearer 000111112233334444455556667777788888899aaaaabbbbcccccdddeeeeeeff
 ```
@@ -104,7 +104,7 @@ Authorization: Bearer 000111112233334444455556667777788888899aaaaabbbbcccccdddee
 
 To standardize how to transfer Ampache connection information, the following Ampache scheme is defined.
 
-```Text
+```text
 ampache://authentication@hostname[:port]/subdirectory[#parameters]
 ```
 
