@@ -1,7 +1,7 @@
 {
   "id": "docs/configuration/subsonic",
-  "title": "SubSonic API",
-  "description": "Ampache SubSonic API",
+  "title": "Subsonic API",
+  "description": "Ampache Subsonic API",
   "source": "@site/docs/docs/configuration/subsonic.md",
   "sourceDirName": "docs/configuration",
   "slug": "/docs/configuration/subsonic",
@@ -11,9 +11,9 @@
   "tags": [],
   "version": "current",
   "frontMatter": {
-    "title": "SubSonic API",
-    "metaTitle": "SubSonic API",
-    "description": "Ampache SubSonic API"
+    "title": "Subsonic API",
+    "metaTitle": "Subsonic API",
+    "description": "Ampache Subsonic API"
   },
   "sidebar": "api",
   "previous": {

@@ -17,8 +17,8 @@
   },
   "sidebar": "api",
   "previous": {
-    "title": "Frequently Asked Questions",
-    "permalink": "/docs/help/troubleshooting/faq"
+    "title": "Ampache CLI",
+    "permalink": "/docs/help/troubleshooting/cli"
   },
   "next": {
     "title": "old-information",

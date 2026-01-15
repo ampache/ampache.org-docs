@@ -626,7 +626,8 @@
             },
             {
               "id": "docs/help/troubleshooting/cli",
-              "path": "/docs/help/troubleshooting/cli"
+              "path": "/docs/help/troubleshooting/cli",
+              "sidebar": "api"
             },
             {
               "id": "docs/help/troubleshooting/faq",

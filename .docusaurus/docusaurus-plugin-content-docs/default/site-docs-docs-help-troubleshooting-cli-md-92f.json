@@ -14,5 +14,14 @@
     "title": "Ampache CLI",
     "metaTitle": "Ampache CLI",
     "description": "Explaining the Ampache CLI"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Frequently Asked Questions",
+    "permalink": "/docs/help/troubleshooting/faq"
+  },
+  "next": {
+    "title": "Charts and Graphs",
+    "permalink": "/docs/help/troubleshooting/chart-faq"
   }
 }

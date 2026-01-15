@@ -1,7 +1,7 @@
 {
   "id": "configuration/subsonic",
-  "title": "SubSonic API",
-  "description": "Your Ampache server can be accessed through the SubSonic API.",
+  "title": "Subsonic API",
+  "description": "Your Ampache server can be accessed through the Subsonic API.",
   "source": "@site/docs/configuration/subsonic.md",
   "sourceDirName": "configuration",
   "slug": "/configuration/subsonic",
