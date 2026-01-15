@@ -14,5 +14,14 @@
     "title": "Ampache WebUI",
     "metaTitle": "Ampache WebUI",
     "description": "Ampache WebUI"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Clients",
+    "permalink": "/docs/clients/"
+  },
+  "next": {
+    "title": "API Clients",
+    "permalink": "/docs/clients/api"
   }
 }

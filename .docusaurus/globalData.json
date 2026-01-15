@@ -648,10 +648,6 @@
               "path": "/docs/information/ampache7-client-structure-install-type"
             },
             {
-              "id": "docs/information/information",
-              "path": "/docs/information/"
-            },
-            {
               "id": "docs/information/TV-Shows-and-Movies",
               "path": "/docs/information/TV-Shows-and-Movies"
             },
@@ -662,7 +658,8 @@
             },
             {
               "id": "docs/information/Web-Interface",
-              "path": "/docs/information/Web-Interface"
+              "path": "/docs/information/Web-Interface",
+              "sidebar": "api"
             },
             {
               "id": "docs/information/web-player",
@@ -670,7 +667,8 @@
             },
             {
               "id": "docs/information/which-zip",
-              "path": "/docs/information/which-zip"
+              "path": "/docs/information/which-zip",
+              "sidebar": "api"
             },
             {
               "id": "docs/installation/catalog",

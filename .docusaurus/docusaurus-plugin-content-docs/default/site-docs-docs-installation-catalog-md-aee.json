@@ -17,8 +17,8 @@
   },
   "sidebar": "api",
   "previous": {
-    "title": "Installing Ampache",
-    "permalink": "/docs/installation/"
+    "title": "Which zip?",
+    "permalink": "/docs/information/which-zip"
   },
   "next": {
     "title": "Install on Ubuntu 22.04",

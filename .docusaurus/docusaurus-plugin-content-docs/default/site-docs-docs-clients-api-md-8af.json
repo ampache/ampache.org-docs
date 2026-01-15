@@ -17,8 +17,8 @@
   },
   "sidebar": "api",
   "previous": {
-    "title": "Clients",
-    "permalink": "/docs/clients/"
+    "title": "Ampache WebUI",
+    "permalink": "/docs/information/Web-Interface"
   },
   "next": {
     "title": "Demo Servers",

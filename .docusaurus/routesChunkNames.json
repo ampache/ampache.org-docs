@@ -1,15 +1,15 @@
 {
-  "/-d9b": {
+  "/-283": {
     "__comp": "5e95c892",
     "__context": {
       "plugin": "aba21aa0"
     }
   },
-  "/-9d5": {
+  "/-cea": {
     "__comp": "a7bd4aaa",
     "__props": "22dd74f7"
   },
-  "/-c04": {
+  "/-1cf": {
     "__comp": "a94703ab"
   },
   "/api/-e54": {
@@ -520,10 +520,6 @@
     "__comp": "17896441",
     "content": "299c14fb"
   },
-  "/docs/information/-fb1": {
-    "__comp": "17896441",
-    "content": "6e93acd9"
-  },
   "/docs/information/ampache-use-cases-d6a": {
     "__comp": "17896441",
     "content": "1fc41555"
@@ -540,7 +536,7 @@
     "__comp": "17896441",
     "content": "2c05c577"
   },
-  "/docs/information/Web-Interface-2e3": {
+  "/docs/information/Web-Interface-07f": {
     "__comp": "17896441",
     "content": "21cebfea"
   },
@@ -548,7 +544,7 @@
     "__comp": "17896441",
     "content": "067a7861"
   },
-  "/docs/information/which-zip-fed": {
+  "/docs/information/which-zip-5ce": {
     "__comp": "17896441",
     "content": "948d7fb8"
   },

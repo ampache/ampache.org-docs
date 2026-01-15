@@ -4,15 +4,15 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 export default [
   {
     path: '/',
-    component: ComponentCreator('/', 'd9b'),
+    component: ComponentCreator('/', '283'),
     routes: [
       {
         path: '/',
-        component: ComponentCreator('/', '9d5'),
+        component: ComponentCreator('/', 'cea'),
         routes: [
           {
             path: '/',
-            component: ComponentCreator('/', 'c04'),
+            component: ComponentCreator('/', '1cf'),
             routes: [
               {
                 path: '/api/',
@@ -770,11 +770,6 @@ export default [
                 exact: true
               },
               {
-                path: '/docs/information/',
-                component: ComponentCreator('/docs/information/', 'fb1'),
-                exact: true
-              },
-              {
                 path: '/docs/information/ampache-use-cases',
                 component: ComponentCreator('/docs/information/ampache-use-cases', 'd6a'),
                 exact: true,
@@ -798,8 +793,9 @@ export default [
               },
               {
                 path: '/docs/information/Web-Interface',
-                component: ComponentCreator('/docs/information/Web-Interface', '2e3'),
-                exact: true
+                component: ComponentCreator('/docs/information/Web-Interface', '07f'),
+                exact: true,
+                sidebar: "api"
               },
               {
                 path: '/docs/information/web-player',
@@ -808,8 +804,9 @@ export default [
               },
               {
                 path: '/docs/information/which-zip',
-                component: ComponentCreator('/docs/information/which-zip', 'fed'),
-                exact: true
+                component: ComponentCreator('/docs/information/which-zip', '5ce'),
+                exact: true,
+                sidebar: "api"
               },
               {
                 path: '/docs/installation/',

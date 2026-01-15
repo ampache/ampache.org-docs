@@ -14,5 +14,14 @@
     "title": "Which zip?",
     "metaTitle": "Which zip?",
     "description": "Which zip?"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Installing Ampache",
+    "permalink": "/docs/installation/"
+  },
+  "next": {
+    "title": "Creating a Catalog",
+    "permalink": "/docs/installation/catalog"
   }
 }

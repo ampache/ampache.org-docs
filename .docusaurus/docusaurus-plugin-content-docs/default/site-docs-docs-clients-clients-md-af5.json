@@ -21,7 +21,7 @@
     "permalink": "/docs/configuration/podcasts"
   },
   "next": {
-    "title": "API Clients",
-    "permalink": "/docs/clients/api"
+    "title": "Ampache WebUI",
+    "permalink": "/docs/information/Web-Interface"
   }
 }
