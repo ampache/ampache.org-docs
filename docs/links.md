@@ -11,6 +11,10 @@ Come and talk to us
 </p>
 </div>
 
+## Website archive
+
+* The old site has been archived here [ampache.org/old](/old).
+
 ## Development Links
 
 * [Ampache GitHub](https://github.com/ampache/ampache)
