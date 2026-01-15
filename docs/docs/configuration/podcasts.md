@@ -9,7 +9,7 @@ description: "Ampache Podcasts"
 Subscribe to external podcasts and automatically retrieve new episodes when available.
 
 * Enable podcast in `ampache.cfg.php` by setting `podcast` to `true`. (Don't forget to remove the `;`)
-![image](https://user-images.githubusercontent.com/1305249/135967381-0443dec9-f19e-46a1-80cf-da7d032e51f4.png)
+![image](/img/1305249/135967381-0443dec9-f19e-46a1-80cf-da7d032e51f4.png)
 
 * In Ampache, setup your system preferences (in Admin > Server config > System > Podcast) for episodes to download when new episodes are available and latest episodes to keep.
 

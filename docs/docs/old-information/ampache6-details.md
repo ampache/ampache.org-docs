@@ -4,6 +4,8 @@ metaTitle: "Ampache6 for Admins"
 description: "Ampache6 for Admins"
 ---
 
+## Ampache6 for Admins
+
 This page will cover the backend and Admin specific changes to Ampache.
 
 For information about what you'll see and changed behavior's check out [Ampache6 for Users](/docs/old-information/ampache6-for-users)
@@ -115,13 +117,13 @@ Now that albums and album_disks have been split they are no longer the same obje
 
 If you want to allow downloads for single disks add `album_disk` to your config file.
 
-![image](https://user-images.githubusercontent.com/1305249/197692163-a4e077fe-8a3f-41d0-bb54-54ea8a25d299.png)
+![image](/img/1305249/197692163-a4e077fe-8a3f-41d0-bb54-54ea8a25d299.png)
 
 If you allow album downloads you should add this even if you keep `album_group` enabled otherwise you won't be able to download individual disks on a multi-disk album.
 
 If you're using the CLI to export playlists with web links you should add your site url as the `fallback_url` in your config.
 
-![image](https://user-images.githubusercontent.com/1305249/229010778-9cc34ca3-7755-42fb-8b08-353a26f6bf57.png)
+![image](/img/1305249/229010778-9cc34ca3-7755-42fb-8b08-353a26f6bf57.png)
 
 ## New CLI commands and parameters
 
@@ -186,7 +188,7 @@ For albums that have been duplicated in your library there is now an additional 
 
 This field looks for the tag `Version`.
 
-![image](https://user-images.githubusercontent.com/1305249/221723870-b4a7fc02-632e-44f0-a109-bc1c612b5ca0.png)
+![image](/img/1305249/221723870-b4a7fc02-632e-44f0-a109-bc1c612b5ca0.png)
 
 If you use Picard for tagging you can add the version tag for grouping to your client using a tagging script.
 (Note the capitalization)
@@ -203,7 +205,7 @@ This will add the tag using the Picard `_releasecomment` and create the Version 
 
 As an admin you can add a stream token to your users from the edit user pages.
 
-![image](https://user-images.githubusercontent.com/1305249/199862299-a514f7fb-dd63-491d-87b5-802ec26e132a.png)
+![image](/img/1305249/199862299-a514f7fb-dd63-491d-87b5-802ec26e132a.png)
 
 This allows streams without the risk of the session expiring by using a static token.
 
@@ -217,7 +219,7 @@ This token does not allow a user to do anything except stream music and it requi
 
 You previously had to edit the database to remove the API Key from a user; now there's an option for removal
 
-![image](https://user-images.githubusercontent.com/1305249/221723720-87984aa2-92fd-4e11-9873-f326cfe937d4.png)
+![image](/img/1305249/221723720-87984aa2-92fd-4e11-9873-f326cfe937d4.png)
 
 ## New Upload links and settings
 
@@ -229,7 +231,7 @@ You can now also set a minimum access level to upload pages using `upload_access
 
 This will hide links and disallow access to upload pages when you do not meet that access level. (Ampache5 allowed for anyone User (25) and above)
 
-![image](https://user-images.githubusercontent.com/1305249/229011250-3762e2a8-8542-41f6-b511-a51ebbe72ad6.png)
+![image](/img/1305249/229011250-3762e2a8-8542-41f6-b511-a51ebbe72ad6.png)
 
 ### Admin users can now browse ALL user uploads
 
@@ -237,19 +239,19 @@ The upload page on the home tab will only list uploads for your user.
 
 A new link in the admin page has been added to allow you to browse uploads for all users. This was added to the 'User Tools' section on the sidebar admin tab.
 
-![image](https://user-images.githubusercontent.com/1305249/228985025-b7512418-9483-4580-8268-5a6660c7f39f.png)
+![image](/img/1305249/228985025-b7512418-9483-4580-8268-5a6660c7f39f.png)
 
 ### Upload catalogs support music only
 
 Uploads are designed to allow only song uploads so this has been enforced and you can only select a music catalog as your destination.
 
-![image](https://user-images.githubusercontent.com/1305249/221724656-b7e826e9-1736-4714-be01-060054f9be40.png)
+![image](/img/1305249/221724656-b7e826e9-1736-4714-be01-060054f9be40.png)
 
 ## AlbumDisk objects now store per-disk information
 
 For those who have album_group disabled the function in the web interface should be exactly the same as before.
 
-![image](https://user-images.githubusercontent.com/1305249/198910278-7188c937-bbdb-447f-b213-42b64f6589b3.png)
+![image](/img/1305249/198910278-7188c937-bbdb-447f-b213-42b64f6589b3.png)
 
 Access to this mode is set by disabling the preference `album_group`.
 
@@ -267,7 +269,7 @@ preferences.php?action=admin&tab=interface
 
 In the system preferences page you can tick `Apply to All` to overwrite all user preferences
 
-![image](https://user-images.githubusercontent.com/1305249/197697373-47af0132-64f4-4251-826b-c94c6801c8b1.png)
+![image](/img/1305249/197697373-47af0132-64f4-4251-826b-c94c6801c8b1.png)
 
 An AlbumDisk is essentially a sub-type of a parent Album object. It's has it's own data with additional data retrieved from the master object. You can not edit an individual AlbumDisk; the data is edited from the Album object.
 
@@ -298,7 +300,7 @@ An album is an album.
 
 I wanted API6 to basically be API5+ with minor changes where required.
 
-This is all documented [ampache.org/api](https://ampache.org/api/) and API5 documents have been moved here [ampache.org/api-5](https://ampache.org/api/api-5/). All API versions remain fully supported.
+This is all documented [ampache.org/api](/api) and API5 documents have been moved here [ampache.org/api-5](/api/api-5/). All API versions remain fully supported.
 
 * Changes of note are
   * Renamed `user_update` to `user_edit` (user_update still works and will be depreciated in API7)
@@ -316,7 +318,7 @@ This is all documented [ampache.org/api](https://ampache.org/api/) and API5 docu
 
 Ampache has always had a semi correct Subsonic implementation. Now in Ampache6 the API has been updated to the last released version (1.16.1 released with Subsonic 6.1.6)
 
-Documentation is available from the [subsonic.org](http://www.subsonic.org/pages/api.jsp) and example files from an official server and Ampache server are kept [ampache.org](https://ampache.org/api/subsonic).
+Documentation is available from the [subsonic.org](http://www.subsonic.org/pages/api.jsp) and example files from an official server and Ampache server are kept [ampache.org](/api/subsonic).
 
 ## Alternative playback url
 

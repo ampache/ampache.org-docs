@@ -47,10 +47,21 @@
   --ifm-link-color: #f8ac4c;
   --ifm-link-hover-color: #f8ac4c;
   --ifm-menu-color: #fff;
-  --ifm-menu-color-active: #000;
+  --ifm-menu-color-active: #fff;
+  --ifm-menu-link-hover-color: #fff;
   --ifm-menu-color-background-active: #f8ac4c;
   --ifm-menu-color-background-hover: #f8ac4c;
   --ifm-toc-link-color: #fff;
+}
+
+.footer__copyright, .menu__link:hover {
+color: #32220f;
+}
+.menu__link--active, .menu__link--active:hover {
+color: var(--ifm-menu-color-active);
+}
+.menu__list-item-collapsible .menu__link--active {
+  background-color: #f8ac4c;
 }
 
 .footer {

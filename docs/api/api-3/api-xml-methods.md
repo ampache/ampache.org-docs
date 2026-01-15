@@ -1,8 +1,10 @@
 ---
-title: "API3 XML"
-metaTitle: "API3 XML"
+title: "XML Methods"
+metaTitle: "XML Methods"
 description: "API documentation"
 ---
+
+## API3 XML Methods
 
 Lets go through come calls and examples that you can do for each XML method.
 
@@ -61,7 +63,7 @@ You can pass multiple rules as well as joins to create in depth search results
 Rules must be sent in groups of 3 using an int (starting from 1) to designate which rules are combined.
 Use operator ('and'|'or') to choose whether to join or separate each rule when searching.
 
-Refer to the [Advanced Search](https://ampache.org/api/api-advanced-search) page for details about creating searches.
+Refer to the [Advanced Search](/api/api-advanced-search) page for details about creating searches.
 
 * INPUTS
   * ampache_url = (string)

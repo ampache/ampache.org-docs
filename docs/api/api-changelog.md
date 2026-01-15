@@ -463,7 +463,7 @@ Inconsistency with the return of object arrays and single items have been fixed 
 ### Changed (640000)
 
 * API6
-  * Do not translate API `errorMessage` strings [ampache.org](https://ampache.org/api/api-errors)
+  * Do not translate API `errorMessage` strings ampache.org (`https://ampache.org/api/api-errors`)
 
 ### Fixed (640000)
 
@@ -972,7 +972,7 @@ This will likely be the last 5.x API release. API6 will be a continuation of API
 
 ## API 5.2.0
 
-Check out the docs for multi API support at [ampache.org](https://ampache.org/api/)
+Check out the docs for multi API support at ampache.org (`https://ampache.org/api`)
 
 **note** JSON didn't exist for API3 so all json requests from API3 calls will revert to API5
 
@@ -1317,7 +1317,7 @@ Bump API version to 400003 (4.0.0 build 003)
 
 ### Added (400003)
 
-* user_numeric searches also available in the API. ([http://ampache.org/api/api-xml-methods])
+* user_numeric searches also available in the API. `http://ampache.org/api/api-xml-methods`
 
 ### Changed (400003)
 
@@ -1343,7 +1343,7 @@ Bump API version to 400003 (4.0.0 build 003)
 
 ### Added (400002)
 
-* Documented the Ampache API [http://ampache.org/api/api-xml-methods]
+* Documented the Ampache API `http://ampache.org/api/api-xml-methods`
 * Include smartlists in the API playlist calls.
 * Authentication: allow sha256 encrypted apikey for auth
   * You must send an encrypted api key in the following fashion. (Hash key joined with username)

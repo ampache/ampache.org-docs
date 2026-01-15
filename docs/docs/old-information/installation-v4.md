@@ -4,6 +4,8 @@ metaTitle: "Ampache4 Installation"
 description: "Ampache4 Installation"
 ---
 
+## Installing Ampache 4
+
 This document is built to help you install to your local server.
 A pre-built [docker](https://github.com/ampache/ampache-docker) repo is also available.
 
@@ -490,25 +492,25 @@ Assuming your web stack is set up properly and you chose the standard web path, 
 
 Any potential problems with your PHP installation should show up on this initial page.
 
-![Installation screenshot](https://ampache.org/img/ampache_installation_01.png)
+![Installation screenshot](/img/ampache_installation_01.png)
 
 Select a language and press "Start Configuration".
 
-![Installation screenshot](https://ampache.org/img/ampache_installation_02.png)
+![Installation screenshot](/img/ampache_installation_02.png)
 
 Check all errors and warnings about your environment.
 
-![Installation screenshot](https://ampache.org/img/ampache_installation_03.png)
+![Installation screenshot](/img/ampache_installation_03.png)
 
 Fill out the form with the database information.
 
-![Installation screenshot](https://ampache.org/img/ampache_installation_04-1.png)
-![Installation screenshot](https://ampache.org/img/ampache_installation_04-2.png)
+![Installation screenshot](/img/ampache_installation_04-1.png)
+![Installation screenshot](/img/ampache_installation_04-2.png)
 
 Fill out the form with the configuration information if needed (blank database password are not accepted). If PHP is able to write to the config/ directory, you will be able to write out the config file directly from this page. If not, or if you just prefer to do it manually, show File Insight and select "Download" and then copy it into the config/ directory manually.
 You also define on this screen the general Ampache behavior (installation type, transcoding default settings and player backends to enable) ; if you don't know about this at this stage, you can change this settings later in ampache.cfg.php and Ampache preferences.
 
-![Installation screenshot](https://ampache.org/img/ampache_installation_05.png)
+![Installation screenshot](/img/ampache_installation_05.png)
 
 The final step of installation is to create the initial administrative user.
 

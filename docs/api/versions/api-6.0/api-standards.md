@@ -1,8 +1,10 @@
 ---
-title: "API6 Standards"
-metaTitle: "API6 Standards"
+title: "Standards"
+metaTitle: "Standards"
 description: "API documentation"
 ---
+
+## API6.0 Standards
 
 Here are some basic standards that all Ampache API's should follow.
 

@@ -4,11 +4,13 @@ metaTitle: "Podcast Episode Search"
 description: "API documentation"
 ---
 
+## Podcast Episode Search
+
 This page focuses on a single object type.
 
 **NOTE** This type is only available in Ampache develop (Ampache 5.5.0+)
 
-Refer to the main [Advanced Search](https://ampache.org/api/api-advanced-search) page for further information regarding the advanced_search method.
+Refer to the main [Advanced Search](/api/api-advanced-search) page for further information regarding the advanced_search method.
 
 ## Available search rules
 

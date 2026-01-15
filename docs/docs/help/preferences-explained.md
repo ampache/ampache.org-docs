@@ -20,7 +20,7 @@ There are 3 major types of preference:
 
 User and system preferences are split into 6 categories
 
-![image](https://user-images.githubusercontent.com/1305249/205497979-c66adec9-9ebe-4231-bd90-de3f9101e3d5.png)
+![image](/img/1305249/205497979-c66adec9-9ebe-4231-bd90-de3f9101e3d5.png)
 
 ## System Preferences
 
@@ -28,7 +28,7 @@ A System Preference's are the default settings for the System and CLI actions.
 
 These preferences are copied to a new user when they are created. (Excluding system and plugin settings)
 
-![image](https://user-images.githubusercontent.com/1305249/205483660-551e2c40-4ca2-4a41-8623-1d85b97aedea.png)
+![image](/img/1305249/205483660-551e2c40-4ca2-4a41-8623-1d85b97aedea.png)
 
 ## User Preferences
 

@@ -4,7 +4,9 @@ metaTitle: "Ampache API"
 description: "Ampache API"
 ---
 
-Ampache has an open, published API that can allow 3rd party applications to integrate with the music, meta-data, and album art held by Ampache. The primary use for this API is to expose your Ampache server to mobile devices while maintaining a native and fully functional client without having to rely on a web browser. Full documentation for developers on Ampache's API can be found at [ampache.org](http://ampache.org/api/)
+## Ampache API
+
+Ampache has an open, published API that can allow 3rd party applications to integrate with the music, meta-data, and album art held by Ampache. The primary use for this API is to expose your Ampache server to mobile devices while maintaining a native and fully functional client without having to rely on a web browser. Full documentation for developers on Ampache's API can be found at [ampache.org](/api)
 
 ## Enabling use of the API
 

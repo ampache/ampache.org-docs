@@ -4,6 +4,8 @@ metaTitle: "Upgrading"
 description: "Upgrading Ampache"
 ---
 
+## Upgrading Ampache
+
 As an assumption we assume you know the path to your Ampache folder and how to manage your permissions.
 
 In this doc we'll use `/var/www/ampache` as the install folder.

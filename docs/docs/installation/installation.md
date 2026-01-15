@@ -116,7 +116,7 @@ The project root folder of the Ampache is not the web root anymore.
 
 The new folder is public which is a subfolder of the project root.
 
-![image](https://user-images.githubusercontent.com/1305249/129305685-ba0c0b6f-35cd-4085-8a4b-4aa2585d8b23.png)
+![image](/img/1305249/129305685-ba0c0b6f-35cd-4085-8a4b-4aa2585d8b23.png)
 
 To install Ampache 5+ it's basically the same but you have to have a bit better understanding of how the webserver serves your folders
 
@@ -151,17 +151,17 @@ sudo mariadb-secure-installation
 
 You will see the following
 
-![image](https://user-images.githubusercontent.com/1305249/129307818-6b89703c-1309-47e8-b6ac-27843c46df80.png)
+![image](/img/1305249/129307818-6b89703c-1309-47e8-b6ac-27843c46df80.png)
 
 * "Enter current password for root (enter for none):" **Press enter for no password**
 * "Switch to unix_socket authentication [Y/n]" **Another no**
 * "Change the root password? [Y/n]" **Yes we want a password**
 
-![image](https://user-images.githubusercontent.com/1305249/129308015-b9337afe-b968-4599-b24a-72026cd51341.png)
+![image](/img/1305249/129308015-b9337afe-b968-4599-b24a-72026cd51341.png)
 
 The rest is up to you but if you are using a different server for your webserver you will probably need to answer no to keep remote root access
 
-![image](https://user-images.githubusercontent.com/1305249/129308136-74836b10-e041-4a8f-b788-234cc7265ef9.png)
+![image](/img/1305249/129308136-74836b10-e041-4a8f-b788-234cc7265ef9.png)
 
 Now you can test logon using your new password
 
@@ -171,7 +171,7 @@ mysql -u root -p
 
 Get this? You can install Ampache using the web-based installer!
 
-![image](https://user-images.githubusercontent.com/1305249/129308228-1294e960-ab18-4e56-9711-ed9928d866e6.png)
+![image](/img/1305249/129308228-1294e960-ab18-4e56-9711-ed9928d866e6.png)
 
 ## Web server configuration
 
@@ -458,23 +458,23 @@ Assuming your web stack is set up properly and you chose the standard web path, 
 
 Select a language and press "Start Configuration".
 
-![image](https://user-images.githubusercontent.com/1305249/129309422-bcf87115-a661-4a28-84a4-826d767c1999.png)
+![image](/img/1305249/129309422-bcf87115-a661-4a28-84a4-826d767c1999.png)
 
 Check all errors and warnings about your environment.
 
-![image](https://user-images.githubusercontent.com/1305249/129309590-97ca0109-8bbb-4064-8f01-684ffd8f4823.png)
+![image](/img/1305249/129309590-97ca0109-8bbb-4064-8f01-684ffd8f4823.png)
 
 Fill out the form with the database information.
 
 It's a good idea to not use your root user as the website database user. (blank database passwords are not accepted)
 
-![image](https://user-images.githubusercontent.com/1305249/129309667-5bed76c9-589d-4c2f-ab99-055affb1afbe.png)
+![image](/img/1305249/129309667-5bed76c9-589d-4c2f-ab99-055affb1afbe.png)
 
 If PHP is able to write to the config directory, you will be able to write out the config file directly from this page.
 
 If you want transcoding to be available make sure you pick something in the "Allow Transcoding" section
 
-![image](https://user-images.githubusercontent.com/1305249/129309887-dce7c474-5c5a-40e1-b4d6-d256adb4b645.png)
+![image](/img/1305249/129309887-dce7c474-5c5a-40e1-b4d6-d256adb4b645.png)
 
 ## Installation Type
 
@@ -515,11 +515,11 @@ Sets the following values
 
 The final step of installation is to create the initial administrative user.
 
-![image](https://user-images.githubusercontent.com/1305249/129310109-6fe3eb4e-d6c1-45fd-83f0-7c76073b2b76.png)
+![image](/img/1305249/129310109-6fe3eb4e-d6c1-45fd-83f0-7c76073b2b76.png)
 
 After you create your user you might have some database updates to install and then you'll be presented with the logon page
 
-![image](https://user-images.githubusercontent.com/1305249/129310162-bd453a70-68b4-4606-9865-5fbbddb23e7f.png)
+![image](/img/1305249/129310162-bd453a70-68b4-4606-9865-5fbbddb23e7f.png)
 
 YOU DID IT!
 

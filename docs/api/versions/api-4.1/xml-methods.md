@@ -1,8 +1,10 @@
 ---
-title: "XML 4.1"
-metaTitle: "XML 4.1"
+title: "XML Methods"
+metaTitle: "XML Methods"
 description: "API documentation"
 ---
+
+## API4.1 XML Methods
 
 Lets go through come calls and examples that you can do for each XML method.
 

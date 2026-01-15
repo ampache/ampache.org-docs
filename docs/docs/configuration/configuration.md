@@ -29,7 +29,7 @@ This chapter will cover database preferences which are managed in the Web interf
 
 Preferences for your user are found on the Preferences tab
 
-![image](https://user-images.githubusercontent.com/1305249/208802085-d869b547-143b-47a6-bf22-6dba8808226c.png)
+![image](/img/1305249/208802085-d869b547-143b-47a6-bf22-6dba8808226c.png)
 
 As a user you can change anything that you have permission to change (see [Managing Server Preferences](/docs/configuration#managing-server-preferences) below)
 
@@ -102,7 +102,7 @@ This section is only visible to Administrators and pertains to non-user options 
 
 Modules are optional components that an Admin can enable or disable for their server.
 
-![image](https://user-images.githubusercontent.com/1305249/208805249-3611160d-b4fd-4e39-aec6-75b6af17165b.png)
+![image](/img/1305249/208805249-3611160d-b4fd-4e39-aec6-75b6af17165b.png)
 
 This is a list of the current Localplay Modules and Plugins that you can enable and disable. These Plugins and Modules may add additional preferences to Ampache which are not defined here.
 
@@ -110,21 +110,21 @@ This is a list of the current Localplay Modules and Plugins that you can enable 
 
 Server preferences are found on the Admin tab
 
-![image](https://user-images.githubusercontent.com/1305249/208801535-87e6f55b-215d-417a-9079-a6af38620f3c.png)
+![image](/img/1305249/208801535-87e6f55b-215d-417a-9079-a6af38620f3c.png)
 
 Under the Server Config section
 
-![image](https://user-images.githubusercontent.com/1305249/208801590-f919a344-eaa2-4c61-a7bc-f6419c534dd6.png)
+![image](/img/1305249/208801590-f919a344-eaa2-4c61-a7bc-f6419c534dd6.png)
 
 When modifying preferences as an Admin you have 2 additional options 'Apply to All' and 'Access Level'
 
-![image](https://user-images.githubusercontent.com/1305249/208801315-6078c0de-a9b9-436c-96ad-da61a8e12226.png)
+![image](/img/1305249/208801315-6078c0de-a9b9-436c-96ad-da61a8e12226.png)
 
 Apply to All will overwrite the value for all users. Use this to set your base preferences.
 
 Access Level will allow a user to change this preference if they meet or exceed the minimum user level. If they do not meet this requirement the preferences is unable to be changed.
 
-![image](https://user-images.githubusercontent.com/1305249/208804534-77d79698-703e-4520-a5ed-11feeb69bb15.png)
+![image](/img/1305249/208804534-77d79698-703e-4520-a5ed-11feeb69bb15.png)
 
 ## User Access Levels
 

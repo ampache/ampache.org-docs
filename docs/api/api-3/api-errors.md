@@ -1,8 +1,10 @@
 ---
-title: "API3 Errors"
-metaTitle: "API3 Errors"
+title: "Errors"
+metaTitle: "Errors"
 description: "API documentation"
 ---
+
+## API3 Errors
 
 Ampache's API errors are loosely based around the HTTP status codes.
 All errors are returned in the form of an XML Document however the string error message provided is translated into the language of the Ampache server in question. All services should only use the code value.

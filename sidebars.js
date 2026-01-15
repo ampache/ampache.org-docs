@@ -40,7 +40,7 @@ const sidebars = {
             'docs/installation/windows-installation-guide',
             {
               type: 'category',
-              label: 'Guides',
+              label: 'User Guides',
               link: {type: 'doc', id: 'docs/installation/guides/guides'},
               items: [
                 'docs/installation/guides/tutorial-to-install-ampache-on-xampp',
@@ -56,7 +56,6 @@ const sidebars = {
           label: 'Configuration',
           link: {type: 'doc', id: 'docs/configuration/configuration'},
           items: [
-            'docs/configuration/configuration',
             'docs/configuration/acl',
             'docs/configuration/remote-catalogs',
             'docs/configuration/ldap',
@@ -115,9 +114,8 @@ const sidebars = {
         {
           type: 'category',
           label: 'Development',
-          link: {type: 'doc', id: 'docs/development/development'},
+          link: {type: 'doc', id: 'docs/development/CONTRIBUTING'},
           items: [
-            'docs/development/CONTRIBUTING',
             'docs/development/TRANSLATIONS',
             'docs/development/branch-layout',
             'docs/development/issue-template',
@@ -162,7 +160,7 @@ const sidebars = {
         'api/api-errors',
         'api/api-examples',
         'api/api-changelog',
-        'api/api-acls',
+        'docs/configuration/acl',
         'api/api-media-methods',
         {
           type: 'category',
@@ -188,7 +186,7 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: 'advanced_search',
+          label: 'Advanced Search',
           link: {type: 'doc', id: 'api/api-advanced-search'},
           items: [
             'api/advanced-search/song-advanced-search',

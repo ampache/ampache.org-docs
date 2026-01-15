@@ -4,6 +4,8 @@ metaTitle: "API4"
 description: "API documentation"
 ---
 
+## Ampache API4
+
 **Compatible Versions:**
 
 * 4.x.x-release
@@ -11,12 +13,12 @@ description: "API documentation"
 * 6.x.x+
 * develop
 
-Ampache Provides an API for pulling out it's meta data in the form of simple XML documents. This was originally created for use by [Amarok](http://amarok.kde.org/), but there is no reason it couldn't be used to create other front-ends to the Ampache data. Access to the API is controlled by the Internal [Access Control Lists](https://ampache.org/api/api-acls). The KEY defined in the ACL is the passphrase that must be used to establish an API session. Currently all requests are limited to a maximum of 5000 results for performance reasons. To get additional results pass offset as an additional parameter.
+Ampache Provides an API for pulling out it's meta data in the form of simple XML documents. This was originally created for use by [Amarok](http://amarok.kde.org/), but there is no reason it couldn't be used to create other front-ends to the Ampache data. Access to the API is controlled by the Internal [Access Control Lists](/docs/configuration/acl). The KEY defined in the ACL is the passphrase that must be used to establish an API session. Currently all requests are limited to a maximum of 5000 results for performance reasons. To get additional results pass offset as an additional parameter.
 If you have any questions or requests for this API please submit a [Feature Request](https://github.com/ampache/ampache/issues?state=closed). All dates in the API calls should be passed as [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) dates.
 
 ## Changelog
 
-Take a look at the [API Changelog](https://ampache.org/api/api-changelog) to keep an eye on changes between versions
+Take a look at the [API Changelog](/api/api-changelog) to keep an eye on changes between versions
 
 ## Sending Handshake Request
 
@@ -149,8 +151,8 @@ You can also pass it `limit=none` to overcome the `limit` limitation and return 
 
 For more in depth information regarding the different api servers you can view the following documentation pages.
 
-* [XML Documentation (api4)](https://ampache.org/api/api-4/api-xml-methods)
-* [JSON Documentation (api4)](https://ampache.org/api/api-4/api-json-methods)
+* [XML Documentation (api4)](/api/api-4/api-xml-methods)
+* [JSON Documentation (api4)](/api/api-4/api-json-methods)
 
 ### Non-Data Methods
 
@@ -178,7 +180,7 @@ For more in depth information regarding the different api servers you can view t
 * tag_songs
 * songs
 * song
-* [advanced_search](https://ampache.org/api/versions/api-4/api-advanced-search)
+* [advanced_search](/api/api-4/api-advanced-search)
 * stats
 * playlists
 * playlist

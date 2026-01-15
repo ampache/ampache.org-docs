@@ -4,6 +4,8 @@ metaTitle: "Localplay Controller API"
 description: "Requirements for building a Localplay controller"
 ---
 
+## Localplay Controller API
+
 All controllers and config files are located in /modules/localplay/ they are named with the following conventions. [name of service].controller.php and [name of service].cfg.php. For example if you are using MPD then the names would be mpd.controller.php and mpd.cfg.php The class inside must be Ampache[name of service] in order to avoid conflicts and must extend the localplay_controller class
 
 ## Required Functions of Controller

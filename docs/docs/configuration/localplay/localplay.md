@@ -4,6 +4,8 @@ metaTitle: "Localplay"
 description: "Ampache Localplay"
 ---
 
+## Ampache Localplay
+
 Ampache has the ability to remote control 3rd party programs through the web interface. Localplay works on the principle of a **Controller** written by someone and placed in your _/modules/localplay_ directory and then individual **Instances** of a given Localplay Controller. Each instance has its own distinct settings, owner and permissions.
 
 ## Default Localplay Controllers

@@ -4,6 +4,8 @@ metaTitle: "Democratic Play"
 description: "Ampache Democratic Play"
 ---
 
+## Ampache Democratic Play
+
 **Democratic Play** is a communal vote-based playlist feature. It is meant to be used in situations where you have many users and a single output source. Some examples would be an office with a central stereo or a bar / club. There are two types of users on a democratic playlist. Voters and Admins. Voters can only add/remove their votes to/from the playlist. They are only allowed one vote per trac. Admins have all the same rights except they can also completely remove a song from the playlist. All democratic playlists also have a **Base Playlist**. The base playlist is what is used when there are no voted songs. Once a song has been played via democratic play it is removed from the playlist.
 
 ## Democratic Play Properties

@@ -4,6 +4,8 @@ metaTitle: "Ampache Use Cases"
 description: "Ampache Use Cases"
 ---
 
+## Ampache Use Cases
+
 This page describes some of the various tasks that Ampache accomplish. It will define why and how these tasks behave and can be accomplished within Ampache. If your particular use case isn't listed here, feel free to submit a [Feature Request](https://github.com/ampache/ampache/issues/new?assignees=&labels=&template=feature_request.md&title=[Feature+Request]). What you want to do may already be possible, and is just waiting to be written on this page.
 
 ## Table of Contents

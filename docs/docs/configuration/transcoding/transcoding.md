@@ -4,6 +4,8 @@ metaTitle: "Transcoding"
 description: "Transcoding"
 ---
 
+## Transcoding
+
 Transcoding allows you to convert one type of file to another. Ampache supports on the fly transcoding of all file types based on user, IP address or available bandwidth. In order to transcode Ampache takes advantage of existing binary applications such as [ffmpeg](http://www.ffmpeg.org/), [Lame](http://lame.sourceforge.net/) or [mp3splt](http://mp3splt.sourceforge.net/mp3splt_page/home.php). In order for transcoding to work you must first install the supporting applications and ensure that they are executable by the webserver. If you have any trouble to get transcoding working you can also have a look at the [FAQ](/docs/help/troubleshooting/faq#unable-to-get-transcoding-working).
 
 **WARNING:** Transcoding currently causes several issues documented in [#1048](https://github.com/ampache/ampache/issues/1048) which you should know about before enabling it. For that reason usability is quite limited with transcoding enabled.

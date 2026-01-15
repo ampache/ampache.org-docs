@@ -4,6 +4,8 @@ metaTitle: "TV Shows and Movies"
 description: "TV Shows and Movies"
 ---
 
+## TV Shows and Movies
+
 The Ampache file parser for TV show and movie names is based partially on Kodi specs. The details can be found at [kodi.wiki TV_shows](http://kodi.wiki/view/Naming_video_files/TV_shows) and [kodi.wiki Movies](http://kodi.wiki/view/Naming_video_files/Movies>).  However, it will not automatically apply names and other values without the correct information.  Applying MP4 tags to files before adding them to the Ampache catalog is recommended.  Using the command line tool ``mp4tags``, this can be done manually (file-by-file) or with the help of a script.  For example:
 
 ## Scraping MP4 Tags with a Script

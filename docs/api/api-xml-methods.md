@@ -4,6 +4,8 @@ metaTitle: "XML Methods"
 description: "API documentation"
 ---
 
+## API XML Methods
+
 Let's go through come calls and examples that you can do for each XML method.
 
 With the exception of Binary methods, all responses will return a HTTP 200 response.
@@ -16,7 +18,7 @@ Binary methods will also return:
 * HTTP 404 responses where the requests data was not found
 * HTTP 416 responses where the stream is unable to return the requested content-range
 
-For information about about how playback works and what a client can expect from Ampache check out [API Media Methods](https://ampache.org/api/api-media-methods)
+For information about about how playback works and what a client can expect from Ampache check out [API Media Methods](/api/api-media-methods)
 
 ## Auth Methods
 
@@ -24,7 +26,7 @@ Auth methods are used for authenticating or checking the status of your session 
 
 Remember that the auth parameter does not need to be sent as a parameter in the URL.
 
-[HTTP header authentication](https://ampache.org/api/#http-header-authentication) is supported for the auth parameter where present.
+[HTTP header authentication](/api/#http-header-authentication) is supported for the auth parameter where present.
 
 ### handshake
 
@@ -295,7 +297,7 @@ You can pass multiple rules as well as joins to create in depth search results.
 Rules must be sent in groups of 3 using an int (starting from 1) to designate which rules are combined.
 Use operator ('and', 'or') to choose whether to join or separate each rule when searching.
 
-Refer to the [Advanced Search](https://ampache.org/api/api-advanced-search) page for details about creating searches.
+Refer to the [Advanced Search](/api/api-advanced-search) page for details about creating searches.
 
 **NOTE** the rules part can be confusing but essentially you can include as many 'arrays' of rules as you want.
 Just add 1 to the rule value to create a new group of rules.
@@ -2665,7 +2667,7 @@ Limit and offset are applied per object type. Meaning with a limit of 10 you wil
 Rules must be sent in groups of 3 using an int (starting from 1) to designate which rules are combined.
 Use operator ('and', 'or') to choose whether to join or separate each rule when searching.
 
-Refer to the [Advanced Search](https://ampache.org/api/api-advanced-search) page for details about creating searches.
+Refer to the [Advanced Search](/api/api-advanced-search) page for details about creating searches.
 
 **NOTE** the rules part can be confusing but essentially you can include as many 'arrays' of rules as you want.
 Just add 1 to the rule value to create a new group of rules.

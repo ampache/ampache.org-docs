@@ -15,10 +15,10 @@ By default Ampache tries to do everything at once but lets do things a bit smart
 ## Process
 
 First up; make sure you've enabled the memory cache in your config file.
-![image](https://user-images.githubusercontent.com/1305249/79297410-65653000-7f21-11ea-98f8-76184a7f14b5.png)
+![image](/img/1305249/79297410-65653000-7f21-11ea-98f8-76184a7f14b5.png)
 
 Then enable the cron_cache option in the Admin settings page.
-![image](https://user-images.githubusercontent.com/1305249/79296198-18338f00-7f1e-11ea-824a-0a627ab1156f.png)
+![image](/img/1305249/79296198-18338f00-7f1e-11ea-824a-0a627ab1156f.png)
 
 * Copy or create the unit file and timer using the example below. (Edit to match your web path and web user.)
 

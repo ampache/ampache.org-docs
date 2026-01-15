@@ -4,6 +4,8 @@ metaTitle: "HttpQ Localplay"
 description: "Ampache HttpQ Localplay"
 ---
 
+## Ampache HttpQ Localplay
+
 HttpQ is a protocol for remote controlling a music player over a network. You can use this if you, say, have a server which is plugged into your stereo. If you use a music player that supports HttpQ (e.g. Winamp or foobar2000) you can control the music player remotely from another machine, e.g. your laptop. You should have Ampache installed on the server machine and your music player. Then you log on and use [Localplay](/docs/configuration/localplay) to control the server. BrowseAmp is another example of this.
 
 ## Getting HttpQ

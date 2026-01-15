@@ -1,8 +1,10 @@
 ---
-title: "advanced_search"
-metaTitle: "advanced_search"
+title: "Advanced Search"
+metaTitle: "Advanced Search"
 description: "API documentation"
 ---
+
+## API Advanced Search
 
 Advanced search is the API method to access the search rules used in the WEB UI.
 
@@ -16,19 +18,19 @@ You can search for multiple object types in advanced_search.
 
 This is passed as a type argument and will only return this object in results
 
-* [song](https://ampache.org/api/advanced-search/song-advanced-search)
-* [album](https://ampache.org/api/advanced-search/album-advanced-search)
-* [artist](https://ampache.org/api/advanced-search/artist-advanced-search)
+* [song](/api/advanced-search/song-advanced-search)
+* [album](/api/advanced-search/album-advanced-search)
+* [artist](/api/advanced-search/artist-advanced-search)
 * song_artist (**NOTE** same rules as artist but only returns song artists)
 * album_artist (**NOTE** same rules as artist but only returns album artists)
-* [label](https://ampache.org/api/advanced-search/label-advanced-search)
-* [playlist](https://ampache.org/api/advanced-search/playlist-advanced-search)
-* [podcast](https://ampache.org/api/advanced-search/podcast-advanced-search)
-* [podcast_episode](https://ampache.org/api/advanced-search/podcast-episode-advanced-search)
-* [genre](https://ampache.org/api/advanced-search/genre-advanced-search)
+* [label](/api/advanced-search/label-advanced-search)
+* [playlist](/api/advanced-search/playlist-advanced-search)
+* [podcast](/api/advanced-search/podcast-advanced-search)
+* [podcast_episode](/api/advanced-search/podcast-episode-advanced-search)
+* [genre](/api/advanced-search/genre-advanced-search)
 * tag (*Alias of genre)
-* [user](https://ampache.org/api/advanced-search/user-advanced-search)
-* [video](https://ampache.org/api/advanced-search/video-advanced-search)
+* [user](/api/advanced-search/user-advanced-search)
+* [video](/api/advanced-search/video-advanced-search)
 
 ## advanced_search parameters
 

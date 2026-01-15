@@ -1,8 +1,10 @@
 ---
 title: "Ampache + Icecast & Liquidsoap"
 metaTitle: "Ampache + Icecast & Liquidsoap"
-description: "Ampache Ampache + Icecast & Liquidsoap"
+description: "Ampache + Icecast & Liquidsoap"
 ---
+
+## Ampache and Icecast
 
 Channels suck, I can't fix them without taking a lot of time for something that is already done better elsewhere.
 
@@ -89,7 +91,7 @@ Now you need a mount point is where you'll be serving music from.
 
 After restarting the service i have icecast available on port :8000
 
-![image](https://user-images.githubusercontent.com/1305249/136309993-4660864a-5d3b-4b00-8c98-5842a790616f.png)
+![image](/img/1305249/136309993-4660864a-5d3b-4b00-8c98-5842a790616f.png)
 
 Now it's time to get it playing music
 
@@ -171,7 +173,7 @@ Now that you're configured you can run the liq file as liquidsoap and check out 
 
 You should get a mount point on the icecast page
 
-![image](https://user-images.githubusercontent.com/1305249/136313478-de076b3b-e38c-4779-bc82-8c9cf2c43991.png)
+![image](/img/1305249/136313478-de076b3b-e38c-4779-bc82-8c9cf2c43991.png)
 
 Radio will now be available from your mount point (https/https depending on your setup)
 
@@ -186,11 +188,11 @@ Add this link as a live stream in Ampache and you're done.
 
 **note** outside your lan this port needs to be available
 
-![image](https://user-images.githubusercontent.com/1305249/136313792-5fbafd05-7bc9-4dc8-8085-80d1b3cc7029.png)
+![image](/img/1305249/136313792-5fbafd05-7bc9-4dc8-8085-80d1b3cc7029.png)
 
 Now you've got live streaming from playlists without the hassle!
 
-![image](https://user-images.githubusercontent.com/1305249/136313859-59ae7259-b74e-4002-8347-2447f4bb8db2.png)
+![image](/img/1305249/136313859-59ae7259-b74e-4002-8347-2447f4bb8db2.png)
 
 ## Create an Apache2 proxy to remove the ports from the url
 

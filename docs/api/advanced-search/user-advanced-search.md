@@ -4,9 +4,11 @@ metaTitle: "User Search"
 description: "API documentation"
 ---
 
+## User Search
+
 This page focuses on a single object type.
 
-Refer to the main [Advanced Search](https://ampache.org/api/api-advanced-search) page for further information regarding the advanced_search method.
+Refer to the main [Advanced Search](/api/api-advanced-search) page for further information regarding the advanced_search method.
 
 ## Available search rules
 

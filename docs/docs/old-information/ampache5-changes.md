@@ -4,9 +4,11 @@ metaTitle: "Ampache5 for Admins"
 description: "Ampache5 for Admins"
 ---
 
-The incoming release of Ampache 5.0.0 has made a lot of changes to the PHP structure of the project.
+## Ampache5 for Admins
 
-![image](https://user-images.githubusercontent.com/1305249/131267485-ed6792d2-4bc0-4599-8277-109fe98eaffe.png)
+Ampache 5.0.0 has made a lot of changes to the PHP structure of the project.
+
+![image](/img/1305249/131267485-ed6792d2-4bc0-4599-8277-109fe98eaffe.png)
 
 While it will function the same way as a user; the backend has been updated which requires a few tweaks to your install.
 
@@ -96,7 +98,7 @@ Check out the [cli faq](/docs/help/troubleshooting/cli) to migrate your commands
 
 The cli program has a --help switch for all commands.
 
-![image](https://user-images.githubusercontent.com/1305249/131268352-c3877dd0-c5c8-4f9a-a5b9-726a734c79dc.png)
+![image](/img/1305249/131268352-c3877dd0-c5c8-4f9a-a5b9-726a734c79dc.png)
 
 ## php-cs-fixer is out of the root folder
 

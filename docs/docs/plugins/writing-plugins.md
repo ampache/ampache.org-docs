@@ -4,6 +4,8 @@ metaTitle: "Writing Plugins"
 description: "Writing Ampache Plugins"
 ---
 
+## Writing Ampache Plugins
+
 It can be a bit daunting to write a plugin for Ampache but this page will be written up to help people with a bit of knowledge take the plunge and write a plugin!
 
 ## About

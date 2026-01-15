@@ -4,6 +4,8 @@ metaTitle: "Ampache6 for Users"
 description: "Ampache6 for Users"
 ---
 
+## Ampache6 for Users
+
 This page will cover some of the visual and feature changes you'll see in Ampache6
 
 For information about Admin and backend changes check out [Ampache6 for Admins](/docs/old-information/ampache6-details)
@@ -44,21 +46,21 @@ For albums that have been duplicated in your library there is now an additional 
 
 This field looks for the tag `Version`.
 
-![image](https://user-images.githubusercontent.com/1305249/221723870-b4a7fc02-632e-44f0-a109-bc1c612b5ca0.png)
+![image](/img/1305249/221723870-b4a7fc02-632e-44f0-a109-bc1c612b5ca0.png)
 
 Now that you have this tag set you can hide or show the release comment using `Show Album subtitle on links (if available)`
 
-![image](https://user-images.githubusercontent.com/1305249/231027119-d50a0073-3039-4046-8ffe-311a853e54ca.png)
+![image](/img/1305249/231027119-d50a0073-3039-4046-8ffe-311a853e54ca.png)
 
 This will allow you to identify Weezer albums without having to pull your hair out
 
-![image](https://user-images.githubusercontent.com/1305249/231028247-79d29f12-382f-4d81-9e92-151331724a1d.png)
+![image](/img/1305249/231028247-79d29f12-382f-4d81-9e92-151331724a1d.png)
 
 ## Allow permalink user streams
 
 A stream token can be added to your account by an admin from the edit user pages.
 
-![image](https://user-images.githubusercontent.com/1305249/199862299-a514f7fb-dd63-491d-87b5-802ec26e132a.png)
+![image](/img/1305249/199862299-a514f7fb-dd63-491d-87b5-802ec26e132a.png)
 
 This allows streams without the risk of the session expiring by using a static token.
 
@@ -78,7 +80,7 @@ The Ampache webplayer (jPlayer) has had a few new options added
 
 With this option you can remove a number of songs before the currently playing track
 
-![image](https://user-images.githubusercontent.com/1305249/205819857-c077d35f-dc8a-4f89-9798-7cb4b5c95c9d.png)
+![image](/img/1305249/205819857-c077d35f-dc8a-4f89-9798-7cb4b5c95c9d.png)
 
 This will happen when a song is played so you can pause and move objects around the playlist without them being lost
 
@@ -86,7 +88,7 @@ This will happen when a song is played so you can pause and move objects around 
 
 In the webplayer you can now loop back to the start of your current playlist after it's finished
 
-![image](https://user-images.githubusercontent.com/1305249/205819512-23f80a87-4ef8-4230-8ceb-d2fb8436294d.png)
+![image](/img/1305249/205819512-23f80a87-4ef8-4230-8ceb-d2fb8436294d.png)
 
 When you enable this setting the playlist will **not** remove played files
 
@@ -98,7 +100,7 @@ Channels have been removed. This feature just isn't comparable to using other st
 
 The information group was an odd one compared to other pages by listing lots of things on a single page
 
-![image](https://user-images.githubusercontent.com/1305249/202939385-dcbda2d6-0fd1-4962-a8e0-b9eb3e2a70f7.png)
+![image](/img/1305249/202939385-dcbda2d6-0fd1-4962-a8e0-b9eb3e2a70f7.png)
 
 Instead of showing long lists of multiple object types we've split these pages into browse pages by object type.
 

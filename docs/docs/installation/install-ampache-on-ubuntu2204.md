@@ -139,11 +139,11 @@ mysql -u root mysql
 
 You should get to the MariaDB console
 
-![image](https://user-images.githubusercontent.com/1305249/181388497-94824be3-88e7-4e52-a598-189c15f02be9.png)
+![image](/img/1305249/181388497-94824be3-88e7-4e52-a598-189c15f02be9.png)
 
 Set your password for root and reload the privilege tables.
 
-![image](https://user-images.githubusercontent.com/1305249/181388769-67014c62-f979-4ce1-b872-29c492171f80.png)
+![image](/img/1305249/181388769-67014c62-f979-4ce1-b872-29c492171f80.png)
 
 ```mysql
 GRANT ALL ON *.* TO 'root'@'localhost' IDENTIFIED BY 'YOURPASSWORD' WITH GRANT OPTION;
@@ -158,7 +158,7 @@ mysql -u root -pYOURPASSWORD
 
 Did it work? ctrl + c to exit and lets move on
 
-![image](https://user-images.githubusercontent.com/1305249/181388861-f7e4bb49-32ea-4ce5-9339-7ef2efe99a39.png)
+![image](/img/1305249/181388861-f7e4bb49-32ea-4ce5-9339-7ef2efe99a39.png)
 
 Another thing is make sure your database server is running on a port instead of the socket
 
@@ -172,7 +172,7 @@ make sure you're running on the port **not** the socketand then restart the serv
 systemctl restart mysql
 ```
 
-![image](https://user-images.githubusercontent.com/1305249/182529190-92b8adcf-29d3-47d8-88a5-79cca90b06ac.png)
+![image](/img/1305249/182529190-92b8adcf-29d3-47d8-88a5-79cca90b06ac.png)
 
 ### Download Ampache
 
@@ -298,15 +298,15 @@ If you're just doing it internally for testing lets install!
 
 Your Ampache website is now secured with Let's Encrypt SSL. Next, open your web browser and type the URL `https://ampache.mysite.com`. You will be redirected to the following page:
 
-![image](https://user-images.githubusercontent.com/1305249/165255577-d3843ffa-febf-4a4e-9e41-d7bb0da7f5c8.png)
+![image](/img/1305249/165255577-d3843ffa-febf-4a4e-9e41-d7bb0da7f5c8.png)
 
 Select your language and click on the Start Configuration button. You should see the following page:
 
-![image](https://user-images.githubusercontent.com/1305249/165255688-5a3a3fa6-4fa0-4e3f-a097-71ab8310d8a2.png)
+![image](/img/1305249/165255688-5a3a3fa6-4fa0-4e3f-a097-71ab8310d8a2.png)
 
 Make sure all the required PHP extensions are installed then click on the Continue button. You should see the following page:
 
-![image](https://user-images.githubusercontent.com/1305249/165255855-d39517e2-8a0c-45d0-af63-6cff5a2af5df.png)
+![image](/img/1305249/165255855-d39517e2-8a0c-45d0-af63-6cff5a2af5df.png)
 
 * Put in root as the database user and the password you chose earlier
 * Make sure these items are checked
@@ -318,33 +318,33 @@ Give your new user a username and password (not your root password!)
 
 Click on the Insert Database button. You should see the following page:
 
-![image](https://user-images.githubusercontent.com/1305249/165256688-5ed376fd-6528-405c-9971-7db111e82817.png)
+![image](/img/1305249/165256688-5ed376fd-6528-405c-9971-7db111e82817.png)
 
 If you want to be able to transcode files, select ffmpeg and click on the Create Config.
 
-![image](https://user-images.githubusercontent.com/1305249/165256784-0be41be8-4311-4a54-9fca-5aa180b48ff9.png)
+![image](/img/1305249/165256784-0be41be8-4311-4a54-9fca-5aa180b48ff9.png)
 
 You should see the following page:
 
-![image](https://user-images.githubusercontent.com/1305249/165257173-32a55e6a-3670-4856-9866-fd78224a56ba.png)
+![image](/img/1305249/165257173-32a55e6a-3670-4856-9866-fd78224a56ba.png)
 
 Provide your admin username, password and click on the Create Account button.
 
 If there are database updates to install You may see the following page:
 
-![image](https://user-images.githubusercontent.com/1305249/165257383-3e2e173f-4e97-4c8d-89ac-8fe3b24453fa.png)
+![image](/img/1305249/165257383-3e2e173f-4e97-4c8d-89ac-8fe3b24453fa.png)
 
 After the updates are installed click on the Return to main page link:
 
-![image](https://user-images.githubusercontent.com/1305249/165257437-139859cc-b1c8-4948-a5cc-30319699aa25.png)
+![image](/img/1305249/165257437-139859cc-b1c8-4948-a5cc-30319699aa25.png)
 
 You should then see the following page:
 
-![image](https://user-images.githubusercontent.com/1305249/165257634-ecd87d90-f6c8-4aff-ad64-be1722c43413.png)
+![image](/img/1305249/165257634-ecd87d90-f6c8-4aff-ad64-be1722c43413.png)
 
 Provide your admin username, password and click on the Login button. You should see the Ampache dashboard in the following page:
 
-![image](https://user-images.githubusercontent.com/1305249/165258379-a35f0970-a49c-4047-a464-9802dd5290f6.png)
+![image](/img/1305249/165258379-a35f0970-a49c-4047-a464-9802dd5290f6.png)
 
 ## Conclusion
 

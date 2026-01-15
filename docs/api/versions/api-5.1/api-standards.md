@@ -1,8 +1,10 @@
 ---
-title: "API5.1 Standards"
-metaTitle: "API5.1 Standards"
+title: "Standards"
+metaTitle: "Standards"
 description: "API documentation"
 ---
+
+## API5.1 Standards
 
 Here are some basic standards that all Ampache API's should follow.
 

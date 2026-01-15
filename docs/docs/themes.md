@@ -4,6 +4,8 @@ metaTitle: "Themes"
 description: "Ampache Themes"
 ---
 
+## Ampache Themes
+
 Ampache has an integrated theme system that allows users to modify the CSS/images and can be configured on a per user basis. Official themes are available under the **/themes** directory.
 
 ## Theme Directory Structure

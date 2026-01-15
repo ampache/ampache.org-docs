@@ -4,6 +4,8 @@ metaTitle: "API4.2"
 description: "API documentation"
 ---
 
+## Ampache API4.2
+
 **Compatible Versions:**
 
 * 4.2.0-release
@@ -14,7 +16,7 @@ description: "API documentation"
 * 4.2.5-release
 * 4.2.6-release
 
-Ampache Provides an API for pulling out it's meta data in the form of simple XML documents. This was originally created for use by [Amarok](http://amarok.kde.org/), but there is no reason it couldn't be used to create other front-ends to the Ampache data. Access to the API is controlled by the Internal [Access Control Lists](https://ampache.org/api/api-acls). The KEY defined in the ACL is the passphrase that must be used to establish an API session. Currently all requests are limited to a maximum of 5000 results for performance reasons. To get additional results pass offset as an additional parameter.
+Ampache Provides an API for pulling out it's meta data in the form of simple XML documents. This was originally created for use by [Amarok](http://amarok.kde.org/), but there is no reason it couldn't be used to create other front-ends to the Ampache data. Access to the API is controlled by the Internal [Access Control Lists](/docs/configuration/acl). The KEY defined in the ACL is the passphrase that must be used to establish an API session. Currently all requests are limited to a maximum of 5000 results for performance reasons. To get additional results pass offset as an additional parameter.
 If you have any questions or requests for this API please submit a [Feature Request](https://github.com/ampache/ampache/issues/new?assignees=&labels=&template=feature_request.md&title=%5BFeature+Request%5D). All dates in the API calls should be passed as [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) dates.
 
 ## Changelog
@@ -211,8 +213,8 @@ You can also pass it `limit=none` to overcome the `limit` limitation and return 
 
 For more in depth information regarding the different api servers you can view the following documentation pages.
 
-* [XML Documentation (4.2)](https://ampache.org/api/versions/api-4.2/api-xml-methods)
-* [JSON Documentation (4.2)](https://ampache.org/api/versions/api-4.2/api-xml-methods)
+* [XML Documentation (4.2)](/api/versions/api-4.2/api-xml-methods)
+* [JSON Documentation (4.2)](/api/versions/api-4.2/api-xml-methods)
 
 ### Non-Data Methods
 
@@ -240,7 +242,7 @@ For more in depth information regarding the different api servers you can view t
 * tag_songs
 * songs
 * song
-* [advanced_search](https://ampache.org/api/versions/api-4.2/api-advanced-search)
+* [advanced_search](/api/versions/api-4.2/api-advanced-search)
 * stats
 * playlists
 * playlist

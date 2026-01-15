@@ -4,6 +4,8 @@ metaTitle: "API Clients"
 description: "Ampache API Clients"
 ---
 
+## Ampache API Clients
+
 A list of clients that use the Ampache API
 
 ## JSON-API clients

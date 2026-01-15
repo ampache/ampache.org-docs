@@ -4,6 +4,8 @@ metaTitle: "Windows Installation Guide"
 description: "Windows Installation Guide"
 ---
 
+## Windows Installation Guide
+
 This guide will cover a simple, quick method for getting Ampache up and running on a Windows system. This is intended for novice users who have not been introduced to the technologies used to run Ampache.
 
 ## Overview

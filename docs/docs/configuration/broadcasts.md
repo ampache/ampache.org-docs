@@ -4,6 +4,8 @@ metaTitle: "Broadcasts"
 description: "Ampache Broadcasts"
 ---
 
+## Ampache Broadcasts
+
 Broadcast what you're currently playing in your web player to other users.
 
 ## How it works

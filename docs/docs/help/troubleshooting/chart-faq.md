@@ -4,6 +4,8 @@ metaTitle: "Charts and Graphs"
 description: "Charts and Graphs in Ampache"
 ---
 
+## Charts and Graphs
+
 Ampache uses a GPLv3 library for generating graphs [szymach/c-pchart](https://github.com/szymach/c-pchart)
 
 Due to some issues around the [license](http://www.pchart.net/license) for the original library [ampache/issues/1515](https://github.com/ampache/ampache/issues/1515)

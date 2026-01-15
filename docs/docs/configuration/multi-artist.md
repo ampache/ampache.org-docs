@@ -20,7 +20,7 @@ The reason the regular artist and albumartist tags are ignored (for now) is due 
 
 To do a full catalog verify, disable `catalog_verify_by_time` in your config file.
 
-![image](https://user-images.githubusercontent.com/1305249/160990392-858854f1-0258-480e-892e-2c5305eb86d1.png)
+![image](/img/1305249/160990392-858854f1-0258-480e-892e-2c5305eb86d1.png)
 
 ## Visual Changes
 
@@ -32,19 +32,19 @@ But it's not something you should need to do very much once you've updated your 
 
 The first item in the array will be set as the primary artist
 
-![image](https://user-images.githubusercontent.com/1305249/161686828-21439ff4-5027-45c2-ba8f-b60bcac00409.png)
+![image](/img/1305249/161686828-21439ff4-5027-45c2-ba8f-b60bcac00409.png)
 
 ## Album and Song pages will have links to each album artist
 
-![image](https://user-images.githubusercontent.com/1305249/161687090-9df568fd-caf2-4c9d-82a5-d5ac99f8013d.png)
+![image](/img/1305249/161687090-9df568fd-caf2-4c9d-82a5-d5ac99f8013d.png)
 
-![image](https://user-images.githubusercontent.com/1305249/161687526-085e7fcc-145a-4cf0-9524-d133274176b1.png)
+![image](/img/1305249/161687526-085e7fcc-145a-4cf0-9524-d133274176b1.png)
 
 ## Same for all Album and Song rows
 
-![image](https://user-images.githubusercontent.com/1305249/161687284-6a303297-05c2-4f83-a2d7-33a27962f480.png)
+![image](/img/1305249/161687284-6a303297-05c2-4f83-a2d7-33a27962f480.png)
 
-![image](https://user-images.githubusercontent.com/1305249/161687361-f3c04490-7184-45ec-becf-a00818e299cc.png)
+![image](/img/1305249/161687361-f3c04490-7184-45ec-becf-a00818e299cc.png)
 
 ## Notes regarding tag issues
 
@@ -52,7 +52,7 @@ We have found that some arrays of tags are not being read / recorded / assigned 
 
 If you are sure your tags are correct but can't see the extra artists on a verify; try putting them in a single item and split with `;`.
 
-![image](https://user-images.githubusercontent.com/1305249/161686529-3c0d04d2-8a9d-4fd8-b61d-cc9be5f2dad5.png)
+![image](/img/1305249/161686529-3c0d04d2-8a9d-4fd8-b61d-cc9be5f2dad5.png)
 
 This seems to be mostly affecting QuickTime (MP4) files but has been seen in some ASF (WMA) files as well.
 
@@ -60,11 +60,11 @@ This seems to be mostly affecting QuickTime (MP4) files but has been seen in som
 
 You might notice some of your old artists will still have the wrong name after updating.
 
-![image](https://user-images.githubusercontent.com/1305249/160987422-4033368c-070d-44e1-92c3-8925e325b282.png)
+![image](/img/1305249/160987422-4033368c-070d-44e1-92c3-8925e325b282.png)
 
 You might also find some that look a bit odd with incorrect or extended names.
 
-![image](https://user-images.githubusercontent.com/1305249/160988772-95aea854-9d2a-4389-91c4-1ac70820e104.png)
+![image](/img/1305249/160988772-95aea854-9d2a-4389-91c4-1ac70820e104.png)
 
 The decision was made to not update these objects automatically.
 
@@ -74,7 +74,7 @@ While it might be a it daunting for users with large catalogs there are now mult
 
 There have been a lot of bug fixes made to the the update window so you can quickly update the Artist.
 
-![image](https://user-images.githubusercontent.com/1305249/160989174-e952b93d-12ae-43ee-bea5-e634d9f18bc8.png)
+![image](/img/1305249/160989174-e952b93d-12ae-43ee-bea5-e634d9f18bc8.png)
 
 ### Update from MusicBrainz
 
@@ -82,19 +82,19 @@ This option is available to Catalog Manager and higher permissions.
 
 First up you need to make sure the MusicBrainz plugin is active.
 
-![image](https://user-images.githubusercontent.com/1305249/161193672-8196382f-43d2-43d6-87fb-de5559d9d6f3.png)
+![image](/img/1305249/161193672-8196382f-43d2-43d6-87fb-de5559d9d6f3.png)
 
 To enable this feature make sure you turn on `Overwrite Artist names that match an mbid` in your plugin preferences page
 
-![image](https://user-images.githubusercontent.com/1305249/161190898-115a5576-348f-4428-b3a7-a5b5c9821fc3.png)
+![image](/img/1305249/161190898-115a5576-348f-4428-b3a7-a5b5c9821fc3.png)
 
 If your Artist has an mbid attached to them you can sync their name from MusicBrainz.
 
-![image](https://user-images.githubusercontent.com/1305249/160989328-f2decb14-7b7e-4ecb-a432-a1280a32410a.png)
+![image](/img/1305249/160989328-f2decb14-7b7e-4ecb-a432-a1280a32410a.png)
 
 This function will use the MusicBrainz Plugin to update Name, Place Formed and Year Formed.
 
-![image](https://user-images.githubusercontent.com/1305249/160989664-649765d2-0978-4184-adfc-66315cf0525d.png)
+![image](/img/1305249/160989664-649765d2-0978-4184-adfc-66315cf0525d.png)
 
 If your locale exists in the MusicBrainz data we will use that to update names.
 
@@ -104,7 +104,7 @@ You can update even more details using the CLI. As with updating from the UI you
 
 If you use TheAudioDB plugin there is a separate option for overwriting names too
 
-![image](https://user-images.githubusercontent.com/1305249/161191113-c785993b-f66b-479f-bc6e-936c1bcd6e92.png)
+![image](/img/1305249/161191113-c785993b-f66b-479f-bc6e-936c1bcd6e92.png)
 
 To update you can run:
 

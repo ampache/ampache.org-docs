@@ -15,7 +15,7 @@ Allowing you to access your music &amp; videos from anywhere, using almost any i
 
 <div class="display--flex">
   <div class="article--box">
-    <h2>Music collection</h2>
+    ### Music collection
     <p class="article-p">
     Browse and manage your music collection through a simple web interface. Synchronize local and remote catalogs to an unique consistent collection.
     </p>
@@ -24,7 +24,7 @@ Allowing you to access your music &amp; videos from anywhere, using almost any i
     </p>
   </div>
   <div class="article--box">
-    <h2>Music streaming</h2>
+    ### Music streaming
     <p class="article-p">
     Stream your music to your preferred player, control it with Localplay or directly listen on the web page with HTML5 player.<br/>
     </p>
@@ -36,7 +36,7 @@ Allowing you to access your music &amp; videos from anywhere, using almost any i
 
 <div class="display--flex">
   <div class="article--box">
-    <h2>Open source</h2>
+    ### Open source
     <p class="article-p">
     Completely Free and Open Source since 2001, AGPLv3 license. Get involved and take control.
     </p>
@@ -45,7 +45,7 @@ Allowing you to access your music &amp; videos from anywhere, using almost any i
     </p>
   </div>
   <div class="article--box">
-    <h2>Music Everywhere</h2>
+    ### Music Everywhere
     <p class="article-p">
     Listen to your music from your phone, tablet or television. At home, at work or in vacation: get Ampache everywhere using a compatible client!
     </p>

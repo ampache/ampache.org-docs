@@ -4,6 +4,8 @@ metaTitle: "SubSonic API"
 description: "Ampache SubSonic API"
 ---
 
+## Ampache SubSonic API
+
 Your Ampache server can be accessed through the SubSonic API.
 
 | Parameter | Required | Default | Comment                                                                                                                                                                           |

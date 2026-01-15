@@ -4,6 +4,8 @@ metaTitle: "Access Control Lists"
 description: "Ampache Access Control Lists"
 ---
 
+## Access Control Lists
+
 Ampache supports internal Access Control Lists, these are IP/DNS based restrictions on different actions and interactions with Ampache. By Default Access Controls lists are turned off in Ampache. In order to turn them on you must modify the _/config/ampache.cfg.php_ and set access_control to true
 
 ```conf
@@ -43,7 +45,7 @@ This is a range of IP addresses represented by a pair of dotted quad's. This doe
   * Tells Ampache which IP addresses should be considered local to the server and which ones are remote
   * Default not applicable
 * **RPC** - Used to control remote access to your Ampache installation
-  * Remote access to the [XML API](https://ampache.org/api/api-xml-methods)
+  * Remote access to the [XML API](/api/api-xml-methods)
   * Remote Sync using XML-RPC.
   * Restricts based on IP + USER + KEY, KEY may not be blank
   * Defaults to DENY FROM ALL

@@ -4,9 +4,11 @@ metaTitle: "Label Browse"
 description: "API documentation"
 ---
 
+## Label Browse
+
 This page focuses on a single object type.
 
-Refer to the main [Api Browse methods](https://ampache.org/api/api-browse) page for further information regarding the other Browse types method.
+Refer to the main [Api Browse methods](/api/api-browse) page for further information regarding the other Browse types method.
 
 ## Available browse filters
 

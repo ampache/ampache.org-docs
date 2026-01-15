@@ -4,6 +4,8 @@ metaTitle: "Ampache Plugins"
 description: "Ampache Plugins"
 ---
 
+## Ampache Plugins
+
 Ampache contains a number of plugins that are included with each install.
 
 (**TODO**) these need to be documented for regular users
@@ -34,7 +36,7 @@ Description: Flattr donation button on user page
 
 Version: 000001
 
-![image](https://user-images.githubusercontent.com/1305249/102038606-6f726200-3e13-11eb-8987-17487a9b467e.png)
+![image](/img/1305249/102038606-6f726200-3e13-11eb-8987-17487a9b467e.png)
 
 ### Paypal
 
@@ -42,7 +44,7 @@ Description: PayPal donation button on user page
 
 Version: 000001
 
-![image](https://user-images.githubusercontent.com/1305249/102038654-8c0e9a00-3e13-11eb-8d41-aaf468664e43.png)
+![image](/img/1305249/102038654-8c0e9a00-3e13-11eb-8d41-aaf468664e43.png)
 
 ## Homepage Plugins
 
@@ -54,7 +56,7 @@ Description: Catalog favorites on homepage. (This will show the **songs** you he
 
 Version: 000002
 
-![image](https://user-images.githubusercontent.com/1305249/102038697-a8123b80-3e13-11eb-9dfa-3f45ddacc180.png)
+![image](/img/1305249/102038697-a8123b80-3e13-11eb-9dfa-3f45ddacc180.png)
 
 ### Friends Timeline
 
@@ -62,7 +64,7 @@ Description: Friend's Timeline on homepage
 
 Version: 000001
 
-![image](https://user-images.githubusercontent.com/1305249/102038744-c5dfa080-3e13-11eb-8d8e-08ddd37fbf67.png)
+![image](/img/1305249/102038744-c5dfa080-3e13-11eb-8d8e-08ddd37fbf67.png)
 
 ### Personal Favorites
 
@@ -70,7 +72,7 @@ Description: Personal favorites on homepage
 
 Version: 000002
 
-![image](https://user-images.githubusercontent.com/1305249/102038777-dd1e8e00-3e13-11eb-96a1-8092a01dd63f.png)
+![image](/img/1305249/102038777-dd1e8e00-3e13-11eb-96a1-8092a01dd63f.png)
 
 ### RSSView
 
@@ -78,7 +80,7 @@ Description: RSS View will fetch recent items from any RSS feed and display them
 
 Version: 000001
 
-![image](https://user-images.githubusercontent.com/1305249/102038931-3e466180-3e14-11eb-8fcf-38cb21c59d46.png)
+![image](/img/1305249/102038931-3e466180-3e14-11eb-8fcf-38cb21c59d46.png)
 
 ### Shout Home
 
@@ -86,7 +88,7 @@ Description: Shoutbox on homepage
 
 Version: 000001
 
-![image](https://user-images.githubusercontent.com/1305249/102039028-764da480-3e14-11eb-97b5-542409f2a288.png)
+![image](/img/1305249/102039028-764da480-3e14-11eb-97b5-542409f2a288.png)
 
 ## Metadata Plugins
 
@@ -220,7 +222,7 @@ Description: Facebook share
 
 Version: 000001
 
-![image](https://user-images.githubusercontent.com/1305249/102039459-903bb700-3e15-11eb-82b1-db047f0957ae.png)
+![image](/img/1305249/102039459-903bb700-3e15-11eb-82b1-db047f0957ae.png)
 
 ### Twitter
 
@@ -228,7 +230,7 @@ Description: Twitter share
 
 Version: 000001
 
-![image](https://user-images.githubusercontent.com/1305249/102039537-dd1f8d80-3e15-11eb-97dd-96e80c934957.png)
+![image](/img/1305249/102039537-dd1f8d80-3e15-11eb-97dd-96e80c934957.png)
 
 ## Shortener Plugins
 

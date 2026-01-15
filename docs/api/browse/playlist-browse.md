@@ -4,9 +4,11 @@ metaTitle: "Playlist Browse"
 description: "API documentation"
 ---
 
+## Playlist Browse
+
 This page focuses on playlist browses.
 
-Refer to the main [Api Browse methods](https://ampache.org/api/api-browse) page for further information regarding the other Browse types method.
+Refer to the main [Api Browse methods](/api/api-browse) page for further information regarding the other Browse types method.
 
 In the Ampache API a playlist is actually a combined object of static playlists and dynamic searches.
 

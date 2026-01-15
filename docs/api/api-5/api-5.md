@@ -4,11 +4,13 @@ metaTitle: "API5"
 description: "API documentation"
 ---
 
+## Ampache API5
+
 The Ampache API Provides methods for pulling out it's meta data in the form of
-simple XML (and JSON!) documents. This was originally created for use by [Amarok](https://ampache.org/api/http://amarok.kde.org/),
+simple XML (and JSON!) documents. This was originally created for use by [Amarok](http://amarok.kde.org/),
 but there is no reason it couldn't be used to create other front-ends to the Ampache data.
 
-Access to the API is controlled by the Internal [Access Control Lists](https://ampache.org/api/api-acls).
+Access to the API is controlled by the Internal [Access Control Lists](/docs/configuration/acl).
 Currently all requests are limited to a maximum of 5000 results for performance reasons. To get additional results
 pass offset as an additional parameter.
 
@@ -17,7 +19,7 @@ All dates in the API calls should be passed as [ISO 8601](http://en.wikipedia.or
 
 ## API Changelog
 
-Take a look at the [API Changelog](https://ampache.org/api/api-changelog) to keep an eye on changes between versions
+Take a look at the [API Changelog](/api/api-changelog) to keep an eye on changes between versions
 
 ## Before you begin
 
@@ -158,8 +160,8 @@ You can also pass it `limit=none` to overcome the `limit` limitation and return 
 
 For more in depth information regarding the different api servers you can view the following documentation pages.
 
-* [XML Documentation](https://ampache.org/api/api-xml-methods)
-* [JSON Documentation](https://ampache.org/api/api-json-methods)
+* [XML Documentation](/api/api-xml-methods)
+* [JSON Documentation](/api/api-json-methods)
 
 ### Auth Methods
 
@@ -182,7 +184,7 @@ All Non-Data methods return HTTP 200 responses
 
 All Data methods return HTTP 200 responses
 
-* [advanced_search](https://ampache.org/api/versions/api-5/api-advanced-search)
+* [advanced_search](/api/api-5/api-advanced-search)
 * stats
 * get_indexes **Api4+**
 * get_similar **Api4+**

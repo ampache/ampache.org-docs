@@ -4,6 +4,8 @@ metaTitle: "XMBC/Kodi Plugin"
 description: "Ampache XMBC/Kodi Plugin Overview"
 ---
 
+## Ampache XMBC/Kodi Localplay
+
 This plugin provides basic connectivity to the Ampache streaming software for XBMC/KODI. It's included in the Kodi Official Repository.
 
 ## Installation

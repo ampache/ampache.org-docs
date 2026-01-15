@@ -4,11 +4,13 @@ metaTitle: "API6.0"
 description: "API documentation"
 ---
 
+## Ampache API6.0
+
 The Ampache API Provides methods for pulling out it's meta data in the form of
-simple XML (and JSON!) documents. This was originally created for use by [Amarok](https://ampache.org/api/http://amarok.kde.org/),
+simple XML (and JSON!) documents. This was originally created for use by [Amarok](http://amarok.kde.org/),
 but there is no reason it couldn't be used to create other front-ends to the Ampache data.
 
-Access to the API is controlled by the Internal [Access Control Lists](https://ampache.org/api/api-acls).
+Access to the API is controlled by the Internal [Access Control Lists](/docs/configuration/acl).
 Currently all requests are limited to a maximum of 5000 results for performance reasons. To get additional results
 pass offset as an additional parameter.
 
@@ -19,21 +21,21 @@ All dates in the API calls should be passed as [ISO 8601](http://en.wikipedia.or
 
 API6 development has started but don't be alarmed! API5 is stable, not changing and like API3 and API4 will continue to be supported.
 
-The goals of API6 are simply to extend on top of API5 and remove what's no longer needed. API5 docs have moved to the [archive](https://ampache.org/api/api-5) and API6 will become the default.
+The goals of API6 are simply to extend on top of API5 and remove what's no longer needed. API5 docs have moved to the [archive](/api/api-5) and API6 will become the default.
 
 ## Archived Version Documentation
 
 After each release, a documentation page will be created to allow pruning old features from the current version.
 
-* [API 5.6 Documentation](https://ampache.org/api/api-5)
-* [API 4.4 Documentation](https://ampache.org/api/api-4)
-* [API 3.9 Documentation](https://ampache.org/api/api-3)
+* [API 5.6 Documentation](/api/api-5)
+* [API 4.4 Documentation](/api/api-4)
+* [API 3.9 Documentation](/api/api-3)
 
-Ampache supports the last major release of each API version. You can also check out the [past releases](https://ampache.org/api/versions/) page for some historical detail but **DO NOT** use these pages as a guide for API development.
+Ampache supports the last major release of each API version. You can also check out the [past releases](/api/versions/) page for some historical detail but **DO NOT** use these pages as a guide for API development.
 
 ## API Changelog
 
-Take a look at the [API Changelog](https://ampache.org/api/api-changelog) to keep an eye on changes between versions
+Take a look at the [API Changelog](/api/api-changelog) to keep an eye on changes between versions
 
 ## Before you begin
 
@@ -191,14 +193,14 @@ All future interactions with the Ampache API must include the `AUTHENTICATION_TO
 
 ## Methods
 
-All methods must be passed as `action=METHODNAME`. All [data methods](https://ampache.org/api/#data-methods) can take an optional `offset=XXX` and `limit=XXX`. The limit determines the maximum number of results returned. The offset will tell Ampache where to start in the result set. For example if there are 100 total results and you set the offset to 50, and the limit to 50 Ampache will return results between 50 and 100. The default limit is 5000. The default offset is 0.
+All methods must be passed as `action=METHODNAME`. All [data methods](/api/#data-methods) can take an optional `offset=XXX` and `limit=XXX`. The limit determines the maximum number of results returned. The offset will tell Ampache where to start in the result set. For example if there are 100 total results and you set the offset to 50, and the limit to 50 Ampache will return results between 50 and 100. The default limit is 5000. The default offset is 0.
 
 You can also pass it `limit=none` to overcome the `limit` limitation and return **all** the matching elements.
 
 For more in depth information regarding the different api servers you can view the following documentation pages.
 
-* [XML Documentation](https://ampache.org/api/api-xml-methods)
-* [JSON Documentation](https://ampache.org/api/api-json-methods)
+* [XML Documentation](/api/api-xml-methods)
+* [JSON Documentation](/api/api-json-methods)
 
 ### Auth Methods
 
@@ -222,7 +224,7 @@ All Non-Data methods return HTTP 200 responses
 
 All Data methods return HTTP 200 responses
 
-* [advanced_search](https://ampache.org/api/versions/api-6.0/api-advanced-search)
+* [advanced_search](/api/versions/api-6.0/api-advanced-search)
 * albums
 * album
 * album_songs

@@ -4,6 +4,8 @@ metaTitle: "Standards"
 description: "API documentation"
 ---
 
+## API Standards
+
 Here are some basic standards that all Ampache API's should follow.
 
 There will be inconsistencies between the current API's and we will be working on merging to a clear set of standards.

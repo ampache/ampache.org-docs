@@ -1,8 +1,10 @@
 ---
-title: "API5.1 advanced_search"
-metaTitle: "API5.1 advanced_search"
+title: "Advanced Search"
+metaTitle: "Advanced Search"
 description: "API documentation"
 ---
+
+## API5.1 Advanced Search
 
 Advanced search is the API method to access the search rules used in the WEB UI.
 It can be confusing to process how the rules are generated so this has been split into it's own page.

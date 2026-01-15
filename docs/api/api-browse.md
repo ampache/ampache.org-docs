@@ -4,6 +4,8 @@ metaTitle: "API Browse methods"
 description: "API documentation"
 ---
 
+## API Browse methods
+
 Starting in Amapche 6.5.0, API6 has added additional sorting and filtering options to browse methods.
 
 A browse method is used for actions that return many items that can be filtered further.
@@ -69,45 +71,45 @@ To allow this; all searches are prefixed with 'smart_' meaning that the search `
 
 The following pages will list the available conditions and sort options for each browse type.
 
-* [Album Browses](https://ampache.org/api/browse/album-browse) browses
+* [Album Browses](/api/browse/album-browse) browses
   * albums
   * artist_albums (`albums` filtered by `artist`)
   * genre_albums (`albums` filtered by `genre`)
-* [Artist Browses](https://ampache.org/api/browse/artist-browse) browses (includes `album_artist` and `song_artist` subtypes.)
+* [Artist Browses](/api/browse/artist-browse) browses (includes `album_artist` and `song_artist` subtypes.)
   * artists
   * genre_artists (`artists` filtered by `genre`)
   * label_artists (`artists` filtered by `label`)
-* [Catalog Browses](https://ampache.org/api/browse/catalog-browse) browses
+* [Catalog Browses](/api/browse/catalog-browse) browses
   * catalogs
-* [Follower Browses](https://ampache.org/api/browse/follower-browse) browses
+* [Follower Browses](/api/browse/follower-browse) browses
   * followers
-* [Genre Browses](https://ampache.org/api/browse/genre-browse) browses
+* [Genre Browses](/api/browse/genre-browse) browses
   * genres
-* [Label Browses](https://ampache.org/api/browse/label-browse) browses
+* [Label Browses](/api/browse/label-browse) browses
   * labels
-* [License Browses](https://ampache.org/api/browse/license-browse) browses
+* [License Browses](/api/browse/license-browse) browses
   * licences
-* [Live Stream Browses](https://ampache.org/api/browse/live_stream-browse) browses
+* [Live Stream Browses](/api/browse/live_stream-browse) browses
   * live_streams
-* [Playlist Browses](https://ampache.org/api/browse/playlist-browse) browses
+* [Playlist Browses](/api/browse/playlist-browse) browses
   * playlists (Combine `playlist` and `smartlist` objects into a single list)
   * user_playlists (`playlists` filtered by `user`)
   * user_smartlists (`smartlists` filtered by `user`)
-* [Podcast Browses](https://ampache.org/api/browse/podcast-browse) browses
+* [Podcast Browses](/api/browse/podcast-browse) browses
   * podcasts
-* [Podcast Episode Browses](https://ampache.org/api/browse/podcast-browse) browses
+* [Podcast Episode Browses](/api/browse/podcast-browse) browses
   * podcast_episodes
-* [Share Browses](https://ampache.org/api/browse/share-browse) browses
+* [Share Browses](/api/browse/share-browse) browses
   * shares
-* [Song Browses](https://ampache.org/api/browse/song-browse) browses
+* [Song Browses](/api/browse/song-browse) browses
   * album_songs (`songs` filtered by `album`)
   * artist_songs (`songs` filtered by `artist`)
   * genre_songs (`songs` filtered by `genre`)
   * license_songs (`songs` filtered by `license`)
   * songs
-* [User Browses](https://ampache.org/api/browse/user-browse) browses
+* [User Browses](/api/browse/user-browse) browses
   * users
-* [Video Browses](https://ampache.org/api/browse/video-browse) browses
+* [Video Browses](/api/browse/video-browse) browses
   * videos
 
 * Methods that return multiple object types return type browses

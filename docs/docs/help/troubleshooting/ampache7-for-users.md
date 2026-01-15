@@ -4,6 +4,8 @@ metaTitle: "Ampache7 for Users"
 description: "Ampache7 for Users"
 ---
 
+## Ampache7 for Users
+
 This page will cover the visual, user specific changes to Ampache.
 
 Changes that are important to Admin's are available at [Ampache7 for Admins](/docs/help/troubleshooting/ampache7-for-admins)

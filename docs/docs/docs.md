@@ -82,7 +82,7 @@ If you would like more information to make a decision, please check out the vari
 
 ### Demo
 
-If you want to try out Ampache without installing it first, visit the [demo page](http://ampache.org/demo.html).
+If you want to try out Ampache without installing it first, visit the [demo page](/demo).
 
 ### Installation
 

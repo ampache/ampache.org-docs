@@ -4,6 +4,8 @@ metaTitle: "Clients"
 description: "Ampache Clients"
 ---
 
+## Ampache 
+
 Ampache runs on a web interface allowing you to play media directly from your web browser. See the [Web Interface](/docs/information/Web-Interface) page for more information.
 
 Thanks to its API, Ampache has also been integrated and can be used with many clients on several platforms. You should take a look at the [API](/docs/clients/api) page for details on how to setup these APIs.
@@ -16,11 +18,11 @@ These URL's can be guessed and generated if you know what you're doing but an ea
 
 Simply change your playback type to `Stream`
 
-![image](https://user-images.githubusercontent.com/1305249/212818609-1e07f4d7-43e8-49c6-b528-439a06e7c1f5.png)
+![image](/img/1305249/212818609-1e07f4d7-43e8-49c6-b528-439a06e7c1f5.png)
 
 And then next time you play an item (some items don't update automatically so you might need to reload the page) the `Play` and `Random Play` buttons will now generate a playlist file
 
-![image](https://user-images.githubusercontent.com/1305249/212818526-975fa25a-7486-47e3-ba0c-97432d047926.png)
+![image](/img/1305249/212818526-975fa25a-7486-47e3-ba0c-97432d047926.png)
 
 This file can be used in any media player or used  to copy the URL to import into different players directly.
 

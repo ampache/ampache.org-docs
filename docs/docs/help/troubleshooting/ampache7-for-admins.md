@@ -4,6 +4,8 @@ metaTitle: "Ampache7 for Admins"
 description: "Ampache7 for Admins"
 ---
 
+## Ampache7 for Admins
+
 This page will cover the visual, backend and Admin specific changes to Ampache.
 
 User specific changes are available at [Ampache7 for Users](/docs/help/troubleshooting/ampache7-for-users)
@@ -176,7 +178,7 @@ https://music.com.au/image.php?action=show_user_avatar&object_id=1&thumb=4
 
 ## API errorMessage fields are not translated
 
-[API6 Errors](https://ampache.org/api/api-errors) return an error object with the following parts:
+[API6 Errors](/api/api-errors) return an error object with the following parts:
 
 * `errorCode`: numeric code
 * `errorAction`: method that caused the error

@@ -4,6 +4,8 @@ metaTitle: "Install Ampache on Xampp"
 description: "Install Ampache on Xampp"
 ---
 
+## Install Ampache on Xampp
+
 1. Download xampp
 2. Install xampp
 3. Download ampache ( squash version does not require additional htdocs config )
