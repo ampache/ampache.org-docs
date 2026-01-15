@@ -4,15 +4,15 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 export default [
   {
     path: '/',
-    component: ComponentCreator('/', '5a1'),
+    component: ComponentCreator('/', '819'),
     routes: [
       {
         path: '/',
-        component: ComponentCreator('/', '495'),
+        component: ComponentCreator('/', '2e1'),
         routes: [
           {
             path: '/',
-            component: ComponentCreator('/', '0fd'),
+            component: ComponentCreator('/', '685'),
             routes: [
               {
                 path: '/api/',
@@ -846,8 +846,8 @@ export default [
                 sidebar: "api"
               },
               {
-                path: '/docs/installation/guides/windows-installation-on-iis7.5-(from-he99)',
-                component: ComponentCreator('/docs/installation/guides/windows-installation-on-iis7.5-(from-he99)', 'e06'),
+                path: '/docs/installation/guides/windows-installation-on-iis7.5-from-he99',
+                component: ComponentCreator('/docs/installation/guides/windows-installation-on-iis7.5-from-he99', '0f6'),
                 exact: true,
                 sidebar: "api"
               },

@@ -45,7 +45,7 @@ const sidebars = {
               items: [
                 'docs/installation/guides/tutorial-to-install-ampache-on-xampp',
                 'docs/installation/guides/sephtan-installation-guide',
-                'docs/installation/guides/windows-installation-on-iis7.5-(from-he99)',
+                'docs/installation/guides/windows-installation-on-iis7.5-from-he99',
                 'docs/installation/guides/cloudron-installation-guide',
               ],
             },

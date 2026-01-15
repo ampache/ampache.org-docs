@@ -11,8 +11,9 @@ Come and talk to us
 </p>
 </div>
 
-## Website archive
+## Website archives
 
+* New site repository [ampache.org-docs](https://github.com/ampache/ampache.org-docs)
 * The old site has been archived here [ampache.org/old](https://ampache.org/old).
 
 ## Development Links
