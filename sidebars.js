@@ -131,6 +131,7 @@ const sidebars = {
             'docs/help/troubleshooting/ampache7-for-admins',
             'docs/help/troubleshooting/ampache7-for-users',
             'docs/help/troubleshooting/faq',
+            'docs/help/troubleshooting/cli',
             'docs/help/troubleshooting/chart-faq',
           ],
         },
