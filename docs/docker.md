@@ -10,6 +10,18 @@ description: "Run Ampache with docker"
   </p>
 </div>
 
+## NEWS
+
+Debian has released a new stable version and containers are updated to match.
+
+* Trixie uses PHP 8.4 and MariaDB has been updated to the latest LTS version.
+* The UID and GID of mysql has changed and this [commit](https://github.com/ampache/ampache-docker/commit/1020db4855d641b938560b90c513aa667c6f5df2) checks that your ID's match the container ID's.
+* The included `php.ini` file has been updated so you may need to update yours depending on your changes.
+
+For the Debian upgrade to Bookworm MariaDB upgrades caused one issue.
+
+Have a look at [comment](https://github.com/ampache/ampache-docker/issues/102#issuecomment-1640956439) for information about how it was solved when there was an error during the upgrade.
+
 ## GitHub Project
 
 [github.com](https://github.com/ampache/ampache-docker)

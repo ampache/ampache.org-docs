@@ -4,22 +4,6 @@ metaTitle: "Frequently Asked Questions"
 description: "Frequently Asked Questions"
 ---
 
-## Table of Contents
-
-* [Empty albums remain after deleting a catalog](#empty-albums-remain-after-deleting-a-catalog)
-* [I'm getting errors about memory limits being reached / out of memory](#im-getting-errors-about-memory-limits-being-reached--out-of-memory)
-* [I'm getting errors about execution time-outs](#im-getting-errors-about-execution-time-outs)
-* [I'm getting "Ampache Configuration Parse Error"](#im-getting-ampache-configuration-parse-error)
-* [Catalog update throws Got a packet bigger than 'max_allowed_packet' bytes sometimes when I gather album art](#catalog-update-throws-got-a-packet-bigger-than-max_allowed_packet-bytes-sometimes-when-i-gather-album-art)
-* [Some album art is missing](#some-album-art-is-missing)
-* [Albums with the same title are being displayed as a single album](#albums-with-the-same-title-are-being-displayed-as-a-single-album)
-* [Is there any way to browse songs based on the underlying directory structure](#is-there-any-way-to-browse-songs-based-on-the-underlying-directory-structure)
-* [I lost my admin password](#i-lost-my-admin-password)
-* [Unable to get transcoding working](#unable-to-get-transcoding-working)
-* [When using an API (Ampache, Subsonic, UPnP ...) I can browse my library but playback doesn't work whereas it is working using the web interface, how to make it work](#when-using-an-api-ampache-subsonic-upnp--i-can-browse-my-library-but-playback-doesnt-work-whereas-it-is-working-using-the-web-interface-how-to-make-it-work)
-* [Ampache / Ampache Doped, what is the difference](#ampache--ampache-doped-what-is-the-difference)
-* [What is Ampache/Laravel](#what-is-ampachelaravel)
-
 ## Empty albums remain after deleting a catalog
 
 After deleting catalogs, run "Clean All" from "Admin" > "Catalogs" section > "Show Catalogs" page.
