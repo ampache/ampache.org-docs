@@ -12,39 +12,48 @@ description: "Ampache demo sites"
   </p>
 </div>
 
-<div class="article--header">
-  <div class="text--center icon--150">
-    <a href="https://demo.ampache.dev" target="_blank" rel="noopener noreferrer" title="demo.ampache.dev">
-      <img src="/img/logo/ampache-logo_x150.png" alt="demo.ampache.dev"/>
-    </a>
-  </div>
+## Demo Servers
 
-## Official demo servers
+<div class="display--flex">
+  <div class="article--box">
+    <div class="text--center icon--150">
+      <img src="/img/logo/ampache-logo_x150.png" alt="Ampache Logo"/>
+    </div>
+
+### Official demo servers
 
 Ampache official demo site provided with funding courtesy of <a class="box--link" href="https://linux.org.au" target="_blank" rel="noopener noreferrer" title="Linux Australia">Linux Australia</a>.<br/>
 It uses the current release version of Ampache and creative commons music from archive.org.<br/>
 Functionality is reduced to allow multiple users to access the account for testing.
 
-  <div class="text--center">
-    <a class="box--link" href="https://demo.ampache.dev" target="_blank" rel="noopener noreferrer" title="Stable Branch">Stable Branch</a>
-    <br/>
-    <a class="box--link" href="https://develop.ampache.dev" target="_blank" rel="noopener noreferrer" title="Develop Branch">Develop Branch</a>
-    <br/>
-    <a class="box--link" href="https://public.ampache.dev" target="_blank" rel="noopener noreferrer" title="Public Branch">Public Branch</a>
-    <br/>
-    <a class="box--link" href="https://client.ampache.dev" target="_blank" rel="noopener noreferrer" title="Client Branch">Client Branch</a>
+    <div class="text--center">
+      <a class="box--link" href="https://demo.ampache.dev" target="_blank" rel="noopener noreferrer" title="Stable Branch">Stable Branch</a>
+      <br/>
+      <a class="box--link" href="https://develop.ampache.dev" target="_blank" rel="noopener noreferrer" title="Develop Branch">Develop Branch</a>
+      <br/>
+      <a class="box--link" href="https://public.ampache.dev" target="_blank" rel="noopener noreferrer" title="Public Branch">Public Branch</a>
+      <br/>
+      <a class="box--link" href="https://client.ampache.dev" target="_blank" rel="noopener noreferrer" title="Client Branch">Client Branch</a>
+    </div>
   </div>
+  <div class="article--box">
+    <div class="text--center icon--150">
+      <img src="/img/logo/ampache-light_x150.png" alt="Ampache Logo Light"/>
+    </div>
 
 ### Accessing the demo sites
 
   The demo site can be accessed using:<br/>
-  username "demo"<br/>
-  password "demodemo"<br/>
+
+  * username `demo`
+  * password `demodemo`
+  * apikey `demodemo`
 
   More details about what you can do in the wiki.
 
-  <div class="text--center">
-    <a class="box--link" href="/docs/clients/demo-server" target="_blank" rel="noopener noreferrer" title="read more">read more</a>
+    <div class="text--center">
+      <a class="box--link" href="/docs/clients/demo-server" target="_blank" rel="noopener noreferrer" title="read more">read more</a>
+    </div>
   </div>
 </div>
 
@@ -84,7 +93,7 @@ Softaculous is an auto installer for cPanel and DirectAdmin. Softaculous applica
   </div>
   <div class="article--box">
     <div class="text--center icon--150">
-    <img src="/img/play.png" alt="Play"/>
+      <img src="/img/play.png" alt="Play"/>
     </div>
 
 ### Your Server
@@ -96,6 +105,5 @@ We all love music.
     <div class="text--center">
       <a class="box--link" href="https://github.com/ampache/ampache.org-docs/issues" target="_blank" rel="noopener noreferrer" title="Open an Issue">Open an Issue</a>
     </div>
-
   </div>
 </div>
