@@ -3706,3 +3706,4 @@ This is for controlling localplay
 [Example](https://raw.githubusercontent.com/ampache/python3-ampache/api6/docs/json-responses/localplay.json)
 
 [Example (status)](https://raw.githubusercontent.com/ampache/python3-ampache/api6/docs/json-responses/localplay%20\(status\).json)
+

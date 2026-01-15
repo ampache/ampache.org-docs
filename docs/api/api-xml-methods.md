@@ -3751,3 +3751,4 @@ This is for controlling democratic play (Songs only)
 [Example](https://raw.githubusercontent.com/ampache/python3-ampache/api6/docs/xml-responses/democratic%20\(vote\).xml)
 
 [Example](https://raw.githubusercontent.com/ampache/python3-ampache/api6/docs/xml-responses/democratic%20\(playlist\).xml)
+
