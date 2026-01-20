@@ -21,7 +21,7 @@
     "permalink": "/docs/configuration/transcoding/transcode-caching"
   },
   "next": {
-    "title": "Ampache + Icecast & Liquidsoap",
-    "permalink": "/docs/configuration/Ampache-Icecast-and-Liquidsoap"
+    "title": "Multi Artist support",
+    "permalink": "/docs/configuration/multi-artist"
   }
 }

@@ -90,7 +90,6 @@ const sidebars = {
               ],
             },
             'docs/configuration/democratic',
-            'docs/configuration/Ampache-Icecast-and-Liquidsoap',
             'docs/configuration/multi-artist',
             'docs/configuration/broadcasts',
             'docs/configuration/podcasts',
@@ -138,6 +137,7 @@ const sidebars = {
             'docs/help/troubleshooting/cli',
             'docs/help/troubleshooting/chart-faq',
             'docs/help/import-lastfm-data',
+            'docs/configuration/Ampache-Icecast-and-Liquidsoap',
           ],
         },
         {

@@ -17,11 +17,11 @@
   },
   "sidebar": "api",
   "previous": {
-    "title": "Democratic Play",
-    "permalink": "/docs/configuration/democratic"
+    "title": "Import Last.FM data",
+    "permalink": "/docs/help/import-lastfm-data"
   },
   "next": {
-    "title": "Multi Artist support",
-    "permalink": "/docs/configuration/multi-artist"
+    "title": "old-information",
+    "permalink": "/docs/old-information/"
   }
 }

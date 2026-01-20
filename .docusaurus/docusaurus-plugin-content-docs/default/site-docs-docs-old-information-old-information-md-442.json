@@ -13,8 +13,8 @@
   "frontMatter": {},
   "sidebar": "api",
   "previous": {
-    "title": "Import Last.FM data",
-    "permalink": "/docs/help/import-lastfm-data"
+    "title": "Ampache + Icecast & Liquidsoap",
+    "permalink": "/docs/configuration/Ampache-Icecast-and-Liquidsoap"
   },
   "next": {
     "title": "Ampache6 for Admins",

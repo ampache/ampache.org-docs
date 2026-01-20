@@ -77,8 +77,44 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
+        style: 'light',
         links: [
+          {
+            label: 'Website Repo',
+            href: 'https://github.com/ampache/ampache.org-docs'
+          },
+          {
+            label: 'Old Site',
+            href: 'https://ampache.org/old',
+          },
+          {
+            label: 'GitHub',
+            href: 'https://github.com/ampache/ampache',
+          },
+          {
+            label: 'Docker Hub',
+            href: 'https://hub.docker.com/repository/docker/ampache/ampache'
+          },
+          {
+            label: 'Twitter',
+            href: 'https://twitter.com/ampache'
+          },
+          {
+            label: 'Mastodon',
+            href: 'https://fosstodon.org/@ampache'
+          },
+          {
+            label: 'Bluesky',
+            href: 'https://bsky.app/profile/ampache.bsky.social'
+          },
+          {
+            label: 'Telegram',
+            href: 'https://t.me/ampache'
+          },
+          {
+            label: 'r/ampache',
+            href: 'https://www.reddit.com/r/ampache'
+          },
         ],
         copyright: `Copyright © 2001 - ${new Date().getFullYear()} Ampache.org`,
       },
