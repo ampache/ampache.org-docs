@@ -50,7 +50,7 @@ root@web:~# systemctl status ampache_cron
      Loaded: loaded (/etc/systemd/system/ampache_cron.service; enabled; vendor preset: enabled)
      Active: inactive (dead) since Wed 2020-04-15 13:32:19 AEST; 11min ago
 TriggeredBy: ● ampache_cron.timer
-       Docs: https://github.com/ampache/ampache/wiki/cron
+       Docs: https://ampache.org/docs/configuration/cron
     Process: 129213 ExecStart=/usr/bin/php bin/cron.inc (code=exited, status=0/SUCCESS)
    Main PID: 129213 (code=exited, status=0/SUCCESS)
 
@@ -70,7 +70,7 @@ Set your correct channel (and update the PID file to match)
 [Unit]
 Description=ampache_cron
 After=network.target remote-fs.target nss-lookup.target
-Documentation=https://github.com/ampache/ampache/wiki/cron
+Documentation=https://ampache.org/docs/configuration/cron
 
 [Service]
 PrivateTmp=true
