@@ -221,6 +221,11 @@ Get your server preferences
 
 **ACCESS REQUIRED:** 100 (Admin)
 
+* You can modify and update your preferences using the following methods
+  * [preference_create](#preference_create)
+  * [preference_delete](#preference_delete)
+  * [preference_edit](#preference_edit)
+
 * return array
 
 ```JSON
@@ -256,6 +261,11 @@ Get ids and usernames for your site
 ### user_preferences
 
 Get your user preferences
+
+* You can modify and update your preferences using the following methods
+  * [preference_create](#preference_create)
+  * [preference_delete](#preference_delete)
+  * [preference_edit](#preference_edit)
 
 * return array
 
