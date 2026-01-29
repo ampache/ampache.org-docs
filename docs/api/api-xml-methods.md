@@ -2551,11 +2551,12 @@ Delete a non-system preference by name
 
 Edit a preference value and apply to all users if allowed
 
-| Input    | Type    | Description                                                  | Optional |
-|----------|---------|--------------------------------------------------------------|---------:|
-| 'filter' | string  | Preference name e.g ('notify_email', 'ajax_load')            |       NO |
-| 'value'  | mixed   | (string/integer) Preference value                            |       NO |
-| 'all'    | boolean | `0`, `1` apply to all users **ACCESS REQUIRED:** 100 (Admin) |      YES |
+| Input     | Type    | Description                                                                                   | Optional |
+|-----------|---------|-----------------------------------------------------------------------------------------------|---------:|
+| 'filter'  | string  | Preference name e.g ('notify_email', 'ajax_load')                                             |       NO |
+| 'value'   | mixed   | (string/integer) Preference value                                                             |       NO |
+| 'all'     | boolean | `0`, `1` apply to all users **ACCESS REQUIRED:** 100 (Admin)                                  |      YES |
+| 'default' | boolean | `0`, `1` apply set as system default (New and public users)  **ACCESS REQUIRED:** 100 (Admin) |      YES |
 
 * return
 
