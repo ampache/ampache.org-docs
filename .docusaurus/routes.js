@@ -4,15 +4,15 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 export default [
   {
     path: '/',
-    component: ComponentCreator('/', 'a15'),
+    component: ComponentCreator('/', '68a'),
     routes: [
       {
         path: '/',
-        component: ComponentCreator('/', '2e7'),
+        component: ComponentCreator('/', '0d5'),
         routes: [
           {
             path: '/',
-            component: ComponentCreator('/', '17c'),
+            component: ComponentCreator('/', '307'),
             routes: [
               {
                 path: '/api/',
@@ -721,6 +721,12 @@ export default [
               {
                 path: '/docs/help/',
                 component: ComponentCreator('/docs/help/', 'ebf'),
+                exact: true,
+                sidebar: "api"
+              },
+              {
+                path: '/docs/help/cli-update-warning',
+                component: ComponentCreator('/docs/help/cli-update-warning', '1ca'),
                 exact: true,
                 sidebar: "api"
               },

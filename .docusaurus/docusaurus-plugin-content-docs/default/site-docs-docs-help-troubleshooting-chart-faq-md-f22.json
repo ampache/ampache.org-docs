@@ -17,8 +17,8 @@
   },
   "sidebar": "api",
   "previous": {
-    "title": "Ampache CLI",
-    "permalink": "/docs/help/troubleshooting/cli"
+    "title": "Use the CLI for large updates",
+    "permalink": "/docs/help/cli-update-warning"
   },
   "next": {
     "title": "Import Last.FM data",

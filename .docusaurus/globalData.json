@@ -597,6 +597,11 @@
               "sidebar": "api"
             },
             {
+              "id": "docs/help/cli-update-warning",
+              "path": "/docs/help/cli-update-warning",
+              "sidebar": "api"
+            },
+            {
               "id": "docs/help/help",
               "path": "/docs/help/",
               "sidebar": "api"

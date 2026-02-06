@@ -16,6 +16,7 @@ export default {
   "17896441": [() => import(/* webpackChunkName: "17896441" */ "@theme/DocItem"), "@theme/DocItem", require.resolveWeak("@theme/DocItem")],
   "194fe6c3": [() => import(/* webpackChunkName: "194fe6c3" */ "@site/docs/docs/plugins/plugins.md"), "@site/docs/docs/plugins/plugins.md", require.resolveWeak("@site/docs/docs/plugins/plugins.md")],
   "199e6b3c": [() => import(/* webpackChunkName: "199e6b3c" */ "@site/docs/docs/old-information/ampache6-details.md"), "@site/docs/docs/old-information/ampache6-details.md", require.resolveWeak("@site/docs/docs/old-information/ampache6-details.md")],
+  "1a745cba": [() => import(/* webpackChunkName: "1a745cba" */ "@site/docs/docs/help/cli-update-warning.md"), "@site/docs/docs/help/cli-update-warning.md", require.resolveWeak("@site/docs/docs/help/cli-update-warning.md")],
   "1a859447": [() => import(/* webpackChunkName: "1a859447" */ "@site/docs/docs/configuration/Ampache-Icecast-and-Liquidsoap.md"), "@site/docs/docs/configuration/Ampache-Icecast-and-Liquidsoap.md", require.resolveWeak("@site/docs/docs/configuration/Ampache-Icecast-and-Liquidsoap.md")],
   "1bf865ac": [() => import(/* webpackChunkName: "1bf865ac" */ "@site/docs/docs/installation/installation.md"), "@site/docs/docs/installation/installation.md", require.resolveWeak("@site/docs/docs/installation/installation.md")],
   "1c56b476": [() => import(/* webpackChunkName: "1c56b476" */ "@site/docs/donate.md"), "@site/docs/donate.md", require.resolveWeak("@site/docs/donate.md")],

@@ -1,15 +1,15 @@
 {
-  "/-a15": {
+  "/-68a": {
     "__comp": "5e95c892",
     "__context": {
       "plugin": "aba21aa0"
     }
   },
-  "/-2e7": {
+  "/-0d5": {
     "__comp": "a7bd4aaa",
     "__props": "22dd74f7"
   },
-  "/-17c": {
+  "/-307": {
     "__comp": "a94703ab"
   },
   "/api/-e54": {
@@ -487,6 +487,10 @@
   "/docs/help/-ebf": {
     "__comp": "17896441",
     "content": "437948fb"
+  },
+  "/docs/help/cli-update-warning-1ca": {
+    "__comp": "17896441",
+    "content": "1a745cba"
   },
   "/docs/help/import-lastfm-data-d9b": {
     "__comp": "17896441",
