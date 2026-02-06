@@ -135,6 +135,7 @@ const sidebars = {
             'docs/help/preferences-explained',
             'docs/help/troubleshooting/faq',
             'docs/help/troubleshooting/cli',
+            'docs/help/cli-update-warning',
             'docs/help/troubleshooting/chart-faq',
             'docs/help/import-lastfm-data',
             'docs/configuration/Ampache-Icecast-and-Liquidsoap',
