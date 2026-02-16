@@ -77,8 +77,8 @@
     "description": "Label browsing and label-related artists"
   },
   {
-    "name": "Licences",
-    "description": "Licence browsing and licence-related songs"
+    "name": "Licenses",
+    "description": "License browsing and license-related songs"
   },
   {
     "name": "Browsing, Indexes and Lists",
@@ -3575,7 +3575,7 @@
     "/license/{license_id}": {
       "get": {
         "summary": "Get license by ID",
-        "tags": ["Licences"],
+        "tags": ["Licenses"],
         "parameters": [
           {
             "name": "license_id",
