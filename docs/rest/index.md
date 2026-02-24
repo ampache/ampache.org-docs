@@ -6,7 +6,9 @@ description: "REST API documentation"
 
 ## RESTful Resource Path Conversion in Ampache
 
-As part of the ongoing modernisation of the [Ampache API](https://ampache.org/api), the project has transitioned from a query-parameter based RPC model to a fully resource-oriented RESTful specification aligned with OpenAPI.
+As part of the ongoing modernisation of the [Ampache API](https://ampache.org/api), the project has created a fully resource-oriented RESTful specification aligned with OpenAPI based on the query-parameter based RPC model.
+
+The OpenApi spec is documented here [Ampache REST API](https://ampache.org/rest/swagger/)
 
 This document explains:
 
@@ -93,12 +95,12 @@ Key characteristics:
 
 | RPC API | RESTful API |
 |----------|-------------|
-| `?action=song&id=123` | `GET /rest/6/songs/123` |
-| `?action=artist&id=45` | `GET /rest/6/artists/45` |
-| `?action=album&id=78` | `GET /rest/6/albums/78` |
-| `?action=artists` | `GET /rest/6/artists` |
-| `?action=playlist_songs&id=9` | `GET /rest/6/playlists/9/songs` |
-| `?action=add_song&playlist=9&song=123` | `POST /rest/6/playlists/9/songs` |
+| `?action=song&id=123` | `GET /rest/6/json/songs/123` |
+| `?action=artist&id=45` | `GET /rest/6/json/artists/45` |
+| `?action=album&id=78` | `GET /rest/6/json/albums/78` |
+| `?action=artists` | `GET /rest/6/json/artists` |
+| `?action=playlist_songs&id=9` | `GET /rest/6/json/playlists/9/songs` |
+| `?action=add_song&playlist=9&song=123` | `POST /rest/6/json/playlists/9/songs` |
 
 ## HTTP Method Alignment
 
@@ -106,11 +108,11 @@ The RESTful API uses standard HTTP semantics:
 
 | Method | Purpose | Example |
 |--------|----------|----------|
-| GET | Retrieve resource or collection | `/rest/6/songs/123` |
-| POST | Create resource or relationship | `/rest/6/playlists` |
-| PUT | Replace full resource | `/rest/6/songs/123` |
-| PATCH | Partial update | `/rest/6/songs/123` |
-| DELETE | Remove resource | `/rest/6/playlists/9` |
+| GET | Retrieve resource or collection | `/rest/6/json/songs/123` |
+| POST | Create resource or relationship | `/rest/6/json/playlists` |
+| PUT | Replace full resource | `/rest/6/json/songs/123` |
+| PATCH | Partial update | `/rest/6/json/songs/123` |
+| DELETE | Remove resource | `/rest/6/json/playlists/9` |
 
 State-changing behaviour is no longer implemented via GET.
 

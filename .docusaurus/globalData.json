@@ -797,6 +797,10 @@
               "id": "links",
               "path": "/links",
               "sidebar": "api"
+            },
+            {
+              "id": "rest/index",
+              "path": "/rest/"
             }
           ],
           "draftIds": [],

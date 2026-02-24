@@ -1,0 +1,18 @@
+{
+  "id": "rest/index",
+  "title": "Ampache REST API",
+  "description": "REST API documentation",
+  "source": "@site/docs/rest/index.md",
+  "sourceDirName": "rest",
+  "slug": "/rest/",
+  "permalink": "/rest/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Ampache REST API",
+    "metaTitle": "Ampache REST API",
+    "description": "REST API documentation"
+  }
+}

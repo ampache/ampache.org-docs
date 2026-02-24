@@ -4,15 +4,15 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 export default [
   {
     path: '/',
-    component: ComponentCreator('/', '68a'),
+    component: ComponentCreator('/', '7ae'),
     routes: [
       {
         path: '/',
-        component: ComponentCreator('/', '0d5'),
+        component: ComponentCreator('/', 'f4f'),
         routes: [
           {
             path: '/',
-            component: ComponentCreator('/', '307'),
+            component: ComponentCreator('/', 'de7'),
             routes: [
               {
                 path: '/api/',
@@ -954,6 +954,11 @@ export default [
                 component: ComponentCreator('/links', 'c0e'),
                 exact: true,
                 sidebar: "api"
+              },
+              {
+                path: '/rest/',
+                component: ComponentCreator('/rest/', '292'),
+                exact: true
               },
               {
                 path: '/',
