@@ -4424,15 +4424,6 @@
               "type": "string"
             },
             "required": false
-          },
-          {
-            "name": "level",
-            "in": "query",
-            "schema": {
-              "type": "integer"
-            },
-            "required": false,
-            "description": "Access level required (default 100)"
           }
         ],
         "responses": {
@@ -5529,7 +5520,7 @@
         }
       }
     },
-    "/timeline/{username}": {
+    "/users/{username}/timeline": {
       "get": {
         "summary": "Get a user's timeline",
         "tags": ["Social"],
@@ -5573,7 +5564,7 @@
         }
       }
     },
-    "/followers/{username}": {
+    "/users/{username}/followers": {
       "get": {
         "summary": "Get followers for a username",
         "tags": ["Social"],
@@ -5633,7 +5624,7 @@
         }
       }
     },
-    "/following/{username}": {
+    "/users/{username}/following": {
       "get": {
         "summary": "Get who a user is following",
         "tags": ["Social"],
