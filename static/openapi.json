@@ -1234,28 +1234,17 @@
         "tags": [
           "Bookmarks"
         ]
-      },
+      }
+    },
+    "/songs/{song_id}/bookmark": {
       "put": {
         "parameters": [
           {
-            "description": "object_id",
-            "in": "query",
-            "name": "filter",
+            "description": "song_id",
+            "in": "path",
+            "name": "song_id",
             "required": true,
             "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "type",
-            "required": true,
-            "schema": {
-              "enum": [
-                "song",
-                "video",
-                "podcast_episode"
-              ],
               "type": "string"
             }
           },
@@ -1312,15 +1301,13 @@
         "tags": [
           "Bookmarks"
         ]
-      }
-    },
-    "/bookmarks/{bookmark_id}": {
+      },
       "delete": {
         "parameters": [
           {
-            "description": "bookmark_id",
+            "description": "song_id",
             "in": "path",
-            "name": "bookmark_id",
+            "name": "song_id",
             "required": true,
             "schema": {
               "type": "string"
@@ -1336,6 +1323,279 @@
                 "video",
                 "podcast_episode"
               ],
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "client",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            },
+            "description": "Success"
+          }
+        },
+        "summary": "Delete a bookmark",
+        "tags": [
+          "Bookmarks"
+        ]
+      }
+    },
+    "/videos/{video_id}/bookmark": {
+      "put": {
+        "parameters": [
+          {
+            "description": "video_id",
+            "in": "path",
+            "name": "video_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "position",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "client",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "date",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "include",
+            "required": false,
+            "schema": {
+              "enum": [
+                0,
+                1
+              ],
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bookmark object"
+          }
+        },
+        "summary": "Create a bookmark",
+        "tags": [
+          "Bookmarks"
+        ]
+      },
+      "delete": {
+        "parameters": [
+          {
+            "description": "video_id",
+            "in": "path",
+            "name": "video_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "required": true,
+            "schema": {
+              "enum": [
+                "song",
+                "video",
+                "podcast_episode"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "client",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            },
+            "description": "Success"
+          }
+        },
+        "summary": "Delete a bookmark",
+        "tags": [
+          "Bookmarks"
+        ]
+      }
+    },
+    "/podcast-episodes/{podcast_episode_id}/bookmark": {
+      "put": {
+        "parameters": [
+          {
+            "description": "podcast_episode_id",
+            "in": "path",
+            "name": "podcast_episode_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "position",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "client",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "date",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "include",
+            "required": false,
+            "schema": {
+              "enum": [
+                0,
+                1
+              ],
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bookmark object"
+          }
+        },
+        "summary": "Create a bookmark",
+        "tags": [
+          "Bookmarks"
+        ]
+      },
+      "delete": {
+        "parameters": [
+          {
+            "description": "podcast_episode_id",
+            "in": "path",
+            "name": "podcast_episode_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "required": true,
+            "schema": {
+              "enum": [
+                "song",
+                "video",
+                "podcast_episode"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "client",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            },
+            "description": "Success"
+          }
+        },
+        "summary": "Delete a bookmark",
+        "tags": [
+          "Bookmarks"
+        ]
+      }
+    },
+    "/bookmarks/{bookmark_id}": {
+      "delete": {
+        "parameters": [
+          {
+            "description": "bookmark_id",
+            "in": "path",
+            "name": "bookmark_id",
+            "required": true,
+            "schema": {
               "type": "string"
             }
           },
