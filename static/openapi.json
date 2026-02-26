@@ -619,6 +619,78 @@
         ]
       }
     },
+    "/albums/{album_id}/update_art": {
+      "post": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "album_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "overwrite",
+            "required": false,
+            "schema": {
+              "enum": [
+                0,
+                1
+              ],
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            },
+            "description": "Updated"
+          }
+        },
+        "summary": "Update art for an object (Catalog Manager)",
+        "tags": [
+          "Utilities"
+        ]
+      }
+    },
+    "/albums/{album_id}/update_from_tags": {
+      "post": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "album_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            },
+            "description": "Updated"
+          }
+        },
+        "summary": "Update object metadata from tags",
+        "tags": [
+          "Utilities"
+        ]
+      }
+    },
     "/artists": {
       "get": {
         "parameters": [
@@ -1164,6 +1236,48 @@
         ]
       }
     },
+    "/artists/{artist_id}/update_art": {
+      "post": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "artist_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "overwrite",
+            "required": false,
+            "schema": {
+              "enum": [
+                0,
+                1
+              ],
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            },
+            "description": "Updated"
+          }
+        },
+        "summary": "Update art for an object (Catalog Manager)",
+        "tags": [
+          "Utilities"
+        ]
+      }
+    },
     "/artists/{artist_id}/update_artist_info": {
       "post": {
         "parameters": [
@@ -1189,6 +1303,36 @@
           }
         },
         "summary": "Update artist info and fetch similar artists",
+        "tags": [
+          "Utilities"
+        ]
+      }
+    },
+    "/artists/{artist_id}/update_from_tags": {
+      "post": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "artist_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            },
+            "description": "Updated"
+          }
+        },
+        "summary": "Update object metadata from tags",
         "tags": [
           "Utilities"
         ]
@@ -1236,12 +1380,49 @@
         ]
       }
     },
-    "/songs/{song_id}/bookmark": {
+    "/bookmarks/{bookmark_id}": {
+      "delete": {
+        "parameters": [
+          {
+            "description": "bookmark_id",
+            "in": "path",
+            "name": "bookmark_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "client",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            },
+            "description": "Success"
+          }
+        },
+        "summary": "Delete a bookmark",
+        "tags": [
+          "Bookmarks"
+        ]
+      },
       "get": {
         "parameters": [
           {
             "in": "path",
-            "name": "song_id",
+            "name": "bookmark_id",
             "required": true,
             "schema": {
               "type": "string"
@@ -1280,9 +1461,9 @@
       "patch": {
         "parameters": [
           {
-            "description": "song_id",
+            "description": "bookmark_id",
             "in": "path",
-            "name": "song_id",
+            "name": "bookmark_id",
             "required": true,
             "schema": {
               "type": "string"
@@ -1338,526 +1519,6 @@
           }
         },
         "summary": "Edit a bookmark",
-        "tags": [
-          "Bookmarks"
-        ]
-      },
-      "put": {
-        "parameters": [
-          {
-            "description": "song_id",
-            "in": "path",
-            "name": "song_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "position",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "client",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "date",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "include",
-            "required": false,
-            "schema": {
-              "enum": [
-                0,
-                1
-              ],
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            },
-            "description": "Bookmark object"
-          }
-        },
-        "summary": "Create a bookmark",
-        "tags": [
-          "Bookmarks"
-        ]
-      },
-      "delete": {
-        "parameters": [
-          {
-            "description": "song_id",
-            "in": "path",
-            "name": "song_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "client",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              }
-            },
-            "description": "Success"
-          }
-        },
-        "summary": "Delete a bookmark",
-        "tags": [
-          "Bookmarks"
-        ]
-      }
-    },
-    "/videos/{video_id}/bookmark": {
-      "get": {
-        "parameters": [
-          {
-            "in": "path",
-            "name": "video_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "include",
-            "required": false,
-            "schema": {
-              "enum": [
-                0,
-                1
-              ],
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            },
-            "description": "Bookmark object"
-          }
-        },
-        "summary": "Get bookmark by ID",
-        "tags": [
-          "Bookmarks"
-        ]
-      },
-      "patch": {
-        "parameters": [
-          {
-            "description": "video_id",
-            "in": "path",
-            "name": "video_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "position",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "client",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "date",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "include",
-            "required": false,
-            "schema": {
-              "enum": [
-                0,
-                1
-              ],
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            },
-            "description": "Bookmark array"
-          }
-        },
-        "summary": "Edit a bookmark",
-        "tags": [
-          "Bookmarks"
-        ]
-      },
-      "put": {
-        "parameters": [
-          {
-            "description": "video_id",
-            "in": "path",
-            "name": "video_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "position",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "client",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "date",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "include",
-            "required": false,
-            "schema": {
-              "enum": [
-                0,
-                1
-              ],
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            },
-            "description": "Bookmark object"
-          }
-        },
-        "summary": "Create a bookmark",
-        "tags": [
-          "Bookmarks"
-        ]
-      },
-      "delete": {
-        "parameters": [
-          {
-            "description": "video_id",
-            "in": "path",
-            "name": "video_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "client",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              }
-            },
-            "description": "Success"
-          }
-        },
-        "summary": "Delete a bookmark",
-        "tags": [
-          "Bookmarks"
-        ]
-      }
-    },
-    "/podcast-episodes/{podcast_episode_id}/bookmark": {
-      "get": {
-        "parameters": [
-          {
-            "in": "path",
-            "name": "podcast_episode_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "include",
-            "required": false,
-            "schema": {
-              "enum": [
-                0,
-                1
-              ],
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            },
-            "description": "Bookmark object"
-          }
-        },
-        "summary": "Get bookmark by ID",
-        "tags": [
-          "Bookmarks"
-        ]
-      },
-      "patch": {
-        "parameters": [
-          {
-            "description": "podcast_episode_id",
-            "in": "path",
-            "name": "podcast_episode_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "position",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "client",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "date",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "include",
-            "required": false,
-            "schema": {
-              "enum": [
-                0,
-                1
-              ],
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            },
-            "description": "Bookmark array"
-          }
-        },
-        "summary": "Edit a bookmark",
-        "tags": [
-          "Bookmarks"
-        ]
-      },
-      "put": {
-        "parameters": [
-          {
-            "description": "podcast_episode_id",
-            "in": "path",
-            "name": "podcast_episode_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "position",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "client",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "date",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "include",
-            "required": false,
-            "schema": {
-              "enum": [
-                0,
-                1
-              ],
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            },
-            "description": "Bookmark object"
-          }
-        },
-        "summary": "Create a bookmark",
-        "tags": [
-          "Bookmarks"
-        ]
-      },
-      "delete": {
-        "parameters": [
-          {
-            "description": "podcast_episode_id",
-            "in": "path",
-            "name": "podcast_episode_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "client",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              }
-            },
-            "description": "Success"
-          }
-        },
-        "summary": "Delete a bookmark",
         "tags": [
           "Bookmarks"
         ]
@@ -2474,246 +2135,6 @@
         ]
       }
     },
-    "/songs/{song_id}/download": {
-      "get": {
-        "parameters": [
-          {
-            "in": "path",
-            "name": "song_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "bitrate",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "format",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "stats",
-            "required": false,
-            "schema": {
-              "enum": [
-                0,
-                1
-              ],
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Binary file response"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "404": {
-            "description": "Not found"
-          },
-          "416": {
-            "description": "Range not satisfiable"
-          }
-        },
-        "summary": "Download a media file (binary)",
-        "tags": [
-          "Streaming and Downloads"
-        ]
-      }
-    },
-    "/podcast-episodes/{episode_id}/download": {
-      "get": {
-        "parameters": [
-          {
-            "in": "path",
-            "name": "episode_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "bitrate",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "format",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "stats",
-            "required": false,
-            "schema": {
-              "enum": [
-                0,
-                1
-              ],
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Binary file response"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "404": {
-            "description": "Not found"
-          },
-          "416": {
-            "description": "Range not satisfiable"
-          }
-        },
-        "summary": "Download a media file (binary)",
-        "tags": [
-          "Streaming and Downloads"
-        ]
-      }
-    },
-    "/smartlists/{smartlist_id}/download": {
-      "get": {
-        "parameters": [
-          {
-            "in": "path",
-            "name": "smartlist_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "bitrate",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "format",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "stats",
-            "required": false,
-            "schema": {
-              "enum": [
-                0,
-                1
-              ],
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Binary file response"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "404": {
-            "description": "Not found"
-          },
-          "416": {
-            "description": "Range not satisfiable"
-          }
-        },
-        "summary": "Download a media file (binary)",
-        "tags": [
-          "Streaming and Downloads"
-        ]
-      }
-    },
-    "/playlists/{playlist_id}/download": {
-      "get": {
-        "parameters": [
-          {
-            "in": "path",
-            "name": "playlist_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "bitrate",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "format",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "stats",
-            "required": false,
-            "schema": {
-              "enum": [
-                0,
-                1
-              ],
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Binary file response"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "404": {
-            "description": "Not found"
-          },
-          "416": {
-            "description": "Range not satisfiable"
-          }
-        },
-        "summary": "Download a media file (binary)",
-        "tags": [
-          "Streaming and Downloads"
-        ]
-      }
-    },
     "/friends_timeline": {
       "get": {
         "parameters": [
@@ -3042,150 +2463,6 @@
         "tags": [
           "Genres",
           "Songs"
-        ]
-      }
-    },
-    "/bookmarks/{bookmark_id}": {
-      "get": {
-        "parameters": [
-          {
-            "in": "path",
-            "name": "bookmark_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "include",
-            "required": false,
-            "schema": {
-              "enum": [
-                0,
-                1
-              ],
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            },
-            "description": "Bookmark object"
-          }
-        },
-        "summary": "Get bookmark by ID",
-        "tags": [
-          "Bookmarks"
-        ]
-      },
-      "patch": {
-        "parameters": [
-          {
-            "description": "bookmark_id",
-            "in": "path",
-            "name": "bookmark_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "position",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "client",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "date",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "include",
-            "required": false,
-            "schema": {
-              "enum": [
-                0,
-                1
-              ],
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            },
-            "description": "Bookmark array"
-          }
-        },
-        "summary": "Edit a bookmark",
-        "tags": [
-          "Bookmarks"
-        ]
-      },
-      "delete": {
-        "parameters": [
-          {
-            "description": "bookmark_id",
-            "in": "path",
-            "name": "bookmark_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "client",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              }
-            },
-            "description": "Success"
-          }
-        },
-        "summary": "Delete a bookmark",
-        "tags": [
-          "Bookmarks"
         ]
       }
     },
@@ -4860,6 +4137,66 @@
         ]
       }
     },
+    "/playlists/{playlist_id}/download": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "playlist_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "bitrate",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "stats",
+            "required": false,
+            "schema": {
+              "enum": [
+                0,
+                1
+              ],
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Binary file response"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "416": {
+            "description": "Range not satisfiable"
+          }
+        },
+        "summary": "Download a media file (binary)",
+        "tags": [
+          "Streaming and Downloads"
+        ]
+      }
+    },
     "/playlists/{playlist_id}/flag": {
       "post": {
         "parameters": [
@@ -5266,6 +4603,66 @@
         ]
       }
     },
+    "/podcast-episodes/{episode_id}/download": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "episode_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "bitrate",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "stats",
+            "required": false,
+            "schema": {
+              "enum": [
+                0,
+                1
+              ],
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Binary file response"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "416": {
+            "description": "Range not satisfiable"
+          }
+        },
+        "summary": "Download a media file (binary)",
+        "tags": [
+          "Streaming and Downloads"
+        ]
+      }
+    },
     "/podcast-episodes/{episode_id}/stream": {
       "get": {
         "parameters": [
@@ -5343,6 +4740,215 @@
         "summary": "Stream a media file (binary)",
         "tags": [
           "Streaming and Downloads"
+        ]
+      }
+    },
+    "/podcast-episodes/{podcast_episode_id}/bookmark": {
+      "delete": {
+        "parameters": [
+          {
+            "description": "podcast_episode_id",
+            "in": "path",
+            "name": "podcast_episode_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "client",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            },
+            "description": "Success"
+          }
+        },
+        "summary": "Delete a bookmark",
+        "tags": [
+          "Bookmarks"
+        ]
+      },
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "podcast_episode_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "include",
+            "required": false,
+            "schema": {
+              "enum": [
+                0,
+                1
+              ],
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bookmark object"
+          }
+        },
+        "summary": "Get bookmark by ID",
+        "tags": [
+          "Bookmarks"
+        ]
+      },
+      "patch": {
+        "parameters": [
+          {
+            "description": "podcast_episode_id",
+            "in": "path",
+            "name": "podcast_episode_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "position",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "client",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "date",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "include",
+            "required": false,
+            "schema": {
+              "enum": [
+                0,
+                1
+              ],
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bookmark array"
+          }
+        },
+        "summary": "Edit a bookmark",
+        "tags": [
+          "Bookmarks"
+        ]
+      },
+      "put": {
+        "parameters": [
+          {
+            "description": "podcast_episode_id",
+            "in": "path",
+            "name": "podcast_episode_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "position",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "client",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "date",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "include",
+            "required": false,
+            "schema": {
+              "enum": [
+                0,
+                1
+              ],
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bookmark object"
+          }
+        },
+        "summary": "Create a bookmark",
+        "tags": [
+          "Bookmarks"
         ]
       }
     },
@@ -6155,6 +5761,66 @@
           }
         },
         "summary": "Edit a preference value",
+        "tags": [
+          "Preferences"
+        ]
+      }
+    },
+    "/preferences/{preference_name}/system": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "preference_name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Preference array"
+          }
+        },
+        "summary": "Get a server preference by name (Admin)",
+        "tags": [
+          "Preferences"
+        ]
+      }
+    },
+    "/preferences/{preference_name}/user": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "preference_name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Preference array"
+          }
+        },
+        "summary": "Get a user preference by name",
         "tags": [
           "Preferences"
         ]
@@ -6978,6 +6644,66 @@
         ]
       }
     },
+    "/smartlists/{smartlist_id}/download": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "smartlist_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "bitrate",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "stats",
+            "required": false,
+            "schema": {
+              "enum": [
+                0,
+                1
+              ],
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Binary file response"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "416": {
+            "description": "Range not satisfiable"
+          }
+        },
+        "summary": "Download a media file (binary)",
+        "tags": [
+          "Streaming and Downloads"
+        ]
+      }
+    },
     "/smartlists/{smartlist_id}/flag": {
       "post": {
         "parameters": [
@@ -7429,6 +7155,275 @@
         ]
       }
     },
+    "/songs/{song_id}/bookmark": {
+      "delete": {
+        "parameters": [
+          {
+            "description": "song_id",
+            "in": "path",
+            "name": "song_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "client",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            },
+            "description": "Success"
+          }
+        },
+        "summary": "Delete a bookmark",
+        "tags": [
+          "Bookmarks"
+        ]
+      },
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "song_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "include",
+            "required": false,
+            "schema": {
+              "enum": [
+                0,
+                1
+              ],
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bookmark object"
+          }
+        },
+        "summary": "Get bookmark by ID",
+        "tags": [
+          "Bookmarks"
+        ]
+      },
+      "patch": {
+        "parameters": [
+          {
+            "description": "song_id",
+            "in": "path",
+            "name": "song_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "position",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "client",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "date",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "include",
+            "required": false,
+            "schema": {
+              "enum": [
+                0,
+                1
+              ],
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bookmark array"
+          }
+        },
+        "summary": "Edit a bookmark",
+        "tags": [
+          "Bookmarks"
+        ]
+      },
+      "put": {
+        "parameters": [
+          {
+            "description": "song_id",
+            "in": "path",
+            "name": "song_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "position",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "client",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "date",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "include",
+            "required": false,
+            "schema": {
+              "enum": [
+                0,
+                1
+              ],
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bookmark object"
+          }
+        },
+        "summary": "Create a bookmark",
+        "tags": [
+          "Bookmarks"
+        ]
+      }
+    },
+    "/songs/{song_id}/download": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "song_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "bitrate",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "stats",
+            "required": false,
+            "schema": {
+              "enum": [
+                0,
+                1
+              ],
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Binary file response"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "416": {
+            "description": "Range not satisfiable"
+          }
+        },
+        "summary": "Download a media file (binary)",
+        "tags": [
+          "Streaming and Downloads"
+        ]
+      }
+    },
     "/songs/{song_id}/flag": {
       "post": {
         "parameters": [
@@ -7843,6 +7838,66 @@
         ]
       }
     },
+    "/songs/{song_id}/update_from_tags": {
+      "post": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "song_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            },
+            "description": "Updated"
+          }
+        },
+        "summary": "Update object metadata from tags",
+        "tags": [
+          "Utilities"
+        ]
+      }
+    },
+    "/songs/lookup/url_to_song": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filter",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Song object"
+          }
+        },
+        "summary": "Convert an Ampache URL back to a song object",
+        "tags": [
+          "Utilities"
+        ]
+      }
+    },
     "/stats/{filter}": {
       "get": {
         "parameters": [
@@ -7950,240 +8005,6 @@
         ]
       }
     },
-    "/system-preferences/{preference_name}": {
-      "get": {
-        "parameters": [
-          {
-            "in": "path",
-            "name": "preference_name",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            },
-            "description": "Preference array"
-          }
-        },
-        "summary": "Get a server preference by name (Admin)",
-        "tags": [
-          "Preferences"
-        ]
-      }
-    },
-    "/albums/{album_id}/update_art": {
-      "post": {
-        "parameters": [
-          {
-            "in": "path",
-            "name": "album_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "overwrite",
-            "required": false,
-            "schema": {
-              "enum": [
-                0,
-                1
-              ],
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              }
-            },
-            "description": "Updated"
-          }
-        },
-        "summary": "Update art for an object (Catalog Manager)",
-        "tags": [
-          "Utilities"
-        ]
-      }
-    },
-    "/artists/{artist_id}/update_art": {
-      "post": {
-        "parameters": [
-          {
-            "in": "path",
-            "name": "artist_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "overwrite",
-            "required": false,
-            "schema": {
-              "enum": [
-                0,
-                1
-              ],
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              }
-            },
-            "description": "Updated"
-          }
-        },
-        "summary": "Update art for an object (Catalog Manager)",
-        "tags": [
-          "Utilities"
-        ]
-      }
-    },
-    "/songs/{song_id}/update_from_tags": {
-      "post": {
-        "parameters": [
-          {
-            "in": "path",
-            "name": "song_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              }
-            },
-            "description": "Updated"
-          }
-        },
-        "summary": "Update object metadata from tags",
-        "tags": [
-          "Utilities"
-        ]
-      }
-    },
-    "/artists/{artist_id}/update_from_tags": {
-      "post": {
-        "parameters": [
-          {
-            "in": "path",
-            "name": "artist_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              }
-            },
-            "description": "Updated"
-          }
-        },
-        "summary": "Update object metadata from tags",
-        "tags": [
-          "Utilities"
-        ]
-      }
-    },
-    "/albums/{album_id}/update_from_tags": {
-      "post": {
-        "parameters": [
-          {
-            "in": "path",
-            "name": "album_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              }
-            },
-            "description": "Updated"
-          }
-        },
-        "summary": "Update object metadata from tags",
-        "tags": [
-          "Utilities"
-        ]
-      }
-    },
-    "/url_to_song": {
-      "get": {
-        "parameters": [
-          {
-            "in": "query",
-            "name": "filter",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            },
-            "description": "Song object"
-          }
-        },
-        "summary": "Convert an Ampache URL back to a song object",
-        "tags": [
-          "Utilities"
-        ]
-      }
-    },
     "/user": {
       "get": {
         "parameters": [],
@@ -8202,244 +8023,6 @@
         "summary": "Get information about your own user account",
         "tags": [
           "Users"
-        ]
-      }
-    },
-    "/user_playlists": {
-      "get": {
-        "parameters": [
-          {
-            "in": "query",
-            "name": "filter",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "exact",
-            "required": false,
-            "schema": {
-              "enum": [
-                0,
-                1
-              ],
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "include",
-            "required": false,
-            "schema": {
-              "enum": [
-                0,
-                1
-              ],
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "add",
-            "required": false,
-            "schema": {
-              "format": "date",
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "update",
-            "required": false,
-            "schema": {
-              "format": "date",
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "offset",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "limit",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "cond",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "sort",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            },
-            "description": "Playlist list"
-          }
-        },
-        "summary": "List playlists for the current user context",
-        "tags": [
-          "Playlists"
-        ]
-      }
-    },
-    "/user_smartlists": {
-      "get": {
-        "parameters": [
-          {
-            "in": "query",
-            "name": "filter",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "exact",
-            "required": false,
-            "schema": {
-              "enum": [
-                0,
-                1
-              ],
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "include",
-            "required": false,
-            "schema": {
-              "enum": [
-                0,
-                1
-              ],
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "add",
-            "required": false,
-            "schema": {
-              "format": "date",
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "update",
-            "required": false,
-            "schema": {
-              "format": "date",
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "offset",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "limit",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "cond",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "sort",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            },
-            "description": "Smartlist list"
-          }
-        },
-        "summary": "List smartlists for the current user context",
-        "tags": [
-          "Playlists"
-        ]
-      }
-    },
-    "/user-preferences/{preference_name}": {
-      "get": {
-        "parameters": [
-          {
-            "in": "path",
-            "name": "preference_name",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            },
-            "description": "Preference array"
-          }
-        },
-        "summary": "Get a user preference by name",
-        "tags": [
-          "Preferences"
         ]
       }
     },
@@ -8948,6 +8531,214 @@
         ]
       }
     },
+    "/users/me/playlists": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filter",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "exact",
+            "required": false,
+            "schema": {
+              "enum": [
+                0,
+                1
+              ],
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "include",
+            "required": false,
+            "schema": {
+              "enum": [
+                0,
+                1
+              ],
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "add",
+            "required": false,
+            "schema": {
+              "format": "date",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "update",
+            "required": false,
+            "schema": {
+              "format": "date",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cond",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Playlist list"
+          }
+        },
+        "summary": "List playlists for the current user context",
+        "tags": [
+          "Playlists"
+        ]
+      }
+    },
+    "/users/me/smartlists": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filter",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "exact",
+            "required": false,
+            "schema": {
+              "enum": [
+                0,
+                1
+              ],
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "include",
+            "required": false,
+            "schema": {
+              "enum": [
+                0,
+                1
+              ],
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "add",
+            "required": false,
+            "schema": {
+              "format": "date",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "update",
+            "required": false,
+            "schema": {
+              "format": "date",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cond",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Smartlist list"
+          }
+        },
+        "summary": "List smartlists for the current user context",
+        "tags": [
+          "Playlists"
+        ]
+      }
+    },
     "/videos": {
       "get": {
         "parameters": [
@@ -9049,6 +8840,215 @@
         "summary": "Get video by ID",
         "tags": [
           "Videos"
+        ]
+      }
+    },
+    "/videos/{video_id}/bookmark": {
+      "delete": {
+        "parameters": [
+          {
+            "description": "video_id",
+            "in": "path",
+            "name": "video_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "client",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            },
+            "description": "Success"
+          }
+        },
+        "summary": "Delete a bookmark",
+        "tags": [
+          "Bookmarks"
+        ]
+      },
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "video_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "include",
+            "required": false,
+            "schema": {
+              "enum": [
+                0,
+                1
+              ],
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bookmark object"
+          }
+        },
+        "summary": "Get bookmark by ID",
+        "tags": [
+          "Bookmarks"
+        ]
+      },
+      "patch": {
+        "parameters": [
+          {
+            "description": "video_id",
+            "in": "path",
+            "name": "video_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "position",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "client",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "date",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "include",
+            "required": false,
+            "schema": {
+              "enum": [
+                0,
+                1
+              ],
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bookmark array"
+          }
+        },
+        "summary": "Edit a bookmark",
+        "tags": [
+          "Bookmarks"
+        ]
+      },
+      "put": {
+        "parameters": [
+          {
+            "description": "video_id",
+            "in": "path",
+            "name": "video_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "position",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "client",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "date",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "include",
+            "required": false,
+            "schema": {
+              "enum": [
+                0,
+                1
+              ],
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bookmark object"
+          }
+        },
+        "summary": "Create a bookmark",
+        "tags": [
+          "Bookmarks"
         ]
       }
     },
