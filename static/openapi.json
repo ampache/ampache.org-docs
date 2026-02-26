@@ -703,7 +703,7 @@
     "/albums/search": {
       "get": {
         "description": "Provide operator plus one or more rule triplets. At minimum, rule_1, rule_1_operator, rule_1_input are required. Additional rules may be supplied as rule_2, rule_2_operator, rule_2_input, etc.",
-        "operationId": "search",
+        "operationId": "album-search",
         "parameters": [
           {
             "description": "and, or (whether to match one rule or all)",
@@ -1583,7 +1583,7 @@
     "/artists/search": {
       "get": {
         "description": "Provide operator plus one or more rule triplets. At minimum, rule_1, rule_1_operator, rule_1_input are required. Additional rules may be supplied as rule_2, rule_2_operator, rule_2_input, etc.",
-        "operationId": "search",
+        "operationId": "artist-search",
         "parameters": [
           {
             "description": "and, or (whether to match one rule or all)",
@@ -2805,7 +2805,7 @@
     "/genres/search": {
       "get": {
         "description": "Provide operator plus one or more rule triplets. At minimum, rule_1, rule_1_operator, rule_1_input are required. Additional rules may be supplied as rule_2, rule_2_operator, rule_2_input, etc.",
-        "operationId": "search",
+        "operationId": "genre-search",
         "parameters": [
           {
             "description": "and, or (whether to match one rule or all)",
@@ -3402,7 +3402,7 @@
     "/labels/search": {
       "get": {
         "description": "Provide operator plus one or more rule triplets. At minimum, rule_1, rule_1_operator, rule_1_input are required. Additional rules may be supplied as rule_2, rule_2_operator, rule_2_input, etc.",
-        "operationId": "search",
+        "operationId": "label-search",
         "parameters": [
           {
             "description": "and, or (whether to match one rule or all)",
@@ -5459,7 +5459,7 @@
     "/playlists/search": {
       "get": {
         "description": "Provide operator plus one or more rule triplets. At minimum, rule_1, rule_1_operator, rule_1_input are required. Additional rules may be supplied as rule_2, rule_2_operator, rule_2_input, etc.",
-        "operationId": "search",
+        "operationId": "playlist-search",
         "parameters": [
           {
             "description": "and, or (whether to match one rule or all)",
@@ -6354,7 +6354,7 @@
     "/podcast-episodes/search": {
       "get": {
         "description": "Provide operator plus one or more rule triplets. At minimum, rule_1, rule_1_operator, rule_1_input are required. Additional rules may be supplied as rule_2, rule_2_operator, rule_2_input, etc.",
-        "operationId": "search",
+        "operationId": "podcast-episode-search",
         "parameters": [
           {
             "description": "and, or (whether to match one rule or all)",
@@ -7013,7 +7013,7 @@
     "/podcasts/search": {
       "get": {
         "description": "Provide operator plus one or more rule triplets. At minimum, rule_1, rule_1_operator, rule_1_input are required. Additional rules may be supplied as rule_2, rule_2_operator, rule_2_input, etc.",
-        "operationId": "search",
+        "operationId": "podcast-search",
         "parameters": [
           {
             "description": "and, or (whether to match one rule or all)",
@@ -8542,7 +8542,7 @@
     "/smartlists/search": {
       "get": {
         "description": "Provide operator plus one or more rule triplets. At minimum, rule_1, rule_1_operator, rule_1_input are required. Additional rules may be supplied as rule_2, rule_2_operator, rule_2_input, etc.",
-        "operationId": "search",
+        "operationId": "smartlist-search",
         "parameters": [
           {
             "description": "and, or (whether to match one rule or all)",
@@ -9651,7 +9651,7 @@
     "/songs/search": {
       "get": {
         "description": "Provide operator plus one or more rule triplets. At minimum, rule_1, rule_1_operator, rule_1_input are required. Additional rules may be supplied as rule_2, rule_2_operator, rule_2_input, etc.",
-        "operationId": "search",
+        "operationId": "song-search",
         "parameters": [
           {
             "description": "and, or (whether to match one rule or all)",
@@ -10389,7 +10389,7 @@
     "/users/search": {
       "get": {
         "description": "Provide operator plus one or more rule triplets. At minimum, rule_1, rule_1_operator, rule_1_input are required. Additional rules may be supplied as rule_2, rule_2_operator, rule_2_input, etc.",
-        "operationId": "search",
+        "operationId": "user-search",
         "parameters": [
           {
             "description": "and, or (whether to match one rule or all)",
@@ -11108,7 +11108,7 @@
     "/videos/search": {
       "get": {
         "description": "Provide operator plus one or more rule triplets. At minimum, rule_1, rule_1_operator, rule_1_input are required. Additional rules may be supplied as rule_2, rule_2_operator, rule_2_input, etc.",
-        "operationId": "search",
+        "operationId": "video-search",
         "parameters": [
           {
             "description": "and, or (whether to match one rule or all)",
