@@ -7658,7 +7658,7 @@
           {
             "in": "path",
             "name": "search_type",
-            "required": false,
+            "required": true,
             "schema": {
               "enum": [
                 "all",
