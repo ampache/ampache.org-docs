@@ -10377,15 +10377,15 @@
         ]
       }
     },
-    "/users/{username}": {
+    "/users/{user_id}": {
       "delete": {
         "parameters": [
           {
             "in": "path",
-            "name": "username",
+            "name": "user_id",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "integer"
             }
           }
         ],
@@ -10587,15 +10587,15 @@
         ]
       }
     },
-    "/users/{username}/follow": {
+    "/users/{user_id}/follow": {
       "delete": {
         "parameters": [
           {
             "in": "path",
-            "name": "username",
+            "name": "user_id",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "integer"
             }
           }
         ],
@@ -10673,15 +10673,15 @@
         ]
       }
     },
-    "/users/{username}/followers": {
+    "/users/{user_id}/followers": {
       "get": {
         "parameters": [
           {
             "in": "path",
-            "name": "username",
+            "name": "user_id",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "integer"
             }
           },
           {
@@ -10735,15 +10735,15 @@
         ]
       }
     },
-    "/users/{username}/following": {
+    "/users/{user_id}/following": {
       "get": {
         "parameters": [
           {
             "in": "path",
-            "name": "username",
+            "name": "user_id",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "integer"
             }
           }
         ],
@@ -10765,15 +10765,15 @@
         ]
       }
     },
-    "/users/{username}/timeline": {
+    "/users/{user_id}/timeline": {
       "get": {
         "parameters": [
           {
             "in": "path",
-            "name": "username",
+            "name": "user_id",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "integer"
             }
           },
           {
