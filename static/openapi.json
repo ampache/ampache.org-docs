@@ -841,7 +841,11 @@
             "description": "Invalid request"
           }
         },
-        "summary": "Search for media entities using rule triplets"
+        "summary": "Search for media entities using rule triplets",
+        "tags": [
+          "Albums",
+          "Search"
+        ]
       }
     },
     "/albums/stats": {
@@ -1734,7 +1738,11 @@
             "description": "Invalid request"
           }
         },
-        "summary": "Search for media entities using rule triplets"
+        "summary": "Search for media entities using rule triplets",
+        "tags": [
+          "Artists",
+          "Search"
+        ]
       }
     },
     "/artists/stats": {
@@ -2943,7 +2951,11 @@
             "description": "Invalid request"
           }
         },
-        "summary": "Search for media entities using rule triplets"
+        "summary": "Search for media entities using rule triplets",
+        "tags": [
+          "Genres",
+          "Search"
+        ]
       }
     },
     "/goodbye": {
@@ -3540,7 +3552,11 @@
             "description": "Invalid request"
           }
         },
-        "summary": "Search for media entities using rule triplets"
+        "summary": "Search for media entities using rule triplets",
+        "tags": [
+          "Labels",
+          "Search"
+        ]
       }
     },
     "/licenses": {
@@ -4578,7 +4594,7 @@
         ]
       }
     },
-    "/playlist_generate": {
+    "/songs/playlist_generate": {
       "get": {
         "parameters": [
           {
@@ -5597,7 +5613,11 @@
             "description": "Invalid request"
           }
         },
-        "summary": "Search for media entities using rule triplets"
+        "summary": "Search for media entities using rule triplets",
+        "tags": [
+          "Playlists",
+          "Search"
+        ]
       }
     },
     "/playlists/stats": {
@@ -5689,7 +5709,7 @@
         ]
       }
     },
-    "/podcast_episodes/deleted": {
+    "/podcast-episodes/deleted": {
       "get": {
         "parameters": [
           {
@@ -5727,7 +5747,7 @@
         ]
       }
     },
-    "/podcast_episodes/stats": {
+    "/podcast-episodes/stats": {
       "get": {
         "parameters": [
           {
@@ -6492,7 +6512,11 @@
             "description": "Invalid request"
           }
         },
-        "summary": "Search for media entities using rule triplets"
+        "summary": "Search for media entities using rule triplets",
+        "tags": [
+          "Podcasts",
+          "Search"
+        ]
       }
     },
     "/podcasts": {
@@ -7151,7 +7175,11 @@
             "description": "Invalid request"
           }
         },
-        "summary": "Search for media entities using rule triplets"
+        "summary": "Search for media entities using rule triplets",
+        "tags": [
+          "Podcasts",
+          "Search"
+        ]
       }
     },
     "/podcasts/stats": {
@@ -7624,24 +7652,12 @@
         ]
       }
     },
-    "/search_group": {
+    "/search/{search_type}/groups": {
       "get": {
         "parameters": [
           {
-            "in": "query",
-            "name": "operator",
-            "required": true,
-            "schema": {
-              "enum": [
-                "and",
-                "or"
-              ],
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "type",
+            "in": "path",
+            "name": "search_type",
             "required": false,
             "schema": {
               "enum": [
@@ -7651,6 +7667,18 @@
                 "album_artist",
                 "podcast",
                 "video"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "operator",
+            "required": true,
+            "schema": {
+              "enum": [
+                "and",
+                "or"
               ],
               "type": "string"
             }
@@ -7735,7 +7763,7 @@
         ]
       }
     },
-    "/search_rules/{search_type}": {
+    "/search/{search_type}/rules": {
       "get": {
         "parameters": [
           {
@@ -7778,53 +7806,6 @@
         "tags": [
           "Search",
           "Utilities"
-        ]
-      }
-    },
-    "/search_songs": {
-      "get": {
-        "parameters": [
-          {
-            "in": "query",
-            "name": "filter",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "offset",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "limit",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            },
-            "description": "Song list"
-          }
-        },
-        "summary": "Search songs by text",
-        "tags": [
-          "Search",
-          "Songs"
         ]
       }
     },
@@ -8680,7 +8661,11 @@
             "description": "Invalid request"
           }
         },
-        "summary": "Search for media entities using rule triplets"
+        "summary": "Search for media entities using rule triplets",
+        "tags": [
+          "Playlists",
+          "Search"
+        ]
       }
     },
     "/songs": {
@@ -9789,7 +9774,11 @@
             "description": "Invalid request"
           }
         },
-        "summary": "Search for media entities using rule triplets"
+        "summary": "Search for media entities using rule triplets",
+        "tags": [
+          "Songs",
+          "Search"
+        ]
       }
     },
     "/songs/stats": {
@@ -10356,7 +10345,7 @@
         ]
       }
     },
-    "/users/{username}/toggle_follow": {
+    "/users/{username}/follow": {
       "post": {
         "parameters": [
           {
@@ -10380,7 +10369,63 @@
             "description": "Success"
           }
         },
-        "summary": "Follow or unfollow a user",
+        "summary": "Follow or unfollow a user (toggle)",
+        "tags": [
+          "Social"
+        ]
+      },
+      "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "username",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            },
+            "description": "Success"
+          }
+        },
+        "summary": "Follow a user",
+        "tags": [
+          "Social"
+        ]
+      },
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "username",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            },
+            "description": "Success"
+          }
+        },
+        "summary": "Unfollow a user",
         "tags": [
           "Social"
         ]
@@ -10527,10 +10572,14 @@
             "description": "Invalid request"
           }
         },
-        "summary": "Search for media entities using rule triplets"
+        "summary": "Search for media entities using rule triplets",
+        "tags": [
+          "Users",
+          "Search"
+        ]
       }
     },
-    "/users/social/friends-timeline": {
+    "/me/friends-timeline": {
       "get": {
         "parameters": [
           {
@@ -10568,7 +10617,7 @@
         ]
       }
     },
-    "/users/social/last-shouts": {
+    "/me/last-shouts": {
       "get": {
         "parameters": [
           {
@@ -10606,7 +10655,7 @@
         ]
       }
     },
-    "/users/social/now-playing": {
+    "/me/now-playing": {
       "get": {
         "responses": {
           "200": {
@@ -11246,7 +11295,11 @@
             "description": "Invalid request"
           }
         },
-        "summary": "Search for media entities using rule triplets"
+        "summary": "Search for media entities using rule triplets",
+        "tags": [
+          "Videos",
+          "Search"
+        ]
       }
     },
     "/videos/stats": {
