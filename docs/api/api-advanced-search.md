@@ -106,6 +106,9 @@ Searching 'anywhere' searches song title, song filename, song genre, album title
 | songrating               | My Rating (Song)                        | numeric           |                             album, artist                             |
 | albumrating              | My Rating (Album)                       | numeric           |                             song, artist                              |
 | artistrating             | My Rating (Artist)                      | numeric           |                              song, album                              |
+| myflagged_song           | My Favorite Songs                       | boolean           |         song, album, artist, podcast, podcast_episode, video          |
+| myflagged_album          | My Favorite Albums                      | boolean           |         song, album, artist, podcast, podcast_episode, video          |
+| myflagged_artist         | My Favorite Artists                     | boolean           |         song, album, artist, podcast, podcast_episode, video          |
 | favorite                 | Favorites                               | text              |                          song, album, artist                          |
 | favorite_album           | Favorites (Album)                       | text              |                                 song                                  |
 | favorite_artist          | Favorites (Artist)                      | text              |                                 song                                  |

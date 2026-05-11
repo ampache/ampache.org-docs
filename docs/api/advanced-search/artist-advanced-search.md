@@ -31,6 +31,9 @@ Select the type of search based on the type of data you are searching for. (song
 | rating                    | Rating (Average)               | numeric         |
 | songrating                | My Rating (Song)               | numeric         |
 | albumrating               | My Rating (Album)              | numeric         |
+| myflagged_song            | My Favorite Songs              | boolean         |
+| myflagged_album           | My Favorite Albums             | boolean         |
+| myflagged_artist          | My Favorite Artists            | boolean         |
 | favorite                  | Favorites                      | text            |
 | played_times              | # Played                       | numeric         |
 | skipped_times             | # Skipped                      | numeric         |
