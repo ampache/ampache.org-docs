@@ -46,7 +46,6 @@ Select the type of search based on the type of data you are searching for. (song
 | days_added                | Added                                   | days            |
 | days_updated              | Updated                                 | days            |
 
-
 ## Available operator values
 
 Select your operator (integer only!) based on the type or your selected search

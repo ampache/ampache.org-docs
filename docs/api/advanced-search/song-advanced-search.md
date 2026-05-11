@@ -41,9 +41,9 @@ Select the type of search based on the type of data you are searching for. (song
 | rating                    | Rating (Average)          | numeric           |
 | albumrating               | My Rating (Album)         | numeric           |
 | artistrating              | My Rating (Artist)        | numeric           |
-| my_flagged_song            | My Favourite Songs        | boolean           |
-| my_flagged_album           | My Favourite Albums       | boolean           |
-| my_flagged_artist          | My Favourite Artists      | boolean           |
+| my_flagged_song           | My Favourite Songs        | boolean           |
+| my_flagged_album          | My Favourite Albums       | boolean           |
+| my_flagged_artist         | My Favourite Artists      | boolean           |
 | favorite                  | Favourites                | text              |
 | favorite_album            | Favourites (Album)        | text              |
 | favorite_artist           | Favourites (Artist)       | text              |

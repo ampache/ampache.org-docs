@@ -4,7 +4,7 @@ metaTitle: "Clients"
 description: "Ampache Clients"
 ---
 
-## Ampache 
+## Ampache
 
 Ampache runs on a web interface allowing you to play media directly from your web browser. See the [Web Interface](/docs/information/Web-Interface) page for more information.
 
