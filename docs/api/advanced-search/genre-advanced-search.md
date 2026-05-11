@@ -14,11 +14,13 @@ Refer to the main [Advanced Search](/api/api-advanced-search) page for further i
 
 Select the type of search based on the type of data you are searching for. (songs, playlists, etc)
 
-| rule_1   | Title             | Operator Type |
-|----------|-------------------|---------------|
-| title    | Title / Name      | text          |
-| name     | (*Alias of title) |               |
-| category | Category          | text          |
+| rule_1       | Title             | Operator Type |
+|--------------|-------------------|---------------|
+| title        | Title / Name      | text          |
+| name         | (*Alias of title) |               |
+| album_count  | Album Count       | numeric       |
+| artist_count | Album Count       | numeric       |
+| song_count   | Song              | numeric       |
 
 ## Available operator values
 

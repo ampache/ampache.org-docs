@@ -22,24 +22,30 @@ Select the type of search based on the type of data you are searching for. (song
 | name                      | (*Alias of title)                       |                 |
 | podcast                   | Podcast                                 | text            |
 | podcast_title             | (*Alias of podcast)                     |                 |
+| state                     | File state (completed, pending skipped) | boolean_numeric |
+| status                    | (*Alias of state)                       |                 |
+| time                      | Length (in minutes)                     | numeric         |
+| id                        | Database ID                             | numeric         |
 | played_times              | # Played                                | numeric         |
 | skipped_times             | # Skipped                               | numeric         |
+| last_play                 | My Last Play                            | days            |
+| last_skip                 | My Last Skip                            | days            |
+| last_play_or_skip         | My Last Play OR skip                    | days            |
 | played_or_skipped_times   | # Played or Skipped                     | numeric         |
+| played                    | Played                                  | boolean         |
+| myplayed                  | Played by Me                            | boolean         |
 | myplayed_times            | # Played by Me                          | numeric         |
 | myskipped_times           | # Skipped by Me                         | numeric         |
 | myplayed_or_skipped_times | # Played or Skipped by Me               | numeric         |
 | play_skip_ratio           | Played/Skipped ratio                    | numeric         |
-| last_play                 | My Last Play                            | days            |
-| last_play_or_skip         | My Last Play OR skip                    | days            |
-| played                    | Played                                  | boolean         |
-| myplayed                  | Played by Me                            | boolean         |
-| time                      | Length (in minutes)                     | numeric         |
+| recent_played             | Recently Played                         | numeric_limit   |
 | file                      | Filename                                | text            |
-| state                     | File state (completed, pending skipped) | boolean_numeric |
-| status                    | (*Alias of state)                       |                 |
+| pubdate                   | Publication Date                        | date            |
 | added                     | Added                                   | date            |
 | updated                   | Updated                                 | date            |
-| pubdate                   | Publication Date                        | date            |
+| days_added                | Added                                   | days            |
+| days_updated              | Updated                                 | days            |
+
 
 ## Available operator values
 

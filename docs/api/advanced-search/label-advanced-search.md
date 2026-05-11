@@ -19,6 +19,7 @@ Select the type of search based on the type of data you are searching for. (song
 | title    | Title / Name      | text          |
 | name     | (*Alias of title) |               |
 | category | Category          | text          |
+| id       | Database ID       | numeric       |
 
 ## Available operator values
 
