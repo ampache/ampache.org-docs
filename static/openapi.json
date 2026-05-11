@@ -5703,6 +5703,106 @@
         ]
       }
     },
+    "/podcast-episodes": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filter",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cond",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Podcast Episode list"
+          }
+        },
+        "summary": "List podcast episodes",
+        "tags": [
+          "Podcasts"
+        ]
+      },
+      "put": {
+        "parameters": [
+          {
+            "description": "RSS URL for podcast",
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Podcast catalog ID",
+            "in": "query",
+            "name": "catalog",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Podcast created"
+          }
+        },
+        "summary": "Create a podcast",
+        "tags": [
+          "Podcasts"
+        ]
+      }
+    },
     "/podcast-episodes/{episode_id}": {
       "delete": {
         "parameters": [
