@@ -5763,44 +5763,6 @@
         "tags": [
           "Podcasts"
         ]
-      },
-      "put": {
-        "parameters": [
-          {
-            "description": "RSS URL for podcast",
-            "in": "query",
-            "name": "url",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Podcast catalog ID",
-            "in": "query",
-            "name": "catalog",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            },
-            "description": "Podcast created"
-          }
-        },
-        "summary": "Create a podcast",
-        "tags": [
-          "Podcasts"
-        ]
       }
     },
     "/podcast-episodes/{episode_id}": {
@@ -10347,6 +10309,27 @@
         "summary": "Get stats (song/album/artist etc) by type and filter",
         "tags": [
           "Browsing, Indexes and Lists"
+        ]
+      }
+    },
+    "/update": {
+      "get": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Update Ampache"
+          }
+        },
+        "summary": "Get information about your own user account",
+        "tags": [
+          "Maintenance"
         ]
       }
     },
