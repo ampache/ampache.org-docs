@@ -4,6 +4,86 @@ metaTitle: "API Changelog"
 description: "API Changelog"
 ---
 
+## API 6.9.1 Build 15
+
+This version is being released for Ampache7 **only**
+
+To ensure that there are no issues with clients checking for single int versions
+we will keep on 6.9.x and resume build number versioning until Ampache 8
+
+**NOTE** API8 has been added to the code but is not enabled for use.
+
+### Added (691015)
+
+* API8
+  * Add API8 to REST htaccess file
+  * Restructure the backend code to allow API8
+
+### Changed (691015)
+
+* API6
+  * Move API6 classes to allow for API8
+
+### Fixed (691015)
+
+* API6
+  * Bad `podcast_update` function name
+  * REST rewrite rules
+
+## API 6.9.1 Build 14
+
+This version is being released for Ampache7 **only**
+
+To ensure that there are no issues with clients checking for single int versions
+we will keep on 6.9.x and resume build number versioning until Ampache 8
+
+### Added (691014)
+
+* API6
+  * Allow REST calls to block GET requests for sensitive calls (e.g. `register`)
+
+### Changed (691014)
+
+* API6
+  * Make `filter` optional for `podcast_episodes`
+  * Add `song` for `id` in `playlist_add` to match `playlist_add_song`
+  * Fallback to `bookmark` on empty `type` in `bookmark_delete`
+  * Decode HTML for Song lyrics on output
+* API5
+  * Decode HTML for Song lyrics on output
+
+### Fixed (691014)
+
+* API6
+  * Bad `podcast_update` function name
+  * REST rewrite rules
+
+## API 6.9.1 Build 13
+
+This version is being released for Ampache7 **only**
+
+To ensure that there are no issues with clients checking for single int versions
+we will keep on 6.9.x and resume build number versioning until Ampache 8
+
+### Added (691013)
+
+* API6
+  * followers: Add `filter` as an alias of `username`
+  * following: Add `filter` as an alias of `username`
+  * Add `smartlist` as a type for `share_create`
+  * Add `smartlist` as a type for `get_art`
+  * Add alias `podcast_update` for `update_podcast`
+
+### Changed (691013)
+
+* REST rewrite rules are still not stable
+* Username methods now all allow `user_id` as well as username lookups
+
+### Fixed (691013)
+
+* API6
+  * timeline would only return timeline for your user
+
 ## API 6.9.1 Build 12
 
 This version is being released for Ampache7 **only**
