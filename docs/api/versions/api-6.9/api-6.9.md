@@ -1,10 +1,10 @@
 ---
-title: "Ampache API"
-metaTitle: "Ampache API"
+title: "API6.9"
+metaTitle: "API6.9"
 description: "API documentation"
 ---
 
-## Ampache API
+## Ampache API6.9
 
 The Ampache API Provides methods for pulling out it's meta data in the form of
 simple XML (and JSON!) documents. This was originally created for use by [Amarok](http://amarok.kde.org/),
@@ -27,7 +27,6 @@ POST requests offer more privacy than a regular GET request because data is sent
 
 After each release, a documentation page will be created to allow pruning old features from the current version.
 
-* [API 6.9 Documentation](https://ampache.org/api/api-6)
 * [API 5.6 Documentation](https://ampache.org/api/api-5)
 * [API 4.4 Documentation](https://ampache.org/api/api-4)
 * [API 3.9 Documentation](https://ampache.org/api/api-3)

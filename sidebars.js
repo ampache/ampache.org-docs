@@ -211,6 +211,18 @@ const sidebars = {
         'api/subsonic',
         {
           type: 'category',
+          label: 'API6',
+          link: {type: 'doc', id: 'api/api-5/api-6'},
+          items: [
+            'api/api-6/api-standards',
+            'api/api-6/api-xml-methods',
+            'api/api-6/api-json-methods',
+            'api/api-6/api-errors',
+            'api/api-6/api-advanced-search',
+          ],
+        },
+        {
+          type: 'category',
           label: 'API5',
           link: {type: 'doc', id: 'api/api-5/api-5'},
           items: [
@@ -239,80 +251,7 @@ const sidebars = {
             'api/api-3/api-xml-methods',
             'api/api-3/api-errors',
           ],
-        },
-        {
-          type: 'category',
-          label: 'Past Releases',
-          link: {type: 'doc', id: 'api/versions/versions'},
-          items: [
-            {
-              type: 'category',
-              label: 'API 6.0',
-              link: {type: 'doc', id: 'api/versions/api-6.0/api-6.0'},
-              items: [
-                'api/versions/api-6.0/api-standards',
-                'api/versions/api-6.0/api-xml-methods',
-                'api/versions/api-6.0/api-json-methods',
-                'api/versions/api-6.0/api-errors',
-                'api/versions/api-6.0/api-advanced-search',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'API 5.1',
-              link: {type: 'doc', id: 'api/versions/api-5.1/api-5.1'},
-              items: [
-                'api/versions/api-5.1/api-standards',
-                'api/versions/api-5.1/api-xml-methods',
-                'api/versions/api-5.1/api-json-methods',
-                'api/versions/api-5.1/api-errors',
-                'api/versions/api-5.1/api-advanced-search',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'API 5.0',
-              link: {type: 'doc', id: 'api/versions/api-5.0/api-5.0'},
-              items: [
-                'api/versions/api-5.0/api-standards',
-                'api/versions/api-5.0/api-xml-methods',
-                'api/versions/api-5.0/api-json-methods',
-                'api/versions/api-5.0/api-errors',
-                'api/versions/api-5.0/api-advanced-search',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'API 4.3',
-              link: {type: 'doc', id: 'api/versions/api-4.3/api-4.3'},
-              items: [
-                'api/versions/api-4.3/api-xml-methods',
-                'api/versions/api-4.3/api-json-methods',
-                'api/versions/api-4.3/api-errors',
-                'api/versions/api-4.3/api-advanced-search',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'API 4.2',
-              link: {type: 'doc', id: 'api/versions/api-4.2/api-4.2'},
-              items: [
-                'api/versions/api-4.2/api-xml-methods',
-                'api/versions/api-4.2/api-json-methods',
-                'api/versions/api-4.2/api-errors',
-                'api/versions/api-4.2/api-advanced-search',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'API 4.1',
-              link: {type: 'doc', id: 'api/versions/api-4.1/api-4.1'},
-              items: [
-                'api/versions/api-4.1/xml-methods',
-              ],
-            },
-          ],
-        },
+        }
       ],
     },
     'links',
