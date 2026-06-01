@@ -1602,10 +1602,12 @@ This returns the artists for a label
 
 This gets the latest posted shouts
 
-| Input      | Type    | Description                                                                  | Optional |
-|------------|---------|------------------------------------------------------------------------------|---------:|
-| 'username' | string  | Get latest shouts for this username                                          |      YES |
-| 'limit'    | integer | Maximum number of results (Use `popular_threshold` when missing; default 10) |      YES |
+**NOTE** `filter` is available in Ampache 7.9.0 and higher. `catalog` is deprecated and will be removed in **API9**
+
+| Input    | Type    | Description                                                                  | Optional |
+|----------|---------|------------------------------------------------------------------------------|---------:|
+| 'filter' | string  | Get latest shouts for this username                                          |      YES |
+| 'limit'  | integer | Maximum number of results (Use `popular_threshold` when missing; default 10) |      YES |
 
 * return
 
@@ -2008,11 +2010,13 @@ This returns a single playlist
 
 This adds a song to a playlist. setting check=1 will not add duplicates to the playlist
 
-| Input    | Type   | Description                           | Optional |
-|----------|--------|---------------------------------------|---------:|
-| 'filter' | string | UID of Playlist                       |       NO |
-| 'id'     | string | UID of the object to add to playlist  |       NO |
-| 'type'   | string | 'song', 'album', 'artist', 'playlist' |       NO |
+**NOTE** `type` is optional from Ampache8+
+
+| Input    | Type   | Description                                           | Optional |
+|----------|--------|-------------------------------------------------------|---------:|
+| 'filter' | string | UID of Playlist                                       |       NO |
+| 'id'     | string | UID of the object to add to playlist                  |       NO |
+| 'type'   | string | 'song', 'album', 'artist', 'playlist' (Default: song) |      YES |
 
 * return
 
@@ -2579,11 +2583,13 @@ Edit a preference value and apply to all users if allowed
 
 This rates a library item
 
+**NOTE** `filter` is available in Ampache 7.9.0 and higher. `id` is deprecated and will be removed in **API9**.
+
 | Input    | Type    | Description                                           | Optional |
 |----------|---------|-------------------------------------------------------|---------:|
+| 'filter' | string  | library item id                                       |       NO |
 | 'type'   | string  | `song`, `album`, `artist`, `playlist`, `podcast`      |       NO |
 |          |         | `podcast_episode`, `video`, `tvshow`, `tvshow_season` |          |
-| 'id'     | string  | library item id                                       |       NO |
 | 'rating' | integer | rating between 0-5                                    |       NO |
 
 * return
@@ -2791,6 +2797,8 @@ Song [Example](https://raw.githubusercontent.com/ampache/python3-ampache/api6/do
 ### search_songs
 
 This searches the songs and returns... songs
+
+**NOTE** `filter` has an alias `rule_1_input` to match other search methods
 
 | Input    | Type    | Description                                      | Optional |
 |----------|---------|--------------------------------------------------|---------:|
@@ -3240,11 +3248,13 @@ Get your server preference by name
 
 This gets a user's timeline
 
-| Input      | Type    | Description                                       | Optional |
-|------------|---------|---------------------------------------------------|---------:|
-| 'username' | string  | Username of the user for whom to get the timeline |       NO |
-| 'limit'    | integer | Maximum number of results to return               |      YES |
-| 'since'    | integer | UNIXTIME()                                        |      YES |
+**NOTE** `filter` is available in Ampache 7.9.0 and higher. `username` is deprecated and will be removed in **API9**.
+
+| Input    | Type    | Description                                       | Optional |
+|----------|---------|---------------------------------------------------|---------:|
+| 'filter' | string  | Username of the user for whom to get the timeline |       NO |
+| 'limit'  | integer | Maximum number of results to return               |      YES |
+| 'since'  | integer | UNIXTIME()                                        |      YES |
 
 * return
 
@@ -3266,9 +3276,11 @@ This gets a user's timeline
 
 This follow/unfollow a user
 
-| Input      | Type   | Description                             | Optional |
-|------------|--------|-----------------------------------------|---------:|
-| 'username' | string | Username of the user to follow/unfollow |       NO |
+**NOTE** `filter` is available in Ampache 7.9.0 and higher. `username` is deprecated and will be removed in **API9**.
+
+| Input    | Type   | Description                             | Optional |
+|----------|--------|-----------------------------------------|---------:|
+| 'filter' | string | Username of the user to follow/unfollow |       NO |
 
 * return
 
@@ -3493,9 +3505,11 @@ Delete an existing user.
 
 **ACCESS REQUIRED:** 100 (Admin)
 
-| Input      | Type   | Description | Optional |
-|------------|--------|-------------|---------:|
-| 'username' | string |             |       NO |
+**NOTE** `filter` is available in Ampache 7.9.0 and higher. `username` is deprecated and will be removed in **API9**.
+
+| Input    | Type   | Description | Optional |
+|----------|--------|-------------|---------:|
+| 'filter' | string |             |       NO |
 
 * return
 
@@ -3521,9 +3535,11 @@ Update an existing user.
 
 **NOTE** This function has been renamed from user_update to match other edit functions
 
+**NOTE** `filter` is available in Ampache 7.9.0 and higher. `username` is deprecated and will be removed in **API9**.
+
 | Input               | Type    | Description                              | Optional |
 |---------------------|---------|------------------------------------------|---------:|
-| 'username'          | string  | $username                                |       NO |
+| 'filter'            | string  | $username                                |       NO |
 | 'password'          | string  | hash('sha256', $password)                |      YES |
 | 'email'             | string  | e.g. `user@gmail.com`                    |      YES |
 | 'fullname'          | string  |                                          |      YES |
