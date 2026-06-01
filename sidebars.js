@@ -163,7 +163,7 @@ const sidebars = {
       link: {type: 'doc', id: 'api/index'},
       items: [
         'api/api-standards',
-        'rest',
+        'rest/index',
         'api/api-xml-methods',
         'api/api-json-methods',
         'api/api-errors',
@@ -213,7 +213,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'API6',
-          link: {type: 'doc', id: 'api/api-5/api-6'},
+          link: {type: 'doc', id: 'api/api-6/api-6'},
           items: [
             'api/api-6/api-standards',
             'api/api-6/api-xml-methods',
