@@ -3183,7 +3183,15 @@ Get your server preference by name
 * return array
 
 ```JSON
-"preference": []
+"id": "",
+"name": "",
+"level": 0,
+"description": "",
+"value": mixed,
+"type": "",
+"category": "",
+"subcategory": "",
+"has_access": true
 ```
 
 * throws object
@@ -3577,7 +3585,15 @@ Get your user preference by name
 * return array
 
 ```JSON
-"preference": []
+"id": "",
+"name": "",
+"level": 0,
+"description": "",
+"value": mixed,
+"type": "",
+"category": "",
+"subcategory": "",
+"has_access": true
 ```
 
 * throws object
