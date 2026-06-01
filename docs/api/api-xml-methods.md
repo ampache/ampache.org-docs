@@ -2208,16 +2208,20 @@ This returns the md5 hash for the songs in a playlist
 
 [Example](https://raw.githubusercontent.com/ampache/python3-ampache/api6/docs/xml-responses/playlist_hash.xml)
 
-### playlist_remove_song
+### playlist_remove
 
-This remove a song from a playlist.
-Previous versions required 'track' instead of 'song'.
+Remove objects from a playlist using track number in the list or object id and type.
+Using clear will empty the entire list.
 
-| Input    | Type    | Description                          | Optional |
-|----------|---------|--------------------------------------|---------:|
-| 'filter' | string  | UID of Playlist                      |       NO |
-| 'song'   | string  | UID of song to remove from playlist  |      YES |
-| 'track'  | integer | Track number to remove from playlist |      YES |
+**NOTE** this replaces `playlist_remove_song` in API8
+
+| Input    | Type    | Description                                           | Optional |
+|----------|---------|-------------------------------------------------------|---------:|
+| 'filter' | string  | UID of Playlist                                       |       NO |
+| 'id'     | string  | UID of object to remove from playlist                 |      YES |
+| 'type'   | string  | 'song', 'album', 'artist', 'playlist', default = song |      YES |
+| 'track'  | integer | Track number to remove from playlist                  |      YES |
+| 'clear'  | integer | 0,1 Clear the whole playlist                          |      YES |
 
 * return
 
@@ -2233,7 +2237,7 @@ Previous versions required 'track' instead of 'song'.
 <root><error></root>
 ```
 
-[Example](https://raw.githubusercontent.com/ampache/python3-ampache/api6/docs/xml-responses/playlist_remove_song.xml)
+[Example](https://raw.githubusercontent.com/ampache/python3-ampache/api6/docs/xml-responses/playlist_remove.xml)
 
 ### playlist_songs
 
