@@ -655,11 +655,11 @@ Create a placeholder for the current media that you can return to later.
 
 Delete an existing bookmark. (if it exists)
 
-| Input    | Type   | Description                                      | Optional |
-|----------|--------|--------------------------------------------------|---------:|
-| 'filter' | string | $object_id to delete                             |       NO |
-| 'type'   | string | `song`, `video`, `podcast_episode` (object_type) |       NO |
-| 'client' | string | Agent string.                                    |      YES |
+| Input    | Type   | Description                                                       | Optional |
+|----------|--------|-------------------------------------------------------------------|---------:|
+| 'filter' | string | $object_id to delete                                              |       NO |
+| 'type'   | string | `bookmark`, `song`, `video`, `podcast_episode`, default: bookmark |       NO |
+| 'client' | string | Agent string.                                                     |      YES |
 
 * return object
 
@@ -815,13 +815,12 @@ Kick off a catalog update or clean for the selected catalog
 
 **ACCESS REQUIRED:** 75 (Catalog Manager)
 
-**NOTE** `filter` is available in Ampache 7.9.0 and higher. `catalog` will be deprecated and removed in a future release.
+**NOTE** `filter` is available in Ampache 7.9.0 and higher. `catalog` is deprecated and will be removed in **API9**.
 
-| Input     | Type   | Description                         | Optional |
-|-----------|--------|-------------------------------------|---------:|
-| 'task'    | string | `add_to_catalog`, `clean_catalog`   |       NO |
-| 'catalog' | string | $catalog_id                         |       NO |
-| 'filter'  | string | Alias of `catalog` (Ampache 7.9.0+) |      YES |
+| Input    | Type   | Description                       | Optional |
+|----------|--------|-----------------------------------|---------:|
+| 'task'   | string | `add_to_catalog`, `clean_catalog` |       NO |
+| 'filter' | string | $catalog_id                       |       NO |
 
 * return object
 
@@ -913,14 +912,13 @@ Make sure you remember to urlencode those file names!
 
 **ACCESS REQUIRED:** 50 (Content Manager)
 
-**NOTE** `filter` is available in Ampache 7.9.0 and higher. `catalog` will be deprecated and removed in a future release.
+**NOTE** `filter` is available in Ampache 7.9.0 and higher. `catalog` is deprecated and will be removed in **API9**.
 
-| Input     | Type   | Description                                                              | Optional |
-|-----------|--------|--------------------------------------------------------------------------|---------:|
-| 'file'    | string | FULL path to local file                                                  |       NO |
-| 'task'    | string | `add`, `clean`, `verify`, `remove`, (can include comma-separated values) |       NO |
-| 'catalog' | string | $catalog_id                                                              |       NO |
-| 'filter'  | string | Alias of `catalog` (Ampache 7.9.0+)                                      |      YES |
+| Input    | Type   | Description                                                              | Optional |
+|----------|--------|--------------------------------------------------------------------------|---------:|
+| 'file'   | string | FULL path to local file                                                  |       NO |
+| 'task'   | string | `add`, `clean`, `verify`, `remove`, (can include comma-separated values) |       NO |
+| 'filter' | string | $catalog_id                                                              |       NO |
 
 * return object
 
@@ -944,14 +942,13 @@ Make sure you remember to urlencode those folder names!
 
 **ACCESS REQUIRED:** 50 (Content Manager)
 
-**NOTE** `filter` is available in Ampache 7.9.0 and higher. `catalog` will be deprecated and removed in a future release.
+**NOTE** `filter` is available in Ampache 7.9.0 and higher. `catalog` is deprecated and will be removed in **API9**.
 
-| Input     | Type   | Description                                                              | Optional |
-|-----------|--------|--------------------------------------------------------------------------|---------:|
-| 'folder'  | string | FULL path to local folder                                                |       NO |
-| 'task'    | string | `add`, `clean`, `verify`, `remove`, (can include comma-separated values) |       NO |
-| 'catalog' | string | $catalog_id                                                              |       NO |
-| 'filter'  | string | Alias of `catalog` (Ampache 7.9.0+)                                      |      YES |
+| Input    | Type   | Description                                                              | Optional |
+|----------|--------|--------------------------------------------------------------------------|---------:|
+| 'folder' | string | FULL path to local folder                                                |       NO |
+| 'task'   | string | `add`, `clean`, `verify`, `remove`, (can include comma-separated values) |       NO |
+| 'filter' | string | $catalog_id                                                              |       NO |
 
 * return object
 
@@ -1043,14 +1040,13 @@ This flags a library item as a favorite
 * Setting flag to true (1) will set the flag
 * Setting flag to false (0) will remove the flag
 
-**NOTE** `filter` is available in Ampache 7.9.0 and higher. `id` will be deprecated and removed in a future release.
+**NOTE** `filter` is available in Ampache 7.9.0 and higher. `id` is deprecated and will be removed in **API9**.
 
 | Input    | Type    | Description                                           | Optional |
 |----------|---------|-------------------------------------------------------|---------:|
 | 'type'   | string  | `song`, `album`, `artist`, `playlist`, `podcast`      |       NO |
 |          |         | `podcast_episode`, `video`, `tvshow`, `tvshow_season` |          |
-| 'id'     | string  | $object_id                                            |       NO |
-| 'filter' | string  | Alias of `id` (Ampache 7.9.0+)                        |      YES |
+| 'filter' | string  | $object_id                                            |       NO |
 | 'flag'   | boolean | `0`, `1`                                              |       NO |
 
 * return object
@@ -2552,15 +2548,14 @@ If you don't supply a user id (optional) then just fall back to you.
 
 **ACCESS REQUIRED:** 100 (Admin) permission to change another user's play history
 
-**NOTE** `filter` is available in Ampache 7.9.0 and higher. `id` will be deprecated and removed in a future release.
+**NOTE** `filter` is available in Ampache 7.9.0 and higher. `id` is deprecated and will be removed in **API9**.
 
-| Input    | Type    | Description                    | Optional |
-|----------|---------|--------------------------------|---------:|
-| 'id'     | string  | $object_id                     |       NO |
-| 'filter' | string  | Alias of `id` (Ampache 7.9.0+) |      YES |
-| 'user'   | string  | $user_id                       |      YES |
-| 'client' | string  | $agent                         |      YES |
-| 'date'   | integer | UNIXTIME()                     |      YES |
+| Input    | Type    | Description | Optional |
+|----------|---------|-------------|---------:|
+| 'filter' | string  | $object_id  |       NO |
+| 'user'   | string  | $user_id    |      YES |
+| 'client' | string  | $agent      |      YES |
+| 'date'   | integer | UNIXTIME()  |      YES |
 
 * return object
 
@@ -2902,18 +2897,18 @@ Takes the share id to update with optional description and expires parameters.
 
 This returns smartlists based on the specified filter
 
-| Input         | Type       | Description                                                                                        | Optional |
-|---------------|------------|----------------------------------------------------------------------------------------------------|---------:|
-| 'filter'      | string     | Filter results to match this string                                                                |      YES |
-| 'exact'       | boolean    | `0`, `1` (if true filter is exact `=` rather than fuzzy `LIKE`)                                    |      YES |
-| 'add'         | set_filter | ISO 8601 Date Format (2020-09-16) Find objects with an 'add' date newer than the specified date    |      YES |
-| 'update'      | set_filter | ISO 8601 Date Format (2020-09-16) Find objects with an 'update' time newer than the specified date |      YES |
-| 'offset'      | integer    | Return results starting from this index position                                                   |      YES |
-| 'limit'       | integer    | Maximum number of results to return                                                                |      YES |
-| 'cond'        | string     | Apply additional filters to the browse using `;` separated comma string pairs                      |      YES |
-|               |            | (e.g. 'filter1,value1;filter2,value2')                                                             |          |
-| 'sort'        | string     | Sort name or comma-separated key pair. (e.g. 'name,order')                                         |      YES |
-|               |            | Default order 'ASC' (e.g. 'name,ASC' == 'name')                                                    |          |
+| Input    | Type       | Description                                                                                        | Optional |
+|----------|------------|----------------------------------------------------------------------------------------------------|---------:|
+| 'filter' | string     | Filter results to match this string                                                                |      YES |
+| 'exact'  | boolean    | `0`, `1` (if true filter is exact `=` rather than fuzzy `LIKE`)                                    |      YES |
+| 'add'    | set_filter | ISO 8601 Date Format (2020-09-16) Find objects with an 'add' date newer than the specified date    |      YES |
+| 'update' | set_filter | ISO 8601 Date Format (2020-09-16) Find objects with an 'update' time newer than the specified date |      YES |
+| 'offset' | integer    | Return results starting from this index position                                                   |      YES |
+| 'limit'  | integer    | Maximum number of results to return                                                                |      YES |
+| 'cond'   | string     | Apply additional filters to the browse using `;` separated comma string pairs                      |      YES |
+|          |            | (e.g. 'filter1,value1;filter2,value2')                                                             |          |
+| 'sort'   | string     | Sort name or comma-separated key pair. (e.g. 'name,order')                                         |      YES |
+|          |            | Default order 'ASC' (e.g. 'name,ASC' == 'name')                                                    |          |
 
 * return array
 
@@ -2955,12 +2950,12 @@ This returns a single smartlist
 
 This returns the songs for a smartlist
 
-| Input    | Type    | Description                                       | Optional |
-|----------|---------|---------------------------------------------------|---------:|
-| 'filter' | string  | UID of smartlist, returns song JSON               |       NO |
-| 'random' | integer | `0`, `1` (if true get random songs using limit)   |      YES |
-| 'offset' | integer | Return results starting from this index position  |      YES |
-| 'limit'  | integer | Maximum number of results to return               |      YES |
+| Input    | Type    | Description                                      | Optional |
+|----------|---------|--------------------------------------------------|---------:|
+| 'filter' | string  | UID of smartlist, returns song JSON              |       NO |
+| 'random' | integer | `0`, `1` (if true get random songs using limit)  |      YES |
+| 'offset' | integer | Return results starting from this index position |      YES |
+| 'limit'  | integer | Maximum number of results to return              |      YES |
 
 * return array
 
@@ -3244,7 +3239,7 @@ Doesn't overwrite existing art by default.
 
 **ACCESS REQUIRED:** 75 (Catalog Manager)
 
-**NOTE** `filter` is available in Ampache 7.9.0 and higher. `id` will be deprecated and removed in a future release.
+**NOTE** `filter` is available in Ampache 7.9.0 and higher. `id` is deprecated and will be removed in **API9**.
 
 | Input       | Type    | Description                    | Optional |
 |-------------|---------|--------------------------------|---------:|
@@ -3274,12 +3269,11 @@ Make sure lastfm_API_key is set in your configuration file
 
 **ACCESS REQUIRED:** 75 (Catalog Manager)
 
-**NOTE** `filter` is available in Ampache 7.9.0 and higher. `id` will be deprecated and removed in a future release.
+**NOTE** `filter` is available in Ampache 7.9.0 and higher. `id` is deprecated and will be removed in **API9**.
 
-| Input    | Type   | Description                    | Optional |
-|----------|--------|--------------------------------|---------:|
-| 'id'     | string | $artist_id                     |       NO |
-| 'filter' | string | Alias of `id` (Ampache 7.9.0+) |      YES |
+| Input    | Type   | Description | Optional |
+|----------|--------|-------------|---------:|
+| 'filter' | string | $artist_id  |       NO |
 
 * return object
 
@@ -3299,13 +3293,12 @@ Make sure lastfm_API_key is set in your configuration file
 
 Update a single album, artist, song from the tag data
 
-**NOTE** `filter` is available in Ampache 7.9.0 and higher. `id` will be deprecated and removed in a future release.
+**NOTE** `filter` is available in Ampache 7.9.0 and higher. `id` is deprecated and will be removed in **API9**.
 
 | Input    | Type   | Description                     | Optional |
 |----------|--------|---------------------------------|---------:|
 | 'type'   | string | `song`, `artist`, `album`       |       NO |
-| 'id'     | string | $artist_id, $album_id, $song_id |       NO |
-| 'filter' | string | Alias of `id` (Ampache 7.9.0+)  |      YES |
+| 'filter' | string | $artist_id, $album_id, $song_id |       NO |
 
 * return object
 
@@ -3352,12 +3345,11 @@ Sync and download new podcast episodes
 
 This takes a url and returns the song object in question
 
-**NOTE** `filter` is available in Ampache 7.9.0 and higher. `url` will be deprecated and removed in a future release.
+**NOTE** `filter` is available in Ampache 7.9.0 and higher. `url` is deprecated and will be removed in **API9**.
 
 | Input    | Type   | Description                                                   | Optional |
 |----------|--------|---------------------------------------------------------------|---------:|
-| 'url'    | string | Full Ampache URL from server, translates back into a song XML |       NO |
-| 'filter' | string | Alias of `url` (Ampache 7.9.0+)                               |      YES |
+| 'filter' | string | Full Ampache URL from server, translates back into a song XML |       NO |
 
 * return object
 
@@ -3675,12 +3667,11 @@ Downloads a given media file. set format=raw to download the full file
 
 **NOTE** search and playlist will only download a random object from the list
 
-**NOTE** `filter` is available in Ampache 7.9.0 and higher. `id` will be deprecated and removed in a future release.
+**NOTE** `filter` is available in Ampache 7.9.0 and higher. `id` is deprecated and will be removed in **API9**.
 
 | Input     | Type    | Description                                                                    | Optional |
 |-----------|---------|--------------------------------------------------------------------------------|---------:|
-| 'id'      | string  | $object_id                                                                     |       NO |
-| 'filter'  | string  | Alias of `id` (Ampache 7.9.0+)                                                 |      YES |
+| 'filter'  | string  | $object_id                                                                     |       NO |
 | 'type'    | string  | `song`, `podcast_episode`, `search`, `playlist`                                |       NO |
 | 'bitrate' | integer | max bitrate for transcoding in bytes (e.g 192000=192Kb)                        |      YES |
 | 'format'  | string  | `mp3`, `ogg`, `raw`, etc (raw returns the original format)                     |      YES |
@@ -3694,12 +3685,11 @@ Downloads a given media file. set format=raw to download the full file
 
 Get an art image.
 
-**NOTE** `filter` is available in Ampache 7.9.0 and higher. `id` will be deprecated and removed in a future release.
+**NOTE** `filter` is available in Ampache 7.9.0 and higher. `id` is deprecated and will be removed in **API9**.
 
 | Input    | Type   | Description                                                | Optional |
 |----------|--------|------------------------------------------------------------|---------:|
-| 'id'     | string | $object_id                                                 |       NO |
-| 'filter' | string | Alias of `id` (Ampache 7.9.0+)                             |      YES |
+| 'filter' | string | $object_id                                                 |       NO |
 | 'type'   | string | `song`, `artist`, `album`, `playlist`, `search`, `podcast` |       NO |
 | 'size'   | string | width x height ('640x480')                                 |      YES |
 
@@ -3737,12 +3727,11 @@ Streams a given media file. Takes the file id in parameter with optional max bit
 
 **NOTE** search and playlist will only stream a random object from the list
 
-**NOTE** `filter` is available in Ampache 7.9.0 and higher. `id` will be deprecated and removed in a future release.
+**NOTE** `filter` is available in Ampache 7.9.0 and higher. `id` is deprecated and will be removed in **API9**.
 
 | Input     | Type    | Description                                                                    | Optional |
 |-----------|---------|--------------------------------------------------------------------------------|---------:|
-| 'id'      | string  | $object_id                                                                     |       NO |
-| 'filter'  | string  | Alias of `id` (Ampache 7.9.0+)                                                 |      YES |
+| 'filter'  | string  | $object_id                                                                     |       NO |
 | 'type'    | string  | `song`, `podcast_episode`, `search`, `playlist`                                |       NO |
 | 'bitrate' | integer | max bitrate for transcoding in bytes (e.g 192000=192Kb)                        |      YES |
 | 'format'  | string  | `mp3`, `ogg`, `raw`, etc (raw returns the original format)                     |      YES |
@@ -3793,14 +3782,13 @@ This is for controlling democratic play (Songs only)
 
 This is for controlling localplay
 
-**NOTE** `filter` is available in Ampache 7.9.0 and higher. `oid` will be deprecated and removed in a future release.
+**NOTE** `filter` is available in Ampache 7.9.0 and higher. `oid` is deprecated and will be removed in **API9**.
 
 | Input     | Type    | Description                                                                             | Optional |
 |-----------|---------|-----------------------------------------------------------------------------------------|---------:|
 | 'command' | string  | `next`, `prev`, `stop`, `play`, `pause`, `add`, `volume_up`                             |       NO |
 |           |         | `volume_down`, `volume_mute`, `delete_all`, `skip`, `status`                            |          |
-| 'oid'     | string  | $object_id                                                                              |      YES |
-| 'filter'  | string  | Alias of `oid` (Ampache 7.9.0+)                                                         |      YES |
+| 'filter'  | string  | $object_id                                                                              |      YES |
 | 'type'    | string  | `song`, `video`, `podcast_episode`, `channel`, `broadcast`, `democratic`, `live_stream` |      YES |
 | 'clear'   | boolean | `0`, `1` (Clear the current playlist before adding)                                     |      YES |
 
