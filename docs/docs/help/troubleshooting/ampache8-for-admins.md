@@ -70,7 +70,7 @@ Simply run the update command and the database will be downgraded to match your 
 
 ## PHP Version support
 
-The first major change is that Ampache7 supports PHP8.5+ **ONLY**!
+The first major change is that Ampache8 supports PHP8.5+ **ONLY**!
 
 Builds will no longer support other versions. Stay on Ampache7 until you can move your server.
 
@@ -104,4 +104,4 @@ All changes will be documented in the [API](/api) before final release.
 
 ## New Options
 
-New site options and preferences are documented in wiki at [ampache7-for-users](/docs/help/troubleshooting/ampache7-for-users)
+New site options and preferences are documented in wiki at [ampache8-for-users](/docs/help/troubleshooting/ampache8-for-users)
