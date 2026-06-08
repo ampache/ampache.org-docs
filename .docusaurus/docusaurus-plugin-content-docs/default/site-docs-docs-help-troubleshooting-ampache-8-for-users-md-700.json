@@ -14,5 +14,14 @@
     "title": "Ampache8 for Users",
     "metaTitle": "Ampache8 for Users",
     "description": "Ampache8 for Users"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Ampache8 for Admins",
+    "permalink": "/docs/help/troubleshooting/ampache8-for-admins"
+  },
+  "next": {
+    "title": "Ampache7 for Admins",
+    "permalink": "/docs/help/troubleshooting/ampache7-for-admins"
   }
 }

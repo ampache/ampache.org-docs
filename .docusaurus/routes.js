@@ -4,15 +4,15 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 export default [
   {
     path: '/',
-    component: ComponentCreator('/', '0ff'),
+    component: ComponentCreator('/', '47d'),
     routes: [
       {
         path: '/',
-        component: ComponentCreator('/', 'b77'),
+        component: ComponentCreator('/', '4c3'),
         routes: [
           {
             path: '/',
-            component: ComponentCreator('/', 'f80'),
+            component: ComponentCreator('/', '359'),
             routes: [
               {
                 path: '/api/',
@@ -806,13 +806,15 @@ export default [
               },
               {
                 path: '/docs/help/troubleshooting/ampache8-for-admins',
-                component: ComponentCreator('/docs/help/troubleshooting/ampache8-for-admins', '72b'),
-                exact: true
+                component: ComponentCreator('/docs/help/troubleshooting/ampache8-for-admins', 'e7d'),
+                exact: true,
+                sidebar: "api"
               },
               {
                 path: '/docs/help/troubleshooting/ampache8-for-users',
-                component: ComponentCreator('/docs/help/troubleshooting/ampache8-for-users', '234'),
-                exact: true
+                component: ComponentCreator('/docs/help/troubleshooting/ampache8-for-users', '657'),
+                exact: true,
+                sidebar: "api"
               },
               {
                 path: '/docs/help/troubleshooting/chart-faq',

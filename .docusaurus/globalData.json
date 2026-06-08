@@ -663,11 +663,13 @@
             },
             {
               "id": "docs/help/troubleshooting/ampache8-for-admins",
-              "path": "/docs/help/troubleshooting/ampache8-for-admins"
+              "path": "/docs/help/troubleshooting/ampache8-for-admins",
+              "sidebar": "api"
             },
             {
               "id": "docs/help/troubleshooting/ampache8-for-users",
-              "path": "/docs/help/troubleshooting/ampache8-for-users"
+              "path": "/docs/help/troubleshooting/ampache8-for-users",
+              "sidebar": "api"
             },
             {
               "id": "docs/help/troubleshooting/chart-faq",
