@@ -14,14 +14,5 @@
     "title": "Standards",
     "metaTitle": "Standards",
     "description": "API documentation"
-  },
-  "sidebar": "api",
-  "previous": {
-    "title": "API6.0",
-    "permalink": "/api/versions/api-6.0/"
-  },
-  "next": {
-    "title": "XML Methods",
-    "permalink": "/api/versions/api-6.0/api-xml-methods"
   }
 }

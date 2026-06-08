@@ -14,14 +14,5 @@
     "title": "API5.1",
     "metaTitle": "API5.1",
     "description": "API documentation"
-  },
-  "sidebar": "api",
-  "previous": {
-    "title": "Advanced Search",
-    "permalink": "/api/versions/api-6.0/api-advanced-search"
-  },
-  "next": {
-    "title": "Standards",
-    "permalink": "/api/versions/api-5.1/api-standards"
   }
 }

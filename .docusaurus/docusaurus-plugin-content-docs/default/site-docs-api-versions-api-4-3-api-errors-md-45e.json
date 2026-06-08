@@ -14,14 +14,5 @@
     "title": "Errors",
     "metaTitle": "Errors",
     "description": "API documentation"
-  },
-  "sidebar": "api",
-  "previous": {
-    "title": "JSON Methods",
-    "permalink": "/api/versions/api-4.3/api-json-methods"
-  },
-  "next": {
-    "title": "Advanced Search",
-    "permalink": "/api/versions/api-4.3/api-advanced-search"
   }
 }

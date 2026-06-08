@@ -1,11 +1,11 @@
 {
-  "id": "api/api-xml-methods",
+  "id": "api/api-6/api-xml-methods",
   "title": "XML Methods",
   "description": "API documentation",
-  "source": "@site/docs/api/api-xml-methods.md",
-  "sourceDirName": "api",
-  "slug": "/api/api-xml-methods",
-  "permalink": "/api/api-xml-methods",
+  "source": "@site/docs/api/api-6/api-xml-methods.md",
+  "sourceDirName": "api/api-6",
+  "slug": "/api/api-6/api-xml-methods",
+  "permalink": "/api/api-6/api-xml-methods",
   "draft": false,
   "unlisted": false,
   "tags": [],
@@ -17,11 +17,11 @@
   },
   "sidebar": "api",
   "previous": {
-    "title": "Ampache REST API",
-    "permalink": "/rest/"
+    "title": "Standards",
+    "permalink": "/api/api-6/api-standards"
   },
   "next": {
     "title": "JSON Methods",
-    "permalink": "/api/api-json-methods"
+    "permalink": "/api/api-6/api-json-methods"
   }
 }

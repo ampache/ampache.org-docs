@@ -14,5 +14,14 @@
     "title": "Ampache REST API",
     "metaTitle": "Ampache REST API",
     "description": "REST API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Standards",
+    "permalink": "/api/api-standards"
+  },
+  "next": {
+    "title": "XML Methods",
+    "permalink": "/api/api-xml-methods"
   }
 }

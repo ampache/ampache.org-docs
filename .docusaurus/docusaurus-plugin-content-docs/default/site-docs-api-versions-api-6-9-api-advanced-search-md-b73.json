@@ -1,0 +1,18 @@
+{
+  "id": "api/versions/api-6.9/api-advanced-search",
+  "title": "Advanced Search",
+  "description": "API documentation",
+  "source": "@site/docs/api/versions/api-6.9/api-advanced-search.md",
+  "sourceDirName": "api/versions/api-6.9",
+  "slug": "/api/versions/api-6.9/api-advanced-search",
+  "permalink": "/api/versions/api-6.9/api-advanced-search",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Advanced Search",
+    "metaTitle": "Advanced Search",
+    "description": "API documentation"
+  }
+}

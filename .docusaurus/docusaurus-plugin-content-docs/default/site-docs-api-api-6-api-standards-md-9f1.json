@@ -1,0 +1,27 @@
+{
+  "id": "api/api-6/api-standards",
+  "title": "Standards",
+  "description": "API documentation",
+  "source": "@site/docs/api/api-6/api-standards.md",
+  "sourceDirName": "api/api-6",
+  "slug": "/api/api-6/api-standards",
+  "permalink": "/api/api-6/api-standards",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Standards",
+    "metaTitle": "Standards",
+    "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "API6.9",
+    "permalink": "/api/api-6/"
+  },
+  "next": {
+    "title": "XML Methods",
+    "permalink": "/api/api-6/api-xml-methods"
+  }
+}

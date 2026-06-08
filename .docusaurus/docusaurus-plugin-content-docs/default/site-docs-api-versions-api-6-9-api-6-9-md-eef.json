@@ -1,0 +1,18 @@
+{
+  "id": "api/versions/api-6.9/api-6.9",
+  "title": "API6.9",
+  "description": "API documentation",
+  "source": "@site/docs/api/versions/api-6.9/api-6.9.md",
+  "sourceDirName": "api/versions/api-6.9",
+  "slug": "/api/versions/api-6.9/",
+  "permalink": "/api/versions/api-6.9/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "API6.9",
+    "metaTitle": "API6.9",
+    "description": "API documentation"
+  }
+}

@@ -1,15 +1,15 @@
 {
-  "/-7ae": {
+  "/-0ff": {
     "__comp": "5e95c892",
     "__context": {
       "plugin": "aba21aa0"
     }
   },
-  "/-f4f": {
+  "/-b77": {
     "__comp": "a7bd4aaa",
     "__props": "22dd74f7"
   },
-  "/-de7": {
+  "/-f80": {
     "__comp": "a94703ab"
   },
   "/api/-e54": {
@@ -112,6 +112,38 @@
     "__comp": "17896441",
     "content": "0cc0f53b"
   },
+  "/api/api-6/-81b": {
+    "__comp": "17896441",
+    "content": "c502c4e7"
+  },
+  "/api/api-6/api-advanced-search-312": {
+    "__comp": "17896441",
+    "content": "546dbdf6"
+  },
+  "/api/api-6/api-browse-381": {
+    "__comp": "17896441",
+    "content": "234f27c6"
+  },
+  "/api/api-6/api-errors-1f1": {
+    "__comp": "17896441",
+    "content": "c7a418b9"
+  },
+  "/api/api-6/api-json-methods-f00": {
+    "__comp": "17896441",
+    "content": "fd0a552b"
+  },
+  "/api/api-6/api-media-methods-768": {
+    "__comp": "17896441",
+    "content": "5a4e79f0"
+  },
+  "/api/api-6/api-standards-040": {
+    "__comp": "17896441",
+    "content": "9f173453"
+  },
+  "/api/api-6/api-xml-methods-a8b": {
+    "__comp": "17896441",
+    "content": "787d4291"
+  },
   "/api/api-advanced-search-b41": {
     "__comp": "17896441",
     "content": "af712281"
@@ -212,11 +244,11 @@
     "__comp": "17896441",
     "content": "b08b5c0a"
   },
-  "/api/versions/-a8f": {
+  "/api/versions/-ace": {
     "__comp": "17896441",
     "content": "d2ad50d3"
   },
-  "/api/versions/api-4.1/-33d": {
+  "/api/versions/api-4.1/-47a": {
     "__comp": "17896441",
     "content": "b9a7d823"
   },
@@ -224,121 +256,149 @@
     "__comp": "17896441",
     "content": "91d4329f"
   },
-  "/api/versions/api-4.1/xml-methods-0b5": {
+  "/api/versions/api-4.1/xml-methods-f60": {
     "__comp": "17896441",
     "content": "230d481f"
   },
-  "/api/versions/api-4.2/-034": {
+  "/api/versions/api-4.2/-74c": {
     "__comp": "17896441",
     "content": "35335e9d"
   },
-  "/api/versions/api-4.2/api-advanced-search-dbc": {
+  "/api/versions/api-4.2/api-advanced-search-9f9": {
     "__comp": "17896441",
     "content": "4c4b4646"
   },
-  "/api/versions/api-4.2/api-errors-27c": {
+  "/api/versions/api-4.2/api-errors-d94": {
     "__comp": "17896441",
     "content": "026a7e03"
   },
-  "/api/versions/api-4.2/api-json-methods-91c": {
+  "/api/versions/api-4.2/api-json-methods-82d": {
     "__comp": "17896441",
     "content": "977f5244"
   },
-  "/api/versions/api-4.2/api-xml-methods-eea": {
+  "/api/versions/api-4.2/api-xml-methods-dcf": {
     "__comp": "17896441",
     "content": "55464df1"
   },
-  "/api/versions/api-4.3/-8a8": {
+  "/api/versions/api-4.3/-8a7": {
     "__comp": "17896441",
     "content": "09d6c510"
   },
-  "/api/versions/api-4.3/api-advanced-search-1a3": {
+  "/api/versions/api-4.3/api-advanced-search-02e": {
     "__comp": "17896441",
     "content": "bb85ad74"
   },
-  "/api/versions/api-4.3/api-errors-f3e": {
+  "/api/versions/api-4.3/api-errors-7ef": {
     "__comp": "17896441",
     "content": "45e29da0"
   },
-  "/api/versions/api-4.3/api-json-methods-565": {
+  "/api/versions/api-4.3/api-json-methods-ff5": {
     "__comp": "17896441",
     "content": "98416ac1"
   },
-  "/api/versions/api-4.3/api-xml-methods-5dc": {
+  "/api/versions/api-4.3/api-xml-methods-401": {
     "__comp": "17896441",
     "content": "6aa70f5e"
   },
-  "/api/versions/api-5.0/-555": {
+  "/api/versions/api-5.0/-48e": {
     "__comp": "17896441",
     "content": "4f1eb2f2"
   },
-  "/api/versions/api-5.0/api-advanced-search-ff0": {
+  "/api/versions/api-5.0/api-advanced-search-9fc": {
     "__comp": "17896441",
     "content": "7a29e758"
   },
-  "/api/versions/api-5.0/api-errors-750": {
+  "/api/versions/api-5.0/api-errors-f18": {
     "__comp": "17896441",
     "content": "b86d3cce"
   },
-  "/api/versions/api-5.0/api-json-methods-535": {
+  "/api/versions/api-5.0/api-json-methods-b97": {
     "__comp": "17896441",
     "content": "8f143521"
   },
-  "/api/versions/api-5.0/api-standards-ef1": {
+  "/api/versions/api-5.0/api-standards-b79": {
     "__comp": "17896441",
     "content": "35d81bf3"
   },
-  "/api/versions/api-5.0/api-xml-methods-30a": {
+  "/api/versions/api-5.0/api-xml-methods-fcb": {
     "__comp": "17896441",
     "content": "97ffc2a0"
   },
-  "/api/versions/api-5.1/-7af": {
+  "/api/versions/api-5.1/-ad0": {
     "__comp": "17896441",
     "content": "5ae43e4f"
   },
-  "/api/versions/api-5.1/api-advanced-search-40e": {
+  "/api/versions/api-5.1/api-advanced-search-ba4": {
     "__comp": "17896441",
     "content": "740b8166"
   },
-  "/api/versions/api-5.1/api-errors-1c9": {
+  "/api/versions/api-5.1/api-errors-1fa": {
     "__comp": "17896441",
     "content": "0b4a39ad"
   },
-  "/api/versions/api-5.1/api-json-methods-2d9": {
+  "/api/versions/api-5.1/api-json-methods-006": {
     "__comp": "17896441",
     "content": "2c67137f"
   },
-  "/api/versions/api-5.1/api-standards-bda": {
+  "/api/versions/api-5.1/api-standards-b50": {
     "__comp": "17896441",
     "content": "07fa0d17"
   },
-  "/api/versions/api-5.1/api-xml-methods-365": {
+  "/api/versions/api-5.1/api-xml-methods-8cb": {
     "__comp": "17896441",
     "content": "b28fc128"
   },
-  "/api/versions/api-6.0/-413": {
+  "/api/versions/api-6.0/-9f4": {
     "__comp": "17896441",
     "content": "ad97f3fa"
   },
-  "/api/versions/api-6.0/api-advanced-search-d5d": {
+  "/api/versions/api-6.0/api-advanced-search-a0f": {
     "__comp": "17896441",
     "content": "1dd48972"
   },
-  "/api/versions/api-6.0/api-errors-8f0": {
+  "/api/versions/api-6.0/api-errors-f98": {
     "__comp": "17896441",
     "content": "51ac0b87"
   },
-  "/api/versions/api-6.0/api-json-methods-d27": {
+  "/api/versions/api-6.0/api-json-methods-2e4": {
     "__comp": "17896441",
     "content": "7cc76459"
   },
-  "/api/versions/api-6.0/api-standards-3cb": {
+  "/api/versions/api-6.0/api-standards-5a3": {
     "__comp": "17896441",
     "content": "959b5f6c"
   },
-  "/api/versions/api-6.0/api-xml-methods-ee7": {
+  "/api/versions/api-6.0/api-xml-methods-d50": {
     "__comp": "17896441",
     "content": "b9e410ca"
+  },
+  "/api/versions/api-6.9/-914": {
+    "__comp": "17896441",
+    "content": "eef135fb"
+  },
+  "/api/versions/api-6.9/api-advanced-search-c43": {
+    "__comp": "17896441",
+    "content": "b73421e6"
+  },
+  "/api/versions/api-6.9/api-browse-dfd": {
+    "__comp": "17896441",
+    "content": "0df44409"
+  },
+  "/api/versions/api-6.9/api-errors-c67": {
+    "__comp": "17896441",
+    "content": "466bdc2e"
+  },
+  "/api/versions/api-6.9/api-json-methods-724": {
+    "__comp": "17896441",
+    "content": "e302973c"
+  },
+  "/api/versions/api-6.9/api-media-methods-689": {
+    "__comp": "17896441",
+    "content": "761db6d2"
+  },
+  "/api/versions/api-6.9/api-xml-methods-39a": {
+    "__comp": "17896441",
+    "content": "e0e383ed"
   },
   "/demo-b90": {
     "__comp": "17896441",
@@ -508,6 +568,14 @@
     "__comp": "17896441",
     "content": "805934d5"
   },
+  "/docs/help/troubleshooting/ampache8-for-admins-72b": {
+    "__comp": "17896441",
+    "content": "03f93605"
+  },
+  "/docs/help/troubleshooting/ampache8-for-users-234": {
+    "__comp": "17896441",
+    "content": "7009c0fc"
+  },
   "/docs/help/troubleshooting/chart-faq-859": {
     "__comp": "17896441",
     "content": "f221d8e3"
@@ -644,7 +712,7 @@
     "__comp": "17896441",
     "content": "ff3a37c9"
   },
-  "/rest/-292": {
+  "/rest/-ba4": {
     "__comp": "17896441",
     "content": "46ede4ea"
   },

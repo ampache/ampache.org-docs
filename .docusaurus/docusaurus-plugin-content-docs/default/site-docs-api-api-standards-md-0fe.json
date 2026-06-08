@@ -21,7 +21,7 @@
     "permalink": "/api/"
   },
   "next": {
-    "title": "XML Methods",
-    "permalink": "/api/api-xml-methods"
+    "title": "Ampache REST API",
+    "permalink": "/rest/"
   }
 }

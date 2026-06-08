@@ -4,15 +4,15 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 export default [
   {
     path: '/',
-    component: ComponentCreator('/', '7ae'),
+    component: ComponentCreator('/', '0ff'),
     routes: [
       {
         path: '/',
-        component: ComponentCreator('/', 'f4f'),
+        component: ComponentCreator('/', 'b77'),
         routes: [
           {
             path: '/',
-            component: ComponentCreator('/', 'de7'),
+            component: ComponentCreator('/', 'f80'),
             routes: [
               {
                 path: '/api/',
@@ -159,6 +159,52 @@ export default [
               {
                 path: '/api/api-5/api-xml-methods',
                 component: ComponentCreator('/api/api-5/api-xml-methods', 'd3b'),
+                exact: true,
+                sidebar: "api"
+              },
+              {
+                path: '/api/api-6/',
+                component: ComponentCreator('/api/api-6/', '81b'),
+                exact: true,
+                sidebar: "api"
+              },
+              {
+                path: '/api/api-6/api-advanced-search',
+                component: ComponentCreator('/api/api-6/api-advanced-search', '312'),
+                exact: true,
+                sidebar: "api"
+              },
+              {
+                path: '/api/api-6/api-browse',
+                component: ComponentCreator('/api/api-6/api-browse', '381'),
+                exact: true
+              },
+              {
+                path: '/api/api-6/api-errors',
+                component: ComponentCreator('/api/api-6/api-errors', '1f1'),
+                exact: true,
+                sidebar: "api"
+              },
+              {
+                path: '/api/api-6/api-json-methods',
+                component: ComponentCreator('/api/api-6/api-json-methods', 'f00'),
+                exact: true,
+                sidebar: "api"
+              },
+              {
+                path: '/api/api-6/api-media-methods',
+                component: ComponentCreator('/api/api-6/api-media-methods', '768'),
+                exact: true
+              },
+              {
+                path: '/api/api-6/api-standards',
+                component: ComponentCreator('/api/api-6/api-standards', '040'),
+                exact: true,
+                sidebar: "api"
+              },
+              {
+                path: '/api/api-6/api-xml-methods',
+                component: ComponentCreator('/api/api-6/api-xml-methods', 'a8b'),
                 exact: true,
                 sidebar: "api"
               },
@@ -314,15 +360,13 @@ export default [
               },
               {
                 path: '/api/versions/',
-                component: ComponentCreator('/api/versions/', 'a8f'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/', 'ace'),
+                exact: true
               },
               {
                 path: '/api/versions/api-4.1/',
-                component: ComponentCreator('/api/versions/api-4.1/', '33d'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-4.1/', '47a'),
+                exact: true
               },
               {
                 path: '/api/versions/api-4.1/api-errors',
@@ -331,177 +375,183 @@ export default [
               },
               {
                 path: '/api/versions/api-4.1/xml-methods',
-                component: ComponentCreator('/api/versions/api-4.1/xml-methods', '0b5'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-4.1/xml-methods', 'f60'),
+                exact: true
               },
               {
                 path: '/api/versions/api-4.2/',
-                component: ComponentCreator('/api/versions/api-4.2/', '034'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-4.2/', '74c'),
+                exact: true
               },
               {
                 path: '/api/versions/api-4.2/api-advanced-search',
-                component: ComponentCreator('/api/versions/api-4.2/api-advanced-search', 'dbc'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-4.2/api-advanced-search', '9f9'),
+                exact: true
               },
               {
                 path: '/api/versions/api-4.2/api-errors',
-                component: ComponentCreator('/api/versions/api-4.2/api-errors', '27c'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-4.2/api-errors', 'd94'),
+                exact: true
               },
               {
                 path: '/api/versions/api-4.2/api-json-methods',
-                component: ComponentCreator('/api/versions/api-4.2/api-json-methods', '91c'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-4.2/api-json-methods', '82d'),
+                exact: true
               },
               {
                 path: '/api/versions/api-4.2/api-xml-methods',
-                component: ComponentCreator('/api/versions/api-4.2/api-xml-methods', 'eea'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-4.2/api-xml-methods', 'dcf'),
+                exact: true
               },
               {
                 path: '/api/versions/api-4.3/',
-                component: ComponentCreator('/api/versions/api-4.3/', '8a8'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-4.3/', '8a7'),
+                exact: true
               },
               {
                 path: '/api/versions/api-4.3/api-advanced-search',
-                component: ComponentCreator('/api/versions/api-4.3/api-advanced-search', '1a3'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-4.3/api-advanced-search', '02e'),
+                exact: true
               },
               {
                 path: '/api/versions/api-4.3/api-errors',
-                component: ComponentCreator('/api/versions/api-4.3/api-errors', 'f3e'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-4.3/api-errors', '7ef'),
+                exact: true
               },
               {
                 path: '/api/versions/api-4.3/api-json-methods',
-                component: ComponentCreator('/api/versions/api-4.3/api-json-methods', '565'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-4.3/api-json-methods', 'ff5'),
+                exact: true
               },
               {
                 path: '/api/versions/api-4.3/api-xml-methods',
-                component: ComponentCreator('/api/versions/api-4.3/api-xml-methods', '5dc'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-4.3/api-xml-methods', '401'),
+                exact: true
               },
               {
                 path: '/api/versions/api-5.0/',
-                component: ComponentCreator('/api/versions/api-5.0/', '555'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-5.0/', '48e'),
+                exact: true
               },
               {
                 path: '/api/versions/api-5.0/api-advanced-search',
-                component: ComponentCreator('/api/versions/api-5.0/api-advanced-search', 'ff0'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-5.0/api-advanced-search', '9fc'),
+                exact: true
               },
               {
                 path: '/api/versions/api-5.0/api-errors',
-                component: ComponentCreator('/api/versions/api-5.0/api-errors', '750'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-5.0/api-errors', 'f18'),
+                exact: true
               },
               {
                 path: '/api/versions/api-5.0/api-json-methods',
-                component: ComponentCreator('/api/versions/api-5.0/api-json-methods', '535'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-5.0/api-json-methods', 'b97'),
+                exact: true
               },
               {
                 path: '/api/versions/api-5.0/api-standards',
-                component: ComponentCreator('/api/versions/api-5.0/api-standards', 'ef1'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-5.0/api-standards', 'b79'),
+                exact: true
               },
               {
                 path: '/api/versions/api-5.0/api-xml-methods',
-                component: ComponentCreator('/api/versions/api-5.0/api-xml-methods', '30a'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-5.0/api-xml-methods', 'fcb'),
+                exact: true
               },
               {
                 path: '/api/versions/api-5.1/',
-                component: ComponentCreator('/api/versions/api-5.1/', '7af'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-5.1/', 'ad0'),
+                exact: true
               },
               {
                 path: '/api/versions/api-5.1/api-advanced-search',
-                component: ComponentCreator('/api/versions/api-5.1/api-advanced-search', '40e'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-5.1/api-advanced-search', 'ba4'),
+                exact: true
               },
               {
                 path: '/api/versions/api-5.1/api-errors',
-                component: ComponentCreator('/api/versions/api-5.1/api-errors', '1c9'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-5.1/api-errors', '1fa'),
+                exact: true
               },
               {
                 path: '/api/versions/api-5.1/api-json-methods',
-                component: ComponentCreator('/api/versions/api-5.1/api-json-methods', '2d9'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-5.1/api-json-methods', '006'),
+                exact: true
               },
               {
                 path: '/api/versions/api-5.1/api-standards',
-                component: ComponentCreator('/api/versions/api-5.1/api-standards', 'bda'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-5.1/api-standards', 'b50'),
+                exact: true
               },
               {
                 path: '/api/versions/api-5.1/api-xml-methods',
-                component: ComponentCreator('/api/versions/api-5.1/api-xml-methods', '365'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-5.1/api-xml-methods', '8cb'),
+                exact: true
               },
               {
                 path: '/api/versions/api-6.0/',
-                component: ComponentCreator('/api/versions/api-6.0/', '413'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-6.0/', '9f4'),
+                exact: true
               },
               {
                 path: '/api/versions/api-6.0/api-advanced-search',
-                component: ComponentCreator('/api/versions/api-6.0/api-advanced-search', 'd5d'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-6.0/api-advanced-search', 'a0f'),
+                exact: true
               },
               {
                 path: '/api/versions/api-6.0/api-errors',
-                component: ComponentCreator('/api/versions/api-6.0/api-errors', '8f0'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-6.0/api-errors', 'f98'),
+                exact: true
               },
               {
                 path: '/api/versions/api-6.0/api-json-methods',
-                component: ComponentCreator('/api/versions/api-6.0/api-json-methods', 'd27'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-6.0/api-json-methods', '2e4'),
+                exact: true
               },
               {
                 path: '/api/versions/api-6.0/api-standards',
-                component: ComponentCreator('/api/versions/api-6.0/api-standards', '3cb'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-6.0/api-standards', '5a3'),
+                exact: true
               },
               {
                 path: '/api/versions/api-6.0/api-xml-methods',
-                component: ComponentCreator('/api/versions/api-6.0/api-xml-methods', 'ee7'),
-                exact: true,
-                sidebar: "api"
+                component: ComponentCreator('/api/versions/api-6.0/api-xml-methods', 'd50'),
+                exact: true
+              },
+              {
+                path: '/api/versions/api-6.9/',
+                component: ComponentCreator('/api/versions/api-6.9/', '914'),
+                exact: true
+              },
+              {
+                path: '/api/versions/api-6.9/api-advanced-search',
+                component: ComponentCreator('/api/versions/api-6.9/api-advanced-search', 'c43'),
+                exact: true
+              },
+              {
+                path: '/api/versions/api-6.9/api-browse',
+                component: ComponentCreator('/api/versions/api-6.9/api-browse', 'dfd'),
+                exact: true
+              },
+              {
+                path: '/api/versions/api-6.9/api-errors',
+                component: ComponentCreator('/api/versions/api-6.9/api-errors', 'c67'),
+                exact: true
+              },
+              {
+                path: '/api/versions/api-6.9/api-json-methods',
+                component: ComponentCreator('/api/versions/api-6.9/api-json-methods', '724'),
+                exact: true
+              },
+              {
+                path: '/api/versions/api-6.9/api-media-methods',
+                component: ComponentCreator('/api/versions/api-6.9/api-media-methods', '689'),
+                exact: true
+              },
+              {
+                path: '/api/versions/api-6.9/api-xml-methods',
+                component: ComponentCreator('/api/versions/api-6.9/api-xml-methods', '39a'),
+                exact: true
               },
               {
                 path: '/demo',
@@ -755,6 +805,16 @@ export default [
                 sidebar: "api"
               },
               {
+                path: '/docs/help/troubleshooting/ampache8-for-admins',
+                component: ComponentCreator('/docs/help/troubleshooting/ampache8-for-admins', '72b'),
+                exact: true
+              },
+              {
+                path: '/docs/help/troubleshooting/ampache8-for-users',
+                component: ComponentCreator('/docs/help/troubleshooting/ampache8-for-users', '234'),
+                exact: true
+              },
+              {
                 path: '/docs/help/troubleshooting/chart-faq',
                 component: ComponentCreator('/docs/help/troubleshooting/chart-faq', '859'),
                 exact: true,
@@ -957,8 +1017,9 @@ export default [
               },
               {
                 path: '/rest/',
-                component: ComponentCreator('/rest/', '292'),
-                exact: true
+                component: ComponentCreator('/rest/', 'ba4'),
+                exact: true,
+                sidebar: "api"
               },
               {
                 path: '/',
