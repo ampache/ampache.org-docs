@@ -4,6 +4,8 @@ metaTitle: "Ampache8 for Admins"
 description: "Ampache8 for Admins"
 ---
 
+**WORK IN PROGRESS**
+
 ## Ampache8 for Admins
 
 This page will cover the visual, backend and Admin specific changes to Ampache.
@@ -14,11 +16,9 @@ There are a few changes in Ampache8 that might block you upgrading.
 
 Consider all the changes before upgrading.
 
-### Try out Ampache8 using git
+### Try it out Ampache8 using git
 
 The develop8 branch is holding the current WIP of Ampache8.
-
-**NOTE** Don't replace your existing Ampache database if you want to be able to downgrade again.
 
 You can check out a new install on the branch.
 
@@ -54,11 +54,11 @@ npm run verify:install
 
 ## Docker
 
-We will start building Ampache8 using [docker](/docker) soon.
+We will start building Ampache8 images for [docker](/docker) soon.
 
 ## Rollback to Ampache7
 
-While there haven't been any major database changes yet there may be things that break compared to Ampache7
+While there haven't been any major database changes yet there may be things that break compared to Ampache7 as development continues.
 
 You can downgrade your database using the cli.
 
@@ -91,6 +91,23 @@ In your php.ini, make sure the extension is uncommented.
 ```config
 extension=fileinfo
 ```
+
+## Updated captcha with OCR testing
+
+The old easycaptcha code has finally been replaced with [Gregwar/Captcha](https://github.com/Gregwar/Captcha/).
+
+The library will general a picture and then test it buy using `convert` and `ocrad` to read the file.
+
+If ocrad can read the captcha phrase it will generate a new file and try again.
+
+In Debian you can install these packages to enable OCR testing:
+
+* graphicsmagick-imagemagick-compat: (/usr/bin/convert)
+* ocrad: (/usr/bin/ocrad)
+
+If you don't have these programs installed the code will generate a picture without testing the result.
+
+**NOTE** This is also being ported back to Ampache7 for security. 
 
 ## API8 is here
 
