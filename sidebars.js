@@ -130,6 +130,8 @@ const sidebars = {
           label: 'Help',
           link: {type: 'doc', id: 'docs/help/help'},
           items: [
+            'docs/help/troubleshooting/ampache8-for-admins',
+            'docs/help/troubleshooting/ampache8-for-users',
             'docs/help/troubleshooting/ampache7-for-admins',
             'docs/help/troubleshooting/ampache7-for-users',
             'docs/help/preferences-explained',
