@@ -119,6 +119,14 @@ There are changes in default parameters and data responses for additional metada
 
 All changes will be documented in the [API](/api) before final release.
 
+## OpenSubsonic is now forced as the default Subsonic implementation
+
+After a lot of poor implementation the split between Subsonic and Opensubsonic is now very clear.
+
+When updating to Ampache8 all users will default to OpenSubsonic to ensure that everyone is using the latest version.
+
+Users can still disable OpenSubsonic but the old implementation is now 1.16.1 compatible and does not support OpenSubsonic extensions.
+
 ## New Options
 
 New site options and preferences are documented in wiki at [ampache8-for-users](/docs/help/troubleshooting/ampache8-for-users)
