@@ -115,24 +115,24 @@ access_control = "true"
 
 #### ACL Interface Access for Clients
 
-| User  |   Type    | Start Address |   End Address   | Level |
-| :---: | :-------: | :-----------: | :-------------: | :---: |
-|  All  | Interface |    0.0.0.0    | 255.255.255.255 |  All  |
+| User |   Type    | Start Address |   End Address   | Level |
+|:----:|:---------:|:-------------:|:---------------:|:-----:|
+| All  | Interface |    0.0.0.0    | 255.255.255.255 |  All  |
 
 This first ACL will let us continue to login after we've enabled the Access Control in the config file, next we need to allow streaming from our clients.
 
 #### ACL Streaming Access for Clients
 
-| User  |   Type    | Start Address |   End Address   | Level |
-| :---: | :-------: | :-----------: | :-------------: | :---: |
-|  All  | Streaming |    0.0.0.0    | 255.255.255.255 |  All  |
+| User |   Type    | Start Address |   End Address   | Level |
+|:----:|:---------:|:-------------:|:---------------:|:-----:|
+| All  | Streaming |    0.0.0.0    | 255.255.255.255 |  All  |
 
 Last we'll need to define what is our local network so that Ampache knows when it needs to transcode
 
 #### ACL Local Network Definition
 
-| User  |  Type   | Start Address |  End Address   | Level |
-| :---: | :-----: | :-----------: | :------------: | :---: |
-|  All  | Network |   10.0.0.0    | 10.255.255.255 |  All  |
+| User |  Type   | Start Address |  End Address   | Level |
+|:----:|:-------:|:-------------:|:--------------:|:-----:|
+| All  | Network |   10.0.0.0    | 10.255.255.255 |  All  |
 
 This will make is so that a client connecting from 192.168.0.32 would be considered Non-Local and would be forced to use any configured transcoding. A client coming from 10.0.32.12 would be considered local and would not be transcoded. **You can have as many network ACL definitions as you want.**

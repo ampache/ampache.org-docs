@@ -36,12 +36,12 @@ https://music.com.au/play/index.php?ssid=streamingtoken&uid=1&random=1&random_ty
 https://music.com.au/play/ssid/streamingtoken/uid/1/random/1/random_type/search/random_id/123
 ```
 
-|                                       Client Name                                       |      Operating Systems       |                  Description                   |
-| :-------------------------------------------------------------------------------------: | :--------------------------: | :--------------------------------------------: |
-|        [GoodVibes](https://goodvibes.readthedocs.io/en/stable/installation.html)        |        Linux / Flatpak       |      Free Software Streaming Radio Player      |
-|                             [VLC](http://www.videolan.org/)                             |    Linux / Windows / MAC     | Free Software cross-platform multimedia player |
-|                        [Foobar2000](http://www.foobar2000.org/)                         |           Windows            |         Advanced freeware audio player         |
-| [Windows Media Player](http://windows.microsoft.com/en-us/windows/windows-media-player) |           Windows            |          Media player from Microsoft           |
+|                                       Client Name                                       |   Operating Systems   |                  Description                   |
+|:---------------------------------------------------------------------------------------:|:---------------------:|:----------------------------------------------:|
+|        [GoodVibes](https://goodvibes.readthedocs.io/en/stable/installation.html)        |    Linux / Flatpak    |      Free Software Streaming Radio Player      |
+|                             [VLC](http://www.videolan.org/)                             | Linux / Windows / MAC | Free Software cross-platform multimedia player |
+|                        [Foobar2000](http://www.foobar2000.org/)                         |        Windows        |         Advanced freeware audio player         |
+| [Windows Media Player](http://windows.microsoft.com/en-us/windows/windows-media-player) |        Windows        |          Media player from Microsoft           |
 
 And almost any media player able to play http streams.
 

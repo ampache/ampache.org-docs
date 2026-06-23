@@ -21,14 +21,14 @@ Ampache's Access Lists are by default _Deny From All_ this means if we enable _a
 
 ### Stream Access List
 
-|     Name      | Level | User  |   ACL Type    | Start Address |   End Address   |
-| :-----------: | :---: | :---: | :-----------: | :-----------: | :-------------: |
-| Stream Access | Read  |  All  | Stream Access |    0.0.0.0    | 255.255.255.255 |
+|     Name      | Level | User |   ACL Type    | Start Address |   End Address   |
+|:-------------:|:-----:|:----:|:-------------:|:-------------:|:---------------:|
+| Stream Access | Read  | All  | Stream Access |    0.0.0.0    | 255.255.255.255 |
 
 Where
 
 |     Field     |                                      Description                                       |
-| :-----------: | :------------------------------------------------------------------------------------: |
+|:-------------:|:--------------------------------------------------------------------------------------:|
 |     Name      |      This is just the name of the ACL(Access List) so you can identify it later.       |
 |     Level     |                    This is the privilege level that the user gets.                     |
 |     User      |                          This is the login name of the user.                           |
@@ -42,9 +42,9 @@ Where
 
 ### Interface Access List
 
-| Name            | Level | User | ACL Type      | Start Address | End Address     |
-|:--------------: | :---: | :--: | :-----------: | :-----------: | :-------------: |
-|Interface Access | View  | All  | Web Interface | 0.0.0.0       | 255.255.255.255 |
+|       Name       | Level | User |   ACL Type    | Start Address |   End Address   |
+|:----------------:|:-----:|:----:|:-------------:|:-------------:|:---------------:|
+| Interface Access | View  | All  | Web Interface |    0.0.0.0    | 255.255.255.255 |
 
 * Click _Create ACL_.
 * What we created just now is an ACL that allows interface access from all possible ip addresses, not bound to any user.
@@ -53,7 +53,7 @@ Where
 ### API-RPC Access List
 
 |            Name             |   Level    |      User      | ACL Type |   Start Address    |    End Address     |
-| :-------------------------: | :--------: | :------------: | :------: | :----------------: | :----------------: |
+|:---------------------------:|:----------:|:--------------:|:--------:|:------------------:|:------------------:|
 | API-RPC %Remote Servername% | Read/Write | %User Account% | API-RPC  | "Remote Server Ip" | "Remote Server Ip" |
 
 * Click _Create ACL_.
@@ -68,9 +68,9 @@ Where
 
 #### Stream Access List (remote)
 
-|     Name      | Level | User  |   ACL Type    | Start Address |   End Address   |
-| :-----------: | :---: | :---: | :-----------: | :-----------: | :-------------: |
-| Stream Access | Read  |  All  | Stream Access |    0.0.0.0    | 255.255.255.255 |
+|     Name      | Level | User |   ACL Type    | Start Address |   End Address   |
+|:-------------:|:-----:|:----:|:-------------:|:-------------:|:---------------:|
+| Stream Access | Read  | All  | Stream Access |    0.0.0.0    | 255.255.255.255 |
 
 * Click _Create ACL_.
 * What we created just now is an ACL that allows streaming capability from all possible ip addresses, not bound to any user.
@@ -78,9 +78,9 @@ Where
 
 #### Interface Access List (remote)
 
-| Name | Level | User | ACL Type | Start Address | End Address |
-| :--: | :--: | :--: | :--: | :--: | :--: |
-| Interface Access | View | All | Web Interface | 0.0.0.0 | 255.255.255.255 |
+|       Name       | Level | User |   ACL Type    | Start Address |   End Address   |
+|:----------------:|:-----:|:----:|:-------------:|:-------------:|:---------------:|
+| Interface Access | View  | All  | Web Interface |    0.0.0.0    | 255.255.255.255 |
 
 * Click _Create ACL_.
 * What we created just now is an ACL that allows interface access from all possible ip addresses, not bound to any user.
@@ -89,7 +89,7 @@ Where
 #### API-RPC Access List (remote)
 
 |            Name             |   Level    |      User      | ACL Type | Start Address |   End Address   |
-| :-------------------------: | :--------: | :------------: | :------: | :-----------: | :-------------: |
+|:---------------------------:|:----------:|:--------------:|:--------:|:-------------:|:---------------:|
 | API-RPC %Remote Servername% | Read/Write | %User Account% | API-RPC  |    0.0.0.0    | 255.255.255.255 |
 
 * Click _Create ACL_.
@@ -123,8 +123,8 @@ Login as administrator at the REMOTE and use the menu to browse to the catalog s
 
 ### Fill in the form with the following entry's
 
-|        Catalog Name         |           Path             | Catalog Type | Remote Catalog Username | Remote Catalog Password |
-| :-------------------------: | :------------------------: | :----------: | :---------------------: | :---------------------: |
+|        Catalog Name         |            Path            | Catalog Type | Remote Catalog Username | Remote Catalog Password |
+|:---------------------------:|:--------------------------:|:------------:|:-----------------------:|:-----------------------:|
 | API-RPC %Remote Servername% | `http://127.0.0.2/ampache` |    Remote    |     %User Account%      | %User Account Password% |
 
 The rest of the option can be set as wished. They do not influence the working of the catalog.

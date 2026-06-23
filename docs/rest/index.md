@@ -94,7 +94,7 @@ Key characteristics:
 ## Updated Conversion Examples
 
 | RPC API                                | RESTful API                           |
-| -------------------------------------- | ------------------------------------- |
+|----------------------------------------|---------------------------------------|
 | `?action=song&id=123`                  | `GET /rest/6/json/songs/123`          |
 | `?action=artist&id=45`                 | `GET /rest/6/json/artists/45`         |
 | `?action=album&id=78`                  | `GET /rest/6/json/albums/78`          |
@@ -107,7 +107,7 @@ Key characteristics:
 The RESTful API uses standard HTTP semantics:
 
 | Method | Purpose                         | Example                    |
-| ------ | ------------------------------- | -------------------------- |
+|--------|---------------------------------|----------------------------|
 | GET    | Retrieve resource or collection | `/rest/6/json/songs/123`   |
 | POST   | Create resource or relationship | `/rest/6/json/playlists`   |
 | PUT    | Replace full resource           | `/rest/6/json/songs/123`   |
