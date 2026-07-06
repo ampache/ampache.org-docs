@@ -3208,51 +3208,6 @@
         ]
       }
     },
-    "/catalogs/{catalog_id}/action": {
-      "post": {
-        "parameters": [
-          {
-            "in": "path",
-            "name": "catalog_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "task",
-            "required": true,
-            "schema": {
-              "enum": [
-                "add_to_catalog",
-                "clean_catalog"
-              ],
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              }
-            },
-            "description": "Success"
-          },
-          "400": {
-            "$ref": "#/components/responses/ErrorResponse"
-          }
-        },
-        "summary": "Run a catalog task",
-        "tags": [
-          "Catalogs"
-        ]
-      }
-    },
     "/catalogs/{catalog_id}/file": {
       "post": {
         "parameters": [
@@ -5241,31 +5196,9 @@
         ]
       }
     },
-    "/localplay": {
+    "/localplay/next": {
       "post": {
-        "parameters": [
-          {
-            "in": "query",
-            "name": "command",
-            "required": true,
-            "schema": {
-              "enum": [
-                "next",
-                "prev",
-                "stop",
-                "play",
-                "pause",
-                "volume_up",
-                "volume_down",
-                "volume_mute",
-                "delete_all",
-                "skip",
-                "status"
-              ],
-              "type": "string"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "content": {
@@ -5281,7 +5214,247 @@
             "$ref": "#/components/responses/ErrorResponse"
           }
         },
-        "summary": "Control localplay",
+        "summary": "Send next command to localplay",
+        "tags": [
+          "Playback Control"
+        ]
+      }
+    },
+    "/localplay/prev": {
+      "post": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Localplay response"
+          },
+          "400": {
+            "$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "summary": "Send previous command to localplay",
+        "tags": [
+          "Playback Control"
+        ]
+      }
+    },
+    "/localplay/stop": {
+      "post": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Localplay response"
+          },
+          "400": {
+            "$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "summary": "Send stop command to localplay",
+        "tags": [
+          "Playback Control"
+        ]
+      }
+    },
+    "/localplay/play": {
+      "post": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Localplay response"
+          },
+          "400": {
+            "$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "summary": "Send play command to localplay",
+        "tags": [
+          "Playback Control"
+        ]
+      }
+    },
+    "/localplay/pause": {
+      "post": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Localplay response"
+          },
+          "400": {
+            "$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "summary": "Send pause command to localplay",
+        "tags": [
+          "Playback Control"
+        ]
+      }
+    },
+    "/localplay/volume-up": {
+      "post": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Localplay response"
+          },
+          "400": {
+            "$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "summary": "Send volume up command to localplay",
+        "tags": [
+          "Playback Control"
+        ]
+      }
+    },
+    "/localplay/volume-down": {
+      "post": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Localplay response"
+          },
+          "400": {
+            "$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "summary": "Send volume down command to localplay",
+        "tags": [
+          "Playback Control"
+        ]
+      }
+    },
+    "/localplay/volume-mute": {
+      "post": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Localplay response"
+          },
+          "400": {
+            "$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "summary": "Send volume mute command to localplay",
+        "tags": [
+          "Playback Control"
+        ]
+      }
+    },
+    "/localplay/delete-all": {
+      "post": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Localplay response"
+          },
+          "400": {
+            "$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "summary": "Send delete all command to localplay",
+        "tags": [
+          "Playback Control"
+        ]
+      }
+    },
+    "/localplay/skip": {
+      "post": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Localplay response"
+          },
+          "400": {
+            "$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "summary": "Send skip command to localplay",
+        "tags": [
+          "Playback Control"
+        ]
+      }
+    },
+    "/localplay/status": {
+      "get": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Localplay status response"
+          },
+          "400": {
+            "$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "summary": "Get localplay status",
         "tags": [
           "Playback Control"
         ]
@@ -8526,7 +8699,7 @@
         ]
       }
     },
-    "/podcasts/{podcast_id}/update": {
+    "/podcasts/{podcast_id}/sync": {
       "post": {
         "parameters": [
           {
