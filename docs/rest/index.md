@@ -179,8 +179,8 @@ e.g. To make a REST call for 10 random albums your URL would be `https://demo.am
 | GET    | `genres/{genre_id}`                                  | `?action=genre&filter={genre_id}`                                                |                    |
 | GET    | `genres/search`                                      | `?action=search&type=genre`                                                      | `advanced_search`  |
 | GET    | `genres`                                             | `?action=genres`                                                                 |                    |
-| GET    | `goodbye`                                            | `?action=goodbye`                                                                |                    |
-| GET    | `handshake`                                          | `?action=handshake`                                                              |                    |
+| POST   | `goodbye`                                            | `?action=goodbye`                                                                |                    |
+| POST   | `handshake`                                          | `?action=handshake`                                                              |                    |
 | GET    | `index`                                              | `?action=index`                                                                  |                    |
 | GET    | `labels/{label_id}/artists`                          | `?action=label_artists&filter={label_id}`                                        |                    |
 | GET    | `labels/{label_id}/fetch-metadata`                   | `?action=get_external_metadata&filter={label_id}&type=label`                     |                    |
@@ -268,7 +268,7 @@ e.g. To make a REST call for 10 random albums your URL would be `https://demo.am
 | GET    | `preferences`                                        | `?action=user_preferences`                                            `          | `preferences`      |
 | PUT    | `preferences`                                        | `?action=preference_create`                                                      |                    |
 | POST   | `register`                                           | `?action=register`                                                               |                    |
-| GET    | `scrobble`                                           | `?action=scrobble`                                                               |                    |
+| POST   | `scrobble`                                           | `?action=scrobble`                                                               |                    |
 | GET    | `search/{search_type}/groups`                        | `?action=search_group&filter={search_type}`                                      |                    |
 | GET    | `search/{search_type}/rules`                         | `?action=search_rules&filter={search_type}`                                      |                    |
 | GET    | `shares/{share_id}`                                  | `?action=share&filter={share_id}`                                                |                    |
