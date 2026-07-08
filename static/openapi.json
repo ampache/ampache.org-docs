@@ -1042,9 +1042,6 @@
               }
             }
           },
-          "403": {
-            "$ref": "#/components/responses/ForbiddenErrorResponse"
-          },
           "404": {
             "description": "Not found",
             "content": {
@@ -1059,6 +1056,9 @@
                 }
               }
             }
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenErrorResponse"
           },
           "410": {
             "$ref": "#/components/responses/GoneErrorResponse"
@@ -1091,6 +1091,11 @@
               "application/json": {
                 "schema": {
                   "type": "object"
+                },
+                "examples": {
+                  "success": {
+                    "value": {}
+                  }
                 }
               }
             },
@@ -2765,9 +2770,6 @@
               }
             }
           },
-          "403": {
-            "$ref": "#/components/responses/ForbiddenErrorResponse"
-          },
           "404": {
             "description": "Not found",
             "content": {
@@ -2782,6 +2784,9 @@
                 }
               }
             }
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenErrorResponse"
           },
           "410": {
             "$ref": "#/components/responses/GoneErrorResponse"
@@ -2867,6 +2872,11 @@
               "application/json": {
                 "schema": {
                   "type": "object"
+                },
+                "examples": {
+                  "success": {
+                    "value": {}
+                  }
                 }
               }
             },
@@ -4991,6 +5001,11 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/FolderBrowseResponse"
+                },
+                "examples": {
+                  "success": {
+                    "value": {}
+                  }
                 }
               }
             },
@@ -5095,6 +5110,59 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/FolderBrowseResponse"
+                },
+                "examples": {
+                  "success": {
+                    "value": {
+                      "total_count": 3,
+                      "md5": "abc123def456ghi789jkl012mno345pqr",
+                      "folder": {
+                        "id": "1",
+                        "title": "Music",
+                        "parent": 0,
+                        "path": "/music",
+                        "catalog": 1,
+                        "items": [
+                          {
+                            "id": "2",
+                            "object_type": "folder",
+                            "title": "Rock",
+                            "parent": 1,
+                            "path": "/music/rock",
+                            "art": "https://develop.ampache.dev/rest/8/json/art?id=2&object_type=folder&auth=token123",
+                            "has_art": false,
+                            "play_url": "",
+                            "rating": 0,
+                            "averagerating": null
+                          },
+                          {
+                            "id": "12345",
+                            "object_type": "song",
+                            "title": "Example Song.mp3",
+                            "parent": 1,
+                            "path": "/music",
+                            "art": "https://develop.ampache.dev/rest/8/json/art?id=12345&object_type=song&auth=token123",
+                            "has_art": true,
+                            "play_url": "https://develop.ampache.dev/rest/8/json/stream?id=song-12345&auth=token123",
+                            "rating": 3,
+                            "averagerating": 4
+                          },
+                          {
+                            "id": "54321",
+                            "object_type": "video",
+                            "title": "Example Video.mp4",
+                            "parent": 1,
+                            "path": "/music",
+                            "art": "https://develop.ampache.dev/rest/8/json/art?id=54321&object_type=video&auth=token123",
+                            "has_art": true,
+                            "play_url": "https://develop.ampache.dev/rest/8/json/stream?id=video-54321&auth=token123",
+                            "rating": 5,
+                            "averagerating": 4
+                          }
+                        ]
+                      }
+                    }
+                  }
                 }
               }
             },
@@ -7918,6 +7986,11 @@
               "application/json": {
                 "schema": {
                   "type": "object"
+                },
+                "examples": {
+                  "success": {
+                    "value": {}
+                  }
                 }
               }
             },
@@ -10218,6 +10291,11 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/SuccessResponse"
+                },
+                "examples": {
+                  "success": {
+                    "value": {}
+                  }
                 }
               }
             },
@@ -12336,6 +12414,11 @@
               "application/json": {
                 "schema": {
                   "type": "object"
+                },
+                "examples": {
+                  "success": {
+                    "value": {}
+                  }
                 }
               }
             },
@@ -13317,6 +13400,11 @@
               "application/json": {
                 "schema": {
                   "type": "object"
+                },
+                "examples": {
+                  "success": {
+                    "value": {}
+                  }
                 }
               }
             },
@@ -14563,6 +14651,11 @@
               "application/json": {
                 "schema": {
                   "type": "object"
+                },
+                "examples": {
+                  "success": {
+                    "value": {}
+                  }
                 }
               }
             },
@@ -15499,6 +15592,11 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/SuccessResponse"
+                },
+                "examples": {
+                  "success": {
+                    "value": {}
+                  }
                 }
               }
             },
@@ -15751,6 +15849,11 @@
               "application/json": {
                 "schema": {
                   "type": "object"
+                },
+                "examples": {
+                  "success": {
+                    "value": {}
+                  }
                 }
               }
             },
@@ -17486,7 +17589,7 @@
     },
     "/register": {
       "post": {
-        "description": "Does not use authentication. Requires username, password and email. Parameters may be sent via query string or request body.",
+        "description": "Does not use authentication. Requires username, password and email.",
         "parameters": [
           {
             "in": "query",
@@ -25007,6 +25110,11 @@
               "application/json": {
                 "schema": {
                   "type": "object"
+                },
+                "examples": {
+                  "success": {
+                    "value": {}
+                  }
                 }
               }
             },
@@ -25212,6 +25320,11 @@
               "application/json": {
                 "schema": {
                   "type": "object"
+                },
+                "examples": {
+                  "success": {
+                    "value": {}
+                  }
                 }
               }
             },
@@ -25287,6 +25400,11 @@
               "application/json": {
                 "schema": {
                   "type": "object"
+                },
+                "examples": {
+                  "success": {
+                    "value": {}
+                  }
                 }
               }
             },
@@ -28876,6 +28994,37 @@
               "application/json": {
                 "schema": {
                   "type": "object"
+                },
+                "examples": {
+                  "localplay": {
+                    "summary": "localplay",
+                    "value": {
+                      "localplay": {
+                        "command": {
+                          "stop": true
+                        }
+                      }
+                    }
+                  },
+                  "localplay_status": {
+                    "summary": "localplay (status)",
+                    "value": {
+                      "localplay": {
+                        "command": {
+                          "status": {
+                            "state": "stop",
+                            "volume": "100",
+                            "repeat": false,
+                            "random": false,
+                            "track": 2,
+                            "track_title": "Unknown",
+                            "track_artist": "Unknown",
+                            "track_album": "Unknown"
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             },
@@ -29301,6 +29450,16 @@
               "application/json": {
                 "schema": {
                   "type": "object"
+                },
+                "examples": {
+                  "deleted_videos": {
+                    "summary": "deleted videos",
+                    "value": {
+                      "total_count": 0,
+                      "md5": "40cd750bba9870f18aada2478b24840a",
+                      "deleted_videos": []
+                    }
+                  }
                 }
               }
             },
