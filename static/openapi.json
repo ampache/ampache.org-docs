@@ -1156,7 +1156,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "flag": {
+                  "success": {
                     "summary": "flag",
                     "value": {
                       "success": "flag ADDED to 91"
@@ -1217,7 +1217,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "rate": {
+                  "success": {
                     "summary": "rate",
                     "value": {
                       "success": "rating set to 5 for 91"
@@ -1768,7 +1768,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "update_art": {
+                  "success": {
                     "summary": "update art",
                     "value": {
                       "success": "Gathered new art for: 2 (album)",
@@ -1822,7 +1822,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "update_from_tags": {
+                  "success": {
                     "summary": "update from tags",
                     "value": {
                       "success": "Updated tags for: 2 (album)"
@@ -2821,7 +2821,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "update_artist_info": {
+                  "success": {
                     "summary": "update artist info",
                     "value": {
                       "success": "Updated artist info: 36"
@@ -2937,7 +2937,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "flag": {
+                  "success": {
                     "summary": "flag",
                     "value": {
                       "success": "flag ADDED to 91"
@@ -2986,7 +2986,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "rate": {
+                  "success": {
                     "summary": "rate",
                     "value": {
                       "success": "rating set to 5 for 91"
@@ -3540,7 +3540,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "update_art": {
+                  "success": {
                     "summary": "update art",
                     "value": {
                       "success": "Gathered new art for: 2 (album)",
@@ -3582,7 +3582,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "update_from_tags": {
+                  "success": {
                     "summary": "update from tags",
                     "value": {
                       "success": "Updated tags for: 2 (album)"
@@ -5605,7 +5605,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "catalog_file": {
+                  "success": {
                     "summary": "catalog file",
                     "value": {
                       "success": "successfully started: clean for /mnt/files-music/ampache-test/music/Nofi_found/Nofi Devices LP/09_Home_Capsules.mp3"
@@ -5663,7 +5663,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "catalog_folder": {
+                  "success": {
                     "summary": "catalog folder",
                     "value": {
                       "success": "successfully started: clean for /mnt/files-music/ampache-test/music/Nofi_found/Nofi Devices LP"
@@ -6876,7 +6876,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "goodbye": {
+                  "success": {
                     "summary": "goodbye",
                     "value": {
                       "success": "ca132eca2e20613fca4c6bcce16a273c"
@@ -11222,16 +11222,10 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "playlist_add": {
+                  "success": {
                     "summary": "playlist add",
                     "value": {
                       "success": "songs added to playlist"
-                    }
-                  },
-                  "playlist_add_song": {
-                    "summary": "playlist add song",
-                    "value": {
-                      "success": "song added to playlist"
                     }
                   }
                 }
@@ -11439,7 +11433,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "flag": {
+                  "success": {
                     "summary": "flag",
                     "value": {
                       "success": "flag ADDED to 91"
@@ -11534,7 +11528,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "rate": {
+                  "success": {
                     "summary": "rate",
                     "value": {
                       "success": "rating set to 5 for 91"
@@ -11591,7 +11585,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "playlist_remove_song": {
+                  "success": {
                     "summary": "playlist remove song",
                     "value": {
                       "success": "song removed from playlist"
@@ -13215,7 +13209,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "flag": {
+                  "success": {
                     "summary": "flag",
                     "value": {
                       "success": "flag ADDED to 91"
@@ -13448,7 +13442,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "rate": {
+                  "success": {
                     "summary": "rate",
                     "value": {
                       "success": "rating set to 5 for 91"
@@ -15206,7 +15200,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "flag": {
+                  "success": {
                     "summary": "flag",
                     "value": {
                       "success": "flag ADDED to 91"
@@ -15479,7 +15473,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "rate": {
+                  "success": {
                     "summary": "rate",
                     "value": {
                       "success": "rating set to 5 for 91"
@@ -17713,7 +17707,7 @@
                   "type": "object"
                 },
                 "examples": {
-                  "register": {
+                  "success": {
                     "summary": "register",
                     "value": {
                       "success": "Please wait for an administrator to activate your account"
@@ -17818,7 +17812,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "scrobble": {
+                  "success": {
                     "summary": "scrobble",
                     "value": {
                       "success": "successfully scrobbled: 57"
@@ -23212,7 +23206,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "flag": {
+                  "success": {
                     "summary": "flag",
                     "value": {
                       "success": "flag ADDED to 91"
@@ -23261,7 +23255,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "rate": {
+                  "success": {
                     "summary": "rate",
                     "value": {
                       "success": "rating set to 5 for 91"
@@ -25163,7 +25157,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "flag": {
+                  "success": {
                     "summary": "flag",
                     "value": {
                       "success": "flag ADDED to 91"
@@ -25448,7 +25442,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "rate": {
+                  "success": {
                     "summary": "rate",
                     "value": {
                       "success": "rating set to 5 for 91"
@@ -25513,7 +25507,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "record_play": {
+                  "success": {
                     "summary": "record play",
                     "value": {
                       "success": "successfully recorded play: 91 for: user"
@@ -27235,7 +27229,7 @@
                   "type": "object"
                 },
                 "examples": {
-                  "system_update": {
+                  "success": {
                     "summary": "system update",
                     "value": {
                       "success": "No update available"
@@ -27747,7 +27741,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "toggle_follow": {
+                  "success": {
                     "summary": "toggle follow",
                     "value": {
                       "success": "follow toggled for: 4"
@@ -27786,7 +27780,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "toggle_follow": {
+                  "success": {
                     "summary": "toggle follow",
                     "value": {
                       "success": "follow toggled for: 4"
@@ -27825,7 +27819,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "toggle_follow": {
+                  "success": {
                     "summary": "toggle follow",
                     "value": {
                       "success": "follow toggled for: 4"
@@ -28809,7 +28803,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "flag": {
+                  "success": {
                     "summary": "flag",
                     "value": {
                       "success": "flag ADDED to 91"
@@ -29068,7 +29062,7 @@
                   "$ref": "#/components/schemas/SuccessResponse"
                 },
                 "examples": {
-                  "rate": {
+                  "success": {
                     "summary": "rate",
                     "value": {
                       "success": "rating set to 5 for 91"
