@@ -63,6 +63,7 @@ const sidebars = {
             'docs/help/upload-catalogs',
             'docs/configuration/acl',
             'docs/configuration/ldap',
+            'docs/configuration/oidc',
             'docs/configuration/api',
             'docs/configuration/subsonic',
             'docs/configuration/cron',
