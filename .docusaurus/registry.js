@@ -30,6 +30,7 @@ export default {
   "230d481f": [() => import(/* webpackChunkName: "230d481f" */ "@site/docs/api/versions/api-4.1/xml-methods.md"), "@site/docs/api/versions/api-4.1/xml-methods.md", require.resolveWeak("@site/docs/api/versions/api-4.1/xml-methods.md")],
   "234f27c6": [() => import(/* webpackChunkName: "234f27c6" */ "@site/docs/api/api-6/api-browse.md"), "@site/docs/api/api-6/api-browse.md", require.resolveWeak("@site/docs/api/api-6/api-browse.md")],
   "253abc64": [() => import(/* webpackChunkName: "253abc64" */ "@site/docs/docs/development/TRANSLATIONS.md"), "@site/docs/docs/development/TRANSLATIONS.md", require.resolveWeak("@site/docs/docs/development/TRANSLATIONS.md")],
+  "28a78487": [() => import(/* webpackChunkName: "28a78487" */ "@site/docs/docs/configuration/oidc.md"), "@site/docs/docs/configuration/oidc.md", require.resolveWeak("@site/docs/docs/configuration/oidc.md")],
   "299c14fb": [() => import(/* webpackChunkName: "299c14fb" */ "@site/docs/docs/help/upload-catalogs.md"), "@site/docs/docs/help/upload-catalogs.md", require.resolveWeak("@site/docs/docs/help/upload-catalogs.md")],
   "2b605e68": [() => import(/* webpackChunkName: "2b605e68" */ "@site/docs/api/browse/license-browse.md"), "@site/docs/api/browse/license-browse.md", require.resolveWeak("@site/docs/api/browse/license-browse.md")],
   "2c05c577": [() => import(/* webpackChunkName: "2c05c577" */ "@site/docs/docs/information/upgrade.md"), "@site/docs/docs/information/upgrade.md", require.resolveWeak("@site/docs/docs/information/upgrade.md")],

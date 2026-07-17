@@ -4,15 +4,15 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 export default [
   {
     path: '/',
-    component: ComponentCreator('/', '47d'),
+    component: ComponentCreator('/', 'bbb'),
     routes: [
       {
         path: '/',
-        component: ComponentCreator('/', '4c3'),
+        component: ComponentCreator('/', '7fc'),
         routes: [
           {
             path: '/',
-            component: ComponentCreator('/', '359'),
+            component: ComponentCreator('/', '840'),
             routes: [
               {
                 path: '/api/',
@@ -700,6 +700,12 @@ export default [
               {
                 path: '/docs/configuration/multi-artist',
                 component: ComponentCreator('/docs/configuration/multi-artist', 'beb'),
+                exact: true,
+                sidebar: "api"
+              },
+              {
+                path: '/docs/configuration/oidc',
+                component: ComponentCreator('/docs/configuration/oidc', 'e11'),
                 exact: true,
                 sidebar: "api"
               },

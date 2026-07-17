@@ -17,8 +17,8 @@
   },
   "sidebar": "api",
   "previous": {
-    "title": "LDAP",
-    "permalink": "/docs/configuration/ldap"
+    "title": "OpenID Connect (OIDC) Login",
+    "permalink": "/docs/configuration/oidc"
   },
   "next": {
     "title": "Subsonic API",

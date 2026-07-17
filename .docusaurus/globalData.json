@@ -573,6 +573,11 @@
               "sidebar": "api"
             },
             {
+              "id": "docs/configuration/oidc",
+              "path": "/docs/configuration/oidc",
+              "sidebar": "api"
+            },
+            {
               "id": "docs/configuration/podcasts",
               "path": "/docs/configuration/podcasts",
               "sidebar": "api"

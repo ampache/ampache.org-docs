@@ -21,7 +21,7 @@
     "permalink": "/docs/configuration/acl"
   },
   "next": {
-    "title": "Ampache API",
-    "permalink": "/docs/configuration/api"
+    "title": "OpenID Connect (OIDC) Login",
+    "permalink": "/docs/configuration/oidc"
   }
 }
