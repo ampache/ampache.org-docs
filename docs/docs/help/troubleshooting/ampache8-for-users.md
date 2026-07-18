@@ -20,7 +20,7 @@ The player bar now uses a clean 3 row layout for both music and video.
 * Middle: a full width seek bar
 * Bottom: current time on the left and duration on the right
 
-<image: the new web player bar showing the 3 row layout with album art on the left and action buttons on the right.>
+<img width="1258" height="102" alt="Image" src="https://github.com/user-attachments/assets/6f8d3bc1-3171-4170-8599-15d7831a0e6e" />
 
 The action buttons sit together on the right of the bar: Add All to playlist, Loop Playlist, Expand playlist, Show/Hide playlist, Visualizer, Broadcast, Show/Hide Now Playing, ReplayGain, Equalizer and Visualizer full-screen.
 
@@ -32,7 +32,7 @@ The Expand button opens a full height playlist panel above the bar and works eve
 
 Both choices are remembered in cookies, and on small screens the playlist starts hidden by default.
 
-<image: the expanded playlist side panel open above the player bar showing the queued songs.>
+**TODO** the expanded playlist side panel open above the player bar showing the queued songs.
 
 ### The Equalizer is back
 
@@ -40,7 +40,7 @@ A 5 band equalizer (80, 240, 750, 2.2k and 6k Hz) is available from the player a
 
 It used to be buried inside the visualizer; now it has its own button and works together with ReplayGain and the visualizer.
 
-<image: the equalizer panel with five vertical sliders above the player bar.>
+**TODO** the equalizer panel with five vertical sliders above the player bar.
 
 ### A new Visualizer
 
@@ -50,7 +50,7 @@ It covers the screen above the player, and if you hide the player it covers the 
 
 While it runs the player bar switches to a black theme so the controls stay readable.
 
-<image: the visualizer covering the screen with radial colored spokes pulsing to the music above the black player bar.>
+**TODO** the visualizer covering the screen with radial colored spokes pulsing to the music above the black player bar.
 
 ### Random and Democratic play show what is playing
 
@@ -58,7 +58,7 @@ Random and Democratic play used to show an empty player with no song information
 
 The player now shows the current title, artist, album and art, along with a live rating/flag widget and a link to the album.
 
-<image: the web player in Random mode showing song details, art and rating stars.>
+**TODO** the web player in Random mode showing song details, art and rating stars.
 
 ### Other player changes
 
@@ -72,7 +72,7 @@ There is a new **Folders** link at the top of the Browse sidebar.
 
 It shows your catalogs as the real folder tree on disk, with the songs, podcast episodes and videos inside each folder.
 
-<image: the Folders browse page showing a breadcrumb path and a table of folders with art, item counts and ratings.>
+**TODO** the Folders browse page showing a breadcrumb path and a table of folders with art, item counts and ratings.
 
 Folder rows work like any other library item:
 
@@ -98,9 +98,9 @@ The desktop theme now has a proper mobile layout on screens up to 768px wide.
 * Album, artist and song pages stack the art above the details instead of overlapping
 * Wide tables scroll sideways inside their box
 
-<image: a phone screenshot with the drawer navigation open over the dimmed browse page.>
+**TODO** a phone screenshot with the drawer navigation open over the dimmed browse page.
 
-<image: a phone screenshot of an album page with the art stacked above the song table and the player pinned to the bottom.>
+**TODO** a phone screenshot of an album page with the art stacked above the song table and the player pinned to the bottom.
 
 The desktop layout is completely untouched.
 
@@ -128,7 +128,7 @@ Your account is created automatically on first login.
 
 Some servers may skip the Ampache login page entirely and send you straight to the provider.
 
-<image: the login form with the Sign in with OpenID Connect button underneath the username and password fields.>
+**TODO** the login form with the Sign in with OpenID Connect button underneath the username and password fields.
 
 ## OpenSubsonic is the default Subsonic implementation
 
@@ -142,7 +142,7 @@ Subsonic clients that request a transcode bitrate now get the bitrate they asked
 
 The destination folder tree on the upload page shows its folder, checkbox and chevron icons again.
 
-<image: the upload page folder tree with visible folder and checkbox icons.>
+**TODO** the upload page folder tree with visible folder and checkbox icons.
 
 ## Smaller fixes you might notice
 

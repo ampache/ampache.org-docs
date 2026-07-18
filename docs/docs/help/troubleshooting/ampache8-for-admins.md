@@ -170,7 +170,7 @@ Point `logout_redirect` at your provider's `end_session_endpoint` to sign out of
 
 **NOTE** OIDC users can not authenticate with a username and password, so give them an API key for API clients. (`user_create_apikey` will do this automatically for new users)
 
-<image: login page showing the "Sign in with OpenID Connect" button below the regular login form.>
+**TODO** login page showing the "Sign in with OpenID Connect" button below the regular login form.
 
 ## Updated captcha with OCR testing
 
@@ -198,7 +198,7 @@ The folder tables are not filled automatically; scan them from the catalog pages
 * Each catalog's action dropdown gains a **Scan Folders** action
 * The Manage Catalogs page gains a **Scan All Folders** action
 
-<image: admin catalog page showing the catalog action dropdown with the new Scan Folders action selected.>
+**TODO** admin catalog page showing the catalog action dropdown with the new Scan Folders action selected.
 
 The sidebar **Folders** link only appears once the folder table has data and the `show_folder` preference is enabled.
 
