@@ -78,7 +78,7 @@ To go back, check out your Ampache7 branch and run the update command; the datab
 
 `php bin/cli admin:updateDatabase -e`
 
-![image](https://github.com/user-attachments/assets/db7bcbdb-de94-4db2-86a3-2151646ae877)
+![image](/img/1305249/db7bcbdb-de94-4db2-86a3-2151646ae877.png)
 
 ## PHP Version support
 

@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Markdown is always LF, in the repo and in the working tree
+*.md text eol=lf

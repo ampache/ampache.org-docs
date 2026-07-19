@@ -96,7 +96,7 @@ The minimum nodejs version is **v15** or higher and supported packages are avail
 
 Check your version prior to upgrading.
 
-![image](https://github.com/ampache/ampache/assets/1305249/4fa526a6-fc68-4890-ac5d-6a44be7a9a2c)
+![image](/img/1305249/4fa526a6-fc68-4890-ac5d-6a44be7a9a2c.png)
 
 When you're updating from git add the npm commands to the end of your scripts.
 

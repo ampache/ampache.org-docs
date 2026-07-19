@@ -92,4 +92,4 @@ see for example: [Issue 1639](https://github.com/ampache/ampache/issues/1639)
 
 Changing `server preferences` can solve that problem :
 > forcing http streaming must be set to `inactive`
-![image](https://github.com/ampache/ampache/assets/3218235/cd40a343-ba37-422d-bf0e-1c2eec678bce)
+![image](/img/1305249/cd40a343-ba37-422d-bf0e-1c2eec678bce.png)

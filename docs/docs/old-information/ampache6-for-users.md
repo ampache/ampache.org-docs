@@ -28,11 +28,11 @@ When a user owns the playlist, it will always make searches using their user ID 
 
 As an example lets look at this playlist. The playlist is owned by a user called tom.
 
-![image](https://github.com/ampache/ampache/assets/1305249/11b48e0e-b753-401e-b02f-37ba50059cd4)
+![image](/img/1305249/11b48e0e-b753-401e-b02f-37ba50059cd4.png)
 
 Tom has shared this playlist with me and When I load it up I can see his 4/5 star rated songs.
 
-![image](https://github.com/ampache/ampache/assets/1305249/6a55f20b-99bd-4c80-a4de-0f2d2b020874)
+![image](/img/1305249/6a55f20b-99bd-4c80-a4de-0f2d2b020874.png)
 
 In Ampache5 you had to make sure your searches were explicitly naming the user. Otherwise, I'd have gotten a list of **my** 4/5 star artists.
 
@@ -106,11 +106,11 @@ Instead of showing long lists of multiple object types we've split these pages i
 
 Recent
 
-![image](https://github.com/ampache/ampache/assets/1305249/19e349ec-70ed-42ae-a387-aeecb97316c0)
+![image](/img/1305249/19e349ec-70ed-42ae-a387-aeecb97316c0.png)
 
 Newest
 
-![image](https://github.com/ampache/ampache/assets/1305249/5e19f1d4-8fc3-428d-a50d-9481918801ac)
+![image](/img/1305249/5e19f1d4-8fc3-428d-a50d-9481918801ac.png)
 
 This matches how other pages in the site work as it's not really expected to have different object types on the same page in other areas
 
@@ -122,7 +122,7 @@ As we move things forward some things just don't make the cut for continued supp
 
 I looked at ways to make this cleaner but it just looked terrible. So it's been removed to keep as a simple player.
 
-![image](https://github.com/ampache/ampache/assets/1305249/ddf96e28-5c84-4de8-83e6-ec18f8e6260e)
+![image](/img/1305249/ddf96e28-5c84-4de8-83e6-ec18f8e6260e.png)
 
 ### Soundcloud catalogs
 

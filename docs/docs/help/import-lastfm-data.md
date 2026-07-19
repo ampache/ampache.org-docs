@@ -27,7 +27,7 @@ python3 lastexport3.py -u UserName -o loved.txt -t loved
 
 **note** this should also work with Libre.FM as long as the export data is the same format using the `--server` parameter
 
-![image](https://github.com/user-attachments/assets/35db5d43-f8ce-453c-87cb-f02a2c97d094)
+![image](/img/1305249/35db5d43-f8ce-453c-87cb-f02a2c97d094.png)
 
 ### Example of exported data
 
@@ -57,7 +57,7 @@ The import script has been updated recently to support Python 3.12 and has been 
 
 You can hardcode the variables inside the file or use a CSV config file in the same folder as the update script.
 
-![image](https://github.com/user-attachments/assets/8a1a3b8d-1a8b-4d38-9190-6f463c38162f)
+![image](/img/1305249/8a1a3b8d-1a8b-4d38-9190-6f463c38162f.png)
 
 If you want to create a config file, call it ampache.csv and put in your details
 
@@ -96,7 +96,7 @@ You can run this import as many times as you like, the existing play data will n
 There are 2 queries you'll want to run after this is done
 
 When Ampache scrobbles a track it checks against the client agent that made the play. If the agent matches is will skip, if the agent doesn't match it will insert. This lets you play on the web while playing on your phone.
-![image](https://github.com/user-attachments/assets/0acd0c57-2a1f-49e5-b666-ef0464f923c8)
+![image](/img/1305249/0acd0c57-2a1f-49e5-b666-ef0464f923c8.png)
 
 When you import it will only reject a scrobble if the agent matches so you'll get dupes. We can find out which ones are duplicates manually. So if you ran this script on top of existing data you will get duplicates (same `object_id`, `object_type`, `date`, `user` but under a different `agent`)
 

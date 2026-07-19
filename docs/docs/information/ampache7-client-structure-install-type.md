@@ -14,7 +14,7 @@ We've created a new release type for Ampache7 ([client7](https://github.com/ampa
 
 We still have to include some of the content in the base folder so hopefully your client can make sure you don't overwrite these folders.
 
-![image](https://github.com/user-attachments/assets/e5226393-4f9e-4139-8776-22302a087c7d)
+![image](/img/1305249/e5226393-4f9e-4139-8776-22302a087c7d.png)
 
 When you have installed this version you still need to install your chosen client.
 
@@ -24,10 +24,10 @@ A script installer will be created for the most commonly used clients like ample
 
 Follow the normal Ampache install process but remember that the base Ampache url is `http://hostname/client` for the web interface
 
-![image](https://github.com/user-attachments/assets/08b62aac-ead2-4a47-b7a3-ee824faf5f04)
+![image](/img/1305249/08b62aac-ead2-4a47-b7a3-ee824faf5f04.png)
 
 When you have installed and configured you can install your API client
 
 Configure that and you're ready to go!
 
-![image](https://github.com/user-attachments/assets/032ee80c-570b-4e28-887a-df7ee64cac60)
+![image](/img/1305249/032ee80c-570b-4e28-887a-df7ee64cac60.png)

@@ -25,7 +25,7 @@ To configure these settings, navigate to the `System` settings page `preferences
 * Admin `preferences.php?action=admin&tab=options`
 * User `preferences.php?tab=options`
 
-![image](https://github.com/user-attachments/assets/91d89a83-17d4-406e-bf2c-e13e4bc0ea19)
+![image](/img/1305249/91d89a83-17d4-406e-bf2c-e13e4bc0ea19.png)
 
 Lets explain the settings:
 

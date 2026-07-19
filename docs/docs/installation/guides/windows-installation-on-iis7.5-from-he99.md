@@ -51,7 +51,7 @@ I've used the "Web Plattform Installer" (WebPI) to install the following modules
 
 As I had already installed another PHP version on the server, I've also installed PHPManager V2.4 from [phpmanager](https://github.com/phpmanager/phpmanager). At the first run it showed a few suggestions * I followed them all.
 
-![PHPManager](https://github.com/ampache/ampache/assets/5735900/537dc01b-d63f-4c79-a467-5f4ba5f0f7b5)
+![PHPManager](/img/1305249/537dc01b-d63f-4c79-a467-5f4ba5f0f7b5.png)
 
 ### Clone/install and configure Ampache
 
@@ -105,7 +105,7 @@ To allow Ampache to access the media folders, add an ACL allowing read access fo
 
 Here is as sample from my machine (make sure to search on the local system for the IUSR account and not in the Domain):
 
-![IUSR folder security](https://github.com/ampache/ampache/assets/5735900/982e01de-bb1b-4b91-8b2f-4ec543a04590)
+![IUSR folder security](/img/1305249/982e01de-bb1b-4b91-8b2f-4ec543a04590.png)
 
 ### Configure IIS rewriting
 
@@ -130,13 +130,13 @@ The only rewrite rule I've implemented is for the `ampache/rest` folder * this i
 
 Make sure to enable "Add query string" and optionally check "Log rewritten URL".
 
-![rules](https://github.com/ampache/ampache/assets/5735900/d2b9d962-b6b9-4931-9a24-06eb8b8cd853)
+![rules](/img/1305249/d2b9d962-b6b9-4931-9a24-06eb8b8cd853.png)
 
-![actions](https://github.com/ampache/ampache/assets/5735900/a7e4ced0-b100-45b3-a14d-5d0f4fa26910)
+![actions](/img/1305249/a7e4ced0-b100-45b3-a14d-5d0f4fa26910.png)
 
 You can use the following to test the pattern (note that the input data should be relative to the current rules directory) * important is that `{R:1}` results in **only** the `ping` command:
 
-![IIS Test pattern](https://github.com/ampache/ampache/assets/5735900/e0bb194e-ce5a-441d-992a-205e5d44e55e)
+![IIS Test pattern](/img/1305249/e0bb194e-ce5a-441d-992a-205e5d44e55e.png)
 
 ### Configure scheduled tasks
 

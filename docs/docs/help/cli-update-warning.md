@@ -10,7 +10,7 @@ The web interface can timeout and fail to complete the update.
 
 That's why you might have seen a warning on the Web updater when a big update drops
 
-![image](https://github.com/user-attachments/assets/df22e483-36b7-442e-82c4-f4bf7a757b06)
+![image](/img/1305249/df22e483-36b7-442e-82c4-f4bf7a757b06.png)
 
 ## Use the cli when upgrading
 

@@ -57,7 +57,7 @@ cp -f ./composer_old.json ./composer.json`
 
 Release zips will take care of this step for you so if you're using the zips just make sure you grab the correct zip for your PHP version.
 
-![image](https://github.com/ampache/ampache/assets/1305249/a8e7f622-812e-44e8-b35f-0ed1ed790199)
+![image](/img/1305249/a8e7f622-812e-44e8-b35f-0ed1ed790199.png)
 
 ## The album table is now per-album instead of per-disk
 
@@ -137,7 +137,7 @@ When running admin:updateDatabase we now display much more information about the
 
 The command will also display the specific query that failed and will help us all out when trying to work out update issues.
 
-![image](https://github.com/ampache/ampache/assets/1305249/a116d773-88bb-45ed-a4d2-cdbb7a8d04ef)
+![image](/img/1305249/a116d773-88bb-45ed-a4d2-cdbb7a8d04ef.png)
 
 ### Recreate htaccess files using the installer
 
@@ -180,7 +180,7 @@ This command will print the current Ampache version string. (e.g. `6.0.0`) this 
 
 This might have worked if we had multiple build types or kept squashed development but from now on we'll use purely semantic versioning. (e.g. 6.0.0, 6.0.1)
 
-![image](https://github.com/ampache/ampache/assets/1305249/167c4f14-7a17-41b1-9b97-25d5cdd49d06)
+![image](/img/1305249/167c4f14-7a17-41b1-9b97-25d5cdd49d06.png)
 
 ## Album version/releasecomment tags added to album grouping
 
@@ -193,7 +193,7 @@ This field looks for the tag `Version`.
 If you use Picard for tagging you can add the version tag for grouping to your client using a tagging script.
 (Note the capitalization)
 
-![image](https://github.com/ampache/ampache/assets/1305249/0f0164dc-df2e-406b-b09b-4e95e9947b7b)
+![image](/img/1305249/0f0164dc-df2e-406b-b09b-4e95e9947b7b.png)
 
 ```shell
 $set(Version,%_releasecomment%)
@@ -328,7 +328,7 @@ Some configurations don't seem to like this new version as much as the original 
 
 Enable `Use an alternative playback action for streaming if you have issues with playing music` in your Streaming menu
 
-![image](https://github.com/ampache/ampache/assets/1305249/f1773d8b-c7b8-4827-95d3-0807a21d2447)
+![image](/img/1305249/f1773d8b-c7b8-4827-95d3-0807a21d2447.png)
 
 ## Podcast Episode data has been extended
 
@@ -342,7 +342,7 @@ Think of it like a shared jukebox where the votes are the requests. More votes =
 
 When configuring democratic play there was an option to force all users to use democratic as their play type.
 
-![image](https://github.com/ampache/ampache/assets/1305249/6282a65d-3fc1-4e37-8697-ea6f2c95e17f)
+![image](/img/1305249/6282a65d-3fc1-4e37-8697-ea6f2c95e17f.png)
 
 Ticking this box altered settings and user permission levels without telling you what was changed.
 
@@ -354,7 +354,7 @@ To force democratic playback for all users you should set the following options.
 
 Make sure democratic play is enabled `preferences.php?action=admin&tab=options`
 
-![image](https://github.com/ampache/ampache/assets/1305249/da4a5b06-3ac1-419f-9b34-bb8431a5fa8f)
+![image](/img/1305249/da4a5b06-3ac1-419f-9b34-bb8431a5fa8f.png)
 
 Then open the streaming tab `preferences.php?action=admin&tab=streaming` and set Playback Type.
 
@@ -362,7 +362,7 @@ Then open the streaming tab `preferences.php?action=admin&tab=streaming` and set
 
 Play type is the default output in the Webplayer. Set it to democratic and if you raise the permission level to Admin or manager regular users will not be able to change it.
 
-![image](https://github.com/ampache/ampache/assets/1305249/28b14832-a517-4408-971d-e466b13d875c)
+![image](/img/1305249/28b14832-a517-4408-971d-e466b13d875c.png)
 
 ### Enforce clear on send to stop extra votes
 
@@ -370,7 +370,7 @@ Finally open the playlist settings `preferences.php?action=admin&tab=playlist`
 
 Make sure it's set to 'Clear on send' and set the permissions as above. If you don't clear the playlist after each vote you'll end up with multiple and repeated votes for songs
 
-![image](https://github.com/ampache/ampache/assets/1305249/e19f2f5e-b088-4c59-bebc-bf327d27de12)
+![image](/img/1305249/e19f2f5e-b088-4c59-bebc-bf327d27de12.png)
 
 ## Channels are gone
 

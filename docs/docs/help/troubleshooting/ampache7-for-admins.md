@@ -18,7 +18,7 @@ Consider all the changes before upgrading.
 
 **DEVELOP BRANCH HAS MERGED WITH PATCH7** [pull](https://github.com/ampache/ampache/pull/3969)
 
-![image](https://github.com/ampache/ampache/assets/1305249/9e02d67a-5dc2-439e-aa54-cf6312856c92)
+![image](/img/1305249/9e02d67a-5dc2-439e-aa54-cf6312856c92.png)
 
 ~~Disable the warning by enabling `hide_ampache_messages` in your config file.~~
 
@@ -28,7 +28,7 @@ If you are using Git we have added the package lock to the tree again.
 
 If you see this error you can safely delete the lock file and then try your pull again.
 
-![image](https://github.com/ampache/ampache/assets/1305249/24277173-47a8-463a-b916-23ebd34bc15b)
+![image](/img/1305249/24277173-47a8-463a-b916-23ebd34bc15b.png)
 
 ```shell
 rm ./package-lock.json
@@ -36,7 +36,7 @@ rm ./package-lock.json
 
 You might see other errors in the first composer sync as well.
 
-![image](https://github.com/ampache/ampache/assets/1305249/c8aaae7a-0593-4cba-8bb1-180c0dac3a57)
+![image](/img/1305249/c8aaae7a-0593-4cba-8bb1-180c0dac3a57.png)
 
 You can run composer manually with interaction to deal with these
 
@@ -46,7 +46,7 @@ composer install --no-dev --prefer-source
 
 Press `y` and enter to discard the change.
 
-![image](https://github.com/ampache/ampache/assets/1305249/78238033-49c7-4798-988c-55c01e3a7471)
+![image](/img/1305249/78238033-49c7-4798-988c-55c01e3a7471.png)
 
 ## Try it out
 
@@ -74,7 +74,7 @@ If you want to go back and wait for a newer release simply run the update comman
 
 `php bin/cli admin:updateDatabase -e`
 
-![image](https://github.com/user-attachments/assets/db7bcbdb-de94-4db2-86a3-2151646ae877)
+![image](/img/1305249/db7bcbdb-de94-4db2-86a3-2151646ae877.png)
 
 ## PHP Version support
 
@@ -108,7 +108,7 @@ The minimum nodejs version is **v15** or higher and supported packages are avail
 
 Check your version prior to upgrading.
 
-![image](https://github.com/ampache/ampache/assets/1305249/4fa526a6-fc68-4890-ac5d-6a44be7a9a2c)
+![image](/img/1305249/4fa526a6-fc68-4890-ac5d-6a44be7a9a2c.png)
 
 When you're updating from git add the npm commands to the end of your scripts.
 
@@ -136,11 +136,11 @@ This will be documented and expanded further in time but you can use it right no
 
 As Ampache focuses on music, it has been decided to remove the additional video types and provide one option for video catalogs.
 
-![image](https://github.com/user-attachments/assets/db49223e-50a0-4eb4-a8b4-b14c54413257)
+![image](/img/1305249/db49223e-50a0-4eb4-a8b4-b14c54413257.png)
 
 The removal of these types allow Ampache to continue to offer basic video support.
 
-![image](https://github.com/user-attachments/assets/a3494023-79dc-4822-ae2d-6e735b0cc05f)
+![image](/img/1305249/a3494023-79dc-4822-ae2d-6e735b0cc05f.png)
 
 [Jellyfin](https://jellyfin.org/) is our highly recommended alternative and has much more advanced video features.
 
@@ -154,7 +154,7 @@ Ampache versions will be 7.x.x and API6 will remain the default API version. (Cu
 
 If you send a version 7 API call you will be downgraded to API6 instead of getting an error.
 
-![image](https://github.com/ampache/ampache/assets/1305249/9e4c3629-80ce-495e-b25f-285389c995a4)
+![image](/img/1305249/9e4c3629-80ce-495e-b25f-285389c995a4.png)
 
 If Ampache8 requires major changes the version will bump from 6 to 8 to match the next major release and skipping API7 entirely. (Or continue extending API6 if it lasts that long.)
 
@@ -162,7 +162,7 @@ If Ampache8 requires major changes the version will bump from 6 to 8 to match th
 
 Do you use your user profile picture in other areas? (I like to use may avatar as a custom logo up there in the corner.)
 
-![image](https://github.com/ampache/ampache/assets/1305249/cd8dcb22-9da2-42c5-b8c3-cf2a746c8be7)
+![image](/img/1305249/cd8dcb22-9da2-42c5-b8c3-cf2a746c8be7.png)
 
 The old links used the show action like all other objects
 
@@ -291,13 +291,13 @@ The `system` preset will match the current site preference values from the admin
 
 There is now a column for ordering the licenses instead of ordering alphabetically.
 
-![image](https://github.com/user-attachments/assets/1dbc8975-3328-4215-bce4-d7487a8f2ba2)
+![image](/img/1305249/1dbc8975-3328-4215-bce4-d7487a8f2ba2.png)
 
 You can also hide them instead of deleting them completely. (Order 0 = hidden)
 
 You can unhide by following the `Hidden` link on the manage license page
 
-![image](https://github.com/user-attachments/assets/d9783746-18f6-4e7d-8575-e6898d180c9d)
+![image](/img/1305249/d9783746-18f6-4e7d-8575-e6898d180c9d.png)
 
 ## New Options
 
