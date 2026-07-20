@@ -1,10 +1,4 @@
----
-title: "JSON Methods"
-metaTitle: "JSON Methods"
-description: "API documentation"
----
-
-## API JSON Methods
+# API JSON Methods
 
 Let's go through come calls and examples that you can do for each JSON method.
 
@@ -1029,9 +1023,9 @@ Each `browse` entry (`BrowseObject`):
 | Field    | Type   | Nullable | Optional | Notes |
 |----------|--------|:--------:|:--------:|-------|
 | id       | string |    NO    |    NO    |       |
-| name     | string |    NO    |    NO    |       |
+| name     | string |   YES    |    NO    |       |
 | prefix   | string |   YES    |    NO    |       |
-| basename | string |    NO    |    NO    |       |
+| basename | string |   YES    |    NO    |       |
 <!-- GENERATED:RESPONSE:END -->
 
 * throws object
@@ -1283,9 +1277,13 @@ Make sure you remember to urlencode those folder names!
 
 * return object
 
-```JSON
-"success": ""
-```
+<!-- GENERATED:RESPONSE:BEGIN -->
+Returns a single object.
+
+| Field   | Type   | Nullable | Optional | Notes |
+|---------|--------|:--------:|:--------:|-------|
+| success | string |    NO    |   YES    |       |
+<!-- GENERATED:RESPONSE:END -->
 
 * throws object
 
@@ -1322,7 +1320,7 @@ Each `deleted_podcast_episode` entry (`DeletedPodcastEpisodeObject`):
 | id            | string  |    NO    |    NO    |       |
 | addition_time | integer |    NO    |    NO    |       |
 | delete_time   | integer |    NO    |    NO    |       |
-| title         | string  |    NO    |    NO    |       |
+| title         | string  |   YES    |    NO    |       |
 | file          | string  |    NO    |    NO    |       |
 | catalog       | string  |    NO    |    NO    |       |
 | total_count   | integer |    NO    |    NO    |       |
@@ -1365,7 +1363,7 @@ Each `deleted_song` entry (`DeletedSongObject`):
 | id            | string  |    NO    |    NO    |       |
 | addition_time | integer |    NO    |    NO    |       |
 | delete_time   | integer |    NO    |    NO    |       |
-| title         | string  |    NO    |    NO    |       |
+| title         | string  |   YES    |    NO    |       |
 | file          | string  |    NO    |    NO    |       |
 | catalog       | string  |    NO    |    NO    |       |
 | total_count   | integer |    NO    |    NO    |       |
@@ -1410,7 +1408,7 @@ Each `deleted_video` entry (`DeletedVideoObject`):
 | id            | string  |    NO    |    NO    |       |
 | addition_time | integer |    NO    |    NO    |       |
 | delete_time   | integer |    NO    |    NO    |       |
-| title         | string  |    NO    |    NO    |       |
+| title         | string  |   YES    |    NO    |       |
 | file          | string  |    NO    |    NO    |       |
 | catalog       | string  |    NO    |    NO    |       |
 | total_count   | integer |    NO    |    NO    |       |
@@ -1479,9 +1477,9 @@ Returns a single object.
 | Field   | Type                            | Nullable | Optional | Notes                         |
 |---------|---------------------------------|:--------:|:--------:|-------------------------------|
 | id      | string                          |    NO    |    NO    |                               |
-| title   | string                          |    NO    |    NO    |                               |
-| parent  | integer                         |    NO    |    NO    |                               |
-| path    | string                          |    NO    |    NO    |                               |
+| title   | string                          |   YES    |    NO    |                               |
+| parent  | integer                         |   YES    |    NO    |                               |
+| path    | string                          |   YES    |    NO    |                               |
 | catalog | integer                         |    NO    |    NO    |                               |
 | items   | array&lt;`FolderBrowseItem`&gt; |    NO    |    NO    | see `FolderBrowseItem` fields |
 <!-- GENERATED:RESPONSE:END -->
@@ -2275,9 +2273,11 @@ This gets the latest posted shouts
 <!-- GENERATED:RESPONSE:BEGIN -->
 Returns a `shout` list.
 
-| Field | Type                       | Nullable | Optional | Notes                    |
-|-------|----------------------------|:--------:|:--------:|--------------------------|
-| shout | array&lt;`ShoutObject`&gt; |    NO    |    NO    | see `ShoutObject` fields |
+| Field       | Type                       | Nullable | Optional | Notes                    |
+|-------------|----------------------------|:--------:|:--------:|--------------------------|
+| total_count | integer                    |    NO    |    NO    |                          |
+| md5         | string                     |    NO    |    NO    |                          |
+| shout       | array&lt;`ShoutObject`&gt; |    NO    |    NO    | see `ShoutObject` fields |
 
 Each `shout` entry (`ShoutObject`):
 
@@ -2287,7 +2287,7 @@ Each `shout` entry (`ShoutObject`):
 | date        | integer |    NO    |    NO    |                  |
 | text        | string  |    NO    |    NO    |                  |
 | object_type | string  |    NO    |    NO    |                  |
-| object_id   | integer |    NO    |    NO    |                  |
+| object_id   | string  |    NO    |    NO    |                  |
 | user        | object  |    NO    |    NO    | `{id, username}` |
 <!-- GENERATED:RESPONSE:END -->
 
@@ -2497,9 +2497,9 @@ Each `list` entry (`ListObject`):
 | Field    | Type   | Nullable | Optional | Notes |
 |----------|--------|:--------:|:--------:|-------|
 | id       | string |    NO    |    NO    |       |
-| name     | string |    NO    |    NO    |       |
+| name     | string |   YES    |    NO    |       |
 | prefix   | string |   YES    |    NO    |       |
-| basename | string |    NO    |    NO    |       |
+| basename | string |   YES    |    NO    |       |
 <!-- GENERATED:RESPONSE:END -->
 
 * throws object
@@ -3361,11 +3361,11 @@ Each `podcast_episode` entry ([PodcastEpisodeObject](#podcast_episode)):
 | title          | string  |   YES    |    NO    |              |
 | name           | string  |   YES    |    NO    |              |
 | podcast        | object  |    NO    |    NO    | `{id, name}` |
-| description    | string  |   YES    |    NO    |              |
+| description    | string  |    NO    |    NO    |              |
 | category       | string  |   YES    |    NO    |              |
 | author         | string  |   YES    |    NO    |              |
 | author_full    | string  |   YES    |    NO    |              |
-| website        | string  |   YES    |    NO    |              |
+| website        | string  |    NO    |    NO    |              |
 | pubdate        | string  |   YES    |    NO    |              |
 | state          | string  |    NO    |    NO    |              |
 | filelength     | string  |    NO    |    NO    |              |
@@ -3418,11 +3418,11 @@ Returns a single object.
 | title          | string  |   YES    |    NO    |              |
 | name           | string  |   YES    |    NO    |              |
 | podcast        | object  |    NO    |    NO    | `{id, name}` |
-| description    | string  |   YES    |    NO    |              |
+| description    | string  |    NO    |    NO    |              |
 | category       | string  |   YES    |    NO    |              |
 | author         | string  |   YES    |    NO    |              |
 | author_full    | string  |   YES    |    NO    |              |
-| website        | string  |   YES    |    NO    |              |
+| website        | string  |    NO    |    NO    |              |
 | pubdate        | string  |   YES    |    NO    |              |
 | state          | string  |    NO    |    NO    |              |
 | filelength     | string  |    NO    |    NO    |              |

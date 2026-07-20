@@ -1,7 +1,7 @@
 {
   "id": "api/api-json-methods",
-  "title": "JSON Methods",
-  "description": "API documentation",
+  "title": "API JSON Methods",
+  "description": "Let's go through come calls and examples that you can do for each JSON method.",
   "source": "@site/docs/api/api-json-methods.md",
   "sourceDirName": "api",
   "slug": "/api/api-json-methods",
@@ -10,14 +10,10 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {
-    "title": "JSON Methods",
-    "metaTitle": "JSON Methods",
-    "description": "API documentation"
-  },
+  "frontMatter": {},
   "sidebar": "api",
   "previous": {
-    "title": "XML Methods",
+    "title": "API XML Methods",
     "permalink": "/api/api-xml-methods"
   },
   "next": {
