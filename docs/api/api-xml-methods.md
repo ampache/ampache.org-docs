@@ -2,6 +2,8 @@
 
 Let's go through come calls and examples that you can do for each XML method.
 
+Parameters may be sent as a query string, or (for `POST`/`PUT`/`PATCH`/`DELETE`) as a form-encoded or `application/json` request body. See [API](./index.md#news) for details.
+
 Valid responses will always return a HTTP 200 response.
 
 Error responses return codes based on the error type:
@@ -51,6 +53,8 @@ This is the function that handles verifying a new handshake Takes a timestamp, a
 | 'timestamp' | integer | UNIXTIME() The timestamp used in seed of password hash   |      YES |
 |             |         | (Required if login/password authentication)              |          |
 | 'version'   | string  | $version (API Version that the application understands)  |      YES |
+
+**NOTE** For privacy, send `auth` in a request body or the `Authorization: Bearer` header rather than the query string. Query-string support for `auth` is deprecated and will be removed in **API9**.
 
 * return
 
@@ -208,6 +212,8 @@ Register as a new user if allowed. (Requires the username, password and email.)
 | 'password' | string | hash('sha256', $password) |       NO |
 | 'email'    | string | e.g. `user@gmail.com`     |       NO |
 | 'fullname' | string |                           |      YES |
+
+**NOTE** For privacy, send `password` in a form or JSON request body rather than the query string. Query-string support for `password` is deprecated and will be removed in **API9**.
 
 * return
 
@@ -1278,6 +1284,8 @@ Takes the file id with optional description and expires parameters.
 | 'folder_pattern' | string | Pattern used identify tags from the folder name. Default: '%a/%A'                |      YES |
 | 'username'       | string | login to remote catalog ('remote', 'subsonic', 'seafile', 'beetsremote')         |      YES |
 | 'password'       | string | password to remote catalog ('remote', 'subsonic', 'seafile', 'beetsremote')      |      YES |
+
+**NOTE** For privacy, send `password` in a form or JSON request body rather than the query string. Query-string support for `password` is deprecated and will be removed in **API9**.
 
 * return
 
@@ -5189,6 +5197,8 @@ Create a new user. (Requires the username, password and email.)
 | 'disable'  | boolean | `0`, `1`                          |      YES |
 | 'group'    | integer | Catalog filter group, default = 0 |      YES |
 
+**NOTE** For privacy, send `password` in a form or JSON request body rather than the query string. Query-string support for `password` is deprecated and will be removed in **API9**.
+
 * return
 
 ```XML
@@ -5259,6 +5269,8 @@ Update an existing user.
 | 'reset_apikey'      | integer | `0`, `1` reset user Api Key              |      YES |
 | 'reset_streamtoken' | integer | `0`, `1` reset user Stream Token         |      YES |
 | 'clear_stats'       | integer | `0`, `1` reset all stats for this user   |      YES |
+
+**NOTE** For privacy, send `password` in a form or JSON request body rather than the query string. Query-string support for `password` is deprecated and will be removed in **API9**.
 
 * return
 
