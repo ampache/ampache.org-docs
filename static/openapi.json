@@ -2387,16 +2387,14 @@
             "type": "string"
           },
           "name": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "prefix": {
             "type": "string",
             "nullable": true
           },
           "basename": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "required": [
@@ -2414,16 +2412,14 @@
             "type": "string"
           },
           "name": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "prefix": {
             "type": "string",
             "nullable": true
           },
           "basename": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "required": [
@@ -2934,6 +2930,231 @@
             }
           ]
         }
+      },
+      "DemocraticSongObject": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "artist": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string",
+                "nullable": true
+              },
+              "prefix": {
+                "type": "string",
+                "nullable": true
+              },
+              "basename": {
+                "type": "string",
+                "nullable": true
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "prefix",
+              "basename"
+            ],
+            "additionalProperties": false
+          },
+          "album": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string",
+                "nullable": true
+              },
+              "prefix": {
+                "type": "string",
+                "nullable": true
+              },
+              "basename": {
+                "type": "string",
+                "nullable": true
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "prefix",
+              "basename"
+            ],
+            "additionalProperties": false
+          },
+          "genre": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "track": {
+            "type": "integer"
+          },
+          "time": {
+            "type": "integer"
+          },
+          "format": {
+            "type": "string",
+            "nullable": true
+          },
+          "bitrate": {
+            "type": "integer",
+            "nullable": true
+          },
+          "mime": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer"
+          },
+          "art": {
+            "type": "string",
+            "nullable": true
+          },
+          "has_art": {
+            "type": "boolean"
+          },
+          "rating": {
+            "type": "integer",
+            "nullable": true
+          },
+          "averagerating": {
+            "type": "number",
+            "nullable": true
+          },
+          "playcount": {
+            "type": "integer"
+          },
+          "vote": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "artist",
+          "album",
+          "genre",
+          "track",
+          "time",
+          "format",
+          "bitrate",
+          "mime",
+          "url",
+          "size",
+          "art",
+          "has_art",
+          "rating",
+          "averagerating",
+          "playcount",
+          "vote"
+        ],
+        "additionalProperties": false
+      },
+      "DemocraticSongsResponse": {
+        "type": "object",
+        "properties": {
+          "song": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DemocraticSongObject"
+            }
+          }
+        },
+        "required": [
+          "song"
+        ],
+        "additionalProperties": false
+      },
+      "DemocraticPlayResponse": {
+        "type": "object",
+        "description": "Returned by `method=play`: the stream URL of the democratic playlist.",
+        "properties": {
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "additionalProperties": false
+      },
+      "DemocraticVoteResponse": {
+        "type": "object",
+        "description": "Returned by `method=vote` and `method=devote`.",
+        "properties": {
+          "method": {
+            "type": "string"
+          },
+          "result": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "method",
+          "result"
+        ],
+        "additionalProperties": false
+      },
+      "DemocraticResponse": {
+        "description": "Depends on the `method` parameter: `play` returns the stream url, `vote`/`devote` return the applied method and its result, and `playlist` returns the current democratic song list.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/DemocraticPlayResponse"
+          },
+          {
+            "$ref": "#/components/schemas/DemocraticVoteResponse"
+          },
+          {
+            "$ref": "#/components/schemas/DemocraticSongsResponse"
+          }
+        ]
+      },
+      "PlaylistGenerateResponse": {
+        "description": "Depends on the `format` parameter: `song` (default) and `index` return the song list envelope, `id` returns a bare array of song ids.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SongsResponse"
+          },
+          {
+            "type": "array",
+            "description": "Returned by `format=id`: song ids only, with no envelope.",
+            "items": {
+              "type": "string"
+            }
+          }
+        ]
       }
     },
     "responses": {
@@ -9683,7 +9904,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "$ref": "#/components/schemas/DemocraticResponse"
                 },
                 "examples": {
                   "democratic": {
@@ -17578,6 +17799,7 @@
             }
           },
           {
+            "description": "Max bitrate for transcoding in bits per second (e.g 192000 = 192Kb)",
             "in": "query",
             "name": "bitrate",
             "required": false,
@@ -18415,6 +18637,7 @@
             }
           },
           {
+            "description": "Max bitrate for transcoding in bits per second (e.g 192000 = 192Kb)",
             "in": "query",
             "name": "bitrate",
             "required": false,
@@ -19480,6 +19703,7 @@
             }
           },
           {
+            "description": "Max bitrate for transcoding in bits per second (e.g 192000 = 192Kb)",
             "in": "query",
             "name": "bitrate",
             "required": false,
@@ -19935,6 +20159,7 @@
             }
           },
           {
+            "description": "Max bitrate for transcoding in bits per second (e.g 192000 = 192Kb)",
             "in": "query",
             "name": "bitrate",
             "required": false,
@@ -29581,7 +29806,7 @@
                           "id": "928",
                           "addition_time": 1751279397,
                           "delete_time": 1751279399,
-                          "title": "Icy Room Temperatures May Chill Productivity ",
+                          "title": "Icy Room Temperatures May Chill Productivity",
                           "file": "",
                           "catalog": "3",
                           "total_count": 0,
@@ -31308,7 +31533,7 @@
                           "id": "1085",
                           "addition_time": 1751279397,
                           "delete_time": 1751279400,
-                          "title": "Microbes Share Your Morning Metro Commute ",
+                          "title": "Microbes Share Your Morning Metro Commute",
                           "file": "",
                           "catalog": "3",
                           "total_count": 0,
@@ -49315,7 +49540,7 @@
                           "id": "2722",
                           "addition_time": 1751279406,
                           "delete_time": 1751279409,
-                          "title": "Icy Room Temperatures May Chill Productivity ",
+                          "title": "Icy Room Temperatures May Chill Productivity",
                           "file": "",
                           "catalog": "3",
                           "total_count": 0,
@@ -51042,7 +51267,7 @@
                           "id": "2879",
                           "addition_time": 1751279406,
                           "delete_time": 1751279409,
-                          "title": "Microbes Share Your Morning Metro Commute ",
+                          "title": "Microbes Share Your Morning Metro Commute",
                           "file": "",
                           "catalog": "3",
                           "total_count": 0,
@@ -69060,7 +69285,7 @@
                           "id": "4517",
                           "addition_time": 1751339903,
                           "delete_time": 1751339905,
-                          "title": "Icy Room Temperatures May Chill Productivity ",
+                          "title": "Icy Room Temperatures May Chill Productivity",
                           "file": "",
                           "catalog": "3",
                           "total_count": 0,
@@ -70787,7 +71012,7 @@
                           "id": "4674",
                           "addition_time": 1751339903,
                           "delete_time": 1751339905,
-                          "title": "Microbes Share Your Morning Metro Commute ",
+                          "title": "Microbes Share Your Morning Metro Commute",
                           "file": "",
                           "catalog": "3",
                           "total_count": 0,
@@ -77745,17 +77970,6 @@
                           "has_access": true
                         },
                         {
-                          "id": "89",
-                          "name": "webplayer_html5",
-                          "level": 25,
-                          "description": "Authorize HTML5 Web Player",
-                          "value": "1",
-                          "type": "boolean",
-                          "category": "streaming",
-                          "subcategory": "player",
-                          "has_access": true
-                        },
-                        {
                           "id": "100",
                           "name": "webplayer_pausetabs",
                           "level": 25,
@@ -79218,17 +79432,6 @@
                           "value": "0",
                           "type": "integer",
                           "category": "interface",
-                          "subcategory": "player",
-                          "has_access": true
-                        },
-                        {
-                          "id": 89,
-                          "name": "webplayer_html5",
-                          "level": 25,
-                          "description": "Authorize HTML5 Web Player",
-                          "value": "1",
-                          "type": "boolean",
-                          "category": "streaming",
                           "subcategory": "player",
                           "has_access": true
                         },
@@ -81007,17 +81210,6 @@
                           "has_access": true
                         },
                         {
-                          "id": "89",
-                          "name": "webplayer_html5",
-                          "level": 25,
-                          "description": "Authorize HTML5 Web Player",
-                          "value": "1",
-                          "type": "boolean",
-                          "category": "streaming",
-                          "subcategory": "player",
-                          "has_access": true
-                        },
-                        {
                           "id": "100",
                           "name": "webplayer_pausetabs",
                           "level": 25,
@@ -81659,7 +81851,7 @@
             }
           },
           {
-            "description": "Max bitrate for transcoding in bytes (e.g 192000=192Kb). Song only",
+            "description": "Max bitrate for transcoding in bits per second (e.g 192000 = 192Kb). Song only",
             "in": "query",
             "name": "bitrate",
             "required": false,
@@ -87758,6 +87950,7 @@
             }
           },
           {
+            "description": "Max bitrate for transcoding in bits per second (e.g 192000 = 192Kb)",
             "in": "query",
             "name": "bitrate",
             "required": false,
@@ -88387,6 +88580,7 @@
             }
           },
           {
+            "description": "Max bitrate for transcoding in bits per second (e.g 192000 = 192Kb)",
             "in": "query",
             "name": "bitrate",
             "required": false,
@@ -89723,6 +89917,7 @@
             }
           },
           {
+            "description": "Max bitrate for transcoding in bits per second (e.g 192000 = 192Kb)",
             "in": "query",
             "name": "bitrate",
             "required": false,
@@ -90393,6 +90588,7 @@
             }
           },
           {
+            "description": "Max bitrate for transcoding in bits per second (e.g 192000 = 192Kb)",
             "in": "query",
             "name": "bitrate",
             "required": false,
@@ -90828,17 +91024,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "oneOf": [
-                    {
-                      "type": "object"
-                    },
-                    {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PlaylistGenerateResponse"
                 },
                 "examples": {
                   "playlist_generate_song": {
@@ -92674,6 +92860,7 @@
             }
           },
           {
+            "description": "Maximum transcode bitrate for the user, in bits per second (e.g 320000 = 320Kb). API6 and older take this value in kbps.",
             "in": "query",
             "name": "maxbitrate",
             "required": false,

@@ -1,4 +1,10 @@
-# API JSON Methods
+---
+title: "API JSON Methods"
+metaTitle: "API JSON Methods"
+description: "Calls and examples for each Ampache API JSON method"
+---
+
+## API JSON Methods
 
 Let's go through come calls and examples that you can do for each JSON method.
 
@@ -1029,9 +1035,9 @@ Each `browse` entry (`BrowseObject`):
 | Field    | Type   | Nullable | Optional | Notes |
 |----------|--------|:--------:|:--------:|-------|
 | id       | string |    NO    |    NO    |       |
-| name     | string |   YES    |    NO    |       |
+| name     | string |    NO    |    NO    |       |
 | prefix   | string |   YES    |    NO    |       |
-| basename | string |   YES    |    NO    |       |
+| basename | string |    NO    |    NO    |       |
 <!-- GENERATED:RESPONSE:END -->
 
 * throws object
@@ -2505,9 +2511,9 @@ Each `list` entry (`ListObject`):
 | Field    | Type   | Nullable | Optional | Notes |
 |----------|--------|:--------:|:--------:|-------|
 | id       | string |    NO    |    NO    |       |
-| name     | string |   YES    |    NO    |       |
+| name     | string |    NO    |    NO    |       |
 | prefix   | string |   YES    |    NO    |       |
-| basename | string |   YES    |    NO    |       |
+| basename | string |    NO    |    NO    |       |
 <!-- GENERATED:RESPONSE:END -->
 
 * throws object
@@ -3003,11 +3009,77 @@ Get a list of song JSON, indexes or id's based on some simple search criteria
 | 'offset' | integer | Return results starting from this index position                 |      YES |
 | 'limit'  | integer | Maximum number of results to return                              |      YES |
 
-* return array
+* return object|array
 
-```JSON
-"song": []|"index": []|"id": []
-```
+<!-- GENERATED:RESPONSE:BEGIN -->
+Depends on the `format` parameter: `song` (default) and `index` return the song list envelope, `id` returns a bare array of song ids.
+
+**[SongsResponse](#album_songs)**
+
+Returns a `song` list.
+
+| Field       | Type                             | Nullable | Optional | Notes                          |
+|-------------|----------------------------------|:--------:|:--------:|--------------------------------|
+| total_count | integer                          |    NO    |    NO    |                                |
+| md5         | string                           |    NO    |    NO    |                                |
+| song        | array&lt;[SongObject](#song)&gt; |    NO    |    NO    | see [SongObject](#song) fields |
+
+Each `song` entry ([SongObject](#song)):
+
+| Field                 | Type                         | Nullable | Optional | Notes                          |
+|-----------------------|------------------------------|:--------:|:--------:|--------------------------------|
+| id                    | string                       |    NO    |    NO    |                                |
+| title                 | string                       |   YES    |    NO    |                                |
+| name                  | string                       |   YES    |    NO    |                                |
+| artist                | object                       |    NO    |    NO    | `{id, name, prefix, basename}` |
+| artists               | array&lt;object&gt;          |    NO    |    NO    | `{id, name, prefix, basename}` |
+| album                 | object                       |    NO    |    NO    | `{id, name, prefix, basename}` |
+| albumartist           | object                       |    NO    |   YES    | `{id, name, prefix, basename}` |
+| disk                  | integer                      |    NO    |    NO    |                                |
+| disksubtitle          | string                       |   YES    |    NO    |                                |
+| track                 | integer                      |    NO    |    NO    |                                |
+| filename              | string                       |   YES    |    NO    |                                |
+| genre                 | array&lt;object&gt;          |    NO    |    NO    | `{id, name}`                   |
+| playlisttrack         | integer                      |    NO    |    NO    |                                |
+| time                  | integer                      |    NO    |    NO    |                                |
+| year                  | integer                      |    NO    |    NO    |                                |
+| format                | string                       |   YES    |    NO    |                                |
+| stream_format         | string                       |   YES    |    NO    |                                |
+| bitrate               | integer                      |   YES    |    NO    |                                |
+| stream_bitrate        | integer                      |   YES    |    NO    |                                |
+| rate                  | integer                      |    NO    |    NO    |                                |
+| mode                  | string                       |   YES    |    NO    |                                |
+| mime                  | string                       |   YES    |    NO    |                                |
+| stream_mime           | string                       |   YES    |    NO    |                                |
+| url                   | string                       |    NO    |    NO    |                                |
+| size                  | integer                      |    NO    |    NO    |                                |
+| mbid                  | string                       |   YES    |    NO    |                                |
+| art                   | string                       |   YES    |    NO    |                                |
+| has_art               | boolean                      |    NO    |    NO    |                                |
+| flag                  | boolean                      |    NO    |    NO    |                                |
+| rating                | integer                      |   YES    |    NO    |                                |
+| averagerating         | number                       |   YES    |    NO    |                                |
+| playcount             | integer                      |    NO    |    NO    |                                |
+| catalog               | string                       |    NO    |    NO    |                                |
+| composer              | string                       |   YES    |    NO    |                                |
+| channels              | integer                      |   YES    |    NO    |                                |
+| comment               | string                       |   YES    |    NO    |                                |
+| license               | string                       |   YES    |    NO    |                                |
+| publisher             | string                       |   YES    |    NO    |                                |
+| language              | string                       |   YES    |    NO    |                                |
+| lyrics                | string                       |   YES    |    NO    |                                |
+| replaygain_album_gain | number                       |   YES    |    NO    |                                |
+| replaygain_album_peak | number                       |   YES    |    NO    |                                |
+| replaygain_track_gain | number                       |   YES    |    NO    |                                |
+| replaygain_track_peak | number                       |   YES    |    NO    |                                |
+| r128_album_gain       | number                       |   YES    |    NO    |                                |
+| r128_track_gain       | number                       |   YES    |    NO    |                                |
+| metadata              | object&lt;string, string&gt; |    NO    |   YES    |                                |
+
+**array&lt;string&gt;**
+
+Returned by `format=id`: song ids only, with no envelope.
+<!-- GENERATED:RESPONSE:END -->
 
 * throws object
 
@@ -4909,7 +4981,7 @@ Update an existing user.
 | 'city'              | string  |                                          |      YES |
 | 'disable'           | boolean | `0`, `1`                                 |      YES |
 | 'group'             | integer | Catalog filter group, default = 0        |      YES |
-| 'maxbitrate'        | string  |                                          |      YES |
+| 'maxbitrate'        | string  | Transcode bitrate in bps, e.g. `320000`  |      YES |
 | 'fullname_public'   | integer | `0`, `1` show fullname in public display |      YES |
 | 'reset_apikey'      | integer | `0`, `1` reset user Api Key              |      YES |
 | 'reset_streamtoken' | integer | `0`, `1` reset user Stream Token         |      YES |
@@ -5292,9 +5364,61 @@ This is for controlling democratic play (Songs only)
 
 * return object|array
 
-```JSON
-"url": ""|"method": "","result": false|"song": []
-```
+<!-- GENERATED:RESPONSE:BEGIN -->
+Depends on the `method` parameter: `play` returns the stream url, `vote`/`devote` return the applied method and its result, and `playlist` returns the current democratic song list.
+
+**`DemocraticPlayResponse`**
+
+Returned by `method=play`: the stream URL of the democratic playlist.
+
+Returns a single object.
+
+| Field | Type   | Nullable | Optional | Notes |
+|-------|--------|:--------:|:--------:|-------|
+| url   | string |    NO    |    NO    |       |
+
+**`DemocraticVoteResponse`**
+
+Returned by `method=vote` and `method=devote`.
+
+Returns a single object.
+
+| Field  | Type    | Nullable | Optional | Notes |
+|--------|---------|:--------:|:--------:|-------|
+| method | string  |    NO    |    NO    |       |
+| result | boolean |    NO    |    NO    |       |
+
+**`DemocraticSongsResponse`**
+
+Returns a `song` list.
+
+| Field | Type                                | Nullable | Optional | Notes                             |
+|-------|-------------------------------------|:--------:|:--------:|-----------------------------------|
+| song  | array&lt;`DemocraticSongObject`&gt; |    NO    |    NO    | see `DemocraticSongObject` fields |
+
+Each `song` entry (`DemocraticSongObject`):
+
+| Field         | Type                | Nullable | Optional | Notes                          |
+|---------------|---------------------|:--------:|:--------:|--------------------------------|
+| id            | string              |    NO    |    NO    |                                |
+| title         | string              |   YES    |    NO    |                                |
+| artist        | object              |    NO    |    NO    | `{id, name, prefix, basename}` |
+| album         | object              |    NO    |    NO    | `{id, name, prefix, basename}` |
+| genre         | array&lt;object&gt; |    NO    |    NO    | `{id, name}`                   |
+| track         | integer             |    NO    |    NO    |                                |
+| time          | integer             |    NO    |    NO    |                                |
+| format        | string              |   YES    |    NO    |                                |
+| bitrate       | integer             |   YES    |    NO    |                                |
+| mime          | string              |   YES    |    NO    |                                |
+| url           | string              |    NO    |    NO    |                                |
+| size          | integer             |    NO    |    NO    |                                |
+| art           | string              |   YES    |    NO    |                                |
+| has_art       | boolean             |    NO    |    NO    |                                |
+| rating        | integer             |   YES    |    NO    |                                |
+| averagerating | number              |   YES    |    NO    |                                |
+| playcount     | integer             |    NO    |    NO    |                                |
+| vote          | integer             |    NO    |    NO    |                                |
+<!-- GENERATED:RESPONSE:END -->
 
 * throws object
 

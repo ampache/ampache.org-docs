@@ -37,6 +37,8 @@ const sidebars = {
           items: [
             'docs/information/which-zip',
             'docs/installation/catalog',
+            // Deliberately hidden from the sidebar, still reachable at /docs/information/TV-Shows-and-Movies
+            // 'docs/information/TV-Shows-and-Movies',
             'docs/installation/install-ampache-on-ubuntu2204',
             'docs/installation/windows-installation-guide',
             {
@@ -223,6 +225,8 @@ const sidebars = {
             'api/api-6/api-json-methods',
             'api/api-6/api-errors',
             'api/api-6/api-advanced-search',
+            'api/api-6/api-media-methods',
+            'api/api-6/api-browse',
           ],
         },
         {

@@ -1,4 +1,10 @@
-# Sample MPD config file
+---
+title: "Sample MPD Config for ALSA and Raspberry Pi"
+metaTitle: "Sample MPD Config for ALSA and Raspberry Pi"
+description: "Sample MPD configuration file for ALSA and Raspberry Pi"
+---
+
+## Sample MPD config file
 
 This is a sample config for ALSA and Raspberry.  The settings in this file allow for you to use Gnome music player for single song testing of your catalog without and interaction of Ampache trying to modify the stream output. It only does a Replay gain.  This Should help with those who have problems with songs skipping and not being able to control the player.
 

@@ -8,16 +8,42 @@ description: "REST API documentation"
 
 As part of the ongoing modernisation of the [Ampache API](https://ampache.org/api), the project has created a fully resource-oriented RESTful specification aligned with OpenAPI based on the query-parameter based RPC model.
 
-The OpenApi spec is documented here [Ampache REST API](https://ampache.org/rest/swagger/)
+The OpenApi specs are documented here [Ampache REST API](https://ampache.org/rest/swagger/)
 
 This document explains:
 
 * The differences between the RPC API and the RESTful API
+* Which OpenAPI specification to use for your API version
 * How resource path conversion works
 * Updated endpoint structure and behaviour
 * HTTP method alignment
 * Versioning model
 * Migration guidance
+
+## OpenAPI Specifications
+
+A separate specification is published for each documented REST surface. Use the version selector at the top of the [Swagger UI](https://ampache.org/rest/swagger/) to switch between them, or point your own tooling straight at the raw JSON.
+
+| Specification | Raw spec | API version | Served by |
+|---------------|----------|-------------|-----------|
+| Ampache API 8 (current) | [openapi.json](https://ampache.org/openapi.json) | `8` (also describes `3`, `4`, `5`, `6` as server variables) | Ampache 8 |
+| Ampache API 6 | [openapi-6.json](https://ampache.org/openapi-6.json) | `6` | Ampache 7 and Ampache 8 |
+
+Both specs are OpenAPI 3.0.3, share the same `{ampacheUrl}/rest/{version}/{format}` server template, and use the same authentication schemes (`auth` header, `auth` query parameter, or a Bearer token).
+
+### Which spec should I use?
+
+* Targeting **Ampache 8** and happy to require it — use `openapi.json`. It is the canonical document for the current API and the only one describing the API8-only paths.
+* Targeting **Ampache 7 and Ampache 8 from the same client** — use `openapi-6.json`. It is pinned to API version 6 and deliberately describes only the surface both servers honour.
+
+### Differences in the API 6 specification
+
+* **The `apiVersion` server variable is locked to `6`.** There is no way to accidentally generate an API8 client from it.
+* **API8-only paths are absent:** `/folder`, `/folders` and `/playlists/{playlist_id}/remove`. `/random` is also absent — API6 serves it on Ampache 8 but not on Ampache 7.
+* **Only success responses are documented.** API versions 3-6 always return HTTP `200` and carry any error in the response body, unlike API version 8 which returns real HTTP status codes. See [API Errors](/api/api-errors) for the error payload shape.
+* **Response schemas come from the API6 data builders**, so field names and types match what an Ampache 7 server actually emits.
+
+The API 6 spec is maintained by hand alongside the server code and is guarded by a conformance test in the Ampache repository (`tests/Module/Api/Api6SpecConformanceTest.php`), which fails if the running code drifts from the published document.
 
 ## Background
 
@@ -397,6 +423,8 @@ Versioning enables:
 * Parallel support for RPC endpoints
 * Incremental evolution of the API
 * Clear OpenAPI documentation per version
+
+Each documented version has its own OpenAPI document; see [OpenAPI Specifications](#openapi-specifications) for which one to generate your client from.
 
 ## Authentication and Headers
 

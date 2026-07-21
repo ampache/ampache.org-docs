@@ -14,7 +14,7 @@ Ampache has the ability to remote control 3rd party programs through the web int
 * [HttpQ](/docs/configuration/localplay/httpq) _Windows_
 * [VideoLan Client](/docs/configuration/localplay/vlc) _Linux and Windows_
 * [Kodi / XBMC](https://github.com/ampache/ampache-xbmc-plugin) _Linux and Windows_
-* [UPnP](/docs/configuration/api.md#upnp--dlna-api) _Linux and Windows_
+* [UPnP](/docs/configuration/api#upnp--dlna-api) _Linux and Windows_
 
 ## Localplay Permission Levels
 

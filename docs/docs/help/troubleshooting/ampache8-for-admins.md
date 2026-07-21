@@ -233,6 +233,8 @@ If you send a version 7 API call you will now receive an access denied error.
 
 The REST interface is documented with a full OpenAPI spec at [ampache.org/rest/swagger](https://ampache.org/rest/swagger).
 
+Two specs are published there: [openapi.json](https://ampache.org/openapi.json) for the current API8 surface, and [openapi-6.json](https://ampache.org/openapi-6.json) pinned to API6 for clients that also need to work against Ampache7. See the [REST API docs](/rest) for the differences.
+
 All changes will be documented in the [API](/api) before final release.
 
 ## OpenSubsonic is now forced as the default Subsonic implementation
