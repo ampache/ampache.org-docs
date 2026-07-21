@@ -20,7 +20,7 @@ The player bar now uses a clean 3 row layout for both music and video.
 * Middle: a full width seek bar
 * Bottom: current time on the left and duration on the right
 
-![image](https://github.com/user-attachments/assets/6f8d3bc1-3171-4170-8599-15d7831a0e6e)
+![image](/img/1305249/6f8d3bc1-3171-4170-8599-15d7831a0e6e.png)
 
 The action buttons sit together on the right of the bar: Add All to playlist, Loop Playlist, Expand playlist, Show/Hide playlist, Visualizer, Broadcast, Show/Hide Now Playing, ReplayGain, Equalizer and Visualizer full-screen.
 
@@ -32,7 +32,7 @@ The Expand button opens a full height playlist panel above the bar and works eve
 
 Both choices are remembered in cookies, and on small screens the playlist starts hidden by default.
 
-![image](https://github.com/user-attachments/assets/0d42fa39-218f-4538-aa93-f67ba550997a)
+![image](/img/1305249/0d42fa39-218f-4538-aa93-f67ba550997a.png)
 
 ### The Equalizer is back
 
@@ -40,7 +40,7 @@ A 5 band equalizer (80, 240, 750, 2.2k and 6k Hz) is available from the player a
 
 It used to be buried inside the visualizer; now it has its own button and works together with ReplayGain and the visualizer.
 
-![image](https://github.com/user-attachments/assets/20fc0bff-b030-4495-a6a8-abb0fd3312cf)
+![image](/img/1305249/20fc0bff-b030-4495-a6a8-abb0fd3312cf.png)
 
 ### A new Visualizer
 
@@ -50,7 +50,7 @@ It covers the screen above the player, and if you hide the player it covers the 
 
 While it runs the player bar switches to a black theme so the controls stay readable.
 
-![image](https://github.com/user-attachments/assets/c5ce8b68-2e3e-4d28-acec-9c2fbf16f3a3)
+![image](/img/1305249/c5ce8b68-2e3e-4d28-acec-9c2fbf16f3a3.png)
 
 ### Random and Democratic play show what is playing
 
@@ -58,7 +58,7 @@ Random and Democratic play used to show an empty player with no song information
 
 The player now shows the current title, artist, album and art, along with a live rating/flag widget and a link to the album.
 
-![image](https://github.com/user-attachments/assets/7a1a3d91-0e4b-453a-97a2-7d754ff7c5c6)
+![image](/img/1305249/7a1a3d91-0e4b-453a-97a2-7d754ff7c5c6.png)
 
 ### Other player changes
 
@@ -72,7 +72,7 @@ There is a new **Folders** link at the top of the Browse sidebar.
 
 It shows your catalogs as the real folder tree on disk, with the songs, podcast episodes and videos inside each folder.
 
-![image](https://github.com/user-attachments/assets/ac988f7d-ff79-4afc-9909-90bbfaedcae8)
+![image](/img/1305249/ac988f7d-ff79-4afc-9909-90bbfaedcae8.png)
 
 Folder rows work like any other library item:
 
@@ -98,9 +98,9 @@ The desktop theme now has a proper mobile layout on screens up to 768px wide.
 * Album, artist and song pages stack the art above the details instead of overlapping
 * Wide tables scroll sideways inside their box
 
-![image](https://github.com/user-attachments/assets/c1dc82ea-eb71-4cdf-8f64-9b276e4e2a9a)
+![image](/img/1305249/c1dc82ea-eb71-4cdf-8f64-9b276e4e2a9a.png)
 
-![image](https://github.com/user-attachments/assets/bae9e63c-acd3-47ed-9d59-3814b5127c94)
+![image](/img/1305249/bae9e63c-acd3-47ed-9d59-3814b5127c94.png)
 
 The desktop layout is completely untouched.
 
@@ -128,7 +128,7 @@ Your account is created automatically on first login.
 
 Some servers may skip the Ampache login page entirely and send you straight to the provider.
 
-![image](https://github.com/user-attachments/assets/721d22f5-ebbe-411a-9f0b-fadb71eed66d)
+![image](/img/1305249/721d22f5-ebbe-411a-9f0b-fadb71eed66d.png)
 
 ## OpenSubsonic is the default Subsonic implementation
 
@@ -142,7 +142,7 @@ Subsonic clients that request a transcode bitrate now get the bitrate they asked
 
 The destination folder tree on the upload page shows its folder, checkbox and chevron icons again.
 
-![image](https://github.com/user-attachments/assets/9f64d419-ee98-412d-961a-22eaa72f20c9)
+![image](/img/1305249/9f64d419-ee98-412d-961a-22eaa72f20c9.png)
 
 ## Smaller fixes you might notice
 
