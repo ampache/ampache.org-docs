@@ -8,7 +8,7 @@ description: "Calls and examples for each Ampache API XML method"
 
 Let's go through come calls and examples that you can do for each XML method.
 
-Parameters may be sent as a query string, or (for `POST`/`PUT`/`PATCH`/`DELETE`) as a form-encoded or `application/json` request body. See [API](./index.md#news) for details.
+Parameters may be sent as a query string, or (for `POST`/`PUT`/`PATCH`/`DELETE`) as a form-encoded or `application/json` request body. See [API](API#news) for details.
 
 Valid responses will always return a HTTP 200 response.
 
@@ -64,30 +64,48 @@ This is the function that handles verifying a new handshake Takes a timestamp, a
 
 * return
 
-```XML
-<root>
-    <auth>
-    <api>
-    <session_expire>
-    <update>
-    <add>
-    <clean>
-    <songs>
-    <albums>
-    <artists>
-    <genres>
-    <playlists>
-    <users>
-    <catalogs>
-    <videos>
-    <podcasts>
-    <podcast_episodes>
-    <shares>
-    <licenses>
-    <live_streams>
-    <labels>
-</root>
-```
+<!-- GENERATED:RESPONSE:BEGIN -->
+> **XML structure:** serialised inside a `<root>` element. Each object is an element
+> (e.g. `<song>`) with `id` as an *attribute*; nested objects are child elements (also
+> carrying an `id` attribute), array/list fields are emitted as *repeated* elements,
+> booleans are `0`/`1`, and text values are wrapped in CDATA. Field names match the JSON
+> model below, but element nesting/repetition differs from the JSON representation.
+
+Returns a single object.
+
+| Field               | Type              | Nullable | Optional | Notes |
+|---------------------|-------------------|:--------:|:--------:|-------|
+| auth                | string            |   YES    |   YES    |       |
+| streamtoken         | string            |   YES    |   YES    |       |
+| api                 | string            |    NO    |   YES    |       |
+| session_expire      | integer \| string |    NO    |   YES    |       |
+| update              | string            |    NO    |   YES    |       |
+| add                 | string            |    NO    |   YES    |       |
+| clean               | string            |    NO    |   YES    |       |
+| max_song            | integer           |    NO    |   YES    |       |
+| max_album           | integer           |    NO    |   YES    |       |
+| max_artist          | integer           |    NO    |   YES    |       |
+| max_video           | integer           |    NO    |   YES    |       |
+| max_podcast         | integer           |    NO    |   YES    |       |
+| max_podcast_episode | integer           |    NO    |   YES    |       |
+| songs               | integer           |    NO    |   YES    |       |
+| albums              | integer           |    NO    |   YES    |       |
+| artists             | integer           |    NO    |   YES    |       |
+| genres              | integer           |    NO    |   YES    |       |
+| playlists           | integer           |    NO    |   YES    |       |
+| searches            | integer           |    NO    |   YES    |       |
+| playlists_searches  | integer           |    NO    |   YES    |       |
+| users               | integer           |    NO    |   YES    |       |
+| catalogs            | integer           |    NO    |   YES    |       |
+| videos              | integer           |    NO    |   YES    |       |
+| podcasts            | integer           |    NO    |   YES    |       |
+| podcast_episodes    | integer           |    NO    |   YES    |       |
+| shares              | integer           |    NO    |   YES    |       |
+| licenses            | integer           |    NO    |   YES    |       |
+| live_streams        | integer           |    NO    |   YES    |       |
+| labels              | integer           |    NO    |   YES    |       |
+| username            | string            |    NO    |   YES    |       |
+<!-- GENERATED:RESPONSE:END -->
 
 * throws
 
@@ -168,33 +186,51 @@ This can be called without being authenticated, it is useful for determining if 
 
 * return
 
-```XML
-<root>
-    <session_expire>
-    <server>
-    <version>
-    <compatible>
-    <auth>
-    <api>
-    <update>
-    <add>
-    <clean>
-    <songs>
-    <albums>
-    <artists>
-    <genres>
-    <playlists>
-    <users>
-    <catalogs>
-    <videos>
-    <podcasts>
-    <podcast_episodes>
-    <shares>
-    <licenses>
-    <live_streams>
-    <labels>
-</root>
-```
+<!-- GENERATED:RESPONSE:BEGIN -->
+> **XML structure:** serialised inside a `<root>` element. Each object is an element
+> (e.g. `<song>`) with `id` as an *attribute*; nested objects are child elements (also
+> carrying an `id` attribute), array/list fields are emitted as *repeated* elements,
+> booleans are `0`/`1`, and text values are wrapped in CDATA. Field names match the JSON
+> model below, but element nesting/repetition differs from the JSON representation.
+
+`server`, `version` and `compatible` are always returned. Sending a valid `auth` extends the session and adds the handshake fields (`session_expire`, server counts, ...).
+
+| Field               | Type              | Nullable | Optional | Notes |
+|---------------------|-------------------|:--------:|:--------:|-------|
+| server              | string            |    NO    |    NO    |       |
+| version             | string            |    NO    |    NO    |       |
+| compatible          | string            |    NO    |    NO    |       |
+| auth                | string            |   YES    |   YES    |       |
+| streamtoken         | string            |   YES    |   YES    |       |
+| api                 | string            |    NO    |   YES    |       |
+| session_expire      | integer \| string |    NO    |   YES    |       |
+| update              | string            |    NO    |   YES    |       |
+| add                 | string            |    NO    |   YES    |       |
+| clean               | string            |    NO    |   YES    |       |
+| max_song            | integer           |    NO    |   YES    |       |
+| max_album           | integer           |    NO    |   YES    |       |
+| max_artist          | integer           |    NO    |   YES    |       |
+| max_video           | integer           |    NO    |   YES    |       |
+| max_podcast         | integer           |    NO    |   YES    |       |
+| max_podcast_episode | integer           |    NO    |   YES    |       |
+| songs               | integer           |    NO    |   YES    |       |
+| albums              | integer           |    NO    |   YES    |       |
+| artists             | integer           |    NO    |   YES    |       |
+| genres              | integer           |    NO    |   YES    |       |
+| playlists           | integer           |    NO    |   YES    |       |
+| searches            | integer           |    NO    |   YES    |       |
+| playlists_searches  | integer           |    NO    |   YES    |       |
+| users               | integer           |    NO    |   YES    |       |
+| catalogs            | integer           |    NO    |   YES    |       |
+| videos              | integer           |    NO    |   YES    |       |
+| podcasts            | integer           |    NO    |   YES    |       |
+| podcast_episodes    | integer           |    NO    |   YES    |       |
+| shares              | integer           |    NO    |   YES    |       |
+| licenses            | integer           |    NO    |   YES    |       |
+| live_streams        | integer           |    NO    |   YES    |       |
+| labels              | integer           |    NO    |   YES    |       |
+| username            | string            |    NO    |   YES    |       |
+<!-- GENERATED:RESPONSE:END -->
 
 * throws
 
@@ -247,11 +283,19 @@ Check Ampache for updates and run the update if there is one.
 
 * return
 
-```XML
-<root>
-    <success>
-</root>
-```
+<!-- GENERATED:RESPONSE:BEGIN -->
+> **XML structure:** serialised inside a `<root>` element. Each object is an element
+> (e.g. `<song>`) with `id` as an *attribute*; nested objects are child elements (also
+> carrying an `id` attribute), array/list fields are emitted as *repeated* elements,
+> booleans are `0`/`1`, and text values are wrapped in CDATA. Field names match the JSON
+> model below, but element nesting/repetition differs from the JSON representation.
+
+Returns a single object.
+
+| Field   | Type   | Nullable | Optional | Notes |
+|---------|--------|:--------:|:--------:|-------|
+| success | string |    NO    |   YES    |       |
+<!-- GENERATED:RESPONSE:END -->
 
 * throws
 
@@ -274,11 +318,34 @@ Get your server preferences
 
 * return
 
-```XML
-<root>
-    <preferences>
-</root>
-```
+<!-- GENERATED:RESPONSE:BEGIN -->
+> **XML structure:** serialised inside a `<root>` element. Each object is an element
+> (e.g. `<song>`) with `id` as an *attribute*; nested objects are child elements (also
+> carrying an `id` attribute), array/list fields are emitted as *repeated* elements,
+> booleans are `0`/`1`, and text values are wrapped in CDATA. Field names match the JSON
+> model below, but element nesting/repetition differs from the JSON representation.
+
+Returns a `preference` list.
+
+| Field      | Type                                              | Nullable | Optional | Notes                                           |
+|------------|---------------------------------------------------|:--------:|:--------:|-------------------------------------------------|
+| preference | array&lt;[PreferenceObject](#user_preference)&gt; |    NO    |    NO    | see [PreferenceObject](#user_preference) fields |
+
+Each `preference` entry ([PreferenceObject](#user_preference)):
+
+| Field       | Type                                        | Nullable | Optional | Notes |
+|-------------|---------------------------------------------|:--------:|:--------:|-------|
+| id          | string                                      |    NO    |    NO    |       |
+| name        | string                                      |    NO    |    NO    |       |
+| value       | string                                      |    NO    |    NO    |       |
+| description | string                                      |    NO    |    NO    |       |
+| level       | integer                                     |    NO    |    NO    |       |
+| type        | string                                      |    NO    |    NO    |       |
+| category    | string                                      |    NO    |    NO    |       |
+| subcategory | string                                      |   YES    |    NO    |       |
+| has_access  | boolean                                     |    NO    |   YES    |       |
+| values      | array&lt;string&gt; \| array&lt;integer&gt; |    NO    |   YES    |       |
+<!-- GENERATED:RESPONSE:END -->
 
 * throws
 
@@ -1004,11 +1071,29 @@ Create a placeholder for the current media that you can return to later.
 
 * return
 
-```XML
-<root>
-    <bookmark>
-</root>
-```
+<!-- GENERATED:RESPONSE:BEGIN -->
+> **XML structure:** serialised inside a `<root>` element. Each object is an element
+> (e.g. `<song>`) with `id` as an *attribute*; nested objects are child elements (also
+> carrying an `id` attribute), array/list fields are emitted as *repeated* elements,
+> booleans are `0`/`1`, and text values are wrapped in CDATA. Field names match the JSON
+> model below, but element nesting/repetition differs from the JSON representation.
+
+Returns a single object.
+
+| Field           | Type                                                  | Nullable | Optional | Notes                                               |
+|-----------------|-------------------------------------------------------|:--------:|:--------:|-----------------------------------------------------|
+| id              | string                                                |    NO    |    NO    |                                                     |
+| owner           | string                                                |    NO    |    NO    |                                                     |
+| object_type     | string                                                |   YES    |    NO    |                                                     |
+| object_id       | string                                                |    NO    |    NO    |                                                     |
+| position        | integer                                               |    NO    |    NO    |                                                     |
+| client          | string                                                |   YES    |    NO    |                                                     |
+| creation_date   | integer                                               |    NO    |    NO    |                                                     |
+| update_date     | integer                                               |    NO    |    NO    |                                                     |
+| song            | array&lt;[SongObject](#song)&gt;                      |    NO    |   YES    | see [SongObject](#song) fields                      |
+| podcast_episode | array&lt;[PodcastEpisodeObject](#podcast_episode)&gt; |    NO    |   YES    | see [PodcastEpisodeObject](#podcast_episode) fields |
+| video           | array&lt;[VideoObject](#video)&gt;                    |    NO    |   YES    | see [VideoObject](#video) fields                    |
+<!-- GENERATED:RESPONSE:END -->
 
 * throws
 
@@ -1689,11 +1774,26 @@ This gets the followers for the requested username
 
 * return
 
-```XML
-<root>
-    <user>
-</root>
-```
+<!-- GENERATED:RESPONSE:BEGIN -->
+> **XML structure:** serialised inside a `<root>` element. Each object is an element
+> (e.g. `<song>`) with `id` as an *attribute*; nested objects are child elements (also
+> carrying an `id` attribute), array/list fields are emitted as *repeated* elements,
+> booleans are `0`/`1`, and text values are wrapped in CDATA. Field names match the JSON
+> model below, but element nesting/repetition differs from the JSON representation.
+
+Returns a `user` list.
+
+| Field | Type                             | Nullable | Optional | Notes                          |
+|-------|----------------------------------|:--------:|:--------:|--------------------------------|
+| user  | array&lt;`UserSummaryObject`&gt; |    NO    |    NO    | see `UserSummaryObject` fields |
+
+Each `user` entry (`UserSummaryObject`):
+
+| Field    | Type   | Nullable | Optional | Notes |
+|----------|--------|:--------:|:--------:|-------|
+| id       | string |    NO    |    NO    |       |
+| username | string |   YES    |    NO    |       |
+<!-- GENERATED:RESPONSE:END -->
 
 * throws
 
@@ -1713,11 +1813,26 @@ Get a list of people that this user follows
 
 * return
 
-```XML
-<root>
-    <user>
-</root>
-```
+<!-- GENERATED:RESPONSE:BEGIN -->
+> **XML structure:** serialised inside a `<root>` element. Each object is an element
+> (e.g. `<song>`) with `id` as an *attribute*; nested objects are child elements (also
+> carrying an `id` attribute), array/list fields are emitted as *repeated* elements,
+> booleans are `0`/`1`, and text values are wrapped in CDATA. Field names match the JSON
+> model below, but element nesting/repetition differs from the JSON representation.
+
+Returns a `user` list.
+
+| Field | Type                             | Nullable | Optional | Notes                          |
+|-------|----------------------------------|:--------:|:--------:|--------------------------------|
+| user  | array&lt;`UserSummaryObject`&gt; |    NO    |    NO    | see `UserSummaryObject` fields |
+
+Each `user` entry (`UserSummaryObject`):
+
+| Field    | Type   | Nullable | Optional | Notes |
+|----------|--------|:--------:|:--------:|-------|
+| id       | string |    NO    |    NO    |       |
+| username | string |   YES    |    NO    |       |
+<!-- GENERATED:RESPONSE:END -->
 
 * throws
 
@@ -2132,10 +2247,38 @@ Return External plugin metadata searching by object id and type
 
 * return
 
-```XML
-<root>
-</root>
-```
+<!-- GENERATED:RESPONSE:BEGIN -->
+> **XML structure:** serialised inside a `<root>` element. Each object is an element
+> (e.g. `<song>`) with `id` as an *attribute*; nested objects are child elements (also
+> carrying an `id` attribute), array/list fields are emitted as *repeated* elements,
+> booleans are `0`/`1`, and text values are wrapped in CDATA. Field names match the JSON
+> model below, but element nesting/repetition differs from the JSON representation.
+
+Returns the plugin payloads when at least one metadata plugin answered, and the empty list envelope for the requested type when none did.
+
+**`ExternalMetadataObject`**
+
+`plugin` is keyed by metadata-retriever plugin name; each value is that plugin's payload.
+
+`plugin` is keyed by metadata-retriever plugin name; each value is that plugin's payload.
+
+| Field       | Type         | Nullable | Optional | Notes                   |
+|-------------|--------------|:--------:|:--------:|-------------------------|
+| object_id   | string       |    NO    |    NO    |                         |
+| object_type | string       |    NO    |    NO    |                         |
+| plugin      | `_PluginMap` |    NO    |    NO    | see `_PluginMap` fields |
+
+**`EmptyListResponse`**
+
+The standard empty envelope, with an empty list keyed by the requested type.
+
+The standard empty envelope, with an empty list keyed by the requested type.
+
+| Field       | Type    | Nullable | Optional | Notes |
+|-------------|---------|:--------:|:--------:|-------|
+| total_count | integer |    NO    |    NO    |       |
+| md5         | string  |    NO    |    NO    |       |
+<!-- GENERATED:RESPONSE:END -->
 
 * throws
 
@@ -2202,10 +2345,21 @@ Return Database lyrics or search with plugins by Song id
 
 * return
 
-```XML
-<root>
-</root>
-```
+<!-- GENERATED:RESPONSE:BEGIN -->
+> **XML structure:** serialised inside a `<root>` element. Each object is an element
+> (e.g. `<song>`) with `id` as an *attribute*; nested objects are child elements (also
+> carrying an `id` attribute), array/list fields are emitted as *repeated* elements,
+> booleans are `0`/`1`, and text values are wrapped in CDATA. Field names match the JSON
+> model below, but element nesting/repetition differs from the JSON representation.
+
+`plugin` is keyed by lyric source (`database` plus any lyric-retriever plugin that answered). When nothing answered it is serialised as an empty array, not an empty object.
+
+| Field       | Type         | Nullable | Optional | Notes                   |
+|-------------|--------------|:--------:|:--------:|-------------------------|
+| object_id   | string       |    NO    |    NO    |                         |
+| object_type | string       |    NO    |    NO    |                         |
+| plugin      | `_PluginMap` |    NO    |    NO    | see `_PluginMap` fields |
+<!-- GENERATED:RESPONSE:END -->
 
 * throws
 
@@ -2228,12 +2382,73 @@ Return similar artist id's or similar song ids compared to the input filter
 
 * return
 
-```XML
-<root>
-    <total_count>
-    <song>|<artist>
-</root>
-```
+<!-- GENERATED:RESPONSE:BEGIN -->
+> **XML structure:** serialised inside a `<root>` element. Each object is an element
+> (e.g. `<song>`) with `id` as an *attribute*; nested objects are child elements (also
+> carrying an `id` attribute), array/list fields are emitted as *repeated* elements,
+> booleans are `0`/`1`, and text values are wrapped in CDATA. Field names match the JSON
+> model below, but element nesting/repetition differs from the JSON representation.
+
+Returns a `song` list.
+
+| Field       | Type                             | Nullable | Optional | Notes                          |
+|-------------|----------------------------------|:--------:|:--------:|--------------------------------|
+| total_count | integer                          |    NO    |    NO    |                                |
+| md5         | string                           |    NO    |    NO    |                                |
+| song        | array&lt;[SongObject](#song)&gt; |    NO    |    NO    | see [SongObject](#song) fields |
+
+Each `song` entry ([SongObject](#song)):
+
+| Field                 | Type                         | Nullable | Optional | Notes                          |
+|-----------------------|------------------------------|:--------:|:--------:|--------------------------------|
+| id                    | string                       |    NO    |    NO    |                                |
+| title                 | string                       |   YES    |    NO    |                                |
+| name                  | string                       |   YES    |    NO    |                                |
+| artist                | object                       |    NO    |    NO    | `{id, name, prefix, basename}` |
+| artists               | array&lt;object&gt;          |    NO    |    NO    | `{id, name, prefix, basename}` |
+| album                 | object                       |    NO    |    NO    | `{id, name, prefix, basename}` |
+| albumartist           | object                       |    NO    |   YES    | `{id, name, prefix, basename}` |
+| disk                  | integer                      |    NO    |    NO    |                                |
+| disksubtitle          | string                       |   YES    |    NO    |                                |
+| track                 | integer                      |    NO    |    NO    |                                |
+| filename              | string                       |   YES    |    NO    |                                |
+| genre                 | array&lt;object&gt;          |    NO    |    NO    | `{id, name}`                   |
+| playlisttrack         | integer                      |    NO    |    NO    |                                |
+| time                  | integer                      |    NO    |    NO    |                                |
+| year                  | integer                      |    NO    |    NO    |                                |
+| format                | string                       |   YES    |    NO    |                                |
+| stream_format         | string                       |   YES    |    NO    |                                |
+| bitrate               | integer                      |   YES    |    NO    |                                |
+| stream_bitrate        | integer                      |   YES    |    NO    |                                |
+| rate                  | integer                      |    NO    |    NO    |                                |
+| mode                  | string                       |   YES    |    NO    |                                |
+| mime                  | string                       |   YES    |    NO    |                                |
+| stream_mime           | string                       |   YES    |    NO    |                                |
+| url                   | string                       |    NO    |    NO    |                                |
+| size                  | integer                      |    NO    |    NO    |                                |
+| mbid                  | string                       |   YES    |    NO    |                                |
+| art                   | string                       |   YES    |    NO    |                                |
+| has_art               | boolean                      |    NO    |    NO    |                                |
+| flag                  | boolean                      |    NO    |    NO    |                                |
+| rating                | integer                      |   YES    |    NO    |                                |
+| averagerating         | number                       |   YES    |    NO    |                                |
+| playcount             | integer                      |    NO    |    NO    |                                |
+| catalog               | string                       |    NO    |    NO    |                                |
+| composer              | string                       |   YES    |    NO    |                                |
+| channels              | integer                      |   YES    |    NO    |                                |
+| comment               | string                       |   YES    |    NO    |                                |
+| license               | string                       |   YES    |    NO    |                                |
+| publisher             | string                       |   YES    |    NO    |                                |
+| language              | string                       |   YES    |    NO    |                                |
+| lyrics                | string                       |   YES    |    NO    |                                |
+| replaygain_album_gain | number                       |   YES    |    NO    |                                |
+| replaygain_album_peak | number                       |   YES    |    NO    |                                |
+| replaygain_track_gain | number                       |   YES    |    NO    |                                |
+| replaygain_track_peak | number                       |   YES    |    NO    |                                |
+| r128_album_gain       | number                       |   YES    |    NO    |                                |
+| r128_track_gain       | number                       |   YES    |    NO    |                                |
+| metadata              | object&lt;string, string&gt; |    NO    |   YES    |                                |
+<!-- GENERATED:RESPONSE:END -->
 
 * throws
 
@@ -2485,11 +2700,9 @@ This gets the latest posted shouts
 
 Returns a `shout` list.
 
-| Field       | Type                       | Nullable | Optional | Notes                    |
-|-------------|----------------------------|:--------:|:--------:|--------------------------|
-| total_count | integer                    |    NO    |    NO    |                          |
-| md5         | string                     |    NO    |    NO    |                          |
-| shout       | array&lt;`ShoutObject`&gt; |    NO    |    NO    | see `ShoutObject` fields |
+| Field | Type                       | Nullable | Optional | Notes                    |
+|-------|----------------------------|:--------:|:--------:|--------------------------|
+| shout | array&lt;`ShoutObject`&gt; |    NO    |    NO    | see `ShoutObject` fields |
 
 Each `shout` entry (`ShoutObject`):
 
@@ -2974,11 +3187,29 @@ Return the `now_playing` state when completed
 
 * return
 
-```XML
-<root>
-    <now_playing>
-</root>
-```
+<!-- GENERATED:RESPONSE:BEGIN -->
+> **XML structure:** serialised inside a `<root>` element. Each object is an element
+> (e.g. `<song>`) with `id` as an *attribute*; nested objects are child elements (also
+> carrying an `id` attribute), array/list fields are emitted as *repeated* elements,
+> booleans are `0`/`1`, and text values are wrapped in CDATA. Field names match the JSON
+> model below, but element nesting/repetition differs from the JSON representation.
+
+Returns a `now_playing` list.
+
+| Field       | Type                            | Nullable | Optional | Notes                         |
+|-------------|---------------------------------|:--------:|:--------:|-------------------------------|
+| now_playing | array&lt;`NowPlayingObject`&gt; |    NO    |    NO    | see `NowPlayingObject` fields |
+
+Each `now_playing` entry (`NowPlayingObject`):
+
+| Field  | Type    | Nullable | Optional | Notes            |
+|--------|---------|:--------:|:--------:|------------------|
+| id     | string  |    NO    |    NO    |                  |
+| type   | string  |    NO    |    NO    |                  |
+| client | string  |    NO    |    NO    |                  |
+| expire | integer |    NO    |    NO    |                  |
+| user   | object  |    NO    |    NO    | `{id, username}` |
+<!-- GENERATED:RESPONSE:END -->
 
 * throws
 
@@ -3359,11 +3590,19 @@ This returns the md5 hash for the songs in a playlist
 
 * return
 
-```XML
-<root>
-    <md5>
-</root>
-```
+<!-- GENERATED:RESPONSE:BEGIN -->
+> **XML structure:** serialised inside a `<root>` element. Each object is an element
+> (e.g. `<song>`) with `id` as an *attribute*; nested objects are child elements (also
+> carrying an `id` attribute), array/list fields are emitted as *repeated* elements,
+> booleans are `0`/`1`, and text values are wrapped in CDATA. Field names match the JSON
+> model below, but element nesting/repetition differs from the JSON representation.
+
+Returns a single object.
+
+| Field | Type   | Nullable | Optional | Notes |
+|-------|--------|:--------:|:--------:|-------|
+| md5   | string |   YES    |    NO    |       |
+<!-- GENERATED:RESPONSE:END -->
 
 * throws
 
@@ -4056,12 +4295,40 @@ Refer to the [Advanced Search](https://ampache.org/api/api-advanced-search) page
 
 * return
 
-```XML
-<root>
-    <total_count>
-    <song>|<album>|<artist>|<playlist>|<label>|<user>|<video>
-</root>
-```
+<!-- GENERATED:RESPONSE:BEGIN -->
+> **XML structure:** serialised inside a `<root>` element. Each object is an element
+> (e.g. `<song>`) with `id` as an *attribute*; nested objects are child elements (also
+> carrying an `id` attribute), array/list fields are emitted as *repeated* elements,
+> booleans are `0`/`1`, and text values are wrapped in CDATA. Field names match the JSON
+> model below, but element nesting/repetition differs from the JSON representation.
+
+Returns a `video` list.
+
+| Field       | Type                               | Nullable | Optional | Notes                            |
+|-------------|------------------------------------|:--------:|:--------:|----------------------------------|
+| total_count | integer                            |    NO    |    NO    |                                  |
+| md5         | string                             |    NO    |    NO    |                                  |
+| video       | array&lt;[VideoObject](#video)&gt; |    NO    |    NO    | see [VideoObject](#video) fields |
+
+Each `video` entry ([VideoObject](#video)):
+
+| Field         | Type                | Nullable | Optional | Notes        |
+|---------------|---------------------|:--------:|:--------:|--------------|
+| id            | string              |    NO    |    NO    |              |
+| title         | string              |   YES    |    NO    |              |
+| mime          | string              |   YES    |    NO    |              |
+| resolution    | string              |   YES    |    NO    |              |
+| size          | integer             |    NO    |    NO    |              |
+| genre         | array&lt;object&gt; |    NO    |    NO    | `{id, name}` |
+| time          | integer             |    NO    |    NO    |              |
+| url           | string              |    NO    |    NO    |              |
+| art           | string              |   YES    |    NO    |              |
+| has_art       | boolean             |    NO    |    NO    |              |
+| flag          | boolean             |    NO    |    NO    |              |
+| rating        | integer             |   YES    |    NO    |              |
+| averagerating | number              |   YES    |    NO    |              |
+| playcount     | integer             |    NO    |    NO    |              |
+<!-- GENERATED:RESPONSE:END -->
 
 * throws
 
@@ -4147,13 +4414,19 @@ Each type is a grouping of object types so allow single search calls to be made
 
 * return
 
-```XML
-<root>
-    <search>
-        <song>|<album>|<song_artist>|<album_artist>|<artist>|<label>|<playlist>|<podcast>|<podcast_episode>|<genre>|<user>
-    </search>
-</root>
-```
+<!-- GENERATED:RESPONSE:BEGIN -->
+> **XML structure:** serialised inside a `<root>` element. Each object is an element
+> (e.g. `<song>`) with `id` as an *attribute*; nested objects are child elements (also
+> carrying an `id` attribute), array/list fields are emitted as *repeated* elements,
+> booleans are `0`/`1`, and text values are wrapped in CDATA. Field names match the JSON
+> model below, but element nesting/repetition differs from the JSON representation.
+
+`search` is keyed by object type (`album`, `artist`, `album_artist`, `song_artist`, `song`, `playlist`, `podcast`, `podcast_episode`, `genre`, `label`, `user`, `video`); each value is that type's usual object list. Types with no matches are omitted.
+
+| Field  | Type                                      | Nullable | Optional | Notes |
+|--------|-------------------------------------------|:--------:|:--------:|-------|
+| search | object&lt;string, array&lt;object&gt;&gt; |    NO    |    NO    |       |
+<!-- GENERATED:RESPONSE:END -->
 
 * throws
 
@@ -4179,11 +4452,29 @@ Print a list of valid search rules for your search type
 
 * return
 
-```XML
-<root>
-    <rule>
-</root>
-```
+<!-- GENERATED:RESPONSE:BEGIN -->
+> **XML structure:** serialised inside a `<root>` element. Each object is an element
+> (e.g. `<song>`) with `id` as an *attribute*; nested objects are child elements (also
+> carrying an `id` attribute), array/list fields are emitted as *repeated* elements,
+> booleans are `0`/`1`, and text values are wrapped in CDATA. Field names match the JSON
+> model below, but element nesting/repetition differs from the JSON representation.
+
+Returns a `rule` list.
+
+| Field | Type                            | Nullable | Optional | Notes                         |
+|-------|---------------------------------|:--------:|:--------:|-------------------------------|
+| rule  | array&lt;`SearchRuleObject`&gt; |    NO    |    NO    | see `SearchRuleObject` fields |
+
+Each `rule` entry (`SearchRuleObject`):
+
+| Field  | Type                                                | Nullable | Optional | Notes |
+|--------|-----------------------------------------------------|:--------:|:--------:|-------|
+| name   | string                                              |    NO    |    NO    |       |
+| label  | string                                              |    NO    |    NO    |       |
+| type   | string                                              |    NO    |    NO    |       |
+| widget | array&lt;string \| object&lt;string, string&gt;&gt; |    NO    |    NO    |       |
+| title  | string                                              |    NO    |    NO    |       |
+<!-- GENERATED:RESPONSE:END -->
 
 * throws
 
@@ -4347,12 +4638,33 @@ Takes the file id with optional description and expires parameters.
 
 * return
 
-```XML
-<root>
-    <total_count>
-    <share>
-</root>
-```
+<!-- GENERATED:RESPONSE:BEGIN -->
+> **XML structure:** serialised inside a `<root>` element. Each object is an element
+> (e.g. `<song>`) with `id` as an *attribute*; nested objects are child elements (also
+> carrying an `id` attribute), array/list fields are emitted as *repeated* elements,
+> booleans are `0`/`1`, and text values are wrapped in CDATA. Field names match the JSON
+> model below, but element nesting/repetition differs from the JSON representation.
+
+Returns a single object.
+
+| Field          | Type    | Nullable | Optional | Notes |
+|----------------|---------|:--------:|:--------:|-------|
+| id             | string  |    NO    |    NO    |       |
+| name           | string  |    NO    |    NO    |       |
+| owner          | string  |    NO    |    NO    |       |
+| allow_stream   | boolean |    NO    |    NO    |       |
+| allow_download | boolean |    NO    |    NO    |       |
+| creation_date  | integer |    NO    |    NO    |       |
+| lastvisit_date | integer |    NO    |    NO    |       |
+| object_type    | string  |   YES    |    NO    |       |
+| object_id      | string  |    NO    |    NO    |       |
+| expire_days    | integer |    NO    |    NO    |       |
+| max_counter    | integer |    NO    |    NO    |       |
+| counter        | integer |    NO    |    NO    |       |
+| secret         | string  |   YES    |    NO    |       |
+| public_url     | string  |   YES    |    NO    |       |
+| description    | string  |   YES    |    NO    |       |
+<!-- GENERATED:RESPONSE:END -->
 
 * throws
 
@@ -4944,12 +5256,40 @@ Pass -1 limit to get all results. (0 will fall back to the `popular_threshold` v
 
 * return
 
-```XML
-<root>
-    <total_count>
-    <song>|<album>|<artist>
-</root>
-```
+<!-- GENERATED:RESPONSE:BEGIN -->
+> **XML structure:** serialised inside a `<root>` element. Each object is an element
+> (e.g. `<song>`) with `id` as an *attribute*; nested objects are child elements (also
+> carrying an `id` attribute), array/list fields are emitted as *repeated* elements,
+> booleans are `0`/`1`, and text values are wrapped in CDATA. Field names match the JSON
+> model below, but element nesting/repetition differs from the JSON representation.
+
+Returns a `video` list.
+
+| Field       | Type                               | Nullable | Optional | Notes                            |
+|-------------|------------------------------------|:--------:|:--------:|----------------------------------|
+| total_count | integer                            |    NO    |    NO    |                                  |
+| md5         | string                             |    NO    |    NO    |                                  |
+| video       | array&lt;[VideoObject](#video)&gt; |    NO    |    NO    | see [VideoObject](#video) fields |
+
+Each `video` entry ([VideoObject](#video)):
+
+| Field         | Type                | Nullable | Optional | Notes        |
+|---------------|---------------------|:--------:|:--------:|--------------|
+| id            | string              |    NO    |    NO    |              |
+| title         | string              |   YES    |    NO    |              |
+| mime          | string              |   YES    |    NO    |              |
+| resolution    | string              |   YES    |    NO    |              |
+| size          | integer             |    NO    |    NO    |              |
+| genre         | array&lt;object&gt; |    NO    |    NO    | `{id, name}` |
+| time          | integer             |    NO    |    NO    |              |
+| url           | string              |    NO    |    NO    |              |
+| art           | string              |   YES    |    NO    |              |
+| has_art       | boolean             |    NO    |    NO    |              |
+| flag          | boolean             |    NO    |    NO    |              |
+| rating        | integer             |   YES    |    NO    |              |
+| averagerating | number              |   YES    |    NO    |              |
+| playcount     | integer             |    NO    |    NO    |              |
+<!-- GENERATED:RESPONSE:END -->
 
 * throws
 
@@ -4975,11 +5315,28 @@ Get your server preference by name
 
 * return
 
-```XML
-<root>
-    <preference>
-</root>
-```
+<!-- GENERATED:RESPONSE:BEGIN -->
+> **XML structure:** serialised inside a `<root>` element. Each object is an element
+> (e.g. `<song>`) with `id` as an *attribute*; nested objects are child elements (also
+> carrying an `id` attribute), array/list fields are emitted as *repeated* elements,
+> booleans are `0`/`1`, and text values are wrapped in CDATA. Field names match the JSON
+> model below, but element nesting/repetition differs from the JSON representation.
+
+Returns a single object.
+
+| Field       | Type                                        | Nullable | Optional | Notes |
+|-------------|---------------------------------------------|:--------:|:--------:|-------|
+| id          | string                                      |    NO    |    NO    |       |
+| name        | string                                      |    NO    |    NO    |       |
+| value       | string                                      |    NO    |    NO    |       |
+| description | string                                      |    NO    |    NO    |       |
+| level       | integer                                     |    NO    |    NO    |       |
+| type        | string                                      |    NO    |    NO    |       |
+| category    | string                                      |    NO    |    NO    |       |
+| subcategory | string                                      |   YES    |    NO    |       |
+| has_access  | boolean                                     |    NO    |   YES    |       |
+| values      | array&lt;string&gt; \| array&lt;integer&gt; |    NO    |   YES    |       |
+<!-- GENERATED:RESPONSE:END -->
 
 * throws
 
@@ -5191,12 +5548,73 @@ This takes a url and returns the song object in question
 
 * return
 
-```XML
-<root>
-    <total_count>
-    <song>
-</root>
-```
+<!-- GENERATED:RESPONSE:BEGIN -->
+> **XML structure:** serialised inside a `<root>` element. Each object is an element
+> (e.g. `<song>`) with `id` as an *attribute*; nested objects are child elements (also
+> carrying an `id` attribute), array/list fields are emitted as *repeated* elements,
+> booleans are `0`/`1`, and text values are wrapped in CDATA. Field names match the JSON
+> model below, but element nesting/repetition differs from the JSON representation.
+
+Returns a `song` list.
+
+| Field       | Type                             | Nullable | Optional | Notes                          |
+|-------------|----------------------------------|:--------:|:--------:|--------------------------------|
+| total_count | integer                          |    NO    |    NO    |                                |
+| md5         | string                           |    NO    |    NO    |                                |
+| song        | array&lt;[SongObject](#song)&gt; |    NO    |    NO    | see [SongObject](#song) fields |
+
+Each `song` entry ([SongObject](#song)):
+
+| Field                 | Type                         | Nullable | Optional | Notes                          |
+|-----------------------|------------------------------|:--------:|:--------:|--------------------------------|
+| id                    | string                       |    NO    |    NO    |                                |
+| title                 | string                       |   YES    |    NO    |                                |
+| name                  | string                       |   YES    |    NO    |                                |
+| artist                | object                       |    NO    |    NO    | `{id, name, prefix, basename}` |
+| artists               | array&lt;object&gt;          |    NO    |    NO    | `{id, name, prefix, basename}` |
+| album                 | object                       |    NO    |    NO    | `{id, name, prefix, basename}` |
+| albumartist           | object                       |    NO    |   YES    | `{id, name, prefix, basename}` |
+| disk                  | integer                      |    NO    |    NO    |                                |
+| disksubtitle          | string                       |   YES    |    NO    |                                |
+| track                 | integer                      |    NO    |    NO    |                                |
+| filename              | string                       |   YES    |    NO    |                                |
+| genre                 | array&lt;object&gt;          |    NO    |    NO    | `{id, name}`                   |
+| playlisttrack         | integer                      |    NO    |    NO    |                                |
+| time                  | integer                      |    NO    |    NO    |                                |
+| year                  | integer                      |    NO    |    NO    |                                |
+| format                | string                       |   YES    |    NO    |                                |
+| stream_format         | string                       |   YES    |    NO    |                                |
+| bitrate               | integer                      |   YES    |    NO    |                                |
+| stream_bitrate        | integer                      |   YES    |    NO    |                                |
+| rate                  | integer                      |    NO    |    NO    |                                |
+| mode                  | string                       |   YES    |    NO    |                                |
+| mime                  | string                       |   YES    |    NO    |                                |
+| stream_mime           | string                       |   YES    |    NO    |                                |
+| url                   | string                       |    NO    |    NO    |                                |
+| size                  | integer                      |    NO    |    NO    |                                |
+| mbid                  | string                       |   YES    |    NO    |                                |
+| art                   | string                       |   YES    |    NO    |                                |
+| has_art               | boolean                      |    NO    |    NO    |                                |
+| flag                  | boolean                      |    NO    |    NO    |                                |
+| rating                | integer                      |   YES    |    NO    |                                |
+| averagerating         | number                       |   YES    |    NO    |                                |
+| playcount             | integer                      |    NO    |    NO    |                                |
+| catalog               | string                       |    NO    |    NO    |                                |
+| composer              | string                       |   YES    |    NO    |                                |
+| channels              | integer                      |   YES    |    NO    |                                |
+| comment               | string                       |   YES    |    NO    |                                |
+| license               | string                       |   YES    |    NO    |                                |
+| publisher             | string                       |   YES    |    NO    |                                |
+| language              | string                       |   YES    |    NO    |                                |
+| lyrics                | string                       |   YES    |    NO    |                                |
+| replaygain_album_gain | number                       |   YES    |    NO    |                                |
+| replaygain_album_peak | number                       |   YES    |    NO    |                                |
+| replaygain_track_gain | number                       |   YES    |    NO    |                                |
+| replaygain_track_peak | number                       |   YES    |    NO    |                                |
+| r128_album_gain       | number                       |   YES    |    NO    |                                |
+| r128_track_gain       | number                       |   YES    |    NO    |                                |
+| metadata              | object&lt;string, string&gt; |    NO    |   YES    |                                |
+<!-- GENERATED:RESPONSE:END -->
 
 * throws
 
@@ -5440,11 +5858,28 @@ Get your user preference by name
 
 * return
 
-```XML
-<root>
-    <preference>
-</root>
-```
+<!-- GENERATED:RESPONSE:BEGIN -->
+> **XML structure:** serialised inside a `<root>` element. Each object is an element
+> (e.g. `<song>`) with `id` as an *attribute*; nested objects are child elements (also
+> carrying an `id` attribute), array/list fields are emitted as *repeated* elements,
+> booleans are `0`/`1`, and text values are wrapped in CDATA. Field names match the JSON
+> model below, but element nesting/repetition differs from the JSON representation.
+
+Returns a single object.
+
+| Field       | Type                                        | Nullable | Optional | Notes |
+|-------------|---------------------------------------------|:--------:|:--------:|-------|
+| id          | string                                      |    NO    |    NO    |       |
+| name        | string                                      |    NO    |    NO    |       |
+| value       | string                                      |    NO    |    NO    |       |
+| description | string                                      |    NO    |    NO    |       |
+| level       | integer                                     |    NO    |    NO    |       |
+| type        | string                                      |    NO    |    NO    |       |
+| category    | string                                      |    NO    |    NO    |       |
+| subcategory | string                                      |   YES    |    NO    |       |
+| has_access  | boolean                                     |    NO    |   YES    |       |
+| values      | array&lt;string&gt; \| array&lt;integer&gt; |    NO    |   YES    |       |
+<!-- GENERATED:RESPONSE:END -->
 
 * throws
 
@@ -5745,15 +6180,19 @@ This is for controlling localplay
 
 * return
 
-```XML
-<root>
-    <localplay>
-        <command>
-            <next>|<prev>|<stop>|<play>|<pause>|<add>|<volume_up>|<volume_down>|<volume_mute>|<delete_all>|<skip>|<status>
-        </command>
-    </localplay>
-</root>
-```
+<!-- GENERATED:RESPONSE:BEGIN -->
+> **XML structure:** serialised inside a `<root>` element. Each object is an element
+> (e.g. `<song>`) with `id` as an *attribute*; nested objects are child elements (also
+> carrying an `id` attribute), array/list fields are emitted as *repeated* elements,
+> booleans are `0`/`1`, and text values are wrapped in CDATA. Field names match the JSON
+> model below, but element nesting/repetition differs from the JSON representation.
+
+The `status` command reports the player state instead of a boolean.
+
+| Field     | Type   | Nullable | Optional | Notes       |
+|-----------|--------|:--------:|:--------:|-------------|
+| localplay | object |    NO    |    NO    | `{command}` |
+<!-- GENERATED:RESPONSE:END -->
 
 * throws
 
@@ -5817,7 +6256,7 @@ Depends on the `method` parameter: `play` returns the stream url, `vote`/`devote
 
 Returned by `method=play`: the stream URL of the democratic playlist.
 
-Returns a single object.
+Returned by `method=play`: the stream URL of the democratic playlist.
 
 | Field | Type   | Nullable | Optional | Notes |
 |-------|--------|:--------:|:--------:|-------|
@@ -5827,7 +6266,7 @@ Returns a single object.
 
 Returned by `method=vote` and `method=devote`.
 
-Returns a single object.
+Returned by `method=vote` and `method=devote`.
 
 | Field  | Type    | Nullable | Optional | Notes |
 |--------|---------|:--------:|:--------:|-------|
