@@ -17,7 +17,7 @@
   },
   "sidebar": "api",
   "previous": {
-    "title": "Sample MPD config file",
+    "title": "Sample MPD Config for ALSA and Raspberry Pi",
     "permalink": "/docs/configuration/localplay/Sample-Config-With-ALSA-and-Raspberry-PI"
   },
   "next": {

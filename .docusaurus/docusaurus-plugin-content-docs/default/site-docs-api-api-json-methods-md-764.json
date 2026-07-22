@@ -1,7 +1,7 @@
 {
   "id": "api/api-json-methods",
   "title": "API JSON Methods",
-  "description": "Let's go through come calls and examples that you can do for each JSON method.",
+  "description": "Calls and examples for each Ampache API JSON method",
   "source": "@site/docs/api/api-json-methods.md",
   "sourceDirName": "api",
   "slug": "/api/api-json-methods",
@@ -10,7 +10,11 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
+  "frontMatter": {
+    "title": "API JSON Methods",
+    "metaTitle": "API JSON Methods",
+    "description": "Calls and examples for each Ampache API JSON method"
+  },
   "sidebar": "api",
   "previous": {
     "title": "API XML Methods",

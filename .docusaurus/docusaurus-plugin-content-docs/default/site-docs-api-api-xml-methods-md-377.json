@@ -1,7 +1,7 @@
 {
   "id": "api/api-xml-methods",
   "title": "API XML Methods",
-  "description": "Let's go through come calls and examples that you can do for each XML method.",
+  "description": "Calls and examples for each Ampache API XML method",
   "source": "@site/docs/api/api-xml-methods.md",
   "sourceDirName": "api",
   "slug": "/api/api-xml-methods",
@@ -10,7 +10,11 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
+  "frontMatter": {
+    "title": "API XML Methods",
+    "metaTitle": "API XML Methods",
+    "description": "Calls and examples for each Ampache API XML method"
+  },
   "sidebar": "api",
   "previous": {
     "title": "Ampache REST API",

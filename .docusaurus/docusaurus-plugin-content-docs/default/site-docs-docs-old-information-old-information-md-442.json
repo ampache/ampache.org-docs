@@ -1,7 +1,7 @@
 {
   "id": "docs/old-information/old-information",
-  "title": "old-information",
-  "description": "",
+  "title": "Old Information",
+  "description": "Archived documentation for older Ampache releases",
   "source": "@site/docs/docs/old-information/old-information.md",
   "sourceDirName": "docs/old-information",
   "slug": "/docs/old-information/",
@@ -10,7 +10,11 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
+  "frontMatter": {
+    "title": "Old Information",
+    "metaTitle": "Old Information",
+    "description": "Archived documentation for older Ampache releases"
+  },
   "sidebar": "api",
   "previous": {
     "title": "Ampache + Icecast & Liquidsoap",

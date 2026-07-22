@@ -140,7 +140,8 @@
             },
             {
               "id": "api/api-6/api-browse",
-              "path": "/api/api-6/api-browse"
+              "path": "/api/api-6/api-browse",
+              "sidebar": "api"
             },
             {
               "id": "api/api-6/api-errors",
@@ -154,7 +155,8 @@
             },
             {
               "id": "api/api-6/api-media-methods",
-              "path": "/api/api-6/api-media-methods"
+              "path": "/api/api-6/api-media-methods",
+              "sidebar": "api"
             },
             {
               "id": "api/api-6/api-standards",

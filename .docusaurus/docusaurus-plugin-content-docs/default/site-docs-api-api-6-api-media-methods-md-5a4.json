@@ -14,5 +14,14 @@
     "title": "Media Methods",
     "metaTitle": "Media Methods",
     "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Advanced Search",
+    "permalink": "/api/api-6/api-advanced-search"
+  },
+  "next": {
+    "title": "API Browse methods",
+    "permalink": "/api/api-6/api-browse"
   }
 }

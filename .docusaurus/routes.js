@@ -4,15 +4,15 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 export default [
   {
     path: '/',
-    component: ComponentCreator('/', 'bbb'),
+    component: ComponentCreator('/', '51d'),
     routes: [
       {
         path: '/',
-        component: ComponentCreator('/', '7fc'),
+        component: ComponentCreator('/', 'ab2'),
         routes: [
           {
             path: '/',
-            component: ComponentCreator('/', '840'),
+            component: ComponentCreator('/', '1ed'),
             routes: [
               {
                 path: '/api/',
@@ -176,8 +176,9 @@ export default [
               },
               {
                 path: '/api/api-6/api-browse',
-                component: ComponentCreator('/api/api-6/api-browse', '381'),
-                exact: true
+                component: ComponentCreator('/api/api-6/api-browse', 'f97'),
+                exact: true,
+                sidebar: "api"
               },
               {
                 path: '/api/api-6/api-errors',
@@ -193,8 +194,9 @@ export default [
               },
               {
                 path: '/api/api-6/api-media-methods',
-                component: ComponentCreator('/api/api-6/api-media-methods', '768'),
-                exact: true
+                component: ComponentCreator('/api/api-6/api-media-methods', '5d9'),
+                exact: true,
+                sidebar: "api"
               },
               {
                 path: '/api/api-6/api-standards',

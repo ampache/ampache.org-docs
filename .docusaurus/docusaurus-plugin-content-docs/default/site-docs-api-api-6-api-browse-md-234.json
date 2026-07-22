@@ -14,5 +14,14 @@
     "title": "API Browse methods",
     "metaTitle": "API Browse methods",
     "description": "API documentation"
+  },
+  "sidebar": "api",
+  "previous": {
+    "title": "Media Methods",
+    "permalink": "/api/api-6/api-media-methods"
+  },
+  "next": {
+    "title": "API5",
+    "permalink": "/api/api-5/"
   }
 }

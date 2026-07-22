@@ -1,7 +1,7 @@
 {
   "id": "docs/development/development",
-  "title": "development",
-  "description": "",
+  "title": "Development",
+  "description": "Contributing code, translations and issues to Ampache",
   "source": "@site/docs/docs/development/development.md",
   "sourceDirName": "docs/development",
   "slug": "/docs/development/",
@@ -10,5 +10,9 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {}
+  "frontMatter": {
+    "title": "Development",
+    "metaTitle": "Development",
+    "description": "Contributing code, translations and issues to Ampache"
+  }
 }
