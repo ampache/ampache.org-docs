@@ -8,7 +8,7 @@ description: "Calls and examples for each Ampache API JSON method"
 
 Let's go through come calls and examples that you can do for each JSON method.
 
-Parameters may be sent as a query string, or (for `POST`/`PUT`/`PATCH`/`DELETE`) as a form-encoded or `application/json` request body. See [API](API#news) for details.
+Parameters may be sent as a query string, or (for `POST`/`PUT`/`PATCH`/`DELETE`) as a form-encoded or `application/json` request body. See [API](/api/#news) for details.
 
 Valid responses will always return a HTTP 200 response.
 
