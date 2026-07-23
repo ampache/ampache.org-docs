@@ -14,14 +14,16 @@ There are 2 binary data methods used for basic playback function:
 
 * stream ([json](/api/api-json-methods#stream) and [xml](/api/api-xml-methods#stream))
 * download ([json](/api/api-json-methods#download) and [xml](/api/api-xml-methods#download))
+* stream [json](https://ampache.org/api/api-json-methods#stream) and [xml](https://ampache.org/api/api-xml-methods#stream)
+* download [json](https://ampache.org/api/api-json-methods#download) and [xml](https://ampache.org/api/api-xml-methods#download)
 
 And there are 3 helper functions which allow you to manage playback history and state but do not return media.
 
-* scrobble ([json](/api/api-json-methods#scrobble) and [xml](/api/api-xml-methods#scrobble))
-* record_play ([json](/api/api-json-methods#record_play) and [xml](/api/api-xml-methods#record_play))
-* player (Ampache 6.4.0+) ([json](/api/api-json-methods#player) and [xml](/api/api-xml-methods#player))
+* scrobble [json](https://ampache.org/api/api-json-methods#scrobble) and [xml](https://ampache.org/api/api-xml-methods#scrobble)
+* record_play [json](https://ampache.org/api/api-json-methods#record_play) and [xml](https://ampache.org/api/api-xml-methods#record_play)
+* player (Ampache 6.4.0+) [json](https://ampache.org/api/api-json-methods#player) and [xml](https://ampache.org/api/api-xml-methods#player)
 
-Finally, you can also call the function now_playing to get details about what your user is currently stremaing. ([json](/api/api-json-methods#now_playing) and [xml](/api/api-xml-methods#now_playing))
+Finally, you can also call the function now_playing to get details about what your user is currently stremaing. ([json](https://ampache.org/api/api-json-methods#now_playing) and [xml](https://ampache.org/api/api-xml-methods#now_playing))
 
 ## Explaining stream
 
@@ -57,7 +59,7 @@ When you `download` a song:
 
 Download is used for caching files without the server thinking you've played 40 songs in 3 minutes.
 
-Use the helper functions when playing downloads so you can inform the server when you actually play the files you download.
+Use the helper functions when playing downloads so you can informa the server when you actually play the files you download.
 
 ## The Ampache media playback process
 
@@ -77,7 +79,7 @@ The Ampache config file also allows you configure what you consider to be a skip
 
 The `skip_timer` setting is what the server uses to decide whether the new play is going to override the last play.
 
-```text
+```TXT
 ; Skip Timer Threshold
 ; This allows custom times to decide when a track is skipped
 ; Allows an integer to denote seconds, or a float to denote percentage
@@ -91,11 +93,9 @@ The `skip_timer` setting is what the server uses to decide whether the new play 
 Example, when using the default settings:
 
 * You stream TRACK1
-* TRACK1 is recorded as a 'stream'
-* You start to stream TRACK2 10 seconds after TRACK1 started
-* The 'stream' for TRACK1 will change to a 'skip'
-* TRACK2 is now recorded as a 'stream'
-* TRACK2 is recorded as your current `now_playing` track.
+* You start to stream TRACK2 within the 20 seconds after TRACK1 started
+* TRACK1 will change to a skip
+* TRACK2 will be marked as your current `now_playing` track.
 
 ## Explaining scrobble
 
@@ -129,7 +129,7 @@ Example:
 
 ## Explaining player
 
-There is a new method for Ampache 6.4.0+ called player. ([json](/api/api-json-methods#player) and [xml](/api/api-xml-methods#player))
+There is a new method for Ampache 6.4.0+ called player. [json](https://ampache.org/api/api-json-methods#player) and [xml](https://ampache.org/api/api-xml-methods#player)
 
 Player is all about giving the server an active status of what the client is doing.
 

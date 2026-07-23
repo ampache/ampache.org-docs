@@ -96,10 +96,10 @@ Ampache 5.0.0 renamed all tag objects into genre and removed the old genre eleme
 
 ```XML
 <genre id="20">
-    <name><![CDATA[Metal]]><name>
+    <name><![CDATA[Metal]]></name>
 </genre>
 <genre id="37">
-    <name><![CDATA[Hard Rock]]><name>
+    <name><![CDATA[Hard Rock]]></name>
 </genre>
 ```
 

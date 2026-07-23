@@ -113,9 +113,9 @@ The following pages will list the available conditions and sort options for each
   * videos
 
 * Methods that return multiple object types return type browses
-  * 'catalog', 'artist', 'album', 'song', 'podcast', 'podcast_episode'
+  * `browse` accepts these input `type` values: 'root', 'catalog', 'album_artist', 'artist', 'album', 'album_disk' (API8+), 'podcast'
     * browse
-  * 'album_artist', 'album', 'artist', 'catalog', 'live_stream', 'playlist', 'podcast_episode', 'podcast', 'share', 'song_artist', 'song', 'video'
+  * 'album_artist', 'album', 'artist', 'catalog', 'live_stream', 'playlist', 'podcast_episode', 'podcast', 'share', 'song_artist', 'song', 'video' (plus 'album_disk' on API8+)
     * get_indexes
     * index
     * list
@@ -176,7 +176,7 @@ When you add a conditional parameter you are overwriting any default filter appl
 |    playlist_open    |                                  playlist                                   |
 |    playlist_type    |                                  playlist                                   |
 |    playlist_user    |                                  playlist                                   |
-| hide_dupe_smartlist |                            Invalid array length                             |
+| hide_dupe_smartlist |                               playlist_search                               |
 |      smartlist      |                               playlist_search                               |
 |       podcast       |                               podcast_episode                               |
 |       object        |                                    share                                    |
