@@ -12,8 +12,6 @@ This page will document a few things about how playback works and what a client 
 
 There are 2 binary data methods used for basic playback function:
 
-* stream ([json](/api/api-json-methods#stream) and [xml](/api/api-xml-methods#stream))
-* download ([json](/api/api-json-methods#download) and [xml](/api/api-xml-methods#download))
 * stream [json](https://ampache.org/api/api-json-methods#stream) and [xml](https://ampache.org/api/api-xml-methods#stream)
 * download [json](https://ampache.org/api/api-json-methods#download) and [xml](https://ampache.org/api/api-xml-methods#download)
 
