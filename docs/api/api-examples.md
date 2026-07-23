@@ -10,7 +10,7 @@ Ampache's API has documented API responses for XML and JSON servers available fr
 
 Responses have been created using the ```build_docs.py``` python script and are not edited for formatting.
 
-Each API version has it's own examples. API8 (the current version) is documented in this repository: response schemas in [openapi.json](openapi.json) and per-method response field tables in [API-JSON-methods](api-json-methods) and [api-xml-methods](API-XML-methods). The python3-ampache example sets below currently cover API6 and earlier.
+Each API version has it's own examples. API8 (the current version) is documented in this repository: response schemas in [openapi.json](/openapi.json) and per-method response field tables in [API-JSON-methods](/api/api-json-methods) and [api-xml-methods](/api/api-xml-methods). The python3-ampache example sets below currently cover API6 and earlier.
 
 * API6 examples
   * [API6 JSON Examples](https://github.com/ampache/python3-ampache/tree/api6/docs/json-responses)

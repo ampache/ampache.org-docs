@@ -14,4 +14,4 @@ Ampache is developed in the open on [GitHub](https://github.com/ampache/ampache)
 * [Issue Template](/docs/development/issue-template) — the detail to include so a bug can be reproduced
 * [Enhancement Requests](/docs/development/enhancement-requests) — how to propose a new feature
 
-If you are not writing code, the [Help](/docs/help/help) pages list the places where you can reach the community.
+If you are not writing code, the [Help](/docs/help) pages list the places where you can reach the community.
