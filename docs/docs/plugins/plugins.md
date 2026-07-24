@@ -6,227 +6,257 @@ description: "Ampache Plugins"
 
 ## Ampache Plugins
 
-Ampache contains a number of plugins that are included with each install.
+Ampache ships with a number of plugins that add optional features: homepage sections, external metadata and lyrics lookups, scrobbling, avatars, share buttons, analytics and more.
 
-(**TODO**) these need to be documented for regular users
+Plugins are split into categories based on the action they perform.
+The category also decides where in the interface the plugin appears.
 
-Plugins are split into different categories based on the actions they perform.
+* home — sections on the main page
+* metadata — art and tag lookups
+* lyrics — external lyrics lookups
+* stats — analytics/tracking
+* scrobbling — react to playback, rating and flagging
+* save_rating — react to rating changes
+* avatar — user avatars from an external source
+* share — share buttons for external sites
+* shortener — URL shorteners for shared links
+* slideshow — external photos for slideshows
+* stream_control — per-user streaming limits
+* wanted — act on the wanted list
+* geolocation — show a user's location
+* preview — stream a short song preview
+* user — content on the user page
 
-* home
-* metadata
-* lyrics
-* stats
-* scrobbling
-* avatar
-* share
-* shortener
-* slideshow
-* stream_control
-* wanted
-* geolocation
-* preview
+## Managing plugins and modules
 
-## User Plugins
+Most plugins are installed and configured from **Admin → Modules → Plugins** in the web interface.
+Installing a plugin makes its preferences appear; each user then enables and configures it from their own preferences.
 
-Add something to the individual user page using the 'display_user_field' method.
+**TODO (image):** screenshot of the **Admin → Modules → Plugins** page showing the list of plugins with their Activate / Deactivate and Upgrade actions.
 
-### Flattr
+The same modules can be managed headlessly from the [command line](/docs/help/troubleshooting/cli-commands#modules-plugins-catalog-types-and-localplay):
 
-Description: Flattr donation button on user page
+```shell
+php bin/cli admin:listModules
+php bin/cli admin:installPlugin lastfm
+php bin/cli admin:uninstallPlugin lastfm
+php bin/cli admin:upgradePlugin lastfm
+```
 
-Version: 000001
+Ampache has two other kinds of module that are managed the same way — **catalog types** (the backends a catalog can use, such as `subsonic` or `beets`) and **localplay** controllers (external players such as `mpd`):
 
-![image](/img/1305249/102038606-6f726200-3e13-11eb-8987-17487a9b467e.png)
+```shell
+php bin/cli admin:installCatalogType subsonic
+php bin/cli admin:installLocalplay mpd
+```
 
-### Paypal
+The version numbers below are the bundled versions in this release; `admin:listModules` shows which are installed and whether an upgrade is available.
 
-Description: PayPal donation button on user page
-
-Version: 000001
-
-![image](/img/1305249/102038654-8c0e9a00-3e13-11eb-8d41-aaf468664e43.png)
+Once installed, most plugins add options you configure in your preferences — see [Plugin Options](/docs/plugins/plugins-options) for what each one means.
 
 ## Homepage Plugins
 
-Show something on the main page/index using the 'display_home' method.
+Show something on the main page/index using the `display_home` method.
 
 ### Catalog Favorites
 
-Description: Catalog favorites on homepage. (This will show the **songs** you heart with album art)
+Description: Catalog favorites on homepage (shows the **songs** you heart with album art).
 
-Version: 000002
+Version: 000004
 
 ![image](/img/1305249/102038697-a8123b80-3e13-11eb-9dfa-3f45ddacc180.png)
 
 ### Friends Timeline
 
-Description: Friend's Timeline on homepage
+Description: Friend's Timeline on homepage.
 
-Version: 000001
+Version: 000002
 
 ![image](/img/1305249/102038744-c5dfa080-3e13-11eb-8d8e-08ddd37fbf67.png)
 
-### Personal Favorites
+### Home Dashboard
 
-Description: Personal favorites on homepage
+Description: Show album dashboard sections (such as recent and trending) on the homepage.
 
 Version: 000002
+
+**TODO (image):** screenshot of the homepage with the Home Dashboard plugin enabled, showing its album dashboard sections.
+
+### Personal Favorites
+
+Description: Personal favorites on homepage.
+
+Version: 000003
 
 ![image](/img/1305249/102038777-dd1e8e00-3e13-11eb-96a1-8092a01dd63f.png)
 
 ### RSSView
 
-Description: RSS View will fetch recent items from any RSS feed and display them on the homepage.
+Description: Fetch recent items from any RSS feed and display them on the homepage.
 
-Version: 000001
+Version: 000002
 
 ![image](/img/1305249/102038931-3e466180-3e14-11eb-8fcf-38cb21c59d46.png)
 
 ### Shout Home
 
-Description: Shoutbox on homepage
+Description: Shoutbox on homepage.
 
-Version: 000001
+Version: 000002
 
 ![image](/img/1305249/102039028-764da480-3e14-11eb-97b5-542409f2a288.png)
 
 ## Metadata Plugins
 
-Plugins that can query for things like art or tag information missing from the file
+Query for things like art or tag information missing from the file.
 
 ### Amazon
 
-Description: Amazon art search
+Description: Amazon art search.
 
 Version: 000001
 
 ### Discogs
 
-Description: Discogs metadata integration
+Description: Discogs metadata integration.
 
 Version: 000001
 
 ### MusicBrainz
 
-Description: MusicBrainz metadata integration
-
-Version: 000001
-
-### Omdb
-
-Description: OMDb metadata integration
-
-Version: 000001
-
-### TheAudioDb
-
-Description: TheAudioDb metadata integration
-
-Version: 000002
-
-### Tmdb
-
-Description: TMDb metadata integration
+Description: MusicBrainz metadata integration.
 
 Version: 000003
 
-### Tvdb
+### TheAudioDb
 
-Description: TVDb metadata integration
+Description: TheAudioDb metadata integration.
 
 Version: 000003
 
 ## Lyric Plugins
 
-Search for external lyrics using the 'get_lyrics' method
+Search for external lyrics using the `get_lyrics` method.
 
 ### ChartLyrics
 
-Description: Get lyrics from ChartLyrics
+Description: Get lyrics from ChartLyrics.
 
 Version: 000001
 
+### LrcLib
+
+Description: Get lyrics from an LrcLib compatible server.
+
+Version: 000001
+
+### Lyrist Lyrics
+
+Description: Get lyrics from a public Lyrist instance.
+
+Version: 000002
+
 ## Statistic Plugins
 
-Analytics plugins can insert their tracking information using the 'display_on_footer' method
+Analytics plugins insert their tracking information using the `display_on_footer` method.
 
 ### GoogleAnalytics
 
-Description: Google Analytics statistics
+Description: Google Analytics statistics.
 
 Version: 000001
 
 ### Matomo
 
-Description: Matomo statistics
+Description: Matomo statistics.
 
 Version: 000001
 
 ### Piwik
 
-Description: Piwik statistics
+Description: Piwik statistics.
 
 Version: 000001
 
 ## Scrobble Plugins
 
-Perform an action based on the playback, rating or flagging or a media item.
+Perform an action based on the playback of a media item.
 
 ### Last.FM
 
-Description: Scrobble songs you play to your Last.FM account
+Description: Scrobble songs you play to your Last.FM account.
 
 Version: 000005
 
 ### Libre.FM
 
-Description: Scrobble songs you play to your Libre.FM Account
+Description: Scrobble songs you play to your Libre.FM account.
 
 Version: 000003
 
 ### ListenBrainz
 
-Description: Scrobble songs you play to your ListenBrainz Account
+Description: Scrobble songs you play to your ListenBrainz account.
 
-Version: 000001
+Version: 000002
+
+## Rating Plugins
+
+React when you rate a media item.
 
 ### RatingMatch
 
-Description: Raise the album and artist rating to match the highest song rating
+Description: Raise the album and artist rating to match the highest song rating.
 
-Version: 000003
+Version: 000004
 
 ## Avatar Plugins
 
-Fetch a user avater from an external source using 'get_avatar_url'
+Fetch a user avatar from an external source using `get_avatar_url`.
 
 ### Gravatar
 
-User's avatars from Gravatar
+Description: User's avatars from Gravatar.
 
 Version: 000001
 
 ### Libravatar
 
-Description: Users avatar's with Libravatar
+Description: Users' avatars with Libravatar.
 
 Version: 000001
 
 ## Share Plugins
 
-Open an external site for sharing a file using 'external_share'
+Open an external site for sharing a file using `external_share`.
+
+### Bluesky
+
+Description: Bluesky share.
+
+Version: 000001
+
+**TODO (image):** screenshot of a share dialog showing the Bluesky share button.
 
 ### Facebook
 
-Description: Facebook share
+Description: Facebook share.
 
 Version: 000001
 
 ![image](/img/1305249/102039459-903bb700-3e15-11eb-82b1-db047f0957ae.png)
 
+### Mastodon
+
+Description: Mastodon share.
+
+Version: 000001
+
+**TODO (image):** screenshot of a share dialog showing the Mastodon share button.
+
 ### Twitter
 
-Description: Twitter share
+Description: Twitter share.
 
 Version: 000001
 
@@ -234,78 +264,90 @@ Version: 000001
 
 ## Shortener Plugins
 
-Share a link to an external URL shortening site
+Shorten a shared link with an external URL shortening site.
 
 ### Bit.ly
 
-Description: URL shorteners on shared links with Bit.ly
+Description: URL shorteners on shared links with Bit.ly.
 
-Version: 000002
+Version: 000003
 
 ### YOURLS
 
-Description: URL shorteners on shared links with YOURLS
+Description: URL shorteners on shared links with YOURLS.
 
 Version: 000002
 
 ## Slideshow Plugins
 
-Get external photos to use in a slideshow
+Get external photos to use in a slideshow.
 
 ### Flickr
 
-Description: Artist photos from Flickr
+Description: Artist photos from Flickr.
 
 Version: 000001
 
 ## Stream Control Plugins
 
-Manage limits for user streaming based on time, hits and bandwidth
+Manage limits for user streaming based on time, hits and bandwidth.
 
 ### Stream Bandwidth
 
-Description: Control bandwidth per user
+Description: Control bandwidth per user.
 
 Version: 000001
 
 ### Stream Hits
 
-Description: Control hits per user
+Description: Control hits per user.
 
 Version: 000001
 
 ### Stream Time
 
-Description: Control time per user
+Description: Control time per user.
 
 Version: 000001
 
 ## Wanted Plugins
 
-Plugins that make use of the wanted list using the 'process_wanted' method
+Act on the wanted list using the `process_wanted` method.
 
 ### Headphones
 
-Description: Automatically download accepted Wanted List albums with Headphones
+Description: Automatically download accepted Wanted List albums with Headphones.
 
 Version: 000001
 
 ## Geolocation Plugins
 
-Plugins which can get and show the user location
+Get and show a user's location.
 
 ### GoogleMaps
 
-Show user's location with Google Maps
+Description: Show a user's location with Google Maps.
 
 Version: 000001
 
 ## Song Preview Plugins
 
-Allow the user to get/stream a song preview
+Allow the user to stream a short song preview.
 
 ### 7digital
 
-Description: Song preview from 7digital
+Description: Song preview from 7digital.
 
 Version: 000001
+
+## User Plugins
+
+Add something to the individual user page using the `display_user_field` method.
+
+### Paypal
+
+Description: PayPal donation button on user page.
+
+Version: 000001
+
+![image](/img/1305249/102038654-8c0e9a00-3e13-11eb-8d41-aaf468664e43.png)

@@ -113,6 +113,7 @@ const sidebars = {
           label: 'Plugins',
           link: {type: 'doc', id: 'docs/plugins/plugins'},
           items: [
+            'docs/plugins/plugins-options',
             'docs/plugins/writing-plugins',
           ],
         },
