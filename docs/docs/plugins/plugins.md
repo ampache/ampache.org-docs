@@ -34,7 +34,7 @@ Installing a plugin makes its preferences appear; each user then enables and con
 
 **TODO (image):** screenshot of the **Admin → Modules → Plugins** page showing the list of plugins with their Activate / Deactivate and Upgrade actions.
 
-The same modules can be managed headlessly from the [command line](/docs/help/troubleshooting/cli-commands#modules-plugins-catalog-types-and-localplay):
+The same modules can be managed headlessly from the [command line](/docs/help/troubleshooting/cli#admin):
 
 ```shell
 php bin/cli admin:listModules
