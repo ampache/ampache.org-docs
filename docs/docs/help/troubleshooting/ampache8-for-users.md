@@ -87,6 +87,22 @@ You can hide the link with the new `Show 'Folders' link in the main sidebar` pre
 
 **NOTE** the link only appears after your admin has run the new Scan Folders catalog action.
 
+## A mini player for small screens and simple accounts
+
+There's a new stripped-down `/m/` page showing just the web player and your `home` category plugins.
+
+If your admin locks your account into it you'll only ever see that page (your normal access level still decides what data you can reach - it isn't an access restriction on its own). Otherwise, look for the new **Mini player** button on the login form, next to `Register` and `Lost Password`, to jump there yourself after logging in.
+
+Logging in always sends you back to whatever page you originally asked for, so old bookmarked links keep working either way.
+
+## Your playlist art can be a mosaic now
+
+Automatically generated playlist covers can now be a grid of up to nine covers from the playlist, instead of a single random cover. Playlists with fewer than four distinct covers still get the old single-cover behaviour. Your admin can turn this off if they'd rather keep the single-cover look.
+
+## Per-player transcoding preferences
+
+Your default transcode output format and bitrate live in your Options under **Streaming -> Transcoding**, and now you can override them per player: separate output-format preferences for the Web Player and the API, plus separate bitrate overrides for each (`0` keeps the site default). There are also new `Maximum transcode bitrate`/`Minimum transcode bitrate` preferences if you want to cap or floor your own dynamic downsampling.
+
 ## Ampache on your phone
 
 The desktop theme now has a proper mobile layout on screens up to 768px wide.
@@ -138,6 +154,14 @@ You can still disable OpenSubsonic but the old implementation is now 1.16.1 comp
 
 Subsonic clients that request a transcode bitrate now get the bitrate they asked for.
 
+## A dedicated Subsonic Password
+
+You no longer need to hand your API key to a Subsonic client as its "password". Set a separate **Subsonic Password** from your account page and use that instead - it's stored encrypted rather than hashed so token-based Subsonic auth keeps working, and your API key still works too if you'd rather keep using that.
+
+## Statistics graphs are sharper and load without an extra install
+
+The charts on catalog/statistics pages are now SVG instead of PNG, so they scale to the page and stay sharp on a high-dpi screen. They also no longer depend on your admin having installed an optional non-free library.
+
 ## Upload page folder tree fixed
 
 The destination folder tree on the upload page shows its folder, checkbox and chevron icons again.
@@ -156,6 +180,9 @@ Added:
 
 * `Allow Ampache API8 responses` - enable or disable the new API8 per user
 * `Show 'Folders' link in the main sidebar` - show or hide the Folders browse link
+* `Transcode output format - Audio Default` / `- Video Default` / `- Web Player (overrides default)` / `- API (overrides default)` - per-player transcode format overrides
+* `Maximum transcode bitrate` / `Minimum transcode bitrate` - caps for your own dynamic downsampling
+* `Transcode bitrate - Web Player (overrides default)` / `- API (overrides default)` - per-player bitrate overrides
 
 Removed:
 

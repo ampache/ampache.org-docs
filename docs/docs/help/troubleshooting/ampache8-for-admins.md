@@ -119,19 +119,87 @@ encode_args_mp3 = "-vn -b:a %BITRATE% -c:a libmp3lame -f mp3 pipe:1"
 
 **NOTE** This can not be updated automatically in your config file. If you keep the `k` your transcoder will be asked for bitrates like `128000k`, so check every `encode_args_` parameter when upgrading. (`encode_args_ts` still uses `%MAXBITRATE%k`)
 
+New output profiles are available if you want to add them to your own `encode_args_*` config: `mp3_rg`, `mp3_car`, `opus_rg` and `opus_car` (ReplayGain-aware variants, never written to the transcode cache), plus a fragmented-MP4 `m4a` profile.
+
+## Transcoding preferences moved per-user
+
+`encode_target`, `encode_video_target` and the per-player `encode_player_webplayer_target`/`encode_player_api_target` settings used to live only in `ampache.cfg.php`. In Ampache8 they are per-user preferences under **Streaming -> Transcoding** instead; your existing config values just seed the default the first time a user's preferences are created on upgrade, so nothing changes for users until they open that page.
+
+Two more per-user preferences add dynamic downsampling: `max_bit_rate`/`min_bit_rate` let a user cap and floor their own transcode bitrate, and `transcode_bitrate_webplayer`/`transcode_bitrate_api` override the bitrate per-player (`0` uses the site default `transcode_bitrate`).
+
+An explicit `format=` request parameter still always takes priority over the target preferences.
+
+## Playlist art mosaic
+
+Automatically generated playlist cover art can now be a mosaic of up to nine covers from the playlist instead of a single random cover. Playlists with fewer than four distinct covers keep the old single-cover behaviour.
+
+```conf
+; DEFAULT: "true"
+playlist_art_mosaic = "true"
+```
+
+Set `playlist_art_mosaic_fallback` to `true` if you'd rather a playlist with no art of its own got a generated mosaic than the blank placeholder; the image is only built once and then stored as that playlist's own art.
+
+```conf
+; DEFAULT: "false"
+;playlist_art_mosaic_fallback = "true"
+```
+
+## Statistical Graphs no longer need `ext-gd`
+
+Graphs are now drawn by [goat1000/svggraph](https://github.com/goat1000/SVGGraph) (LGPL-3.0) instead of `szymach/c-pchart`. Since it's a normal dependency rather than a dev-only one, a release download works out of the box with nothing extra to install — see the updated [Charts and Graphs](/docs/help/troubleshooting/chart-faq) page.
+
+Graphs render as SVG instead of PNG, so they scale to the page and stay sharp on a high-dpi screen, and `statistical_graphs` now defaults to `"true"`. Set it to `"false"` to skip the graph queries entirely on a very large catalog.
+
 ## Database changes for Ampache8
 
 Ampache8 brings the first new database updates since the version split.
 
 * New tables `folder` and `folder_map` holding a virtual folder tree for each catalog
+* New tables `object_count_summary` and `object_count_archive` for [play history consolidation](#play-history-consolidation)
 * `folder` added to the `object_type` enum on `cache_object_count`, `cache_object_count_run`, `image`, `object_count`, `rating`, `tag_map`, `user_activity` and `user_flag`
+* New `user`.`subsonic_secret` column holding the per-user [Subsonic Password](#a-dedicated-subsonic-password)
 * New preference `api_enable_8` (Allow Ampache API8 responses)
 * New preference `show_folder` (Show 'Folders' link in the main sidebar)
+* New preference `mini_player` (Lock this user into the mini player interface)
+* New per-user transcoding preferences: `encode_target`, `encode_video_target`, `encode_player_webplayer_target`, `encode_player_api_target`, `max_bit_rate`, `min_bit_rate`, `transcode_bitrate_webplayer` and `transcode_bitrate_api` — see [Transcoding preferences moved per-user](#transcoding-preferences-moved-per-user)
 * Removed preferences `webplayer_flash`, `webplayer_aurora` and `play2`
 * Any user with `subsonic_legacy` enabled has it disabled (OpenSubsonic becomes the default)
 * Any `direct_play_limit` set to 0 (unlimited) is reset to a cap of 500 tracks
+* Existing `transcode_bitrate` values are migrated to bits per second (see [Transcoding bitrates are sent in full bps](#transcoding-bitrates-are-sent-in-full-bps-remove-the-k-from-your-config) above)
+* Dropped four redundant `object_count` indexes that duplicated or prefixed `object_count_UNIQUE_IDX`/`object_count_date_IDX`
+* Uploaded art with a corrected mime type (`.jpg` no longer stored as the invalid `image/jpg`)
 
 **NOTE** The `object_type` enum updates also delete orphaned rows that reference an invalid object type. This is bad data cleanup but it is destructive, so back up your database before updating.
+
+## Play history consolidation
+
+Large, long-running servers can end up with millions of rows in `object_count`. Ampache8 can now roll old detail rows up into summary counts.
+
+Set `stats_consolidate_threshold` in your config to the number of days of detailed play history you want to keep (the default `0` disables consolidation entirely):
+
+```conf
+; Keep 2 years of detailed history, consolidate anything older
+stats_consolidate_threshold = 730
+```
+
+Run the new CLI command to consolidate anything past the threshold. Like most cleanup commands it defaults to a dry-run; pass `-e` to actually write:
+
+```shell
+php bin/cli cleanup:consolidateStats -e
+```
+
+Consolidation is lossless: nothing is discarded. Detail rows past the threshold move into `object_count_archive` and get rolled up into `object_count_summary`; play counts, `played` flags and streamed data size stay exact. Only period-based statistics (trending, recent, graphs, Last.fm export), smart playlist play-history rules, and play-count sorting only see the retained window — and the "Recently Played" smart playlist rule only reaches back as far as the retained window, since it needs individual timestamps.
+
+If you need the detail back (to re-run a report over the full history, or you consolidated too aggressively), restore it with:
+
+```shell
+php bin/cli cleanup:restoreStats -e
+```
+
+This puts the archived detail rows back and regenerates the `album`, `album_disk`, `artist` and `podcast` counts from them.
+
+An example systemd unit and timer for running consolidation on a schedule is in `docs/examples`.
 
 ## OpenID Connect (OIDC) login
 
@@ -206,6 +274,21 @@ The sidebar **Folders** link only appears once the folder table has data and the
 
 WebDAV browsing has been rewritten on top of the folder tree, so WebDAV clients now see your real folder hierarchy.
 
+## Mini player
+
+There's a new stripped-down `/m/` page showing only the `home` category plugins and the web player, aimed at small screens and simple accounts.
+
+The `mini_player` preference (admin-only, per user) locks a user into that page — it hides the rest of the interface but is **not** an access control, since the user's normal access level still decides what data they can reach. Logging in returns the user to whatever page they originally asked for, including old `index.php#page.php?...` links.
+
+A new `Mini player` button appears on the login form, next to `Register` and `Lost Password`, so anyone can jump straight to `/m/` after logging in without an admin needing to set the preference. Hide that button site-wide with the new `show_mini_player` config option:
+
+```conf
+; DEFAULT: "true"
+show_mini_player = "false"
+```
+
+`/m/` itself stays reachable by url either way.
+
 ## The play2 stream action has been removed
 
 The alternative `play2` playback action has been merged into the normal `play` action.
@@ -247,6 +330,18 @@ Users can still disable OpenSubsonic but the old implementation is now 1.16.1 co
 
 Subsonic transcoding now converts the client `maxBitRate` correctly, so clients asking for e.g. 128kbps actually get 128kbps.
 
+## A dedicated Subsonic Password
+
+Subsonic token auth (`t`/`s` params) has always needed the server to recompute `md5(password + salt)`, which Ampache can't do against a normal hashed account password — until now that meant handing your API key to a Subsonic client as its "password".
+
+Ampache8 adds a separate, per-user **Subsonic Password**, settable from the user's own account page, the admin user-edit page, or the CLI:
+
+```shell
+php bin/cli admin:updateUser some-user --subsonic "a-different-password"
+```
+
+It's stored encrypted with `secret_key` (not hashed, since the server has to recover the plaintext to compute the token), so **changing `secret_key` invalidates every stored Subsonic Password**. The API key keeps working as the Subsonic password too, for both token and plaintext auth, so existing clients don't need reconfiguring.
+
 ## Faster catalog scans
 
 Catalog verify, clean and add have been reworked to cache file lists, query less and skip non-media files early.
@@ -259,11 +354,21 @@ The admin debug page now masks LDAP, MusicBrainz, proxy, Spotify, Last.fm and OI
 
 It also shows the PHP version and the last auto-update check time.
 
-## Removed config options
+## Config changes
 
-The config version has been bumped to 89.
+The config version has been bumped from 89 to 94 over the course of Ampache8 development, adding:
 
-* `api_debug_handler` has been removed entirely
+* `stats_consolidate_threshold` — see [Play history consolidation](#play-history-consolidation)
+* `playlist_art_mosaic` and `playlist_art_mosaic_fallback` — see [Playlist art mosaic](#playlist-art-mosaic)
+* `show_mini_player` — see [Mini player](#mini-player)
+* `allow_lost_password` — set to `false` to hide the `Lost Password` link on the login page and reject `lostpassword.php` outright, so nobody can trigger reset mail to your users by posting to it directly. Only relevant on a server with mail enabled; without mail the feature is already off
+
+```conf
+; DEFAULT: "true"
+;allow_lost_password = "false"
+```
+
+`api_debug_handler` has been removed entirely.
 
 ## New Options
 

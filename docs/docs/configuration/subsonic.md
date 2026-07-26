@@ -22,6 +22,8 @@ Your Ampache server can be accessed through the Subsonic API.
 
 **Note** token auth in Ampache requires a user apikey. This is due to the differences in how Subsonic and Ampache store passwords.
 
+**Ampache8:** you no longer have to hand out your API key as a Subsonic password. Set a dedicated **Subsonic Password** from the account page, the admin user-edit page, or `bin/cli admin:updateUser <username> --subsonic <password>`; it's stored encrypted (not hashed, since the server needs the plaintext back to compute the token) rather than reusing the API key. The API key still works as the Subsonic password too, for both token and plaintext auth, so existing clients don't need reconfiguring.
+
 Remember to URL encode the request parameters. All methods (except those that return binary data) returns XML documents conforming to the subsonic-rest-api.xsd schema. The XML documents are encoded with UTF-8.
 Authentication
 

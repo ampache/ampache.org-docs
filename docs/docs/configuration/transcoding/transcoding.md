@@ -53,6 +53,10 @@ You will need to enable and configure transcoding in the config file before it w
 ;encode_target_flac = ogg
 ```
 
+**Ampache8:** `encode_target`, `encode_video_target`, `encode_player_webplayer_target` and `encode_player_api_target` are now per-user preferences under **Streaming -> Transcoding** in the web interface, rather than config-only settings. The config values above only seed the default the first time a user's preferences are created (e.g. on upgrade or new account) - after that, change them per user from their Options page, or with `bin/cli admin:updateUser`. An explicit `format=` request parameter still always takes priority.
+
+Ampache8 also adds per-user dynamic downsampling and per-player bitrate overrides, both preferences rather than config options: `max_bit_rate`/`min_bit_rate` cap and floor a user's own transcode bitrate, and `transcode_bitrate_webplayer`/`transcode_bitrate_api` override the site-wide `transcode_bitrate` per player (`0` uses the default).
+
 ```INI
 ; Command configuration. Substitutions will be made as follows:
 ; %FILE% => filename
