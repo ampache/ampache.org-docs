@@ -93,9 +93,68 @@ To go back, check out your Ampache7 branch and run the update command; the datab
 
 The first major change is that Ampache8 supports PHP8.5+ **ONLY**!
 
-Builds will no longer support other versions. Stay on Ampache7 until you can move your server.
+Builds will no longer support other versions.
 
-You can stay on the `patch7` or `release7` branch by checking out the git branch.
+Your distribution probably doesn't ship PHP8.5 yet, and you don't have to wait for it.
+
+Both of the third party repositories below are maintained by the people who package PHP for the distributions themselves.
+
+### PHP8.5 on Debian and Ubuntu (Sury)
+
+On Debian, add the Sury repository.
+
+```shell
+sudo apt-get update
+sudo apt-get -y install lsb-release ca-certificates curl
+sudo curl -sSLo /tmp/debsuryorg-archive-keyring.deb https://packages.sury.org/debsuryorg-archive-keyring.deb
+sudo dpkg -i /tmp/debsuryorg-archive-keyring.deb
+sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/debsuryorg-archive-keyring.gpg] https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
+sudo apt-get update
+```
+
+On Ubuntu, use the same maintainer's PPA instead.
+
+```shell
+sudo add-apt-repository ppa:ondrej/php
+sudo apt update
+```
+
+Then install the versioned packages Ampache needs.
+
+```shell
+sudo apt install php8.5 php8.5-curl php8.5-gd php8.5-intl php8.5-mysql php8.5-xml php8.5-zip
+```
+
+Every version is co-installable, so PHP8.5 goes on beside the one your system already uses.
+
+### PHP8.5 on RHEL, Rocky, Alma and Fedora (Remi)
+
+Install the release package for your version, replacing `9` with `10` on Enterprise Linux 10.
+
+```shell
+sudo dnf install https://rpms.remirepo.net/enterprise/remi-release-9.rpm
+```
+
+On Fedora use the matching Fedora release package instead.
+
+```shell
+sudo dnf install https://rpms.remirepo.net/fedora/remi-release-43.rpm
+```
+
+Then switch the module stream to PHP8.5 and install.
+
+```shell
+dnf module list php
+sudo dnf module reset php
+sudo dnf module install php:remi-8.5
+sudo dnf install php-curl php-gd php-intl php-mysqlnd php-xml php-zip
+```
+
+Run `dnf module list php` first to confirm the stream name on your release.
+
+### Staying on Ampache7 instead
+
+If you can't move your server yet, stay on the `patch7` or `release7` branch by checking out the git branch.
 
 ```shell
 git checkout patch7

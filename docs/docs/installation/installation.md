@@ -24,7 +24,7 @@ Alternative installations can be found here:
   * lighttpd
   * nginx
   * IIS
-* PHP = 7.4-8.4
+* PHP = 7.4-8.4 (Ampache8 requires PHP 8.5+ **ONLY**)
 
 * PHP modules:
   * PDO
@@ -54,6 +54,23 @@ Using Debian? This should cover you
 sudo apt install apache2 cron ffmpeg flac gosu inotify-tools lame libavcodec-extra libev-libevent-dev libflac-dev libmp3lame-dev libtheora-dev libvorbis-dev libvpx-dev php php-curl php-gd php-json php-ldap php-mysql php-xml php-zip php-intl vorbis-tools zip unzip
 sudo a2enmod rewrite
 ```
+
+### You don't have to use the PHP your OS ships
+
+The `php` package above installs whatever version your distribution decided on, which is often older than Ampache needs.
+
+You are not stuck with it, and you don't have to upgrade the whole operating system to move forward.
+
+Two third party repositories package current PHP for the major distributions, both maintained by the people who package PHP for those distributions.
+
+* Debian and Ubuntu: [Sury](https://deb.sury.org/) (`packages.sury.org` on Debian, the `ppa:ondrej/php` PPA on Ubuntu)
+* RHEL, Rocky, Alma and Fedora: [Remi](https://rpms.remirepo.net/)
+
+Both keep versions co-installable, so the new PHP goes on beside the system one rather than replacing it.
+
+Install the versioned packages (`php8.5-curl` rather than `php-curl`) and point your web server at that version.
+
+The [Ampache8 for Admins](/docs/help/troubleshooting/ampache8-for-admins) page has the full commands for PHP 8.5.
 
 ### Download Ampache
 
