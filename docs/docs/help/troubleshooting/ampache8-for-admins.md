@@ -18,24 +18,33 @@ Consider all the changes before upgrading.
 
 ### Try it out Ampache8 using git
 
-The develop8 branch is holding the current WIP of Ampache8.
+The develop branch is holding the current WIP of Ampache8.
+
+**NOTE** This used to be the develop8 branch. Ampache8 is now the mainline, so develop is Ampache8 and the Ampache7 line lives on release7.
 
 You can check out a new install on the branch.
 
 ```shell
-git clone -b develop8 https://github.com/ampache/ampache.git ampache8
+git clone -b develop https://github.com/ampache/ampache.git ampache8
 ```
 
 Or you can pull the branch onto your current system.
 
 ```shell
-git checkout develop8
+git checkout develop
+```
+
+If you were already tracking develop8, point your checkout at the new branch.
+
+```shell
+git fetch origin
+git checkout develop
 ```
 
 If you have any issues you can reset the branch forcibly with.
 
 ```shell
-git reset --hard origin/develop8
+git reset --hard origin/develop
 ```
 
 Then after the reset make sure you run composer and NPM.
@@ -329,6 +338,34 @@ When updating to Ampache8 all users will default to OpenSubsonic to ensure that 
 Users can still disable OpenSubsonic but the old implementation is now 1.16.1 compatible and does not support OpenSubsonic extensions.
 
 Subsonic transcoding now converts the client `maxBitRate` correctly, so clients asking for e.g. 128kbps actually get 128kbps.
+
+## OpenSubsonic now implements the full specification
+
+Ampache8 implements every endpoint in the OpenSubsonic specification and reports ten extensions.
+
+Four are new: `transcoding`, `playbackReport`, `topSongsByArtistId` and `sonicSimilarity`.
+
+XML responses now carry the same OpenSubsonic fields as JSON, which was not the case before.
+
+**NOTE** The internet radio station response field was being sent as `homepageUrl` instead of `homePageUrl`.
+
+This was wrong on the plain Subsonic API too, so a client reading that field will start seeing it for the first time.
+
+`sonicSimilarity` needs a sonic analysis plugin, which is a new plugin type in Ampache8.
+
+Without one, `getSonicSimilarTracks` and `findSonicPath` report the feature as unsupported.
+
+The new **AudioMuse** plugin provides it by talking to an AudioMuse-AI server that you run yourself.
+
+Setup and how it works is documented in [AudioMuse](/docs/plugins/audiomuse).
+
+The full extension list and what is left out is in the [Subsonic API docs](/api/subsonic).
+
+**NOTE** The REST paths, including everything under `/rest/`, need webserver rewrite rules to work at all.
+
+If your Subsonic clients get a 404 from every request, that is almost always the cause.
+
+See [Rewrite Rules](/docs/installation/rewrite-rules) for Apache, nginx and the other supported webservers.
 
 ## A dedicated Subsonic Password
 

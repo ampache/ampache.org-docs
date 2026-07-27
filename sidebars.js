@@ -37,6 +37,7 @@ const sidebars = {
           items: [
             'docs/information/which-zip',
             'docs/installation/catalog',
+            'docs/installation/rewrite-rules',
             // Deliberately hidden from the sidebar, still reachable at /docs/information/TV-Shows-and-Movies
             // 'docs/information/TV-Shows-and-Movies',
             'docs/installation/install-ampache-on-ubuntu2204',
@@ -114,6 +115,7 @@ const sidebars = {
           link: {type: 'doc', id: 'docs/plugins/plugins'},
           items: [
             'docs/plugins/plugins-options',
+            'docs/plugins/audiomuse',
             'docs/plugins/writing-plugins',
           ],
         },
@@ -141,6 +143,7 @@ const sidebars = {
             'docs/help/preferences-explained',
             'docs/help/troubleshooting/faq',
             'docs/help/troubleshooting/cli',
+            'docs/help/troubleshooting/cli-commands',
             'docs/help/cli-update-warning',
             'docs/help/troubleshooting/chart-faq',
             'docs/help/import-lastfm-data',

@@ -156,6 +156,24 @@ Description: Get lyrics from a public Lyrist instance.
 
 Version: 000002
 
+## Sonic Analysis Plugins
+
+Find songs that sound alike using the `get_sonic_similar_songs` method.
+
+These plugins work out similarity by analysing the audio itself, which Ampache does not do on its own.
+
+They back the OpenSubsonic `sonicSimilarity` extension, so `getSonicSimilarTracks` and `findSonicPath` only work while one is installed and enabled.
+
+### AudioMuse
+
+Description: Sonic similarity from an AudioMuse-AI server.
+
+Version: 000001
+
+You need a running [AudioMuse-AI](https://github.com/NeptuneHub/AudioMuse-AI) instance that has already analysed your library.
+
+Set `AudioMuse-AI server URL` to its address, for example `http://localhost:8000`.
+
 ## Statistic Plugins
 
 Analytics plugins insert their tracking information using the `display_on_footer` method.

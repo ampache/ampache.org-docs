@@ -12,6 +12,8 @@ Generally you should only be interested in the cli program; all the old scripts 
 
 -h|--help can be used to display help for commands and cli itself.
 
+For a full reference of every available command grouped by prefix, see [Ampache CLI Commands](/docs/help/troubleshooting/cli-commands).
+
 ## Migrated actions
 
 In general, simply updating the command should work as expected with 2 [exceptions](#command-changes).

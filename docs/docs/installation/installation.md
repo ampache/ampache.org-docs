@@ -186,6 +186,10 @@ Ampache is developed to work instantly with Apache without additional configurat
 
 Some features requires url rewriting to work correctly. It is highly recommended to enable it.
 
+Streaming, the Subsonic API and the REST API all stop working without it, usually with a 404 from every request.
+
+[Rewrite Rules](/docs/installation/rewrite-rules) covers what rewriting does, which paths need it, and how to set it up for Apache, nginx and other webservers.
+
 * Be sure mod_rewrite is enabled on your Apache installation. Otherwise install/activate it and restart your Apache service
 * Check that Ampache website is allowed to override Apache settings (`AllowOverride All` in vhost config file for instance)
 

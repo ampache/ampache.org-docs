@@ -154,6 +154,16 @@ You can still disable OpenSubsonic but the old implementation is now 1.16.1 comp
 
 Subsonic clients that request a transcode bitrate now get the bitrate they asked for.
 
+Ampache8 now implements the whole OpenSubsonic specification, so your client should find more of what it looks for.
+
+Songs and albums carry a lot more detail than before, including replay gain, multiple artists and disc titles.
+
+Synced lyrics can now be sent word by word, if your client asks for them and your files are tagged that way.
+
+Clients that report playback as you listen can now keep your now playing entry alive without counting extra plays.
+
+Finding songs that sound alike is also supported, but it needs the AudioMuse plugin set up by your administrator.
+
 ## A dedicated Subsonic Password
 
 You no longer need to hand your API key to a Subsonic client as its "password". Set a separate **Subsonic Password** from your account page and use that instead - it's stored encrypted rather than hashed so token-based Subsonic auth keeps working, and your API key still works too if you'd rather keep using that.

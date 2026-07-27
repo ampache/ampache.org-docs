@@ -66,6 +66,14 @@ web_path = "/ampache"
 
 * Edit the `.htaccess` file accordingly, e.g. replacing `/play/` by `/ampache/play`.
 
+## Errors connecting
+
+If your client cannot log in at all and every request comes back as 404, the problem is almost always url rewriting.
+
+Everything under `/rest/` is served through rewrite rules, so without them the webserver never reaches Ampache.
+
+See [Rewrite Rules](/docs/installation/rewrite-rules) for how to set this up on Apache, nginx and others.
+
 ## Errors during Playback
 
 When your Subsonic Client can successfully login to your Ampache server, brwose the Library,
