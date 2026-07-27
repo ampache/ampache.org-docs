@@ -111,6 +111,18 @@ OpenSubsonic asks for the opposite, a **similarity** between `0` and `1` where `
 
 The plugin inverts and clamps every score, so what your client sees is already in the form the specification expects.
 
+## Setting up AudioMuse-AI for Ampache
+
+AudioMuse-AI can read your library through its own Ampache connector or through the OpenSubsonic one, and the two are not interchangeable.
+
+Use the Ampache connector. It reads catalogs, playlists and play statistics the way Ampache models them.
+
+Whichever you choose, stay on it. The two report different song ids, so switching after an analysis leaves the stored results pointing at nothing.
+
+Its setup guide lives with AudioMuse-AI itself, at [docs/AMPACHE.md](https://github.com/NeptuneHub/AudioMuse-AI/blob/main/docs/AMPACHE.md).
+
+For the password you can give AudioMuse-AI either your Ampache password or your API key. It works out which you gave it.
+
 ## When it does not work
 
 Check these in order, they cover almost every case.

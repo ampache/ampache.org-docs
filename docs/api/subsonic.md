@@ -60,6 +60,14 @@ Albums gained `artists`, `displayArtist`, `sortName`, `releaseDate`, `originalRe
 
 Artists gained `sortName` and `artistImageUrl`, playlists gained `allowedUser`, users gained `maxBitRate` and videos gained `originalWidth` and `originalHeight`.
 
+#### Last played
+
+Songs, albums, videos and podcast episodes report `played`, the date and time they were last streamed.
+
+This is a server-wide value rather than a per-user one, the same as `playCount` and `averageRating`. The per-user pair stays `starred` and `userRating`.
+
+Ampache records it as the play happens, and an upgraded database fills it in from the play history you already have, so it is not blank until you start listening again.
+
 #### Sonic similarity
 
 `getSonicSimilarTracks` and `findSonicPath` need similarity worked out by analysing the audio itself.
