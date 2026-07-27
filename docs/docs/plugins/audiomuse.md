@@ -48,6 +48,29 @@ Run its analysis over your library before you expect any results in Ampache.
 
 An unanalysed library returns nothing, which looks exactly like a broken plugin.
 
+### Connecting it to Ampache
+
+AudioMuse-AI has to read your library itself, so it needs its own connection back to Ampache.
+
+There are two ways to do that and the plugin works with either.
+
+**Ampache connector (pending).** A native Ampache connector has been written and submitted upstream, but it is
+**not in an AudioMuse-AI release yet**.
+
+It uses Ampache's own API, so it reads fields the Subsonic API has no room for and needs fewer calls.
+
+Once it ships, pick `ampache` as the server type and give it your Ampache URL, username and password.
+
+**Navidrome connector (works today).** Until then, add Ampache using the **Navidrome** server type.
+
+Navidrome's connector is a plain Subsonic client, and Ampache serves the Subsonic API, so it connects as-is.
+
+Use your Ampache URL, your username, and your normal account password.
+
+It authenticates with a hex-encoded plaintext password, so this is the account password, not your Subsonic Password.
+
+Either way the plugin works unchanged; you do not have to tell Ampache which one you used.
+
 ## Setting up the plugin
 
 Activate the **AudioMuse** plugin on the plugins page (`admin/modules.php`).
@@ -72,11 +95,15 @@ The plugin calls two AudioMuse-AI endpoints.
 
 `/api/find_path` is used for `findSonicPath`.
 
-AudioMuse-AI indexes each track against the music server's own item id, so Ampache song ids are sent straight through.
+AudioMuse-AI indexes each track against the id reported by whichever connector it scanned with.
 
-That means both servers must be looking at the same library.
+The Ampache connector reports Ampache's own song id, and the Navidrome connector reports the Subsonic form of it.
 
-If AudioMuse-AI indexed a different server, its ids will not match anything in Ampache and you will get empty results.
+The plugin tries both forms, so it does not matter which connector you used and there is nothing to configure.
+
+What does matter is that both are looking at the same library.
+
+If AudioMuse-AI indexed a different server, its ids match nothing in Ampache and you get empty results.
 
 AudioMuse-AI scores results as a **distance**, where `0` means identical and larger numbers mean less alike.
 
