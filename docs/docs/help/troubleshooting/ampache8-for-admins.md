@@ -227,8 +227,12 @@ Ampache8 brings the first new database updates since the version split.
 * New tables `object_count_summary` and `object_count_archive` for [play history consolidation](#play-history-consolidation)
 * `folder` added to the `object_type` enum on `cache_object_count`, `cache_object_count_run`, `image`, `object_count`, `rating`, `tag_map`, `user_activity` and `user_flag`
 * New `user`.`subsonic_secret` column holding the per-user [Subsonic Password](#a-dedicated-subsonic-password)
+* New `last_played` column on `album`, `album_disk`, `artist`, `podcast`, `podcast_episode`, `song` and `video`, backfilled from your existing play history
+* New tables `collection` and `collection_map` holding [collections](#collections-curate-a-list-of-anything)
+* `collection` added to the `object_type` enum on `cache_object_count`, `cache_object_count_run`, `image`, `object_count`, `object_count_archive`, `object_count_summary`, `rating` and `user_flag`
 * New preference `api_enable_8` (Allow Ampache API8 responses)
 * New preference `show_folder` (Show 'Folders' link in the main sidebar)
+* New preference `show_collection` (Show 'Collections' link in the main sidebar)
 * New preference `mini_player` (Lock this user into the mini player interface)
 * New per-user transcoding preferences: `encode_target`, `encode_video_target`, `encode_player_webplayer_target`, `encode_player_api_target`, `max_bit_rate`, `min_bit_rate`, `transcode_bitrate_webplayer` and `transcode_bitrate_api` — see [Transcoding preferences moved per-user](#transcoding-preferences-moved-per-user)
 * Removed preferences `webplayer_flash`, `webplayer_aurora` and `play2`
@@ -342,6 +346,30 @@ The sidebar **Folders** link only appears once the folder table has data and the
 
 WebDAV browsing has been rewritten on top of the folder tree, so WebDAV clients now see your real folder hierarchy.
 
+## Collections: curate a list of anything
+
+A collection is a hand-curated list that is not restricted to playable things.
+
+A playlist can only hold media and a smartlist is built from rules, so neither can hold an album, an artist or a genre.
+
+Albums, album disks, artists, genres, labels, live streams, playlists, podcasts, episodes, songs and videos can all sit in the same collection.
+
+Nothing creates collections for you, so the tables stay empty until someone makes one.
+
+A collection can be left mixed or pinned to a single type, after which anything else is refused when it is added.
+
+Playing one expands its members, so an album contributes its songs and anything unplayable is skipped.
+
+Visibility and collaborators work exactly like playlists: a collaborator curates the contents, only the owner or an admin can delete the list.
+
+The sidebar **Collections** link only appears when the `show_collection` preference is enabled and there is a collection the user is allowed to see.
+
+<image: the Collections browse page listing collections with their type, what they hold and their owner.>
+
+<image: a collection page showing a mixed collection with a section per object type.>
+
+API access is covered by the [API8 collection methods](/api); the REST paths are under `collections/`.
+
 ## Mini player
 
 There's a new stripped-down `/m/` page showing only the `home` category plugins and the web player, aimed at small screens and simple accounts.
@@ -381,6 +409,7 @@ If you send a version 7 API call you will now receive an access denied error.
 * API8 returns real HTTP status codes for errors and empty results (API3-6 always returned 200)
 * API error messages are US English and are not translated
 * New methods including `folder`, `folders`, `playlist_remove`, `random` and zip downloads for whole containers via `download`
+* New collection methods `collections`, `collection`, `collection_items`, `collection_create`, `collection_edit`, `collection_delete`, `collection_add` and `collection_remove`
 
 The REST interface is documented with a full OpenAPI spec at [ampache.org/rest/swagger](https://ampache.org/rest/swagger).
 
@@ -405,6 +434,8 @@ Ampache8 implements every endpoint in the OpenSubsonic specification and reports
 Four are new: `transcoding`, `playbackReport`, `topSongsByArtistId` and `sonicSimilarity`.
 
 XML responses now carry the same OpenSubsonic fields as JSON, which was not the case before.
+
+Songs, albums, videos and podcast episodes now report `played`, the date and time they were last streamed.
 
 **NOTE** The internet radio station response field was being sent as `homepageUrl` instead of `homePageUrl`.
 

@@ -32,7 +32,7 @@ The category also decides where in the interface the plugin appears.
 Most plugins are installed and configured from **Admin → Modules → Plugins** in the web interface.
 Installing a plugin makes its preferences appear; each user then enables and configures it from their own preferences.
 
-**TODO (image):** screenshot of the **Admin → Modules → Plugins** page showing the list of plugins with their Activate / Deactivate and Upgrade actions.
+![image](/img/1305249/627485717-a9100094-6652-4f81-abf4-f22b748e034b.png)
 
 The same modules can be managed headlessly from the [command line](/docs/help/troubleshooting/cli#admin):
 
@@ -80,7 +80,7 @@ Description: Show album dashboard sections (such as recent and trending) on the 
 
 Version: 000002
 
-**TODO (image):** screenshot of the homepage with the Home Dashboard plugin enabled, showing its album dashboard sections.
+![image](/img/1305249/627485949-96699c4a-c9ff-4ad7-aa3a-19ddeb3aa2a7.png)
 
 ### Personal Favorites
 
@@ -254,7 +254,7 @@ Description: Bluesky share.
 
 Version: 000001
 
-**TODO (image):** screenshot of a share dialog showing the Bluesky share button.
+![image](/img/1305249/627486134-5fab11c1-695f-4796-9731-a1f26733a401.png)
 
 ### Facebook
 
@@ -270,7 +270,7 @@ Description: Mastodon share.
 
 Version: 000001
 
-**TODO (image):** screenshot of a share dialog showing the Mastodon share button.
+![image](/img/1305249/627486134-5fab11c1-695f-4796-9731-a1f26733a401.png)
 
 ### Twitter
 

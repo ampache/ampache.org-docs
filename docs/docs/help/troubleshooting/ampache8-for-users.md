@@ -87,6 +87,34 @@ You can hide the link with the new `Show 'Folders' link in the main sidebar` pre
 
 **NOTE** the link only appears after your admin has run the new Scan Folders catalog action.
 
+## Collections: a list that can hold anything
+
+There is a new **Collections** link in the Playlists part of the sidebar.
+
+A playlist only holds music and a smartlist builds itself from rules, so neither can hold an album, an artist or a genre.
+
+A collection can hold any of them in the same list, because you pick the items yourself.
+
+Albums, album disks, artists, genres, labels, live streams, playlists, podcasts, episodes, songs and videos are all allowed.
+
+<image: the Collections browse page listing collections with their type, what they hold and their owner.>
+
+Opening one shows a section per kind of thing it holds, with each row behaving like it does anywhere else in Ampache.
+
+<image: a collection page showing a mixed collection with a section per object type.>
+
+Pressing play expands the collection, so an album plays its songs and anything that cannot be streamed is skipped.
+
+A song reached twice, through its album and on its own, still plays once.
+
+You can leave a collection mixed or pin it to a single kind of thing, after which it refuses anything else.
+
+Collections can be rated and flagged, and they get their own art with the same mosaic fallback playlists use.
+
+Public or private and the collaborator list work just like playlists, so a collaborator can curate the contents but only the owner can delete the list.
+
+You can hide the link with the new `Show 'Collections' link in the main sidebar` preference.
+
 ## A mini player for small screens and simple accounts
 
 There's a new stripped-down `/m/` page showing just the web player and your `home` category plugins.
@@ -190,6 +218,7 @@ Added:
 
 * `Allow Ampache API8 responses` - enable or disable the new API8 per user
 * `Show 'Folders' link in the main sidebar` - show or hide the Folders browse link
+* `Show 'Collections' link in the main sidebar` - show or hide the Collections browse link
 * `Transcode output format - Audio Default` / `- Video Default` / `- Web Player (overrides default)` / `- API (overrides default)` - per-player transcode format overrides
 * `Maximum transcode bitrate` / `Minimum transcode bitrate` - caps for your own dynamic downsampling
 * `Transcode bitrate - Web Player (overrides default)` / `- API (overrides default)` - per-player bitrate overrides
