@@ -139,8 +139,7 @@ Authorization: Bearer 000111112233334444455556667777788888899aaaaabbbbcccccdddee
   * `kind` and `agents` are not returned, Ampache stores a single unattributed lyric layer
 * Some optional response fields have nowhere to come from in the Ampache database and are left out
   * `bpm`, `moods`, `works`, `movements`, `groupings`, `bitDepth`, `explicitStatus`, `isCompilation`, `disambiguation`, `fallbackGain`, `subRole`, `shortcut`
-  * `recordLabels`, `lastFmUrl` and the `nowPlaying` position fields are waiting on a database change
-  * `played` was on that list and is now served, see [Last played](#last-played)
+  * `played`, `recordLabels`, `lastFmUrl` and the `nowPlaying` position fields were on this list and are now served
 
 ## Subsonic Examples
 

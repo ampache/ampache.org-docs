@@ -93,7 +93,7 @@ There is a new **Collections** link in the Playlists part of the sidebar.
 
 A playlist only holds music and a smartlist builds itself from rules, so neither can hold an album, an artist or a genre.
 
-A collection can hold any of them in the same list, because you pick the items yourself.
+A collection can hold any of them in the same list, because its contents are chosen by hand rather than by a rule.
 
 Albums, album disks, artists, genres, labels, live streams, playlists, podcasts, episodes, songs and videos are all allowed.
 
@@ -111,9 +111,17 @@ You can leave a collection mixed or pin it to a single kind of thing, after whic
 
 Collections can be rated and flagged, and they get their own art with the same mosaic fallback playlists use.
 
-Public or private and the collaborator list work just like playlists, so a collaborator can curate the contents but only the owner can delete the list.
+Public or private and the collaborator list work just like playlists, so a collaborator is allowed to change the contents but only the owner can delete the list.
 
 You can hide the link with the new `Show 'Collections' link in the main sidebar` preference.
+
+**NOTE** the link only appears once you have a collection you can see.
+
+Collections are created and filled through the API in this release.
+
+The web interface shows collections and edits their name, visibility, pinned type, collaborators and art.
+
+Adding and removing items is not in the web interface yet.
 
 ## A mini player for small screens and simple accounts
 

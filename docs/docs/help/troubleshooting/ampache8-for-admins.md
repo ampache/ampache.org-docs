@@ -356,13 +356,19 @@ Albums, album disks, artists, genres, labels, live streams, playlists, podcasts,
 
 Nothing creates collections for you, so the tables stay empty until someone makes one.
 
+Creating a collection and adding or removing its members is API-only in this release.
+
+The web interface browses collections, opens them, edits name, visibility, pinned type and collaborators, sets art and deletes them.
+
 A collection can be left mixed or pinned to a single type, after which anything else is refused when it is added.
 
 Playing one expands its members, so an album contributes its songs and anything unplayable is skipped.
 
-Visibility and collaborators work exactly like playlists: a collaborator curates the contents, only the owner or an admin can delete the list.
+Visibility and collaborators work exactly like playlists: a collaborator is allowed to change the contents, only the owner or an admin can delete the list.
 
 The sidebar **Collections** link only appears when the `show_collection` preference is enabled and there is a collection the user is allowed to see.
+
+A fresh install has none, so the link stays hidden until the first collection is made through the API.
 
 <image: the Collections browse page listing collections with their type, what they hold and their owner.>
 
