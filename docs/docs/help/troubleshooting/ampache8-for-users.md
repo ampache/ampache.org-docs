@@ -97,11 +97,9 @@ A collection can hold any of them in the same list, because its contents are cho
 
 Albums, album disks, artists, genres, labels, live streams, playlists, podcasts, episodes, songs and videos are all allowed.
 
-<image: the Collections browse page listing collections with their type, what they hold and their owner.>
+![image](/img/1305249/628337996-fd1ce4ef-b221-4b43-97a2-b1db7b71f67c.png)
 
 Opening one shows a section per kind of thing it holds, with each row behaving like it does anywhere else in Ampache.
-
-<image: a collection page showing a mixed collection with a section per object type.>
 
 Pressing play expands the collection, so an album plays its songs and anything that cannot be streamed is skipped.
 

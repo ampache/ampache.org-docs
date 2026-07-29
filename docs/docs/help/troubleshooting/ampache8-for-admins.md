@@ -370,9 +370,7 @@ The sidebar **Collections** link only appears when the `show_collection` prefere
 
 A fresh install has none, so the link stays hidden until the first collection is made through the API.
 
-<image: the Collections browse page listing collections with their type, what they hold and their owner.>
-
-<image: a collection page showing a mixed collection with a section per object type.>
+![image](/img/1305249/628337996-fd1ce4ef-b221-4b43-97a2-b1db7b71f67c.png)
 
 API access is covered by the [API8 collection methods](/api); the REST paths are under `collections/`.
 
