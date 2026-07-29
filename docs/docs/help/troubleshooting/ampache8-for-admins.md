@@ -481,6 +481,39 @@ Catalog verify, clean and add have been reworked to cache file lists, query less
 
 Large catalogs should see noticeably faster update and clean actions.
 
+## Placeholder labels are filtered out of your catalog
+
+Publisher tags often hold placeholder text instead of a real label.
+
+Discogs-sourced tags write `[no label]` and `Not On Label (Artist Self-released)` for releases that never had a publisher, and rippers leave behind fragments like `/v/`.
+
+These are no longer created while scanning, and the catalog clean up removes the ones earlier scans already imported.
+
+**NOTE** This deletes rows from the `label` table on your next catalog clean up, along with the art, ratings and shouts attached to them.
+
+A label a user created by hand is never removed, however odd its name looks; only imported labels are swept.
+
+Which names count as placeholders is a regex you control.
+
+```conf
+; DEFAULT: "^\[no label\]|^not on label\b|^\[fwd:|^self[\s-]*released?\b|\(self[\s-]*released?\)|^[^\p{L}\p{N}]*[\p{L}\p{N}]?[^\p{L}\p{N}]*$"
+;label_ignore_pattern = "^\[no label\]|^not on label\b"
+```
+
+It is matched case-insensitively against the whole name, and setting it **replaces** the default rather than adding to it.
+
+The last branch of the default drops names holding fewer than two letters or digits, such as `/<` or `/v/`, while leaving short real labels like `XL` and `4AD` alone.
+
+Set it to a pattern that cannot match, such as `(?!)`, to keep every name you have.
+
+## Label pages list albums
+
+A label page now has an **Albums** tab beside its artists and songs.
+
+The scanner records a release's label tag against the album, which is also what the OpenSubsonic `AlbumID3.recordLabels` field reports.
+
+![image](/img/1305249/628236361-db2b586e-8a35-4629-9ea3-9978b5a644e7.png)
+
 ## Debug page hides more secrets
 
 The admin debug page now masks LDAP, MusicBrainz, proxy, Spotify, Last.fm and OIDC secrets along with your `secret_key`.
@@ -489,11 +522,12 @@ It also shows the PHP version and the last auto-update check time.
 
 ## Config changes
 
-The config version has been bumped from 89 to 94 over the course of Ampache8 development, adding:
+The config version has been bumped from 89 to 95 over the course of Ampache8 development, adding:
 
 * `stats_consolidate_threshold` — see [Play history consolidation](#play-history-consolidation)
 * `playlist_art_mosaic` and `playlist_art_mosaic_fallback` — see [Playlist art mosaic](#playlist-art-mosaic)
 * `show_mini_player` — see [Mini player](#mini-player)
+* `label_ignore_pattern` — see [Placeholder labels are filtered out of your catalog](#placeholder-labels-are-filtered-out-of-your-catalog)
 * `allow_lost_password` — set to `false` to hide the `Lost Password` link on the login page and reject `lostpassword.php` outright, so nobody can trigger reset mail to your users by posting to it directly. Only relevant on a server with mail enabled; without mail the feature is already off
 
 ```conf
