@@ -75,6 +75,9 @@ The following pages will list the available conditions and sort options for each
   * albums
   * artist_albums (`albums` filtered by `artist`)
   * genre_albums (`albums` filtered by `genre`)
+* [Album Disk Browses](/api/browse/album_disk-browse) browses (**API8 only**)
+  * album_disks (`album_disk` objects filtered by `album`)
+  * album_disk_songs (`songs` filtered by `album_disk`)
 * [Artist Browses](/api/browse/artist-browse) browses (includes `album_artist` and `song_artist` subtypes.)
   * artists
   * genre_artists (`artists` filtered by `genre`)
@@ -119,6 +122,8 @@ The following pages will list the available conditions and sort options for each
     * get_indexes
     * index
     * list
+
+**NOTE (API8)** `catalog` is an optional filter on the `album_artist`, `artist`, `album`, `album_disk` and `podcast` browse types instead of a required parameter. Send it to restrict the children to one catalog, or leave it out to get them from every catalog you can see. An album, disk or podcast belongs to a single catalog and an artist reaches its catalogs through `catalog_map`, so the parent object never needed a catalog to be addressed. API6 keeps the parameter mandatory, because Ampache7 serves that version too.
 
 ## Available cond filters
 

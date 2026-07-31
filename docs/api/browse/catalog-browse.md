@@ -25,28 +25,43 @@ e.g. `cond=like,unplayed+tracks`
   * starts_with
   * not_starts_with
 
-    public const FILTERS = array(
+```PHP
+    public const array FILTERS = [
+        'alpha_match',
         'enabled',
+        'equal',
+        'exact_match',
         'gather_type',
         'gather_types',
-        'user'
-    );
+        'id',
+        'like',
+        'not_like',
+        'not_starts_with',
+        'regex_match',
+        'regex_not_match',
+        'starts_with',
+        'user',
+    ];
+```
 
 ## Available browse sorts
 
-    protected array $sorts = array(
-        'id',
-        'title',
-        'name',
+```PHP
+    protected array $sorts = [
         'catalog_type',
-        'last_update',
-        'last_clean',
-        'last_add',
         'enabled',
+        'gather_types',
+        'id',
+        'last_add',
+        'last_clean',
+        'last_update',
+        'name',
+        'rating',
         'rename_pattern',
         'sort_pattern',
-        'gather_types'
-        'rating',
-        'user_flag',
+        'title',
         'user_flag_rating',
-    );
+        'user_flag',
+        'userflag',
+    ];
+```

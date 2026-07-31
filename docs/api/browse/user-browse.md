@@ -28,29 +28,38 @@ Filters for the User browse check the username **OR** fullname for the string.
   * not_starts_with
 
 ```PHP
-    public const FILTERS = array(
+    public const array FILTERS = [
         'access',
+        'alpha_match',
         'disabled',
+        'equal',
+        'exact_match',
+        'id',
+        'like',
+        'not_like',
+        'not_starts_with',
+        'regex_match',
+        'regex_not_match',
         'starts_with',
-    );
+    ];
 ```
 
 ## Available browse sorts
 
 ```PHP
-    protected array $sorts = array(
-        'id',
-        'rand',
-        'username',
-        'fullname',
-        'email',
-        'website',
+    protected array $sorts = [
         'access',
-        'disabled',
-        'last_seen',
-        'create_date',
-        'state',
         'city',
+        'create_date',
+        'disabled',
+        'email',
         'fullname_public',
-    );
+        'fullname',
+        'id',
+        'last_seen',
+        'rand',
+        'state',
+        'username',
+        'website',
+    ];
 ```

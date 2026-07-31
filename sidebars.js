@@ -186,6 +186,7 @@ const sidebars = {
           link: {type: 'doc', id: 'api/api-browse'},
           items: [
             'api/browse/album-browse',
+            'api/browse/album_disk-browse',
             'api/browse/artist-browse',
             'api/browse/catalog-browse',
             'api/browse/follower-browse',

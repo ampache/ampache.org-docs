@@ -26,42 +26,55 @@ e.g. `cond=like,unplayed+tracks`
   * not_starts_with
 
 ```PHP
-    public const FILTERS = array(
+    public const array FILTERS = [
         'add_gt',
         'add_lt',
         'album_artist',
-        'song_artist',
-        'catalog',
+        'alpha_match',
         'catalog_enabled',
-        'user_catalog',
+        'catalog',
+        'equal',
         'exact_match',
+        'genre',
+        'id',
         'label',
+        'like',
+        'no_genre',
+        'no_tag',
+        'not_like',
+        'not_starts_with',
         'regex_match',
         'regex_not_match',
+        'song_artist',
         'starts_with',
-        'genre',
+        'tag',
         'unplayed',
         'update_gt',
         'update_lt',
-    );
+        'user_catalog',
+        'user_flag',
+        'user_rating',
+    ];
 ```
 
 ## Available browse sorts
 
 ```PHP
-    protected array $sorts = array(
+    protected array $sorts = [
+        'addition_time',
+        'album_count',
         'id',
-        'title',
         'name',
         'placeformed',
-        'yearformed',
-        'song_count',
-        'album_count',
-        'total_count',
         'rand',
         'rating',
+        'song_count',
         'time',
-        'user_flag',
+        'title',
+        'total_count',
         'user_flag_rating',
-    );
+        'user_flag',
+        'userflag',
+        'yearformed',
+    ];
 ```

@@ -26,21 +26,29 @@ e.g. `cond=like,unplayed+tracks`
   * not_starts_with
 
 ```PHP
-    public const FILTERS = array(
-        'id',
+    public const array FILTERS = [
+        'alpha_match',
+        'equal',
         'exact_match',
+        'hidden',
+        'id',
+        'like',
+        'not_like',
+        'not_starts_with',
         'regex_match',
         'regex_not_match',
-        'starts_with'
-    );
+        'starts_with',
+    ];
 ```
 
 ## Available browse sorts
 
 ```PHP
-    protected array $sorts = array(
-        'title',
-        'name',
+    protected array $sorts = [
         'external_link',
-    );
+        'id',
+        'name',
+        'order',
+        'title',
+    ];
 ```

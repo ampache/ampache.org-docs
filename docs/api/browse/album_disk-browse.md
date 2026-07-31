@@ -1,14 +1,20 @@
 ---
-title: "Song Browse"
-metaTitle: "Song Browse"
+title: "Album Disk Browse"
+metaTitle: "Album Disk Browse"
 description: "API documentation"
 ---
 
-## Song Browse
+## Album Disk Browse
 
 This page focuses on a single object type.
 
 Refer to the main [Api Browse methods](/api/api-browse) page for further information regarding the other Browse types method.
+
+**NOTE** Album disks are **API8 only**. They are the browsing unit whenever the per-user `album_group` preference is disabled, which is how the web interface reaches them; API3 to API6 have no album disk methods at all.
+
+The `albums` and `album` methods never vary with that preference, so a client that wants disks has to ask for them by name: `album_disks`, `album_disk` and `album_disk_songs`, plus `album_disk` support in `index`, `list`, `browse`, `stats`, `get_art`, `rate` and `flag`.
+
+A disk has no addition time of its own, so an `addition_time` sort orders disks by the time their album was added.
 
 ## Available browse filters
 
@@ -29,19 +35,16 @@ e.g. `cond=like,unplayed+tracks`
     public const array FILTERS = [
         'add_gt',
         'add_lt',
-        'album_disk',
+        'album_artist',
         'album',
         'alpha_match',
         'artist',
         'catalog_enabled',
         'catalog',
-        'disk',
-        'enabled',
         'equal',
         'exact_match',
         'genre',
         'id',
-        'license',
         'like',
         'no_genre',
         'no_tag',
@@ -49,9 +52,9 @@ e.g. `cond=like,unplayed+tracks`
         'not_starts_with',
         'regex_match',
         'regex_not_match',
+        'song_artist',
         'starts_with',
         'tag',
-        'top50',
         'unplayed',
         'update_gt',
         'update_lt',
@@ -66,25 +69,36 @@ e.g. `cond=like,unplayed+tracks`
 ```PHP
     protected array $sorts = [
         'addition_time',
-        'album_disk',
-        'album',
+        'album_artist_album_sort',
+        'album_artist_title',
+        'album_artist',
+        'album_id',
         'artist',
+        'barcode',
+        'catalog_number',
         'catalog',
-        'composer',
+        'disk_count',
+        'disk',
+        'disksubtitle',
+        'generic_artist',
         'id',
+        'name_original_year',
+        'name_year',
         'name',
-        'object_count',
+        'original_year',
         'rand',
         'rating',
+        'release_status',
+        'release_type',
+        'song_count',
+        'subtitle',
         'time',
         'title',
         'total_count',
-        'total_skip',
-        'track',
-        'update_time',
         'user_flag_rating',
         'user_flag',
         'userflag',
+        'version',
         'year',
     ];
 ```

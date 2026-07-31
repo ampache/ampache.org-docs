@@ -13,18 +13,18 @@ Refer to the main [Api Browse methods](/api/api-browse) page for further informa
 ## Available browse filters
 
 ```PHP
-    public const FILTERS = array(
+    public const array FILTERS = [
         'follow_user',
         'user',
-    );
+    ];
 ```
 
 ## Available browse sorts
 
 ```PHP
-    protected array $sorts = array(
-        'follow_user',
+    protected array $sorts = [
         'follow_date',
+        'follow_user',
         'user',
-    );
+    ];
 ```

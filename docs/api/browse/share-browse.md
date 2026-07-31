@@ -26,24 +26,23 @@ e.g. `cond=like,unplayed+tracks`
   * not_starts_with
 
 ```PHP
-    public const FILTERS = array(
-    );
+    public const array FILTERS = [
+    ];
 ```
 
 ## Available browse sorts
 
 ```PHP
-    protected array $sorts = array(
-        'id',
-        'object',
-        'object_type',
-        'user',
-        'creation_date',
-        'lastvisit_date',
-        'counter',
-        'max_counter',
-        'allow_stream',
+    protected array $sorts = [
         'allow_download',
-        'expire'
-    );
+        'allow_stream',
+        'counter',
+        'creation_date',
+        'expire',
+        'lastvisit_date',
+        'max_counter',
+        'object_type',
+        'object',
+        'user',
+    ];
 ```

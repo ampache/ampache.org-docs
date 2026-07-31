@@ -26,50 +26,69 @@ e.g. `cond=like,unplayed+tracks`
   * not_starts_with
 
 ```PHP
-    public const FILTERS = array(
+    public const array FILTERS = [
         'add_gt',
         'add_lt',
-        'artist',
         'album_artist',
-        'song_artist',
-        'catalog',
+        'alpha_match',
+        'artist',
         'catalog_enabled',
-        'user_catalog',
+        'catalog',
+        'equal',
+        'exact_match',
         'genre',
+        'id',
+        'like',
+        'no_genre',
+        'no_tag',
+        'not_like',
+        'not_starts_with',
+        'regex_match',
+        'regex_not_match',
+        'song_artist',
+        'starts_with',
+        'tag',
         'unplayed',
         'update_gt',
-        'update_lt'
-    );
+        'update_lt',
+        'user_catalog',
+        'user_flag',
+        'user_rating',
+    ];
 ```
 
 ## Available browse sorts
 
 ```PHP
-    protected array $sorts = array(
-        'id',
+    protected array $sorts = [
+        'addition_time',
+        'album_artist_album_sort',
+        'album_artist_title',
         'album_artist',
         'artist',
         'barcode',
-        'catalog',
         'catalog_number',
+        'catalog',
+        'disk_count',
         'generic_artist',
-        'title',
-        'name',
-        'name_year',
+        'id',
         'name_original_year',
+        'name_year',
+        'name',
         'original_year',
         'rand',
+        'rating',
         'release_status',
         'release_type',
-        'disk_count',
         'song_count',
         'subtitle',
         'time',
+        'title',
         'total_count',
+        'user_flag_rating',
+        'user_flag',
+        'userflag',
         'version',
         'year',
-        'rating',
-        'user_flag',
-        'user_flag_rating',
-    );
+    ];
 ```

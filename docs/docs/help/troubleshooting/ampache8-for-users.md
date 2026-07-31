@@ -99,27 +99,59 @@ Albums, album disks, artists, genres, labels, live streams, playlists, podcasts,
 
 ![image](/img/1305249/628337996-fd1ce4ef-b221-4b43-97a2-b1db7b71f67c.png)
 
-Opening one shows a section per kind of thing it holds, with each row behaving like it does anywhere else in Ampache.
+A **Create Collection** button on the collections browse makes one. You choose its name, whether it is public or private, and whether it is pinned to a single kind of thing or left mixed. (The playlists browse gained the same **Create Playlist** button, so a playlist no longer has to come into existence as a side effect of adding something to one.)
+
+You can leave a collection mixed or pin it to a single kind of thing, after which it refuses anything else.
+
+Opening a mixed collection shows one ordered list, each row naming its own type. A collection pinned to a single type is handed to that type's own browse instead, so a collection of albums looks like any other album view.
+
+The **Add to playlist / collection** menu now offers collections as well as playlists, under their own headings. Only the halves that can take what you are adding are shown, so a genre offers collections alone - a playlist stores the media an item expands to, and a genre expands to nothing on its own. Genres and labels gained that menu for the first time.
+
+Adding a smartlist adds the songs it currently matches, since a smartlist is a rule rather than a thing that can be stored in a list.
+
+A collection is **ordered**. New members go on the end, and a mixed collection can be dragged into a new order and saved with **Save Track Order**, exactly like playlist tracks. A pinned collection is shown through its own type's browse, which has no drag handle.
+
+Remove a member from its row, or several at once with **Multi-Select**. Members are addressed by their place in the list rather than by what they point at, so removing one of two identical members removes the one you picked.
+
+Whether a collection may hold the same thing twice follows your existing `Only add unique items to playlists` preference rather than a setting of its own - it is off by default, so duplicates are allowed, exactly as they are in your playlists.
 
 Pressing play expands the collection, so an album plays its songs and anything that cannot be streamed is skipped.
 
 A song reached twice, through its album and on its own, still plays once.
 
-You can leave a collection mixed or pin it to a single kind of thing, after which it refuses anything else.
-
 Collections can be rated and flagged, and they get their own art with the same mosaic fallback playlists use.
 
 Public or private and the collaborator list work just like playlists, so a collaborator is allowed to change the contents but only the owner can delete the list.
 
-You can hide the link with the new `Show 'Collections' link in the main sidebar` preference.
+You can hide the link with the new `Show 'Collections' link in the main sidebar` preference. The link no longer waits for a collection to exist before it appears, so there is a way in from a fresh install.
 
-**NOTE** the link only appears once you have a collection you can see.
+## Multi-Select: act on several rows at once
 
-Collections are created and filled through the API in this release.
+The **View** menu on a browse has a new **Multi-Select** option that turns checkboxes on. They stay hidden until you ask for them.
 
-The web interface shows collections and edits their name, visibility, pinned type, collaborators and art.
+* The header checkbox selects the whole page
+* `Ctrl`/`Cmd`+click toggles a row and `Shift`+click selects a range, anywhere on the row that is not itself a button or a link
+* A bar stays in view while you scroll, offering Play, Play Next, Play Last, add to the temporary playlist, add to another playlist, and remove from the list
 
-Adding and removing items is not in the web interface yet.
+Removing a selection is one request rather than one per row, so a long selection no longer takes a visible moment per entry.
+
+A mixed collection groups your selection by type before acting on it, so playing a selection of albums and songs together works from the one bar.
+
+## The address bar shows the page you are on
+
+Ampache used to leave the address bar on `/index.php` and put the real page in the fragment, so a link you copied out of it often went to the wrong place.
+
+Pages now navigate to their real url (`/browse.php?action=album`), which means a link can be read, shared and bookmarked.
+
+Old `#` bookmarks still work and quietly upgrade themselves to the real url when you open them.
+
+Clicking the page you are already on no longer re-fetches it.
+
+## The top menu carries everything the sidebar does
+
+If your server uses the optional top menu it now holds the same entries as the light sidebar, gaining **Albums**, **Smartlists**, **Radio** and **Log out**.
+
+`Smartlists` follows the `Hide the search menu in the sidebar` preference, and `Radio` only appears when live streams are enabled.
 
 ## A mini player for small screens and simple accounts
 

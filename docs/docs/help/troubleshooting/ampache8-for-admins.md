@@ -230,6 +230,10 @@ Ampache8 brings the first new database updates since the version split.
 * New `last_played` column on `album`, `album_disk`, `artist`, `podcast`, `podcast_episode`, `song` and `video`, backfilled from your existing play history
 * New tables `collection` and `collection_map` holding [collections](#collections-curate-a-list-of-anything)
 * `collection` added to the `object_type` enum on `cache_object_count`, `cache_object_count_run`, `image`, `object_count`, `object_count_archive`, `object_count_summary`, `rating` and `user_flag`
+* The `unique_collection_map` key was dropped from `collection_map`, so whether a collection may hold the same object twice is decided by the per-user `unique_playlist` preference rather than by the schema
+* New `position_ms`, `playback_rate` and `state` columns on `now_playing`, holding what an OpenSubsonic client reports through `reportPlayback`
+* New `artist`.`lastfm_url` column keeping the last.fm page url with the rest of the cached artist info
+* `label_asso` gains a nullable `album` column and its `artist` column becomes nullable, so a label can be associated with an album as well as an artist
 * New preference `api_enable_8` (Allow Ampache API8 responses)
 * New preference `show_folder` (Show 'Folders' link in the main sidebar)
 * New preference `show_collection` (Show 'Collections' link in the main sidebar)
@@ -356,21 +360,23 @@ Albums, album disks, artists, genres, labels, live streams, playlists, podcasts,
 
 Nothing creates collections for you, so the tables stay empty until someone makes one.
 
-Creating a collection and adding or removing its members is API-only in this release.
-
-The web interface browses collections, opens them, edits name, visibility, pinned type and collaborators, sets art and deletes them.
-
 A collection can be left mixed or pinned to a single type, after which anything else is refused when it is added.
+
+A collection is **ordered**, and the order is part of the data. Members keep the order they were curated into, new ones are appended, and positions stay dense and 1-based, so they are renumbered after anything is added, removed or moved. Members are addressed by their membership row rather than by the object they point at, which is what makes duplicates unambiguous.
+
+Whether a collection may hold the same object twice follows the existing per-user `unique_playlist` preference rather than a rule of its own. It is off by default, so **duplicates are allowed by default**, exactly as they are for that user's playlists. There is no separate collection setting to configure.
 
 Playing one expands its members, so an album contributes its songs and anything unplayable is skipped.
 
 Visibility and collaborators work exactly like playlists: a collaborator is allowed to change the contents, only the owner or an admin can delete the list.
 
-The sidebar **Collections** link only appears when the `show_collection` preference is enabled and there is a collection the user is allowed to see.
-
-A fresh install has none, so the link stays hidden until the first collection is made through the API.
+The sidebar **Collections** link appears whenever the `show_collection` preference is enabled — it no longer waits for a collection to exist, so there is a way in from a fresh install. The preference also gates the collection half of the add-to-list dialog; a server with collections off still just says "Add to playlist".
 
 ![image](/img/1305249/628337996-fd1ce4ef-b221-4b43-97a2-b1db7b71f67c.png)
+
+The web interface covers the whole lifecycle: a **Create Collection** button on the collections browse, the standard edit dialog for name, visibility, pinned type and collaborators, the art picker, drag-to-reorder with **Save Track Order** on a mixed collection, per-row and **Multi-Select** removal, and delete.
+
+Adding is through the same add-to-list dialog as playlists, which now offers both under a "Playlists" and a "Collections" heading. Only the halves that can take what is being added are offered, so a genre offers collections alone — a playlist stores the media an item expands to, and a genre expands to nothing. Genres and labels gained that control for the first time, since both can be collected even though only one can go in a playlist.
 
 API access is covered by the [API8 collection methods](/api); the REST paths are under `collections/`.
 
@@ -412,8 +418,13 @@ If you send a version 7 API call you will now receive an access denied error.
 * New `api_enable_8` preference to enable/disable API8 responses per user
 * API8 returns real HTTP status codes for errors and empty results (API3-6 always returned 200)
 * API error messages are US English and are not translated
-* New methods including `folder`, `folders`, `playlist_remove`, `random` and zip downloads for whole containers via `download`
+* Parameters for `POST`/`PUT`/`PATCH`/`DELETE` may be sent as a JSON request body as well as a query string or a form
+* New methods including `folders`, `playlist_remove`, `random` and zip downloads for whole containers via `download`
 * New collection methods `collections`, `collection`, `collection_items`, `collection_create`, `collection_edit`, `collection_delete`, `collection_add` and `collection_remove`
+* Album disks are reachable at last: `album_disks`, `album_disk` and `album_disk_songs`, plus `album_disk` support in `index`, `list`, `browse`, `stats` and `get_art`. With the per-user `album_group` preference off the web interface browses album disks, and until now the API had no way to see the same objects
+* New `sonic_match` method (REST `songs/{song_id}/sonic-match`) returning songs that sound like a given song, each with a similarity score on the same 0.0-1.0 scale as the OpenSubsonic `sonicMatch` field. It needs a sonic analysis plugin, and refuses the request rather than returning an empty list when none is enabled
+
+**NOTE** `album_disk`, `sonic_match` and `random` are API8 only. API6 is served by both Ampache7 and Ampache8 and has to stay identical between them, so anything new lands on API8 alone.
 
 The REST interface is documented with a full OpenAPI spec at [ampache.org/rest/swagger](https://ampache.org/rest/swagger).
 
