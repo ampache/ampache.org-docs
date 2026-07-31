@@ -165,3 +165,16 @@ media (max-width: 768px) {
 .navbar-sidebar__item.menu {
   color: #fff;
 }
+
+/* The mobile sidebar keeps the dark navbar background in both themes, so its
+   links need the light-on-dark palette regardless of --ifm-menu-color. */
+.navbar-sidebar .menu__link {
+  color: #fff;
+}
+
+/* Only the states that actually paint the #f8ac4c highlight get dark text. */
+.navbar-sidebar .menu__link:hover,
+.navbar-sidebar .menu__link--active:not(.menu__link--sublist),
+.navbar-sidebar .menu__list-item-collapsible .menu__link--active {
+  color: #32220f;
+}
