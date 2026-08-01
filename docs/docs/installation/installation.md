@@ -50,7 +50,6 @@ Alternative installations can be found here:
 * Optional PHP modules (Ampache runs without them, the feature named does not):
   * http (Yourls plugin)
   * ldap (LDAP authentication)
-  * pthreads (async functions)
   * sockets (UPnP)
   * xmlreader (UPnP)
 
