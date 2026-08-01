@@ -26,18 +26,33 @@ Alternative installations can be found here:
   * IIS
 * PHP = 7.4-8.4 (Ampache8 requires PHP 8.5+ **ONLY**)
 
-* PHP modules:
-  * PDO
-  * PDO_MYSQL
-  * hash
-  * session
+* Required PHP modules (the `ext-` requirements of composer.json, plus the MySQL driver and the modules the installer checks):
+  * curl
+  * dom
+  * fileinfo (required from Ampache 8.0.0, usually included in PHP)
+  * gd
+  * hash (included in PHP)
+  * iconv
   * intl
   * json (for php8.0+ php-json is part of the base php package)
-  * curl
+  * libxml
+  * mbstring
+  * openssl
+  * PDO
+  * PDO_MYSQL
+  * session (included in PHP)
   * simplexml
-  * gd (optional)
-  * ldap (optional)
-  * zip (optional)
+  * xml
+  * zip (required from Ampache 7.0.0, whether or not you enable zip downloads)
+
+* Optional PHP modules (Ampache runs without them, the feature named does not):
+  * http (Yourls plugin)
+  * ldap (LDAP authentication)
+  * pthreads (async functions)
+  * sockets (UPnP)
+  * xmlreader (UPnP)
+
+Once Ampache is running, `Admin -> Server Config -> Ampache Debug` lists every one of these modules and whether this server has it.
 
 * For FreeBSD The following php modules must be loaded:
   * php-xml
@@ -51,7 +66,7 @@ Alternative installations can be found here:
 Using Debian? This should cover you
 
 ```Shell
-sudo apt install apache2 cron ffmpeg flac gosu inotify-tools lame libavcodec-extra libev-libevent-dev libflac-dev libmp3lame-dev libtheora-dev libvorbis-dev libvpx-dev php php-curl php-gd php-json php-ldap php-mysql php-xml php-zip php-intl vorbis-tools zip unzip
+sudo apt install apache2 cron ffmpeg flac gosu inotify-tools lame libavcodec-extra libev-libevent-dev libflac-dev libmp3lame-dev libtheora-dev libvorbis-dev libvpx-dev php php-curl php-gd php-json php-ldap php-mbstring php-mysql php-xml php-zip php-intl vorbis-tools zip unzip
 sudo a2enmod rewrite
 ```
 

@@ -122,7 +122,7 @@ sudo apt update
 Then install the versioned packages Ampache needs.
 
 ```shell
-sudo apt install php8.5 php8.5-curl php8.5-gd php8.5-intl php8.5-mysql php8.5-xml php8.5-zip
+sudo apt install php8.5 php8.5-curl php8.5-gd php8.5-intl php8.5-mbstring php8.5-mysql php8.5-xml php8.5-zip
 ```
 
 Every version is co-installable, so PHP8.5 goes on beside the one your system already uses.
@@ -147,7 +147,7 @@ Then switch the module stream to PHP8.5 and install.
 dnf module list php
 sudo dnf module reset php
 sudo dnf module install php:remi-8.5
-sudo dnf install php-curl php-gd php-intl php-mysqlnd php-xml php-zip
+sudo dnf install php-curl php-gd php-intl php-mbstring php-mysqlnd php-xml php-zip
 ```
 
 Run `dnf module list php` first to confirm the stream name on your release.
