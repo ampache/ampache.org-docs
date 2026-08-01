@@ -31,6 +31,7 @@ Alternative installations can be found here:
   * dom
   * fileinfo (required from Ampache 8.0.0, usually included in PHP)
   * gd
+  * gettext
   * hash (included in PHP)
   * iconv
   * intl
@@ -44,6 +45,7 @@ Alternative installations can be found here:
   * simplexml
   * xml
   * zip (required from Ampache 7.0.0, whether or not you enable zip downloads)
+  * zlib
 
 * Optional PHP modules (Ampache runs without them, the feature named does not):
   * http (Yourls plugin)
