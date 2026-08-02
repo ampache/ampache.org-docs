@@ -299,12 +299,9 @@ A maximum below `0` (for example `-1`) means unlimited.
 
 ## Song Preview Plugins
 
-### 7digital
+### iTunes and Deezer
 
-| Preference                | Default   | Set by  | Meaning                        |
-|---------------------------|-----------|---------|--------------------------------|
-| `7digital_api_key`        | _(empty)_ | Manager | Your 7digital consumer key.    |
-| `7digital_secret_api_key` | _(empty)_ | Manager | Your 7digital consumer secret. |
+Neither preview plugin has any preferences; both use a public search api that needs no key or account.
 
 ## User Plugins
 

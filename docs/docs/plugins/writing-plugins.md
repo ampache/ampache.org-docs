@@ -78,5 +78,4 @@ Finally, for the plugin to actually be useful one or more of the following hooks
 * set_flag(Song $song, boolean $flagged)
 * shortener(string $url)
 * stream_control(array $object_ids)
-* stream_song_preview(string $file)
 * display_home() Display someting in the home page / index

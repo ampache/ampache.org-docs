@@ -244,6 +244,14 @@ The destination folder tree on the upload page shows its folder, checkbox and ch
 
 ![image](/img/1305249/9f64d419-ee98-412d-961a-22eaa72f20c9.png)
 
+## Song previews work again
+
+Tracks on an album in your wanted list can be previewed again; the old provider's api had disappeared and took previews with it.
+
+Previews now come from iTunes and Deezer, giving you the usual 30 second sample. Your administrator only has to install one of the two plugins, and there is nothing for you to set up or sign in to.
+
+Neither service knows Ampache's MusicBrainz ids, so a track is found by artist and title. A track nothing close is found for simply has no preview, rather than playing you a different song.
+
 ## Smaller fixes you might notice
 
 * Adding songs to a playlist skips duplicates correctly again

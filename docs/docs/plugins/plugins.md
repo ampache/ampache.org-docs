@@ -24,7 +24,7 @@ The category also decides where in the interface the plugin appears.
 * stream_control — per-user streaming limits
 * wanted — act on the wanted list
 * geolocation — show a user's location
-* preview — stream a short song preview
+* preview — find a short sample for a wanted track
 * user — content on the user page
 
 ## Managing plugins and modules
@@ -350,11 +350,21 @@ Version: 000001
 
 ## Song Preview Plugins
 
-Allow the user to stream a short song preview.
+Find a short sample for a track on the wanted list.
 
-### 7digital
+The sample is played from the provider's own url, so nothing is proxied through Ampache and neither plugin needs an api key, an account or any preferences. Install one (or both) and previews work.
 
-Description: Song preview from 7digital.
+Neither provider indexes MusicBrainz ids, so a track is matched on artist and title text. A result that isn't close enough to what was asked for is dropped, so a search that finds nothing similar gives no preview rather than the wrong song.
+
+### iTunes
+
+Description: Song preview from the iTunes Search API.
+
+Version: 000001
+
+### Deezer
+
+Description: Song preview from Deezer.
 
 Version: 000001
 

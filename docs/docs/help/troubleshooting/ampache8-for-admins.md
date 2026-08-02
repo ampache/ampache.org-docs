@@ -529,6 +529,22 @@ The admin debug page now masks LDAP, MusicBrainz, proxy, Spotify, Last.fm and OI
 
 It also shows the PHP version and the last auto-update check time.
 
+## Song previews come from iTunes and Deezer
+
+The `7digital` plugin has been deleted; the api it called no longer exists, so song previews on the wanted list had been dead for some time.
+
+Two new plugins replace it, **iTunes** and **Deezer**, and either one on its own is enough. Install them from **Admin → Modules → Plugins**.
+
+Neither needs an api key, an account or a preference, so nothing has to be signed up for or configured after installing.
+
+The sample is played straight from the provider's url — Ampache stores the link and answers a preview request with a redirect, so no preview traffic passes through your server.
+
+Neither provider indexes MusicBrainz ids, so a track is looked up by artist and title text. Results that aren't a close enough match are dropped, so a track that can't be found gives no preview instead of playing a different song.
+
+Database 800040 removes the `7digital_api_key` and `7digital_secret_api_key` preferences along with the plugin's installed version row. Nothing is needed from you; if you had 7digital installed it simply disappears from the module list.
+
+Plugins that provided previews also lose their streaming half: `stream_song_preview()` and the `SONG_PREVIEW_STREAM_PROVIDER` plugin type are gone, and a preview plugin now only implements `get_song_preview()`. See [Writing Plugins](/docs/plugins/writing-plugins) if you maintain one of your own.
+
 ## Config changes
 
 The config version has been bumped from 89 to 95 over the course of Ampache8 development, adding:
