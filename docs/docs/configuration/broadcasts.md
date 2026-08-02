@@ -33,6 +33,14 @@ Its host is also checked on the server side. The websocket server takes the host
 
 When `websocket_address` is left empty, Ampache falls back to `<scheme>://<server name>:8100`, choosing `wss` when your web path is an `https://` url and `ws` otherwise.
 
+**`run:websocket` reads `websocket_address` once, at startup.** It is a long-running process, not a per-request script, so editing `ampache.cfg.php` has no effect on it until it is restarted. Its startup log line gives this away: it prints `Starting socket at <host>:<port>`, and if that host is `localhost` when you configured a real hostname, the process is still running with the old (or no) `websocket_address` — restart the service:
+
+```shell
+sudo systemctl restart ampache_websocket
+```
+
+A `localhost` host at startup also means the Origin check falls back to allowing only `localhost`/the origin passed to the socket, which real browser requests from your actual hostname will never match — so this specific misconfiguration produces exactly the silent `403`/connection-refused failure described above.
+
 ## Run the websocket server
 
 ```shell
@@ -66,14 +74,26 @@ websocket_address = "wss://music.example.org/websocket"
 
 Apache doesn't support WebSocket by default and a proxy is needed. For WebSocket connections, proxy mod is not enough and proxy_wstunnel mod is required. Be aware that proxy_wstunnel module isn't available by default on Apache 2.2 on most distributions. Apache >= 2.4 is recommended.
 
-Enable proxy_wstunnel module then add this to your vhost:
+```shell
+sudo a2enmod proxy proxy_http proxy_wstunnel
+sudo systemctl restart apache2
+```
+
+Then add this inside the existing `<VirtualHost *:443>` block for your site (the one with the SSL certificate) — not a new vhost:
 
 ```AmpacheConf
-ProxyPass        /websocket/ ws://127.0.0.1:8100/ retry=0
-ProxyPassReverse /websocket/ ws://127.0.0.1:8100/
+<Location /websocket>
+    ProxyPreserveHost On
+    ProxyPass        ws://127.0.0.1:8100/ retry=0
+    ProxyPassReverse ws://127.0.0.1:8100/
+</Location>
 ProxyRequests off
 ProxyTimeout 3600
 ```
+
+`ProxyPreserveHost On` is not optional here. Without it, Apache rewrites the `Host` header it sends to the backend to the backend's own address (`127.0.0.1:8100`) rather than forwarding the one the browser sent. Ratchet's router matches routes against the `Host` header (it only accepts the host `websocket_address` names — that's the same origin/host check described above), so a rewritten `Host` header makes every route, including `/echo`, 404. Scoping it to `<Location /websocket>` keeps it from affecting any other reverse proxies in the same vhost.
+
+`ProxyTimeout` matters as much as the module: a broadcast connection sits idle between songs, and Apache's default proxy timeout is a few minutes — well short of that. Reload with `sudo apache2ctl configtest && sudo systemctl reload apache2`.
 
 ### nginx
 
@@ -114,7 +134,23 @@ Work outward — each step rules out the one before it.
     php -r '$c = @stream_socket_client("tcp://127.0.0.1:8100", $e, $s, 2); echo $c ? "open" : "closed: $s", PHP_EOL;'
     ```
 
-3. **Is it reachable from the browser?** Open the browser console on any Ampache page:
+3. **Does it actually speak what `websocket_address` promises?** A port being open doesn't mean it's serving the right protocol. `run:websocket` only ever speaks plain `ws://` — it has no TLS support — so a `websocket_address` of `wss://host:8100` (TLS straight to that port, no reverse proxy) will open the TCP connection and then hang or fail at the TLS handshake, which browsers report as a bare connection failure with no other detail. Tell the two apart from the server itself:
+
+    ```shell
+    # a TLS handshake here should print a certificate; if it just hangs/times out,
+    # nothing on this port speaks TLS
+    openssl s_client -connect music.example.org:8100 -servername music.example.org
+
+    # a plain HTTP request here should get a 426 Upgrade Required from Ratchet;
+    # if it does, the process is fine and the problem is purely wss vs ws
+    curl -v http://music.example.org:8100/echo
+    ```
+
+    If `curl` succeeds but `openssl s_client` hangs, `websocket_address` is asking for TLS on a port that doesn't offer it — proxy a path on your existing HTTPS host instead (see above) rather than pointing at the raw port with `wss://`.
+
+    **If you're proxying through your web server, a 404 through the proxy path that doesn't happen hitting the port directly usually means the `Host` header isn't being forwarded** (Apache without `ProxyPreserveHost On`, or an nginx `proxy_set_header Host` that names the wrong value). Ratchet's router matches on `Host`, so a rewritten header 404s *every* route, `/echo` included — a same-error-on-both-routes result points here before you suspect anything about `/broadcast` specifically.
+
+4. **Is it reachable from the browser?** Open the browser console on any Ampache page:
 
     ```js
     var s = new WebSocket('ws://music.example.org:8100/echo');
@@ -132,11 +168,19 @@ Work outward — each step rules out the one before it.
     b.onerror = () => console.log('broadcast refused - origin/host mismatch?');
     ```
 
-4. **Then try a broadcast** with two browsers — one broadcasting, one listening. The listener's player should change track when the broadcaster does.
+5. **Then try a broadcast** with two browsers — one broadcasting, one listening. The listener's player should change track when the broadcaster does.
 
 ## Known limitations
 
 * The websocket server is a single process and holds every listener connection; it is not clustered.
-* There is no reconnect: if the server restarts, listeners must rejoin.
+* There is no reconnect: if the server restarts, listeners must rejoin. If the socket never connects in the first place, or drops mid-listen, the player falls back to normal local playback (transport controls come back) rather than staying stuck with them hidden — but it does not automatically rejoin the broadcast.
 * A listener's browser must be able to reach the *stream* as well as the socket, so the same access rules as ordinary playback apply.
 * The origin check is exact on the host, so an installation reachable under two names can only broadcast under the one `websocket_address` names.
+
+## Troubleshooting a stuck-looking player
+
+Before the fix described here, a listener whose socket failed to connect (wrong host, blocked port, service not running) was left with the transport controls (play/pause/next/stop, seek bar, playlist) hidden and nothing to unhide them — `startBroadcastListening()` hides them optimistically, expecting the socket to come up and drive playback itself. If it never does, the player looks "half loaded": no track, no controls, an unusable black box.
+
+The listener-side player now attaches `onerror`/`onclose` handlers to the broadcast socket. A failed or dropped connection is logged to the browser console (`[broadcast] ...`) and restores the hidden controls so the player works normally — it just won't follow the broadcaster anymore. Malformed `SONG` payloads are also caught and logged instead of throwing and silently breaking the message loop.
+
+If you still see a broken player, check the browser console first — the failure is now always logged there.
