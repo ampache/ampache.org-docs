@@ -12,6 +12,10 @@ Responses have been created using the ```build_docs.py``` python script and are 
 
 Each API version has it's own examples. API8 (the current version) is documented in this repository: response schemas in [openapi.json](/openapi.json) and per-method response field tables in [API-JSON-methods](/api/api-json-methods) and [api-xml-methods](/api/api-xml-methods). The python3-ampache example sets below currently cover API6 and earlier.
 
+* API8 examples
+  * [API8 JSON Examples](https://github.com/ampache/python3-ampache/tree/api8/docs/json-responses)
+  * [API8 XML Examples](https://github.com/ampache/python3-ampache/tree/api8/docs/xml-responses)
+
 * API6 examples
   * [API6 JSON Examples](https://github.com/ampache/python3-ampache/tree/api6/docs/json-responses)
   * [API6 XML Examples](https://github.com/ampache/python3-ampache/tree/api6/docs/xml-responses)
