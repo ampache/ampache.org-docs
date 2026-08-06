@@ -4,8 +4,6 @@ metaTitle: "Ampache8 for Admins"
 description: "Ampache8 for Admins"
 ---
 
-**WORK IN PROGRESS**
-
 ## Ampache8 for Admins
 
 This page will cover the visual, backend and Admin specific changes to Ampache.
