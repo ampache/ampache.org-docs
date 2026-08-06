@@ -17,8 +17,12 @@ By default Ampache tries to do everything at once but lets do things a bit smart
 First up; make sure you've enabled the memory cache in your config file.
 ![image](/img/1305249/79297410-65653000-7f21-11ea-98f8-76184a7f14b5.png)
 
+**NOTE** from Ampache8 `memory_cache` defaults to `"true"`, so unless you turned it off there is nothing to do here.
+
 Then enable the cron_cache option in the Admin settings page.
 ![image](/img/1305249/79296198-18338f00-7f1e-11ea-824a-0a627ab1156f.png)
+
+Ampache8 adds a companion preference, `Add live plays to the cached count for accurate stats` (`cron_cache_live_count`). With `cron_cache` on, played counters come from the cache and lag until the next cron run; turning this on adds the plays recorded since that run to the cached value, at the cost of an extra query per count. It is admin-only and off by default.
 
 * Copy or create the unit file and timer using the example below. (Edit to match your web path and web user.)
 
@@ -51,7 +55,7 @@ root@web:~# systemctl status ampache_cron
      Active: inactive (dead) since Wed 2020-04-15 13:32:19 AEST; 11min ago
 TriggeredBy: ● ampache_cron.timer
        Docs: https://ampache.org/docs/configuration/cron
-    Process: 129213 ExecStart=/usr/bin/php bin/cron.inc (code=exited, status=0/SUCCESS)
+    Process: 129213 ExecStart=/usr/bin/php bin/cli run:cronProcess (code=exited, status=0/SUCCESS)
    Main PID: 129213 (code=exited, status=0/SUCCESS)
 
 Apr 15 13:30:01 web systemd[1]: Starting ampache_cron...
@@ -63,14 +67,13 @@ Apr 15 13:32:19 web systemd[1]: Finished ampache_cron.
 
 ## Unit File (ampache_cron.service)
 
-This unit file will run channel 7 from the /var/www/html folder.
-Set your correct channel (and update the PID file to match)
+This unit file runs the cron process from the `/var/www/html` folder as `www-data`. Change `WorkingDirectory`, `User` and `Group` to match your install.
 
 ```conf
 [Unit]
 Description=ampache_cron
 After=network.target remote-fs.target nss-lookup.target
-Documentation=https://ampache.org/docs/configuration/cron
+Documentation=https://ampache.org/docs/
 
 [Service]
 PrivateTmp=true
@@ -78,7 +81,7 @@ KillMode=mixed
 Type=oneshot
 User=www-data
 Group=www-data
-ExecStart= php bin/cron.inc
+ExecStart=php bin/cli run:cronProcess
 WorkingDirectory=/var/www/html
 ProtectSystem=yes
 
@@ -104,6 +107,32 @@ Unit=ampache_cron.service
 [Install]
 WantedBy=timers.target
 ```
+
+## Other timers in docs/examples
+
+`docs/examples` carries a few more unit/timer pairs you can install the same way.
+
+| Unit | What it runs |
+|------|--------------|
+| `ampache_cron` | `run:cronProcess` — the cache preload above |
+| `ampache_podcasts` | `run:updateCatalog podcasts -a -g -i` — podcast feed sync |
+| `ampache_websocket` | `run:websocket`, needed by listen-along broadcasting |
+| `ampache_stats_consolidate` | `cleanup:consolidateStats -e` — **new in Ampache8** |
+
+### Play history consolidation (Ampache8)
+
+`ampache_stats_consolidate.timer` runs monthly and rolls detailed `object_count` rows older than your retention window into summary counts.
+
+It does nothing until you set the window in `config/ampache.cfg.php`; `0` (the default) disables consolidation entirely.
+
+```conf
+; Keep 2 years of detailed history, consolidate anything older
+stats_consolidate_threshold = 730
+```
+
+Drop the `-e` from `ExecStart` to preview what would be consolidated before enabling it for real.
+
+Nothing is discarded — detail rows move to `object_count_archive` and `cleanup:restoreStats` puts them back. See [Play history consolidation](/docs/help/troubleshooting/ampache8-for-admins#play-history-consolidation) for what stays exact and what only covers the retained window.
 
 ## Scheduled Task for Windows (ampache_cron.xml)
 
@@ -162,9 +191,9 @@ This example files uses the same path as the [Windows Installation Guide](/docs/
   </Settings>
   <Actions Context="Author">
     <Exec>
-      <Command>C:\Bitnami\wampstack-7.3.6-2\php\php.exe</Command>
-      <Arguments>bin\cron.inc</Arguments>
-      <WorkingDirectory>C:\Bitnami\wampstack-7.3.6-2\apache2\htdocs</WorkingDirectory>
+      <Command>C:\php\php.exe</Command>
+      <Arguments>bin\cli run:cronProcess</Arguments>
+      <WorkingDirectory>C:\ampache</WorkingDirectory>
     </Exec>
   </Actions>
 </Task>

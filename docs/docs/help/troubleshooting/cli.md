@@ -24,7 +24,6 @@ In general, simply updating the command should work as expected with 2 [exceptio
 * ./bin/broadcast.inc => ./bin/cli run:broadcast
 * ./bin/calculate_art_size.inc => ./bin/cli run:calculateArtSize
 * ./bin/catalog_update.inc => ./bin/cli run:updateCatalog
-* ./bin/channel_run.inc => ./bin/cli run:channel
 * ./bin/clean_art_table.inc => ./bin/cli cleanup:art
 * ./bin/compute_cache.inc => ./bin/cli run:computeCache
 * ./bin/cron.inc => ./bin/cli run:cronProcess
@@ -37,6 +36,8 @@ In general, simply updating the command should work as expected with 2 [exceptio
 * ./bin/update_file.inc => ./bin/cli run:updateCatalogFile
 * ./bin/websocket_run.inc => ./bin/cli run:websocket
 * ./bin/write_playlists.inc  => ./bin/cli export:playlist
+
+`./bin/channel_run.inc` has no replacement. Channels were removed from Ampache and there is no `run:channel` command.
 
 ## Command changes
 

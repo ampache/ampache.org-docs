@@ -202,7 +202,7 @@ The config defaults have changed from `%BITRATE%k` back to `%BITRATE%`.
 encode_args_mp3 = "-vn -b:a %BITRATE% -c:a libmp3lame -f mp3 pipe:1"
 ```
 
-**NOTE** This can not be updated automatically in your config file. If you keep the `k` your transcoder will be asked for bitrates like `128000k`, so check every `encode_args_` parameter when upgrading. (`encode_args_ts` still uses `%MAXBITRATE%k`)
+**NOTE** your config file is not rewritten for you, but a leftover `k` is **not** a breakage: the substitution consumes a trailing `k` or `K` along with the placeholder, so an Ampache7 `%BITRATE%k` line still expands to `128000` rather than `128000k`. Dropping it matches the new defaults and is worth doing while you are in the file. `encode_args_ts` uses `%MAXBITRATE%`, expanded the same way from the `maxbitrate` stream URL argument.
 
 New output profiles are available if you want to add them to your own `encode_args_*` config: `mp3_rg`, `mp3_car`, `opus_rg` and `opus_car` (ReplayGain-aware variants, never written to the transcode cache), plus a fragmented-MP4 `m4a` profile.
 
@@ -238,30 +238,70 @@ Graphs render as SVG instead of PNG, so they scale to the page and stay sharp on
 
 ## Database changes for Ampache8
 
-Ampache8 brings the first new database updates since the version split.
+Ampache8 brings the first new database updates since the version split. They run as migrations `800000` to `800044`.
 
-* New tables `folder` and `folder_map` holding a virtual folder tree for each catalog
-* New tables `object_count_summary` and `object_count_archive` for [play history consolidation](#play-history-consolidation)
-* `folder` added to the `object_type` enum on `cache_object_count`, `cache_object_count_run`, `image`, `object_count`, `rating`, `tag_map`, `user_activity` and `user_flag`
+`php bin/cli admin:updateDatabase` prints the whole list for your install without writing anything; add `-e` when you are ready to apply it.
+
+### New tables
+
+* `folder` and `folder_map`, holding a virtual folder tree for each catalog
+* `object_count_summary` and `object_count_archive`, for [play history consolidation](#play-history-consolidation)
+* `collection` and `collection_map`, holding [collections](#collections-curate-a-list-of-anything)
+
+### New and changed columns
+
 * New `user`.`subsonic_secret` column holding the per-user [Subsonic Password](#a-dedicated-subsonic-password)
 * New `last_played` column on `album`, `album_disk`, `artist`, `podcast`, `podcast_episode`, `song` and `video`, backfilled from your existing play history
-* New tables `collection` and `collection_map` holding [collections](#collections-curate-a-list-of-anything)
-* `collection` added to the `object_type` enum on `cache_object_count`, `cache_object_count_run`, `image`, `object_count`, `object_count_archive`, `object_count_summary`, `rating` and `user_flag`
-* The `unique_collection_map` key was dropped from `collection_map`, so whether a collection may hold the same object twice is decided by the per-user `unique_playlist` preference rather than by the schema
 * New `position_ms`, `playback_rate` and `state` columns on `now_playing`, holding what an OpenSubsonic client reports through `reportPlayback`
 * New `artist`.`lastfm_url` column keeping the last.fm page url with the rest of the cached artist info
 * `label_asso` gains a nullable `album` column and its `artist` column becomes nullable, so a label can be associated with an album as well as an artist
-* New preference `api_enable_8` (Allow Ampache API8 responses)
-* New preference `show_folder` (Show 'Folders' link in the main sidebar)
-* New preference `show_collection` (Show 'Collections' link in the main sidebar)
-* New preference `mini_player` (Lock this user into the mini player interface)
-* New per-user transcoding preferences: `encode_target`, `encode_video_target`, `encode_player_webplayer_target`, `encode_player_api_target`, `max_bit_rate`, `min_bit_rate`, `transcode_bitrate_webplayer` and `transcode_bitrate_api` — see [Transcoding preferences moved per-user](#transcoding-preferences-moved-per-user)
-* Removed preferences `webplayer_flash`, `webplayer_aurora` and `play2`
+* `song_preview`.`file` widened to `varchar(4096)` so the signed preview urls from [iTunes and Deezer](#song-previews-come-from-itunes-and-deezer) are not truncated
+* `object_count`, `user_activity`, `user_data` and `now_playing` accept the system user (`-1`) on databases where the `user` column was `UNSIGNED`. Existing `share.php` plays are re-attributed from user `0` to `-1`
+
+### `object_type` enum changes
+
+* `folder` added to `cache_object_count`, `cache_object_count_run`, `image`, `object_count`, `rating`, `tag_map`, `user_activity` and `user_flag`
+* `collection` added to `cache_object_count`, `cache_object_count_run`, `image`, `object_count`, `object_count_archive`, `object_count_summary`, `rating` and `user_flag`
+* `wanted` added to `image`, so a wanted album keeps the art it gathered
+
+### Keys and indexes
+
+* The `unique_collection_map` key was dropped from `collection_map`, so whether a collection may hold the same object twice is decided by the per-user `unique_playlist` preference rather than by the schema
+* Dropped four redundant `object_count` indexes that duplicated or prefixed `object_count_UNIQUE_IDX`/`object_count_date_IDX`
+* New index on `album`.`addition_time` and `artist`.`addition_time` so the "newest" lists stop at the rows they display
+* New index on `object_count`.`geo_latitude`, `geo_longitude` so a cached place name is a lookup
+* New index on `user_flag`.`object_type`, `date` so the newest flagged lists stop at the rows they display
+
+### Preferences added
+
+* `api_enable_8` (Allow Ampache API8 responses)
+* `show_folder` (Show 'Folders' link in the main sidebar)
+* `show_collection` (Show 'Collections' link in the main sidebar)
+* `mini_player` (Lock this user into the mini player interface)
+* `broadcast_private` (Require a session to listen to my broadcasts) — per user, on by default
+* `cron_cache_live_count` (Add live plays to the cached count for accurate stats) — admin-only, off by default. With `cron_cache` enabled the played counters are read from the cache and only refreshed by the cron task, so they lag until the next run; this adds the plays recorded since the last run to the cached value at the cost of an extra query per count
+* Per-user transcoding preferences `encode_target`, `encode_video_target`, `encode_player_webplayer_target`, `encode_player_api_target`, `max_bit_rate`, `min_bit_rate`, `transcode_bitrate_webplayer` and `transcode_bitrate_api` — see [Transcoding preferences moved per-user](#transcoding-preferences-moved-per-user)
+
+### Preferences removed
+
+* `webplayer_flash` and `webplayer_aurora` — the [Flash and Aurora.js fallbacks are gone](#the-web-player-is-html5-only)
+* `use_play2` — the [play2 stream action was merged into play](#the-play2-stream-action-has-been-removed)
+* `webplayer_html5` — obsolete, the player is HTML5 unconditionally
+* `ajax_load` — obsolete
+* `transcode_bitrate_formats` — replaced by the per-player `transcode_bitrate_webplayer`/`transcode_bitrate_api` overrides
+* `7digital_api_key` and `7digital_secret_api_key` — the plugin they configured [has been deleted](#song-previews-come-from-itunes-and-deezer)
+
+### Data changes applied on upgrade
+
 * Any user with `subsonic_legacy` enabled has it disabled (OpenSubsonic becomes the default)
 * Any `direct_play_limit` set to 0 (unlimited) is reset to a cap of 500 tracks
-* Existing `transcode_bitrate` values are migrated to bits per second (see [Transcoding bitrates are sent in full bps](#transcoding-bitrates-are-sent-in-full-bps-remove-the-k-from-your-config) above)
-* Dropped four redundant `object_count` indexes that duplicated or prefixed `object_count_UNIQUE_IDX`/`object_count_date_IDX`
+* Existing `transcode_bitrate`, `max_bit_rate` and `min_bit_rate` values are migrated to bits per second (see [Transcoding bitrates are sent in full bps](#transcoding-bitrates-are-sent-in-full-bps-remove-the-k-from-your-config) above)
 * Uploaded art with a corrected mime type (`.jpg` no longer stored as the invalid `image/jpg`)
+* The misleading `disabled_custom_metadata_fields_input` preference label is corrected
+* Missing `podcast` rows are added to `object_count` for episode plays that predate podcast play counting
+* The obsolete `update_counts` row is removed from `update_info`; it timed a sweep that no longer exists
+* `folder` rows whose `path_name` is a bare directory name are removed. The next catalog **Scan Folders** recreates them with their real path
+* `album`.`subtitle`, `folder`.`playable`, `folder`.`weight` and the `folder_map` name/catalog/path columns are restored on databases installed from a stale `ampache.sql`
 
 **NOTE** The `object_type` enum updates also delete orphaned rows that reference an invalid object type. This is bad data cleanup but it is destructive, so back up your database before updating.
 
@@ -358,6 +398,11 @@ The folder tables are not filled automatically; scan them from the catalog pages
 
 * Each catalog's action dropdown gains a **Scan Folders** action
 * The Manage Catalogs page gains a **Scan All Folders** action
+* From the CLI, `-s|--scan` on `run:updateCatalog` and `run:updateCatalogFolder` does the same job. It is **not** one of the `-ceagt` defaults, so a plain `run:updateCatalog` will not build the tree
+
+```shell
+php bin/cli run:updateCatalog some-catalog -s
+```
 
 ![image](/img/1305249/a19506c4-c246-43d4-9616-f9f07aef2ae2.png)
 
@@ -483,9 +528,11 @@ Subsonic transcoding now converts the client `maxBitRate` correctly, so clients 
 
 ## OpenSubsonic now implements the full specification
 
-Ampache8 implements every endpoint in the OpenSubsonic specification and reports ten extensions.
+Ampache8 implements every endpoint in the OpenSubsonic specification and reports nine extensions: `apiKeyAuthentication`, `formPost`, `getPodcastEpisode`, `indexBasedQueue`, `playbackReport`, `songLyrics`, `topSongsByArtistId`, `transcodeOffset` and `transcoding`.
 
-Four are new: `transcoding`, `playbackReport`, `topSongsByArtistId` and `sonicSimilarity`.
+A tenth, `sonicSimilarity`, is only advertised while a sonic analysis plugin is installed and enabled for that user, because Ampache cannot answer it on its own.
+
+Four of these are new in Ampache8: `transcoding`, `playbackReport`, `topSongsByArtistId` and `sonicSimilarity`.
 
 XML responses now carry the same OpenSubsonic fields as JSON, which was not the case before.
 
@@ -586,18 +633,37 @@ Plugins that provided previews also lose their streaming half: `stream_song_prev
 
 ## Config changes
 
-The config version has been bumped from 89 to 95 over the course of Ampache8 development, adding:
+Ampache7 shipped `config_version` 87. Ampache8 is on **95**, so run the config update after upgrading:
 
+```shell
+php bin/cli admin:updateConfigFile -e
+```
+
+### New options
+
+* `oidc_*` (21 keys) — see [OpenID Connect (OIDC) login](#openid-connect-oidc-login)
 * `stats_consolidate_threshold` — see [Play history consolidation](#play-history-consolidation)
 * `playlist_art_mosaic` and `playlist_art_mosaic_fallback` — see [Playlist art mosaic](#playlist-art-mosaic)
 * `show_mini_player` — see [Mini player](#mini-player)
 * `label_ignore_pattern` — see [Placeholder labels are filtered out of your catalog](#placeholder-labels-are-filtered-out-of-your-catalog)
+* `encode_args_mp3_rg`, `encode_args_mp3_car`, `encode_args_opus_rg` and `encode_args_opus_car` — see [Transcoding bitrates are sent in full bps](#transcoding-bitrates-are-sent-in-full-bps-remove-the-k-from-your-config)
 * `allow_lost_password` — set to `false` to hide the `Lost Password` link on the login page and reject `lostpassword.php` outright, so nobody can trigger reset mail to your users by posting to it directly. Only relevant on a server with mail enabled; without mail the feature is already off
 
 ```conf
 ; DEFAULT: "true"
 ;allow_lost_password = "false"
 ```
+
+### Changed defaults
+
+Two defaults flipped, so a config file that never set them behaves differently after the upgrade.
+
+* `memory_cache` now defaults to **`"true"`** (it was `"false"`). It batches the per-object lookups a page would otherwise repeat, roughly halving the query count on a large browse, at the cost of higher memory use. Set it to `"false"` if you have a big catalog and a low PHP memory limit
+* `statistical_graphs` now defaults to **`"true"`** (it was `"false"`) and is no longer commented out in the dist file, because the graph library is a normal dependency now — see [Statistical Graphs no longer need `ext-gd`](#statistical-graphs-no-longer-need-ext-gd)
+
+`max_bit_rate` and `min_bit_rate` are still in the config file but are now only read **once**, at upgrade time, to seed each user's new per-user preference. Their unit changed from kilobits to bits per second at the same time (`576` became `576000`). After the upgrade the config values are ignored; leave them commented out and change the preference instead.
+
+### Removed options
 
 `api_debug_handler` has been removed entirely.
 

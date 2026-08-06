@@ -99,11 +99,17 @@ Albums, album disks, artists, genres, labels, live streams, playlists, podcasts,
 
 A **Create Collection** button on the collections browse makes one. You choose its name, whether it is public or private, and whether it is pinned to a single kind of thing or left mixed. (The playlists browse gained the same **Create Playlist** button, so a playlist no longer has to come into existence as a side effect of adding something to one.)
 
+**TODO IMAGE** the Create Collection dialog, showing the name, public/private and pinned-type fields.
+
 You can leave a collection mixed or pin it to a single kind of thing, after which it refuses anything else.
 
 Opening a mixed collection shows one ordered list, each row naming its own type. A collection pinned to a single type is handed to that type's own browse instead, so a collection of albums looks like any other album view.
 
+**TODO IMAGE** an open mixed collection, showing rows of different types side by side with the type named on each row.
+
 The **Add to playlist / collection** menu now offers collections as well as playlists, under their own headings. Only the halves that can take what you are adding are shown, so a genre offers collections alone - a playlist stores the media an item expands to, and a genre expands to nothing on its own. Genres and labels gained that menu for the first time.
+
+**TODO IMAGE** the Add to playlist / collection menu with both the "Playlists" and "Collections" headings visible.
 
 Adding a smartlist adds the songs it currently matches, since a smartlist is a rule rather than a thing that can be stored in a list.
 
@@ -131,6 +137,10 @@ The **View** menu on a browse has a new **Multi-Select** option that turns check
 * `Ctrl`/`Cmd`+click toggles a row and `Shift`+click selects a range, anywhere on the row that is not itself a button or a link
 * A bar stays in view while you scroll, offering Play, Play Next, Play Last, add to the temporary playlist, add to another playlist, and remove from the list
 
+**TODO IMAGE** the View menu open with the Multi-Select option in it.
+
+**TODO IMAGE** a browse with several rows checked and the action bar pinned in view.
+
 Removing a selection is one request rather than one per row, so a long selection no longer takes a visible moment per entry.
 
 A mixed collection groups your selection by type before acting on it, so playing a selection of albums and songs together works from the one bar.
@@ -145,11 +155,15 @@ Old `#` bookmarks still work and quietly upgrade themselves to the real url when
 
 Clicking the page you are already on no longer re-fetches it.
 
+**TODO IMAGE** the browser address bar showing a real page url such as `/browse.php?action=album` instead of `/index.php`.
+
 ## The top menu carries everything the sidebar does
 
 If your server uses the optional top menu it now holds the same entries as the light sidebar, gaining **Albums**, **Smartlists**, **Radio** and **Log out**.
 
 `Smartlists` follows the `Hide the search menu in the sidebar` preference, and `Radio` only appears when live streams are enabled.
+
+**TODO IMAGE** the top menu with the new Albums, Smartlists, Radio and Log out entries.
 
 ## A mini player for small screens and simple accounts
 
@@ -159,13 +173,23 @@ If your admin locks your account into it you'll only ever see that page (your no
 
 Logging in always sends you back to whatever page you originally asked for, so old bookmarked links keep working either way.
 
+**TODO IMAGE** the `/m/` mini player page.
+
+**TODO IMAGE** the login form showing the Mini player button beside Register and Lost Password.
+
 ## Your playlist art can be a mosaic now
 
 Automatically generated playlist covers can now be a grid of up to nine covers from the playlist, instead of a single random cover. Playlists with fewer than four distinct covers still get the old single-cover behaviour. Your admin can turn this off if they'd rather keep the single-cover look.
 
+**TODO IMAGE** a playlists browse showing several mosaic covers.
+
 ## Per-player transcoding preferences
 
-Your default transcode output format and bitrate live in your Options under **Streaming -> Transcoding**, and now you can override them per player: separate output-format preferences for the Web Player and the API, plus separate bitrate overrides for each (`0` keeps the site default). There are also new `Maximum transcode bitrate`/`Minimum transcode bitrate` preferences if you want to cap or floor your own dynamic downsampling.
+Your default transcode output format and bitrate live in your Options under **Streaming -> Transcoding**, and now you can override them per player: separate output-format preferences for the Web Player and the API, plus separate bitrate overrides for each (`0` keeps the site default). There are also new `Maximum transcode bitrate for dynamic downsampling in bps` and `Minimum transcode bitrate for dynamic downsampling in bps` preferences if you want to cap or floor your own dynamic downsampling.
+
+**NOTE** every bitrate on this page is now in **bits per second**, not kilobits. `576000` is 576kbps.
+
+**TODO IMAGE** the Streaming -> Transcoding section of the Options page with the new per-player format and bitrate rows.
 
 ## Ampache on your phone
 
@@ -191,6 +215,8 @@ The Add-to-playlist and Random item submenus in the right sidebar no longer open
 Click to open, click an item or anywhere else to close.
 
 This makes the menus usable on touch screens and stops them vanishing when your mouse slips.
+
+**TODO IMAGE** the right sidebar with the Add-to-playlist submenu open.
 
 ## Direct play is capped for very large items
 
@@ -232,9 +258,13 @@ Finding songs that sound alike is also supported, but it needs the AudioMuse plu
 
 You no longer need to hand your API key to a Subsonic client as its "password". Set a separate **Subsonic Password** from your account page and use that instead - it's stored encrypted rather than hashed so token-based Subsonic auth keeps working, and your API key still works too if you'd rather keep using that.
 
+**TODO IMAGE** the Subsonic Password field on the account page.
+
 ## Statistics graphs are sharper and load without an extra install
 
 The charts on catalog/statistics pages are now SVG instead of PNG, so they scale to the page and stay sharp on a high-dpi screen. They also no longer depend on your admin having installed an optional non-free library.
+
+**TODO IMAGE** a statistics page graph, ideally beside the old PNG version for comparison.
 
 ## Upload page folder tree fixed
 
@@ -250,6 +280,8 @@ Previews now come from iTunes and Deezer, giving you the usual 30 second sample.
 
 Neither service knows Ampache's MusicBrainz ids, so a track is found by artist and title. A track nothing close is found for simply has no preview, rather than playing you a different song.
 
+**TODO IMAGE** a wanted album track list with the preview play buttons working.
+
 ## Smaller fixes you might notice
 
 * Adding songs to a playlist skips duplicates correctly again
@@ -263,15 +295,22 @@ Added:
 * `Allow Ampache API8 responses` - enable or disable the new API8 per user
 * `Show 'Folders' link in the main sidebar` - show or hide the Folders browse link
 * `Show 'Collections' link in the main sidebar` - show or hide the Collections browse link
+* `Require a session to listen to my broadcasts` - on by default; turn it off to let anyone with the link listen along
 * `Transcode output format - Audio Default` / `- Video Default` / `- Web Player (overrides default)` / `- API (overrides default)` - per-player transcode format overrides
-* `Maximum transcode bitrate` / `Minimum transcode bitrate` - caps for your own dynamic downsampling
+* `Maximum transcode bitrate for dynamic downsampling in bps (0 = disabled)` / `Minimum transcode bitrate for dynamic downsampling in bps` - caps for your own dynamic downsampling
 * `Transcode bitrate - Web Player (overrides default)` / `- API (overrides default)` - per-player bitrate overrides
+
+Your admin may also set `Lock this user into the mini player interface` on your account; it is an admin-only preference, so it will not appear in your own Options.
 
 Removed:
 
-* `Authorize Flash Web Player`
-* `Authorize JavaScript decoder (Aurora.js) in Web Player`
-* `Use an alternative playback action for streaming` (play2)
+* `Authorize Flash Web Player` (`webplayer_flash`)
+* `Authorize JavaScript decoder (Aurora.js) in Web Player` (`webplayer_aurora`)
+* `Use an alternative playback action for streaming` (`use_play2`)
+* `Authorize HTML5 Web Player` (`webplayer_html5`) - the player is HTML5 unconditionally now
+* `Ajax page load` (`ajax_load`)
+
+**TODO IMAGE** the Options page showing the new Ampache8 preferences.
 
 
 ## If you download Ampache yourself, the zip names are changing

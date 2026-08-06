@@ -10,7 +10,9 @@ Ampache strives to have sane defaults while providing the ability to change the 
 
 ### The Config File
 
-The Ampache config file is where you configure options that should not be configured by the web server. You can find a current copy of the config file at [Github](https://github.com/ampache/ampache/raw/master/config/ampache.cfg.php.dist).
+The Ampache config file is where you configure options that should not be configured by the web server. You can find a current copy of the config file at [Github](https://github.com/ampache/ampache/raw/develop/config/ampache.cfg.php.dist). (`develop` is Ampache8; use [release7](https://github.com/ampache/ampache/raw/release7/config/ampache.cfg.php.dist) for the Ampache7 file)
+
+Ampache8 ships `config_version` 95. After upgrading, merge the new options in with `php bin/cli admin:updateConfigFile -e` — see [Config changes](/docs/help/troubleshooting/ampache8-for-admins#config-changes) for what is new, what was removed, and the two defaults that flipped.
 
 This is usually for webserver/database config, file and folder locations or for server specific config like transcoding, caching or data processing.
 
@@ -42,7 +44,7 @@ Preferences are split into the following sections
 This section contains all of the preferences directly relating to the interface and how Ampache look or displays information to the user.
 
 * **Popular Threshold** - This setting determines how many Top artists, Top Albums, Statistics, Recently Played Tracks are listed throughout the interface. Larger numbers can increase load times as more data has to be displayed on any one page. The Default is 10.
-* **Language** - Ampache is translated into many different languages using GETTEXT, this is a list of all current translations. At any one moment some of the strings may be missing from any one of the translations. If you would like to fix a missing string or contribute a new language please read [Translating](https://github.com/ampache/ampache/blob/master/locale/base/TRANSLATIONS).
+* **Language** - Ampache is translated into many different languages using GETTEXT, this is a list of all current translations. At any one moment some of the strings may be missing from any one of the translations. If you would like to fix a missing string or contribute a new language please read [Translating](https://github.com/ampache/ampache/blob/develop/locale/base/TRANSLATIONS.md).
 
 * **Theme** - This sets the them for the current user. Ampache reads the /themes directory for a listing of all current installed themes. For more information on creating a theme see the [Themes](/docs/themes).
 * **Min Album Size** - This defines the smallest album that will be viewable when Browsing by Album. This can effectively hide a large portion of your music so be careful. The default value is 0.

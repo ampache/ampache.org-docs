@@ -20,7 +20,7 @@ php bin/cli admin:addUser --help
 
 Commands are grouped by a prefix that describes what they touch:
 
-* `admin:` — users, access control, licenses, catalog filters, modules, mail and other server administration
+* `admin:` — users, modules, mail, database and other server administration
 * `run:` — catalogs and long-running background processes
 * `cleanup:` — housekeeping of statistics, art and disabled media
 * `export:` — writing art, playlists and catalog metadata to disk
@@ -43,7 +43,7 @@ Many of these commands mirror an action on an **Admin** page in the web interfac
 |---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `admin:addUser`     | Create a user account. Takes a `<username>` argument plus `--password`, `--email`, `--website`, `--name` and `--level` options. A random password is generated when none is supplied. |
 | `admin:listUsers`   | List every user, or find one by `[username]` / `--user <id>`. `--apikey` prints only the API key.                                                                                     |
-| `admin:updateUser`  | Update a single user: generate a new `--apikey`, `--streamtoken` or `--rsstoken`, set the `--subsonic` password, or change the access `--level`.                                      |
+| `admin:updateUser`  | Update a single user: generate a new `--apikey`, `--streamtoken` or `--rsstoken`, set the `--subsonic` password, or change the access `--level`. New in Ampache 8: `--subsonic`.     |
 | `admin:deleteUser`  | Delete a user by `[username]` or `--user <id>`. Refuses to remove the last active administrator.                                                                                      |
 | `admin:enableUser`  | Enable a disabled user.                                                                                                                                                               |
 | `admin:disableUser` | Disable a user. Refuses to disable the last active administrator.                                                                                                                     |
@@ -60,58 +60,7 @@ php bin/cli admin:disableUser jane
 php bin/cli admin:deleteUser jane
 ```
 
-### Access Control Lists
-
-Access Control Lists (ACLs) restrict which addresses may stream, use the API/RPC, reach the web interface, or act as trusted network hosts.
-These mirror the **Admin → Access Control** page.
-
-| Command           | What it does                                                                                                                                            |
-|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `admin:listAcl`   | List every ACL with its address range, type, level and assigned user.                                                                                   |
-| `admin:addAcl`    | Add an ACL. Takes a `<name>` argument plus `--start`, `--end`, `--level`, `--type` (`stream`, `interface`, `rpc`, `network`), `--addtype` and `--user`. |
-| `admin:updateAcl` | Update an existing ACL by `<accessId>`.                                                                                                                 |
-| `admin:deleteAcl` | Delete an ACL by `<accessId>`.                                                                                                                          |
-
-```shell
-php bin/cli admin:addAcl "office" --start 10.0.0.1 --end 10.0.0.255 --type stream --level 25
-php bin/cli admin:listAcl
-php bin/cli admin:deleteAcl 7
-```
-
-### Licenses
-
-Licenses are the reusable rights labels (Creative Commons, All rights reserved, …) that can be attached to media.
-These mirror the **Admin → Licenses** page and are available to managers.
-
-| Command               | What it does                                                                                    |
-|-----------------------|-------------------------------------------------------------------------------------------------|
-| `admin:listLicenses`  | List every license by id and name.                                                              |
-| `admin:addLicense`    | Add a license. Takes a `<name>` argument plus `--description`, `--external_link` and `--order`. |
-| `admin:updateLicense` | Update a license by `<licenseId>`; omitted options keep their current value.                    |
-| `admin:deleteLicense` | Delete a license by `<licenseId>`.                                                              |
-
-```shell
-php bin/cli admin:addLicense "CC BY 4.0" --external_link https://creativecommons.org/licenses/by/4.0/
-php bin/cli admin:listLicenses
-```
-
-### Catalog filters
-
-Catalog filter groups control which catalogs a group of users can see.
-These mirror the **Admin → Catalog Filters** page.
-
-| Command              | What it does                                                                                                                      |
-|----------------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| `admin:listFilters`  | List every filter group with its user and catalog counts.                                                                         |
-| `admin:addFilter`    | Add a filter group. Takes a `<name>` argument plus `--catalogs 1,3` (a comma-separated list of catalog ids to enable) or `--all`. |
-| `admin:updateFilter` | Update a filter group by `<filterId>`. `--catalogs` sets the exact enabled set; omit it to keep the current membership.           |
-| `admin:deleteFilter` | Delete a filter group by `<filterId>`. The built-in `DEFAULT` group (id 0) cannot be deleted.                                     |
-
-```shell
-php bin/cli admin:addFilter "podcasts-only" --catalogs 4
-php bin/cli admin:updateFilter 2 --all
-php bin/cli admin:listFilters
-```
+**NOTE** Access Control Lists, Licenses and Catalog Filters have no CLI commands. They are managed from **Admin → Access Control**, **Admin → Licenses** and **Admin → Catalog Filters** in the web interface, or through the API.
 
 ### Modules (plugins, catalog types and localplay)
 
@@ -140,16 +89,6 @@ See [Ampache Plugins](/docs/plugins) for what each plugin does.
 
 ![image](/img/1305249/627484766-0c02fa77-49c8-42a3-b1ac-8e5b9ea9072e.png)
 
-### Shoutbox moderation
-
-Shouts are the short public comments users leave on media.
-These mirror the **Admin → Shoutbox** page.
-
-| Command             | What it does                                                                                        |
-|---------------------|-----------------------------------------------------------------------------------------------------|
-| `admin:listShouts`  | List the most recent shouts. `--limit` sets how many; an optional `[username]` filters to one user. |
-| `admin:deleteShout` | Delete a shout by `<shoutId>`.                                                                      |
-
 ### Mail
 
 | Command           | What it does                                                                                                                                                                                              |
@@ -164,11 +103,11 @@ php bin/cli admin:mailUsers users --subject "Maintenance" --message "The server 
 
 | Command                             | What it does                                                                                                                                                                                            |
 |-------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `admin:updateDatabase`              | Apply any pending database migrations. Run this after upgrading Ampache.                                                                                                                                |
-| `admin:updateConfigFile`            | Regenerate `config/ampache.cfg.php`, merging in any new options for your installed version.                                                                                                             |
+| `admin:updateDatabase`              | Apply any pending database migrations. Run this after upgrading Ampache. Prints what it would do; `-e` actually applies it.                                                                              |
+| `admin:updateConfigFile`            | Regenerate `config/ampache.cfg.php`, merging in any new options for your installed version. Ampache 8 ships `config_version` 95.                                                                         |
 | `admin:updatePlugins`               | Upgrade every installed plugin to its bundled version in one pass.                                                                                                                                      |
-| `admin:updatePreferenceAccessLevel` | Change the access level required to edit a preference.                                                                                                                                                  |
-| `admin:resetPreferences`            | Reset preference values back to their defaults for users.                                                                                                                                               |
+| `admin:updatePreferenceAccessLevel` | Change the access level required to edit a preference. Takes `--level` and needs `-e` to write.                                                                                                          |
+| `admin:resetPreferences`            | Reset preference values back to their defaults for a `<username>`. Takes `--preset` and needs `-e` to write.                                                                                             |
 | `admin:clearCache`                  | Clear a cache by `[type]`. Only `perpetual_api_session` has a lasting effect (it removes stored perpetual API sessions); the `song`, `artist` and `album` object caches live only for a single process. |
 | `admin:exportSchema`                | Regenerate the `resources/sql/ampache.sql` seed dump from the current database. A development/release tool; it refuses to run when migrations are pending.                                              |
 
@@ -180,16 +119,19 @@ php bin/cli admin:mailUsers users --subject "Maintenance" --message "The server 
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `run:addCatalog`          | Create a local media catalog. Takes `[catalogName]`, `[catalogPath]`, `[mediaType]` (`music`, `video`, `podcast`), `[filePattern]` and `[folderPattern]`.                                    |
 | `run:updateCatalog`       | Perform catalog actions across all files: clean, add, gather art, verify and garbage-collect. With no options the defaults `-ceagt` are used. Accepts a `[catalogName]` and `[catalogType]`. |
-| `run:updateCatalogFile`   | Perform catalog actions for a single file.                                                                                                                                                   |
-| `run:updateCatalogFolder` | Perform catalog actions for a single folder.                                                                                                                                                 |
+| `run:updateCatalogFile`   | Perform catalog actions for a single file. Takes `<catalogName> <filePath>`.                                                                                                                 |
+| `run:updateCatalogFolder` | Perform catalog actions for a single folder. Takes `<catalogName> <folderPath>`.                                                                                                             |
 | `run:deleteCatalog`       | Delete a catalog by `<catalogId>` and everything it owns.                                                                                                                                    |
 | `run:enableCatalog`       | Enable a catalog by `<catalogId>`.                                                                                                                                                           |
 | `run:disableCatalog`      | Disable a catalog by `<catalogId>` without deleting it.                                                                                                                                      |
 | `run:moveCatalogPath`     | Update the stored file locations for a catalog after a mount point has changed.                                                                                                              |
 
+New in Ampache 8: `-s|--scan` builds the [Folders](/docs/help/troubleshooting/ampache8-for-admins#folders-a-virtual-filesystem-view-of-your-catalogs) tree for a catalog, the same job as the **Scan Folders** action on the catalog page. It is available on `run:updateCatalog` and `run:updateCatalogFolder` and is *not* one of the `-ceagt` defaults, so it has to be asked for.
+
 ```shell
 php bin/cli run:addCatalog music /media/music music
 php bin/cli run:updateCatalog music
+php bin/cli run:updateCatalog music -s
 php bin/cli run:disableCatalog 3
 ```
 
@@ -203,36 +145,42 @@ The `-v` verify switch from Ampache 4 is now `-e`; see [Command changes](/docs/h
 | `run:cacheProcess`     | Populate the [transcode cache](/docs/configuration/transcoding/transcode-caching).                                 |
 | `run:computeCache`     | Rebuild the object cache tables.                                                                                   |
 | `run:calculateArtSize` | Fill in the stored width/height for art.                                                                           |
-| `run:convertFilenames` | Convert file names in the database to a different character set.                                                   |
+| `run:convertFilenames` | Convert file names in the database to a different character set. `--charset` picks the target.                     |
 | `run:broadcast`        | Run a UPnP broadcast.                                                                                              |
-| `run:websocket`        | Run the WebSocket server used by the now-playing broadcast feature.                                                |
-| `run:updateDb`         | Update the database collation and character set.                                                                   |
+| `run:websocket`        | Run the WebSocket server used by the now-playing broadcast feature. `--port` defaults to 8100.                     |
+| `run:updateDb`         | Update the database collation and character set. Dry run until `-x\|--execute`.                                    |
 
 ## cleanup: — housekeeping
 
-| Command                    | What it does                                                                                                                         |
-|----------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| `cleanup:stats`            | Clear play statistics and/or the now-playing list. With no flag both are cleared; `--stats`, `--now-playing` and `--user` narrow it. |
-| `cleanup:enableDisabled`   | Re-enable every song that was previously disabled.                                                                                   |
-| `cleanup:songs`            | Delete songs that are currently disabled.                                                                                            |
-| `cleanup:art`              | Remove art that no longer fits the configured size/keep settings.                                                                    |
-| `cleanup:sortSongs`        | Move song files into place according to the catalog sort pattern.                                                                    |
-| `cleanup:consolidateStats` | Consolidate old play history into summary counts and archive the detail rows.                                                        |
-| `cleanup:restoreStats`     | Restore consolidated play history back from the archive.                                                                             |
+| Command                    | What it does                                                                                                                     |
+|----------------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| `cleanup:enableDisabled`   | Re-enable every song that was previously disabled.                                                                               |
+| `cleanup:songs`            | List songs that are currently disabled; `-d\|--delete` removes them.                                                             |
+| `cleanup:art`              | Remove art that no longer fits the configured settings. `-c` drops missing files from the database, `-t` deletes all thumbnails. |
+| `cleanup:sortSongs`        | Move song files into place according to the catalog sort pattern.                                                                |
+| `cleanup:consolidateStats` | Consolidate old play history into summary counts and archive the detail rows. **New in Ampache 8.**                              |
+| `cleanup:restoreStats`     | Restore consolidated play history back from the archive. **New in Ampache 8.**                                                   |
+
+Everything under `cleanup:` is a dry run until you ask for the write. The flag is not the same on every command: `cleanup:art` and `cleanup:sortSongs` take `-x|--execute`, `cleanup:consolidateStats` and `cleanup:restoreStats` take `-e|--execute`, and `cleanup:songs` takes `-d|--delete`.
 
 ```shell
-# Clear only the now-playing list, leaving history intact
-php bin/cli cleanup:stats --now-playing
+# See what would be consolidated, then actually do it
+php bin/cli cleanup:consolidateStats
+php bin/cli cleanup:consolidateStats -e
 ```
+
+See [Play history consolidation](/docs/help/troubleshooting/ampache8-for-admins#play-history-consolidation) for what the two stats commands move around.
+
+**NOTE** There is no CLI command for clearing play statistics or the now-playing list. Use **Clear Stats** on the **Admin → Manage Catalogs** page and **Clear Now Playing** in the admin sidebar.
 
 ## export: — writing files to disk
 
 | Command              | What it does                                                                                                                             |
 |----------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| `export:catalog`     | Export catalog metadata to a file. Takes a `<file>` argument and a `[format]` (`csv` or `itunes`); `--catalog` limits it to one catalog. |
-| `export:playlist`    | Export playlists to a directory as `m3u`, `pls`, `xspf` or `m3u8`.                                                                       |
-| `export:albumArt`    | Export embedded/side-car album art to the catalog folders.                                                                               |
-| `export:databaseArt` | Export all art stored in the database to the `local_metadata_dir`.                                                                       |
+| `export:catalog`     | Export catalog metadata to a file. Takes a `<file>` argument and a `[format]` (`csv` or `itunes`); `--catalog` limits it to one catalog.                                                            |
+| `export:playlist`    | Export lists to a `<directory>`. `[type]` picks `albums`, `artists`, `playlists` or `smartlists` and `[extension]` picks `m3u`, `xspf` or `pls`. `--web` writes stream urls instead of file paths. |
+| `export:albumArt`    | Export album art to the catalog folders. `[type]` is `linux` or `windows` and sets how the metadata is written.                                                                                     |
+| `export:databaseArt` | Export all art stored in the database to the `local_metadata_dir`. `--clear` drops the database copy once the file exists.                                                                          |
 
 ```shell
 php bin/cli export:catalog /backup/library.csv csv
@@ -242,8 +190,8 @@ php bin/cli export:catalog /backup/library.csv csv
 
 | Command            | What it does                                                                          |
 |--------------------|---------------------------------------------------------------------------------------|
-| `print:duplicates` | Print possible duplicate albums, artists or songs. `[type]` selects what to look for. |
-| `print:tags`       | Print the tags Ampache reads from a media file.                                       |
+| `print:duplicates` | Print possible duplicate albums, artists or songs. `-t\|--type` selects what to look for (default `album`). |
+| `print:tags`       | Print the tags Ampache reads from a media `<filename>`.                                                     |
 
 ## show: — installation information
 

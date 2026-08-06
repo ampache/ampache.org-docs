@@ -22,6 +22,8 @@ Develop is still the primary repository and where all people interested in devel
 
 The version of the develop repo is **always** develop.
 
+**NOTE** `develop` currently carries **Ampache8**. There was a period where Ampache8 work lived on a separate `develop8` branch while `develop` was Ampache7; that branch is gone. Ampache7 is now maintained on `release7`/`patch7`.
+
 ## master
 
 In the new layout, master is no longer a release branch! There is now an extended process to avoid diverging the code.
@@ -46,9 +48,11 @@ The version of the edge repo is **always** edge.
 
 ## release
 
-Release branches are created for each major version number of Ampache. (e.g. release4 for Ampache 4.4.0, release5 for Ampache 5.0.0, etc)
+Release branches are created for each major version number of Ampache. (e.g. `release4` for Ampache 4.4.0, `release5` for Ampache 5.0.0, and so on through `release7`)
 
-If there is no current release branch for your version (e.g. there is no release6 branch for Ampache 6.0.0) create a new branch using the stable master branch and follow the standard release process.
+If there is no current release branch for your version, create a new branch using the stable master branch and follow the standard release process.
+
+Alternative structure branches follow the same numbering, so a major version has `squashed<N>` and `client<N>` branches beside its `release<N>`. See [Which zip?](/docs/information/which-zip) for what each structure is.
 
 Make sure to only tag the release from the release branch and not master.
 

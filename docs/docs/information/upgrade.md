@@ -10,6 +10,16 @@ As an assumption we assume you know the path to your Ampache folder and how to m
 
 In this doc we'll use `/var/www/ampache` as the install folder.
 
+### Before you upgrade to Ampache8
+
+Ampache8 is not a drop-in replacement for Ampache7. Read [Ampache8 for Admins](/docs/help/troubleshooting/ampache8-for-admins) before you start; the short version is:
+
+* **PHP 8.5 or newer is required.** Ampache8 will not run on 8.4 or below and there are no builds for it
+* The database changes are real. New tables, new preferences and some destructive orphan-row cleanup, so **back up first** (see [Backing up](#backing-up) below)
+* Transcode bitrates are now expressed in bits per second, and the `%BITRATE%` defaults lost the `k` that Ampache 7.8.0 added. An old `%BITRATE%k` line still works (the `k` is consumed), but it is worth tidying up
+* `memory_cache` and `statistical_graphs` both default to `"true"` now
+* Rolling back needs Ampache **7.10.0 or later**, which is the release that learned the downgrade path
+
 ## Backing up
 
 Every attempt is made to make upgrading your Ampache installation as painless as possible. Although we do everything we can to prevent data loss during an upgrade it is never a bad idea to backup your database before performing an upgrade. Below is a simple command line way to backup your MySQL database. Whenever you upgrade Ampache it is recommend that you run a catalog Verify so that any improvements/changes to the tag reading process are applied to your local collection. The catalog verify is not forced during the upgrade due to the length of time it can take.
@@ -42,6 +52,11 @@ You can extract over the top of your current install if you want but we'll follo
   * Releases before Ampache9 also ship this zip as `ampache-X.X.X_all_phpX.X.zip`; the two are identical.
 * Copy your config file from the old install to the new directory
   * `cp /var/www/ampache.old/config/ampache.cfg.php /var/www/ampache/config/`
+* Apply the database and config updates
+  * `php bin/cli admin:updateDatabase -e`
+  * `php bin/cli admin:updateConfigFile -e`
+
+The `_php8.5` zip ships with the composer and npm packages already installed, so there is nothing to build. The plain `ampache-X.X.X.zip` is code only and still needs `composer install` and `npm install && npm run build`.
 
 ## Upgrade From Source
 
@@ -49,9 +64,28 @@ Did you use [git](/docs/installation#download-ampache)?
 
 If you've been downloading tar.gz source archives, it's probably better to switch to git.
 
-* Pull the repo with `git pull`
-* Pull the composer deps `composer install --prefer-source --no-interaction`
-* Attempt to login as normal, Ampache will prompt you for any database upgrades which must be performed
+```shell
+cd /var/www/ampache
+git pull
+composer install --no-dev --prefer-source --no-interaction
+npm install
+npm run build
+```
+
+The `npm` steps have been required since Ampache 7.0.0 and are easy to forget on an upgrade — skipping them leaves you with an unstyled interface. Ampache8 builds with Vite 8, which needs Node.js `^20.19.0` or `>=22.12.0`.
+
+`npm run verify:install` reports anything that did not land.
+
+Then apply the database and config updates. Both commands print what they would do and need `-e` to write:
+
+```shell
+php bin/cli admin:updateDatabase -e
+php bin/cli admin:updateConfigFile -e
+```
+
+Logging in to the web interface prompts you for the same database update if you would rather do it there.
+
+[update_from_git.sh](https://github.com/ampache/ampache/blob/develop/docs/examples/update_from_git.sh) in the repository wraps all of this up.
 
 ### Maintenance mode
 
@@ -62,6 +96,14 @@ To put Ampache in maintenance mode, simply create a new `.maintenance` file in A
 When creating your custom message, don't forget to add `exit;` at the end to stop the script going further.
 
 ### Old versions
+
+#### Migrating from Ampache 7.x --> 8.x
+
+Ampache8 needs PHP 8.5, makes real database changes and changes two config defaults. The full list is on [Ampache8 for Admins](/docs/help/troubleshooting/ampache8-for-admins), and going back needs Ampache 7.10.0 or later.
+
+#### Migrating from Ampache 6.x --> 7.x
+
+Ampache7 introduced the npm build step. See [Ampache7 for Admins](/docs/help/troubleshooting/ampache7-for-admins).
 
 #### Migrating from Ampache 4.x --> 5.x
 

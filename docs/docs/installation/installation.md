@@ -1,10 +1,10 @@
 ---
 title: "Installing Ampache"
 metaTitle: "Installing Ampache"
-description: "Installing Ampache 5+"
+description: "Installing Ampache 8"
 ---
 
-## Installing Ampache 5+
+## Installing Ampache 8
 
 This document is built to help you install to your local server.
 
@@ -12,6 +12,8 @@ Alternative installations can be found here:
 
 * A pre-built [docker](/docker) repo is also available.
 * [Ampache 4 Installation](/docs/old-information/installation-v4)
+
+Already running Ampache? Read [Upgrading](/docs/information/upgrade) instead, and check [Ampache8 for Admins](/docs/help/troubleshooting/ampache8-for-admins) for the changes that can block an upgrade.
 
 1. Prepare the web server [Prerequisites](#prerequisites)
 2. Configure the web server [Web Server Configuration](#web-server-configuration)
@@ -24,12 +26,12 @@ Alternative installations can be found here:
   * lighttpd
   * nginx
   * IIS
-* PHP = 7.4-8.4 (Ampache8 requires PHP 8.5+ **ONLY**)
+* **PHP 8.5+ only.** Ampache8 does not run on any earlier release and its builds no longer ship for one. Ampache 7 covered PHP 7.4 to 8.4; if you are stuck on one of those, see [Staying on Ampache7 instead](/docs/help/troubleshooting/ampache8-for-admins#staying-on-ampache7-instead)
 
 * Required PHP modules (the `ext-` requirements of composer.json, plus the MySQL driver and the modules the installer checks):
   * curl
   * dom
-  * fileinfo (required from Ampache 8.0.0, usually included in PHP)
+  * fileinfo (required from Ampache 8.0.0 for the new captcha, usually included in PHP)
   * gd
   * gettext
   * hash (included in PHP)
@@ -62,18 +64,21 @@ Once Ampache is running, `Admin -> Server Config -> Ampache Debug` lists every o
   * MySQL
 
 * Supported databases:
-  * MySQL 8.x / MariaDB 10.x
+  * MySQL 8.x or later
+  * MariaDB 10.x or later
 
 Using Debian? This should cover you
 
 ```Shell
-sudo apt install apache2 cron ffmpeg flac gosu inotify-tools lame libavcodec-extra libev-libevent-dev libflac-dev libmp3lame-dev libtheora-dev libvorbis-dev libvpx-dev php php-curl php-gd php-json php-ldap php-mbstring php-mysql php-xml php-zip php-intl vorbis-tools zip unzip
+sudo apt install apache2 cron ffmpeg flac gosu inotify-tools lame libavcodec-extra libev-libevent-dev libflac-dev libmp3lame-dev libtheora-dev libvorbis-dev libvpx-dev php8.5 php8.5-curl php8.5-gd php8.5-ldap php8.5-mbstring php8.5-mysql php8.5-xml php8.5-zip php8.5-intl vorbis-tools zip unzip
 sudo a2enmod rewrite
 ```
 
+**NOTE** the unversioned `php` package installs whatever your distribution ships, which is almost certainly older than 8.5 today. Read the next section before you install it.
+
 ### You don't have to use the PHP your OS ships
 
-The `php` package above installs whatever version your distribution decided on, which is often older than Ampache needs.
+The unversioned `php` package installs whatever version your distribution decided on, which is often older than Ampache needs.
 
 You are not stuck with it, and you don't have to upgrade the whole operating system to move forward.
 
@@ -101,9 +106,11 @@ Management of your deployment can be much easier if you use a git checkout rathe
 
 These commands will check out the latest Ampache code without having to download or unpack a zip file:
 
-* `git clone -b release7 https://github.com/ampache/ampache.git ampache`
-* `git clone -b release6 https://github.com/ampache/ampache.git ampache`
-* `git clone -b develop https://github.com/ampache/ampache.git ampache`
+* `git clone -b develop https://github.com/ampache/ampache.git ampache` — Ampache8, the current mainline
+* `git clone -b release7 https://github.com/ampache/ampache.git ampache` — Ampache7, if you can't move to PHP 8.5 yet
+* `git clone -b release6 https://github.com/ampache/ampache.git ampache` — Ampache6
+
+**NOTE** `develop` used to be Ampache7 and the Ampache8 work lived on `develop8`. That is no longer true: Ampache8 is the mainline, `develop` is Ampache8 and Ampache7 is maintained on `release7`/`patch7`.
 
 ### Install Composer
 
@@ -115,19 +122,18 @@ If you cannot use Composer, you should download the release archive *ampache-x.x
 
 For Mac users (High Sierra & Mojave) - brew install composer
 
-## Ampache7 requires NPM for JS package installation
+## NPM is required for JS package installation
 
-When you update Ampache you need to add another step to the update processes.
+Since Ampache 7.0.0 the front-end packages are installed with npm, so a git checkout needs an npm step as well as a composer one.
 
-In addition to composer install you need to update the NPM packages.
-
-The minimum nodejs version is **v15** or higher and supported packages are available in:
-
-* Debian bookworm (stable)
-* Ubuntu 23.10
-* Ubuntu LTS 24.04
+Ampache8 builds its assets with Vite 8, which needs **Node.js `^20.19.0` or `>=22.12.0`**. Anything older will fail at `npm run build`.
 
 Check your version prior to upgrading.
+
+```shell
+node --version
+npm --version
+```
 
 ![image](/img/1305249/4fa526a6-fc68-4890-ac5d-6a44be7a9a2c.png)
 
@@ -141,7 +147,9 @@ npm install
 npm run build
 ```
 
-Check out [update_from_git.sh](https://github.com/ampache/ampache/blob/patch7/docs/examples/update_from_git.sh) for an updated example.
+`npm run verify:install` checks the result and reports anything that did not land.
+
+Check out [update_from_git.sh](https://github.com/ampache/ampache/blob/develop/docs/examples/update_from_git.sh) for an updated example.
 
 ### Emplacement
 
@@ -151,7 +159,7 @@ The new folder is public which is a subfolder of the project root.
 
 ![image](/img/1305249/129305685-ba0c0b6f-35cd-4085-8a4b-4aa2585d8b23.png)
 
-To install Ampache 5+ it's basically the same but you have to have a bit better understanding of how the webserver serves your folders
+This has been the layout since Ampache 5, and it is still how Ampache8 is laid out. You just need a bit better understanding of how the webserver serves your folders
 
 The simple way is just to chuck it all in /var/www and link to your default html/httpd folder (if you're serving more than one website this will overwrite everything)
 
@@ -164,14 +172,16 @@ sudo chmod +x /usr/local/bin/composer
 sudo chown www-data:www-data /var/www -R
 sudo su - www-data -s /bin/bash
 cd /var/www
-git clone -b release6 https://github.com/ampache/ampache.git ampache
+git clone -b develop https://github.com/ampache/ampache.git ampache
 mv /var/www/html /var/www/html_before_ampache
 ln -s /var/www/ampache/public /var/www/html
 cd ampache
 composer install
+npm install
+npm run build
 ```
 
-You now have an Ampache 6 server ready to install. (`http://localhost` if you followed these commands)
+You now have an Ampache 8 server ready to install. (`http://localhost` if you followed these commands)
 
 ### MySQL database creation
 
@@ -886,7 +896,6 @@ Disables the following by default
 * ratings
 * sociable
 * wanted
-* channel
 * live_stream
 * download
 * allow_video

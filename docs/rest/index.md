@@ -39,7 +39,7 @@ Both specs are OpenAPI 3.0.3, share the same `{ampacheUrl}/rest/{version}/{forma
 ### Differences in the API 6 specification
 
 * **The `apiVersion` server variable is locked to `6`.** There is no way to accidentally generate an API8 client from it.
-* **API8-only paths are absent:** `/folder`, `/folders` and `/playlists/{playlist_id}/remove`. `/random` is also absent — API6 serves it on Ampache 8 but not on Ampache 7.
+* **API8-only paths are absent:** the `/collections` family, `/album-disks/*`, `/songs/{song_id}/sonic-match`, `/folders`, `/folders/{folder_id}` and `/playlists/{playlist_id}/remove`. `/random` is also absent — API6 serves it on Ampache 8 but not on Ampache 7.
 * **Only success responses are documented.** API versions 3-6 always return HTTP `200` and carry any error in the response body, unlike API version 8 which returns real HTTP status codes. See [API Errors](/api/api-errors) for the error payload shape.
 * **Response schemas come from the API6 data builders**, so field names and types match what an Ampache 7 server actually emits.
 
@@ -148,24 +148,35 @@ e.g. To make a REST call for 10 random albums your URL would be `https://demo.am
 | HTTP   | REST                                                 | RPC action                                                                       | Alternative action |
 |--------|------------------------------------------------------|----------------------------------------------------------------------------------|--------------------|
 | GET    | `albums/{album_id}/art`                              | `?action=get_art&filter={album_id}&type=album`                                   |                    |
+| GET    | `albums/{album_id}/browse`                           | `?action=browse&filter={album_id}&type=album`                                    |                    |
 | GET    | `albums/{album_id}/fetch-metadata`                   | `?action=get_external_metadata&filter={album_id}&type=album`                     |                    |
 | POST   | `albums/{album_id}/flag`                             | `?action=flag&filter={album_id}&type=album`                                      |                    |
 | POST   | `albums/{album_id}/rate`                             | `?action=rate&filter={album_id}&type=album`                                      |                    |
-| POST   | `albums/{album_id}/share`                            | `?action=share&filter={album_id}&type=album`                                     |                    |
+| POST   | `albums/{album_id}/share`                            | `?action=share_create&filter={album_id}&type=album`                              |                    |
+| GET    | `albums/{album_id}/disks`                            | `?action=album_disks&filter={album_id}&type=album`                               |                    |
 | GET    | `albums/{album_id}/songs`                            | `?action=album_songs&filter={album_id}&type=album`                               |                    |
 | POST   | `albums/{album_id}/update-art`                       | `?action=update_art&filter={album_id}&type=album`                                |                    |
 | POST   | `albums/{album_id}/update-tags`                      | `?action=update_from_tags&filter={album_id}&type=album`                          |                    |
 | GET    | `albums/{album_id}`                                  | `?action=album&filter={album_id}`                                                |                    |
-| GET    | `albums/search`                                      | `?action=search&type=album`                                           `          | `advanced_search`  |
+| GET    | `albums/search`                                      | `?action=search&type=album`                                                      | `advanced_search`  |
 | GET    | `albums/stats`                                       | `?action=stats&type=album`                                                       |                    |
 | GET    | `albums`                                             | `?action=albums`                                                                 |                    |
+| GET    | `album-disks/{album_disk_id}/art`                    | `?action=get_art&filter={album_disk_id}&type=album_disk`                         |                    |
+| GET    | `album-disks/{album_disk_id}/browse`                 | `?action=browse&filter={album_disk_id}&type=album_disk`                          |                    |
+| POST   | `album-disks/{album_disk_id}/flag`                   | `?action=flag&filter={album_disk_id}&type=album_disk`                            |                    |
+| POST   | `album-disks/{album_disk_id}/rate`                   | `?action=rate&filter={album_disk_id}&type=album_disk`                            |                    |
+| GET    | `album-disks/{album_disk_id}/songs`                  | `?action=album_disk_songs&filter={album_disk_id}&type=album_disk`                |                    |
+| GET    | `album-disks/{album_disk_id}`                        | `?action=album_disk&filter={album_disk_id}`                                      |                    |
+| GET    | `album-disks/search`                                 | `?action=search&type=album_disk`                                                 | `advanced_search`  |
+| GET    | `album-disks/stats`                                  | `?action=stats&type=album_disk`                                                  |                    |
 | GET    | `artists/{artist_id}/albums`                         | `?action=artist_albums&filter={artist_id}`                                       |                    |
 | GET    | `artists/{artist_id}/art`                            | `?action=get_art&filter={artist_id}&type=artist`                                 |                    |
+| GET    | `artists/{artist_id}/browse`                         | `?action=browse&filter={artist_id}&type=artist`                                  |                    |
 | POST   | `artists/{artist_id}/fetch-info`                     | `?action=update_artist_info&filter={artist_id}&type=artist`                      |                    |
 | GET    | `artists/{artist_id}/fetch-metadata`                 | `?action=get_external_metadata&filter={artist_id}&type=artist`                   |                    |
 | POST   | `artists/{artist_id}/flag`                           | `?action=flag&filter={artist_id}&type=artist`                                    |                    |
 | POST   | `artists/{artist_id}/rate`                           | `?action=rate&filter={artist_id}&type=artist`                                    |                    |
-| POST   | `artists/{artist_id}/share`                          | `?action=share&filter={artist_id}&type=artist`                                   |                    |
+| POST   | `artists/{artist_id}/share`                          | `?action=share_create&filter={artist_id}&type=artist`                            |                    |
 | GET    | `artists/{artist_id}/similar`                        | `?action=get_similar&filter={artist_id}&type=artist`                             |                    |
 | GET    | `artists/{artist_id}/songs`                          | `?action=artist_songs&filter={artist_id}&type=artist`                            |                    |
 | POST   | `artists/{artist_id}/update-art`                     | `?action=update_art&filter={artist_id}&type=artist`                              |                    |
@@ -174,7 +185,7 @@ e.g. To make a REST call for 10 random albums your URL would be `https://demo.am
 | GET    | `artists/search`                                     | `?action=search&type=artist`                                                     | `advanced_search`  |
 | GET    | `artists/stats`                                      | `?action=stats&type=artist`                                                      |                    |
 | GET    | `artists`                                            | `?action=artists`                                                                |                    |
-| GET    | `bookmarks/{bookmark_id}`                            | `?action=bookmark&filter={bookmark_id}`                                          |                    |
+| GET    | `bookmarks/{bookmark_id}`                            | `?action=bookmark&filter={bookmark_id}`                                          | `get_bookmark`     |
 | PATCH  | `bookmarks/{bookmark_id}`                            | `?action=bookmark_edit&filter={bookmark_id}`                                     |                    |
 | DELETE | `bookmarks/{bookmark_id}`                            | `?action=bookmark_delete&filter={bookmark_id}`                                   |                    |
 | GET    | `bookmarks`                                          | `?action=bookmarks`                                                              |                    |
@@ -188,17 +199,27 @@ e.g. To make a REST call for 10 random albums your URL would be `https://demo.am
 | GET    | `catalogs/{catalog_id}/browse`                       | `?action=browse&filter={catalog_id}&type=catalog`                                |                    |
 | POST   | `catalogs/{catalog_id}/clean`                        | `?action=catalog_action&filter={catalog_id}&task=clean_catalog`                  |                    |
 | POST   | `catalogs/{catalog_id}/file`                         | `?action=catalog_file&filter={catalog_id}`                                       |                    |
+| GET    | `catalogs/{catalog_id}/folder`                       | `?action=catalog_folder&filter={catalog_id}`                                     |                    |
 | POST   | `catalogs/{catalog_id}/folder`                       | `?action=catalog_folder&filter={catalog_id}`                                     |                    |
 | POST   | `catalogs/{catalog_id}/update`                       | `?action=catalog_action&filter={catalog_id}&task=update_catalog`                 |                    |
 | POST   | `catalogs/{catalog_id}/verify`                       | `?action=catalog_action&filter={catalog_id}&task=verify_catalog`                 |                    |
 | GET    | `catalogs/{catalog_id}`                              | `?action=catalog&filter={catalog_id}`                                            |                    |
 | DELETE | `catalogs/{catalog_id}`                              | `?action=catalog_delete&filter={catalog_id}`                                     |                    |
 | GET    | `catalogs`                                           | `?action=catalogs`                                                               |                    |
-| PUT    | `catalogs`                                           | `?action=catalog_create`                                              `          | `catalog_add`      |
+| PUT    | `catalogs`                                           | `?action=catalog_create`                                                         | `catalog_add`      |
+| DELETE | `collections/{collection_id}/items`                  | `?action=collection_remove&filter={collection_id}`                               |                    |
+| GET    | `collections/{collection_id}/items`                  | `?action=collection_items&filter={collection_id}`                                |                    |
+| PUT    | `collections/{collection_id}/items`                  | `?action=collection_add&filter={collection_id}`                                  |                    |
+| DELETE | `collections/{collection_id}`                        | `?action=collection_delete&filter={collection_id}`                               |                    |
+| GET    | `collections/{collection_id}`                        | `?action=collection&filter={collection_id}`                                      |                    |
+| PATCH  | `collections/{collection_id}`                        | `?action=collection_edit&filter={collection_id}`                                 |                    |
+| GET    | `collections`                                        | `?action=collections`                                                            |                    |
+| PUT    | `collections`                                        | `?action=collection_create`                                                      |                    |
 | POST   | `democratic/{object_id}/localplay`                   | `?action=localplay&command=add&filter={object_id}&type=democratic`               |                    |
 | POST   | `democratic/{object_id}`                             | `?action=democratic&filter={object_id}`                                          |                    |
-| GET    | `folder`                                             | `?action=folder`                                                                 |                    |
 | GET    | `folders`                                            | `?action=folders`                                                                |                    |
+| GET    | `folders/{folder_id}`                                | `?action=folders&filter={folder_id}`                                             |                    |
+| GET    | `folders{path}`                                      | `?action=folders&filter={path}`                                                  |                    |
 | GET    | `genres/{genre_id}/albums`                           | `?action=genre_albums&filter={genre_id}`                                         |                    |
 | GET    | `genres/{genre_id}/artists`                          | `?action=genre_artists&filter={genre_id}`                                        |                    |
 | GET    | `genres/{genre_id}/songs`                            | `?action=genre_songs&filter={genre_id}`                                          |                    |
@@ -230,6 +251,7 @@ e.g. To make a REST call for 10 random albums your URL would be `https://demo.am
 | POST   | `localplay/play`                                     | `?action=localplay&command=play`                                                 |                    |
 | POST   | `localplay/prev`                                     | `?action=localplay&command=prev`                                                 |                    |
 | POST   | `localplay/skip`                                     | `?action=localplay&command=skip`                                                 |                    |
+| GET    | `localplay/songs`                                    | `?action=localplay_songs`                                                        |                    |
 | GET    | `localplay/status`                                   | `?action=localplay&command=status`                                               |                    |
 | POST   | `localplay/stop`                                     | `?action=localplay&command=stop`                                                 |                    |
 | POST   | `localplay/volume-down`                              | `?action=localplay&command=volume_down`                                          |                    |
@@ -251,7 +273,7 @@ e.g. To make a REST call for 10 random albums your URL would be `https://demo.am
 | POST   | `playlists/{playlist_id}/rate`                       | `?action=rate&filter={playlist_id}`                                              |                    |
 | POST   | `playlists/{playlist_id}/remove-song`                | `?action=playlist_remove_song&filter={playlist_id}&song={song_id}`               |                    |
 | POST   | `playlists/{playlist_id}/remove`                     | `?action=playlist_remove&filter={playlist_id}&id={object_id}&type={object_type}` |                    |
-| POST   | `playlists/{playlist_id}/share`                      | `?action=share&filter={playlist_id}`                                             |                    |
+| POST   | `playlists/{playlist_id}/share`                      | `?action=share_create&filter={playlist_id}`                                      |                    |
 | GET    | `playlists/{playlist_id}/songs`                      | `?action=playlist_songs&filter={playlist_id}`                                    |                    |
 | GET    | `playlists/{playlist_id}/stream`                     | `?action=stream&filter={playlist_id}&type=playlist`                              |                    |
 | GET    | `playlists/{playlist_id}`                            | `?action=playlist&filter={playlist_id}`                                          |                    |
@@ -261,13 +283,16 @@ e.g. To make a REST call for 10 random albums your URL would be `https://demo.am
 | GET    | `playlists/stats`                                    | `?action=stats&type=playlist`                                                    |                    |
 | GET    | `playlists`                                          | `?action=playlists`                                                              |                    |
 | PUT    | `playlists`                                          | `?action=playlist_create`                                                        |                    |
+| GET    | `podcast-episodes/{episode_id}/bookmark`             | `?action=bookmark&filter={episode_id}&type=podcast_episode`                      | `get_bookmark`     |
+| PATCH  | `podcast-episodes/{episode_id}/bookmark`             | `?action=bookmark_edit&filter={episode_id}&type=podcast_episode`                 |                    |
+| DELETE | `podcast-episodes/{episode_id}/bookmark`             | `?action=bookmark_delete&filter={episode_id}&type=podcast_episode`               |                    |
 | PUT    | `podcast-episodes/{episode_id}/bookmark`             | `?action=bookmark_create&filter={episode_id}&type=podcast_episode`               |                    |
 | GET    | `podcast-episodes/{episode_id}/download`             | `?action=download&filter={episode_id}&type=podcast_episode`                      |                    |
 | POST   | `podcast-episodes/{episode_id}/flag`                 | `?action=flag&filter={episode_id}&type=podcast_episode`                          |                    |
 | POST   | `podcast-episodes/{episode_id}/localplay`            | `?action=localplay&command=add&filter={episode_id}&type=podcast_episode`         |                    |
 | POST   | `podcast-episodes/{episode_id}/playback`             | `?action=player&filter={episode_id}&type=podcast_episode`                        |                    |
 | POST   | `podcast-episodes/{episode_id}/rate`                 | `?action=rate&filter={episode_id}&type=podcast_episode`                          |                    |
-| POST   | `podcast-episodes/{episode_id}/share`                | `?action=share&filter={episode_id}&type=podcast_episode`                         |                    |
+| POST   | `podcast-episodes/{episode_id}/share`                | `?action=share_create&filter={episode_id}&type=podcast_episode`                  |                    |
 | GET    | `podcast-episodes/{episode_id}/stream`               | `?action=stream&filter={episode_id}&type=podcast_episode`                        |                    |
 | GET    | `podcast-episodes/{episode_id}`                      | `?action=podcast_episode&filter={episode_id}`                                    |                    |
 | DELETE | `podcast-episodes/{episode_id}`                      | `?action=podcast_episode_delete&filter={episode_id}`                             |                    |
@@ -276,11 +301,12 @@ e.g. To make a REST call for 10 random albums your URL would be `https://demo.am
 | GET    | `podcast-episodes/stats`                             | `?action=stats&type=podcast_episode`                                             |                    |
 | GET    | `podcast-episodes`                                   | `?action=podcast_episodes`                                                       |                    |
 | GET    | `podcasts/{podcast_id}/art`                          | `?action=get_art&filter={podcast_id}&type=podcast`                               |                    |
+| GET    | `podcasts/{podcast_id}/browse`                       | `?action=browse&filter={podcast_id}&type=podcast`                                |                    |
 | POST   | `podcasts/{podcast_id}/flag`                         | `?action=flag&filter={podcast_id}`                                               |                    |
 | GET    | `podcasts/{podcast_id}/podcast-episodes`             | `?action=podcast_episodes&filter={podcast_id}`                                   |                    |
 | POST   | `podcasts/{podcast_id}/rate`                         | `?action=rate&filter={podcast_id}`                                               |                    |
-| POST   | `podcasts/{podcast_id}/share`                        | `?action=share&filter={podcast_id}`                                              |                    |
-| POST   | `podcasts/{podcast_id}/refresh`                       | `?action=podcast_update&filter={podcast_id}`                          `          | `update_podcast`   |
+| POST   | `podcasts/{podcast_id}/share`                        | `?action=share_create&filter={podcast_id}`                                       |                    |
+| POST   | `podcasts/{podcast_id}/sync`                         | `?action=update_podcast&filter={podcast_id}`                                     | `podcast_update`   |
 | GET    | `podcasts/{podcast_id}`                              | `?action=podcast&filter={podcast_id}`                                            |                    |
 | PATCH  | `podcasts/{podcast_id}`                              | `?action=podcast_edit&filter={podcast_id}`                                       |                    |
 | DELETE | `podcasts/{podcast_id}`                              | `?action=podcast_delete&filter={podcast_id}`                                     |                    |
@@ -288,11 +314,12 @@ e.g. To make a REST call for 10 random albums your URL would be `https://demo.am
 | GET    | `podcasts/stats`                                     | `?action=stats&type=podcast`                                                     |                    |
 | GET    | `podcasts`                                           | `?action=podcasts`                                                               |                    |
 | PUT    | `podcasts`                                           | `?action=podcast_create`                                                         |                    |
-| GET    | `preferences/{preference_name}`                      | `?action=user_preference&filter={preference_name}`                    `          | `preferences`      |
+| GET    | `preferences/{preference_name}`                      | `?action=user_preference&filter={preference_name}`                               | `preferences`      |
 | PATCH  | `preferences/{preference_name}`                      | `?action=preference_edit&filter={preference_name}`                               |                    |
 | DELETE | `preferences/{preference_name}`                      | `?action=preference_delete&filter={preference_name}`                             |                    |
-| GET    | `preferences`                                        | `?action=user_preferences`                                            `          | `preferences`      |
+| GET    | `preferences`                                        | `?action=user_preferences`                                                       | `preferences`      |
 | PUT    | `preferences`                                        | `?action=preference_create`                                                      |                    |
+| GET    | `random`                                             | `?action=random&type={type}`                                                     |                    |
 | POST   | `register`                                           | `?action=register`                                                               |                    |
 | POST   | `scrobble`                                           | `?action=scrobble`                                                               |                    |
 | GET    | `search/{search_type}/groups`                        | `?action=search_group&filter={search_type}`                                      |                    |
@@ -306,14 +333,16 @@ e.g. To make a REST call for 10 random albums your URL would be `https://demo.am
 | GET    | `smartlists/{smartlist_id}/download`                 | `?action=download&filter={smartlist_id}&type=smartlist`                          |                    |
 | POST   | `smartlists/{smartlist_id}/flag`                     | `?action=flag&filter={smartlist_id}&type=smartlist`                              |                    |
 | POST   | `smartlists/{smartlist_id}/rate`                     | `?action=rate&filter={smartlist_id}&type=smartlist`                              |                    |
-| POST   | `smartlists/{smartlist_id}/share`                    | `?action=share&filter={smartlist_id}&type=smartlist`                             |                    |
+| POST   | `smartlists/{smartlist_id}/share`                    | `?action=share_create&filter={smartlist_id}&type=smartlist`                      |                    |
 | GET    | `smartlists/{smartlist_id}/songs`                    | `?action=smartlist_songs&filter={smartlist_id}`                                  |                    |
 | GET    | `smartlists/{smartlist_id}/stream`                   | `?action=stream&filter={smartlist_id}&type=smartlist`                            |                    |
 | GET    | `smartlists/{smartlist_id}`                          | `?action=smartlist&filter={smartlist_id}`                                        |                    |
 | DELETE | `smartlists/{smartlist_id}`                          | `?action=smartlist_delete&filter={smartlist_id}`                                 |                    |
-| GET    | `smartlists/search`                                  | `?action=search&type=smartlist`                                                  | `advanced_search`  |
 | GET    | `smartlists`                                         | `?action=smartlists`                                                             |                    |
 | GET    | `songs/{song_id}/art`                                | `?action=get_art&filter={song_id}&type=song`                                     |                    |
+| GET    | `songs/{song_id}/bookmark`                           | `?action=bookmark&filter={song_id}&type=song`                                    | `get_bookmark`     |
+| PATCH  | `songs/{song_id}/bookmark`                           | `?action=bookmark_edit&filter={song_id}&type=song`                               |                    |
+| DELETE | `songs/{song_id}/bookmark`                           | `?action=bookmark_delete&filter={song_id}&type=song`                             |                    |
 | PUT    | `songs/{song_id}/bookmark`                           | `?action=bookmark_create&filter={song_id}&type=song`                             |                    |
 | GET    | `songs/{song_id}/download`                           | `?action=download&filter={song_id}`                                              |                    |
 | GET    | `songs/{song_id}/fetch-metadata`                     | `?action=get_external_metadata&filter={song_id}&type=song`                       |                    |
@@ -323,8 +352,9 @@ e.g. To make a REST call for 10 random albums your URL would be `https://demo.am
 | POST   | `songs/{song_id}/playback`                           | `?action=player&filter={song_id}&type=song`                                      |                    |
 | POST   | `songs/{song_id}/rate`                               | `?action=rate&filter={song_id}`                                                  |                    |
 | POST   | `songs/{song_id}/record-play`                        | `?action=record_play&filter={song_id}`                                           |                    |
-| POST   | `songs/{song_id}/share`                              | `?action=share&filter={song_id}`                                                 |                    |
+| POST   | `songs/{song_id}/share`                              | `?action=share_create&filter={song_id}`                                          |                    |
 | GET    | `songs/{song_id}/similar`                            | `?action=get_similar&filter={song_id}&type=song`                                 |                    |
+| GET    | `songs/{song_id}/sonic-match`                        | `?action=sonic_match&filter={song_id}`                                           |                    |
 | GET    | `songs/{song_id}/stream`                             | `?action=stream&filter={song_id}&type=song`                                      |                    |
 | GET    | `songs/{song_id}/tags`                               | `?action=song_tags&filter={song_id}`                                             |                    |
 | POST   | `songs/{song_id}/update-tags`                        | `?action=update_from_tags&filter={song_id}&type=song`                            |                    |
@@ -335,10 +365,11 @@ e.g. To make a REST call for 10 random albums your URL would be `https://demo.am
 | GET    | `songs/playlist-generate`                            | `?action=playlist_generate`                                                      |                    |
 | GET    | `songs/search`                                       | `?action=search&type=song`                                                       | `advanced_search`  |
 | GET    | `songs/stats`                                        | `?action=stats&type=song`                                                        |                    |
-| GET    | `songs`                                              | `?action=songs`                                                                  |                    |
+| GET    | `songs`                                              | `?action=songs`                                                                  | `search_songs`     |
 | GET    | `system-preferences/{preference_name}`               | `?action=system_preference&filter={preference_name}`                             |                    |
 | GET    | `system-preferences`                                 | `?action=system_preferences`                                                     |                    |
 | GET    | `update`                                             | `?action=system_update`                                                          |                    |
+| POST   | `upload`                                             | `?action=upload`                                                                 |                    |
 | POST   | `users/{user_id}/follow`                             | `?action=toggle_follow&filter={user_id}`                                         |                    |
 | GET    | `users/{user_id}/followers`                          | `?action=followers&filter={user_id}`                                             |                    |
 | GET    | `users/{user_id}/following`                          | `?action=following&filter={user_id}`                                             |                    |
@@ -349,12 +380,15 @@ e.g. To make a REST call for 10 random albums your URL would be `https://demo.am
 | GET    | `users/search`                                       | `?action=search&type=user`                                                       | `advanced_search`  |
 | GET    | `users`                                              | `?action=users`                                                                  |                    |
 | PUT    | `users`                                              | `?action=user_create`                                                            |                    |
+| GET    | `videos/{video_id}/bookmark`                         | `?action=bookmark&filter={video_id}&type=video`                                  | `get_bookmark`     |
+| PATCH  | `videos/{video_id}/bookmark`                         | `?action=bookmark_edit&filter={video_id}&type=video`                             |                    |
+| DELETE | `videos/{video_id}/bookmark`                         | `?action=bookmark_delete&filter={video_id}&type=video`                           |                    |
 | PUT    | `videos/{video_id}/bookmark`                         | `?action=bookmark_create&filter={video_id}&type=video`                           |                    |
 | POST   | `videos/{video_id}/flag`                             | `?action=flag&filter={video_id}&type=video`                                      |                    |
 | POST   | `videos/{video_id}/localplay`                        | `?action=localplay&command=add&filter={video_id}&type=video`                     |                    |
 | POST   | `videos/{video_id}/playback`                         | `?action=player&filter={video_id}&type=video`                                    |                    |
 | POST   | `videos/{video_id}/rate`                             | `?action=rate&filter={video_id}&type=video`                                      |                    |
-| POST   | `videos/{video_id}/share`                            | `?action=share&filter={video_id}&type=video`                                     |                    |
+| POST   | `videos/{video_id}/share`                            | `?action=share_create&filter={video_id}&type=video`                              |                    |
 | GET    | `videos/{video_id}`                                  | `?action=video&filter={video_id}`                                                |                    |
 | GET    | `videos/deleted`                                     | `?action=deleted_videos`                                                         |                    |
 | GET    | `videos/search`                                      | `?action=search&type=video`                                                      | `advanced_search`  |
@@ -365,12 +399,12 @@ e.g. To make a REST call for 10 random albums your URL would be `https://demo.am
 
 | RPC API                                | RESTful API                           |
 |----------------------------------------|---------------------------------------|
-| `?action=song&id=123`                  | `GET /rest/6/json/songs/123`          |
-| `?action=artist&id=45`                 | `GET /rest/6/json/artists/45`         |
-| `?action=album&id=78`                  | `GET /rest/6/json/albums/78`          |
-| `?action=artists`                      | `GET /rest/6/json/artists`            |
-| `?action=playlist_songs&id=9`          | `GET /rest/6/json/playlists/9/songs`  |
-| `?action=add_song&playlist=9&song=123` | `POST /rest/6/json/playlists/9/songs` |
+| `?action=song&id=123`                  | `GET /rest/8/json/songs/123`          |
+| `?action=artist&id=45`                 | `GET /rest/8/json/artists/45`         |
+| `?action=album&id=78`                  | `GET /rest/8/json/albums/78`          |
+| `?action=artists`                      | `GET /rest/8/json/artists`            |
+| `?action=playlist_songs&id=9`          | `GET /rest/8/json/playlists/9/songs`  |
+| `?action=add_song&playlist=9&song=123` | `POST /rest/8/json/playlists/9/songs` |
 
 ## HTTP Method Alignment
 
@@ -378,11 +412,11 @@ The RESTful API uses standard HTTP semantics:
 
 | Method | Purpose                         | Example                    |
 |--------|---------------------------------|----------------------------|
-| GET    | Retrieve resource or collection | `/rest/6/json/songs/123`   |
-| POST   | Create resource or relationship | `/rest/6/json/playlists`   |
-| PUT    | Replace full resource           | `/rest/6/json/songs/123`   |
-| PATCH  | Partial update                  | `/rest/6/json/songs/123`   |
-| DELETE | Remove resource                 | `/rest/6/json/playlists/9` |
+| GET    | Retrieve resource or collection | `/rest/8/json/songs/123`   |
+| POST   | Create resource or relationship | `/rest/8/json/playlists`   |
+| PUT    | Replace full resource           | `/rest/8/json/songs/123`   |
+| PATCH  | Partial update                  | `/rest/8/json/songs/123`   |
+| DELETE | Remove resource                 | `/rest/8/json/playlists/9` |
 
 State-changing behaviour is no longer implemented via GET.
 
@@ -413,8 +447,8 @@ All RESTful endpoints are prefixed with:
 Example
 
 ```URL
-/rest/6/json/songs
-/rest/6/xml/artists/45
+/rest/8/json/songs
+/rest/8/xml/artists/45
 ```
 
 Versioning enables:

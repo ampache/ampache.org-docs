@@ -28,7 +28,7 @@ This file can be used in any media player or used  to copy the URL to import int
 
 If you can use the playlist simply import it into your player.
 
-If you're using Develop (Ampache 6.0.0+) you can use a [Streaming Token](/docs/old-information/ampache6-details#allow-permalink-user-streams) to make these links permanent.
+From Ampache 6.0.0 you can use a [Streaming Token](/docs/old-information/ampache6-details#allow-permalink-user-streams) to make these links permanent.
 
 ```URL
 https://music.com.au/play/index.php?ssid=streamingtoken&type=song&oid=123&uid=1&action=stream&name=Dad%20Rocks-%20-%20Weapons.mp3

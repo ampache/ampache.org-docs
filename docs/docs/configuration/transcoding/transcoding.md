@@ -60,10 +60,25 @@ Ampache8 also adds per-user dynamic downsampling and per-player bitrate override
 ```INI
 ; Command configuration. Substitutions will be made as follows:
 ; %FILE% => filename
-; %SAMPLE% => target sample rate
+; %BITRATE% => target bit rate in bits per second (as chosen by the admin or
+; users in the preferences, if transcode_player_customize = "true")
+; %MAXBITRATE% => ceiling bit rate in bits per second, from the `maxbitrate`
+; stream URL argument. Both are plain bps values, so do NOT add a `k` suffix.
 ; You can do fancy things like VBR, but consider whether the consequences are
 ; acceptable in your environment.
 ```
+
+**NOTE** the old `%SAMPLE%` placeholder is long gone; the substitution is `%BITRATE%`.
+
+### The `k` suffix moved twice
+
+Ampache 7.8.0 asked you to write `%BITRATE%k`, because the value was inserted in kilobits.
+
+**Ampache8 reverses this.** The bitrate is expanded to full bits per second *before* it is inserted, so the shipped defaults are back to a bare `%BITRATE%`.
+
+A `k` left over from an Ampache7 config is not an error — the substitution consumes a trailing `k` or `K` along with the placeholder, so `%BITRATE%k` still produces `128000` rather than `128000k`. Dropping it is tidier and matches the new defaults, but nothing breaks if you don't.
+
+`encode_args_ts` uses `%MAXBITRATE%`, which is expanded the same way from the `maxbitrate` stream URL argument.
 
 ```INI
 ; Master transcode command
@@ -72,7 +87,10 @@ Ampache8 also adds per-user dynamic downsampling and per-player bitrate override
 ; equivalent to the old default, but if you find that necessary you should be
 ; clever enough to figure out how on your own.
 ; DEFAULT: none
-;transcode_cmd = "ffmpeg -i %FILE"
+;transcode_cmd = "ffmpeg"
+
+; Transcode input file argument
+transcode_input = "-i %FILE%"
 ```
 
 ```INI
@@ -87,11 +105,27 @@ Ampache8 also adds per-user dynamic downsampling and per-player bitrate override
 
 ```INI
 ; encode_args_TYPE = TRANSCODE_CMD_ARGS
-;encode_args_mp3 = "-vn -b:a %SAMPLE%K -c:a mp3 -f mp3 pipe:1"
-;encode_args_ogg = "-vn -b:a %SAMPLE%K -c:a vorbis -f ogg pipe:1"
+encode_args_mp3 = "-vn -b:a %BITRATE% -c:a libmp3lame -f mp3 pipe:1"
+encode_args_ogg = "-vn -b:a %BITRATE% -c:a libvorbis -f ogg pipe:1"
+encode_args_opus = "-vn -b:a %BITRATE% -c:a libopus -compression_level 10 -f ogg pipe:1"
+encode_args_m4a = "-vn -b:a %BITRATE% -c:a aac -movflags +frag_keyframe+empty_moov+default_base_moof -f mp4 pipe:1"
 ```
 
 The arguments may need to be adjusted depending on the specific external program chosen and its age.
+
+### ReplayGain and car profiles (Ampache8)
+
+Ampache8 adds four extra output profiles you can enable in your own config: `encode_args_mp3_rg`, `encode_args_mp3_car`, `encode_args_opus_rg` and `encode_args_opus_car`.
+
+The `_rg` variants apply track ReplayGain in the transcode with a 6dB preamp; the `_car` variants use a 15dB preamp and resample through soxr (heavier CPU) for listening in a noisy environment.
+
+Your **source files must already be tagged with ReplayGain** (use `loudgain` or `rsgain`), or the gain clauses do nothing.
+
+**NOTE** these formats are never written to the [transcode cache](/docs/configuration/transcoding/transcode-caching), because the normalisation is per-source. Keep `cache_target` set to a plain format such as `mp3` or `opus`.
+
+`opus_rg`/`opus_car` will not play on iOS (Opus-in-Ogg). `mp3_rg`/`mp3_car` are cross-platform.
+
+The `m4a` profile is fragmented MP4, so it can be streamed before the whole file exists.
 
 ## Network Based Transcoding
 
