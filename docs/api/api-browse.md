@@ -6,201 +6,144 @@ description: "API documentation"
 
 ## API Browse methods
 
-Starting in Amapche 6.5.0, API6 has added additional sorting and filtering options to browse methods.
+A browse method returns many items that can be filtered and sorted further, so `artists` is a browse
+and `artist` is not. Browse methods use the Ampache Browse class, which lets a client ask for a
+narrower or differently ordered list without running a search or post-processing the response.
 
-A browse method is used for actions that return many items that can be filtered further.
+Every browse method takes two extra parameters on top of its own: `cond` and `sort`.
 
-Example:
+## cond
 
-* The `artists` method is used to show many artists and is a browse action.
-* The `artist` method is used to show details for a single artist.
+Filter the objects the browse returns.
 
-These methods utilize the Ampache Browse class to allow more advanced queries without having to use searches or post-processing by the client.
-
-The browse can be filtered and sorted based on the output type.
-
-## Additional browse parameters
-
-Each method now has 2 additional parameters.
-
-### cond
-
-Apply a filter to the objects.
-
-Add comma separated filter and value pairs, use `;` to split additional filters.
+Send comma separated filter and value pairs, and split additional filters with `;`
 
 e.g. `&cond=artist,1240;catalog,2`
 
-Conditions that don't require a value can be sent with a null value.
-
-e.g. `&cond=unplayed,;catalog,2`
+A filter a browse does not list is ignored, so check the page for the type you are browsing.
 
 Example:
 
 * The `songs` method uses a song browse to return `song` objects.
-* You can filter this browse by `genre` and return all songs that have that genre.
+* Filtering it by `genre` returns every song with that genre.
 
 e.g. `https://music.com.au/server/json.server.php?action=songs&auth=eeb9f1b6056246a7d563f479f518bb34&cond=genre,111`
 
-### sort
+A method that already sets a filter of its own is overwritten by the same filter in `cond`, which can
+change the response in ways the method never intended. `genre_artists?filter=215&cond=tag,111` returns
+the artists for genre 111, not 215.
 
-Apply a different sort for the output repsonse.
+These filters carry no value, so `filter,` with an empty value is enough: `catalog_enabled`, `hide_dupe_smartlist`, `no_genre`, `no_tag`, `smartlist`, `user_catalog`
 
-**NOTE** There can only be one sort applied to each browse.
+Every other filter needs one. `unplayed` in particular only works as `cond=unplayed,1`; an empty value is read as `0` and the filter is dropped.
 
-The default sort is (usually) `name`. This is the name of the returned objects sorted ascending.
+## sort
 
-The sort parameter docstring on each browse method will tell you the default sort and link to available sorts.
+Change the order of the response.
 
-Example:
+Send the sort name and the direction, `ASC` or `DESC`.
 
-* The `users` method uses a user browse to return `user` objects in order of id number.
-* You can sort this browse by `username` and return all users in alphabetical order.
+e.g. `https://music.com.au/server/json.server.php?action=users&auth=f57766d256df0ad5e5ec163d35f05a21&sort=username,DESC`
 
-e.g. `https://music.com.au/server/json.server.php?action=users&auth=f57766d256df0ad5e5ec163d35f05a21&sort=username,desc`
+**NOTE** Only one sort is applied to a browse. Sending a second replaces the first.
+
+The default sort is usually `name`, ascending. Each method's `sort` docstring names its own default.
+
+A sort the browse does not list is ignored and the default is kept, so nothing tells the client that
+the order it asked for was refused.
 
 ## Browse types and available methods
 
-When you create a browse you are querying a database table and to return an object from that table.
+Each page lists every filter and sort that browse accepts, and what each one does.
 
-The exception to this is a `playlist_search` browse which is a combination of `playlist` and `search` tables.
+| Browse                                                                          | Type              | API methods                                                                                          |
+|---------------------------------------------------------------------------------|-------------------|------------------------------------------------------------------------------------------------------|
+| [Album Browse](https://ampache.org/api/browse/album-browse)                     | `album`           | `albums`, `artist_albums`, `browse`, `genre_albums`                                                  |
+| [Album Disk Browse](https://ampache.org/api/browse/album_disk-browse)           | `album_disk`      | `album_disks`                                                                                        |
+| [Artist Browse](https://ampache.org/api/browse/artist-browse)                   | `artist`          | `artists`, `browse`, `genre_artists`, `label_artists`                                                |
+| [Catalog Browse](https://ampache.org/api/browse/catalog-browse)                 | `catalog`         | `browse`, `catalogs`                                                                                 |
+| [Folder Browse](https://ampache.org/api/browse/folder-browse)                   | `folder`          | `folders`                                                                                            |
+| [Follower Browse](https://ampache.org/api/browse/follower-browse)               | `follower`        | `followers`                                                                                          |
+| [Genre Browse](https://ampache.org/api/browse/genre-browse)                     | `tag`             | `genres`                                                                                             |
+| [Label Browse](https://ampache.org/api/browse/label-browse)                     | `label`           | `labels`                                                                                             |
+| [License Browse](https://ampache.org/api/browse/license-browse)                 | `license`         | `licenses`                                                                                           |
+| [Live Stream Browse](https://ampache.org/api/browse/live_stream-browse)         | `live_stream`     | `live_streams`                                                                                       |
+| [Playlist Browse](https://ampache.org/api/browse/playlist-browse)               | `playlist`        | `playlists`, `user_playlists`                                                                        |
+| [Playlist Search Browse](https://ampache.org/api/browse/playlist_search-browse) | `playlist_search` | `index`, `list`, `playlists`, `stats`                                                                |
+| [Podcast Browse](https://ampache.org/api/browse/podcast-browse)                 | `podcast`         | `browse`, `podcasts`                                                                                 |
+| [Podcast Episode Browse](https://ampache.org/api/browse/podcast_episode-browse) | `podcast_episode` | `browse`, `podcast_episodes`                                                                         |
+| [Share Browse](https://ampache.org/api/browse/share-browse)                     | `share`           | `shares`                                                                                             |
+| [Smartlist Browse](https://ampache.org/api/browse/smartplaylist-browse)         | `smartplaylist`   | `smartlists`, `user_smartlists`                                                                      |
+| [Song Browse](https://ampache.org/api/browse/song-browse)                       | `song`            | `album_disk_songs`, `album_songs`, `artist_songs`, `browse`, `genre_songs`, `license_songs`, `songs` |
+| [User Browse](https://ampache.org/api/browse/user-browse)                       | `user`            | `users`                                                                                              |
+| [Video Browse](https://ampache.org/api/browse/video-browse)                     | `video`           | `browse`, `videos`                                                                                   |
 
-The API generally treats playlists as a single object so it may be a bit confusing to see that these are two separate objects.
+**NOTE** A browse usually maps to one database table. `playlist_search` is the exception: it reads
+`playlist` and `search` together so playlists and smartlists arrive as one list, with smartlist ids
+prefixed, so search `2256` is returned as `smart_2256`.
 
-To allow this; all searches are prefixed with 'smart_' meaning that the search `2256` will return as `smart_2256`.
+**NOTE** `album_artist` and `song_artist` are the artist browse with that filter already applied, so
+they take the artist filters and sorts.
 
-The following pages will list the available conditions and sort options for each browse type.
+**NOTE (API8)** `catalog` is an optional filter on the `album_artist`, `artist`, `album`, `album_disk`
+and `podcast` browse types instead of a required parameter. Send it to restrict the children to one
+catalog, or leave it out to get them from every catalog you can see. An album, disk or podcast belongs
+to a single catalog and an artist reaches its catalogs through `catalog_map`, so the parent object
+never needed a catalog to be addressed. API6 keeps the parameter mandatory, because Ampache7 serves
+that version too.
 
-* [Album Browses](/api/browse/album-browse) browses
-  * albums
-  * artist_albums (`albums` filtered by `artist`)
-  * genre_albums (`albums` filtered by `genre`)
-* [Album Disk Browses](/api/browse/album_disk-browse) browses (**API8 only**)
-  * album_disks (`album_disk` objects filtered by `album`)
-  * album_disk_songs (`songs` filtered by `album_disk`)
-* [Artist Browses](/api/browse/artist-browse) browses (includes `album_artist` and `song_artist` subtypes.)
-  * artists
-  * genre_artists (`artists` filtered by `genre`)
-  * label_artists (`artists` filtered by `label`)
-* [Catalog Browses](/api/browse/catalog-browse) browses
-  * catalogs
-* [Follower Browses](/api/browse/follower-browse) browses
-  * followers
-* [Genre Browses](/api/browse/genre-browse) browses
-  * genres
-* [Label Browses](/api/browse/label-browse) browses
-  * labels
-* [License Browses](/api/browse/license-browse) browses
-  * licences
-* [Live Stream Browses](/api/browse/live_stream-browse) browses
-  * live_streams
-* [Playlist Browses](/api/browse/playlist-browse) browses
-  * playlists (Combine `playlist` and `smartlist` objects into a single list)
-  * user_playlists (`playlists` filtered by `user`)
-  * user_smartlists (`smartlists` filtered by `user`)
-* [Podcast Browses](/api/browse/podcast-browse) browses
-  * podcasts
-* [Podcast Episode Browses](/api/browse/podcast-browse) browses
-  * podcast_episodes
-* [Share Browses](/api/browse/share-browse) browses
-  * shares
-* [Song Browses](/api/browse/song-browse) browses
-  * album_songs (`songs` filtered by `album`)
-  * artist_songs (`songs` filtered by `artist`)
-  * genre_songs (`songs` filtered by `genre`)
-  * license_songs (`songs` filtered by `license`)
-  * songs
-* [User Browses](/api/browse/user-browse) browses
-  * users
-* [Video Browses](/api/browse/video-browse) browses
-  * videos
+## Which browse takes which filter
 
-* Methods that return multiple object types return type browses
-  * `browse` accepts these input `type` values: 'root', 'catalog', 'album_artist', 'artist', 'album', 'album_disk' (API8+), 'podcast'
-    * browse
-  * 'album_artist', 'album', 'artist', 'catalog', 'live_stream', 'playlist', 'podcast_episode', 'podcast', 'share', 'song_artist', 'song', 'video' (plus 'album_disk' on API8+)
-    * get_indexes
-    * index
-    * list
+A filter sent to a browse that does not list it is ignored, and logged as an unknown filter.
 
-**NOTE (API8)** `catalog` is an optional filter on the `album_artist`, `artist`, `album`, `album_disk` and `podcast` browse types instead of a required parameter. Send it to restrict the children to one catalog, or leave it out to get them from every catalog you can see. An album, disk or podcast belongs to a single catalog and an artist reaches its catalogs through `catalog_map`, so the parent object never needed a catalog to be addressed. API6 keeps the parameter mandatory, because Ampache7 serves that version too.
-
-## Available cond filters
-
-Allowed conditional filters are derived from the output type.
-
-Conditions are documented for each method, some of these filters are used by the method to create the output.
-
-**NOTE** You can overwrite filters applied to a method with your own conditions and this can break your expected response
-
-You can apply any valid filter for that output type on top of the default filters to these methods.
-
-For example genre_artists uses the `tag` filter to identify the tag and return artist objects.
-
-* Call genre_artists for the tag 215. `https://music.com.au/server/json.server.php?action=genre_artists&auth=APIKEY&filter=215`
-* Add `https://music.com.au/server/json.server.php?action=genre_artists&auth=APIKEY&filter=215&cond=tag,111`
-* Your call will return Artists who are connected to the 111 genre insteas of 215.
-
-When you add a conditional parameter you are overwriting any default filter applied by the method.
-
-|      Condition      |                                Browse Types                                 |
-|:-------------------:|:---------------------------------------------------------------------------:|
-|         id          |                     All (excluding `follower` browses)                      |
-|        like         |                     All (excluding `follower` browses)                      |
-|      not_like       |                     All (excluding `follower` browses)                      |
-|        equal        |                     All (excluding `follower` browses)                      |
-|     regex_match     |                     All (excluding `follower` browses)                      |
-|   regex_not_match   |                     All (excluding `follower` browses)                      |
-|     starts_with     |                     All (excluding `follower` browses)                      |
-|   not_starts_with   |                     All (excluding `follower` browses)                      |
-|       add_gt        |                   album,artist,podcast_episode,song,video                   |
-|       add_lt        |                   album,artist,podcast_episode,song,video                   |
-|    album_artist     |                                   artist                                    |
-|     song_artist     |                                   artist                                    |
-|       artist        |                                 album,song                                  |
-|    album_artist     |                                    album                                    |
-|     song_artist     |                                    album                                    |
-|       catalog       |         album,artist,live_stream,podcast_episode,podcast,song,video         |
-|   catalog_enabled   |         album,artist,live_stream,podcast_episode,podcast,song,video         |
-|    user_catalog     |         album,artist,live_stream,podcast_episode,podcast,song,video         |
-|      user_flag      | album,artist,live_stream,podcast_episode,podcast,song,video,playlist_search |
-|     user_rating     | album,artist,live_stream,podcast_episode,podcast,song,video,playlist_search |
-|        label        |                                   artist                                    |
-|        genre        |                        album,artist,genre,song,video                        |
-|      unplayed       |                  album,artist,podcast_episode,podcast,song                  |
-|      update_gt      |                           album,artist,song,video                           |
-|      update_lt      |                           album,artist,song,video                           |
-|       enabled       |                                catalog,song                                 |
-|     gather_type     |                                   catalog                                   |
-|    gather_types     |                                   catalog                                   |
-|        user         |                           catalog,follower,share                            |
-|       to_user       |                                  follower                                   |
-|       hidden        |                                    genre                                    |
-|     object_type     |                                    genre                                    |
-|   not_starts_with   |                               genre,playlist                                |
-|    playlist_open    |                                  playlist                                   |
-|    playlist_type    |                                  playlist                                   |
-|    playlist_user    |                                  playlist                                   |
-| hide_dupe_smartlist |                               playlist_search                               |
-|      smartlist      |                               playlist_search                               |
-|       podcast       |                               podcast_episode                               |
-|       object        |                                    share                                    |
-|     object_type     |                                    share                                    |
-|    creation_date    |                                    share                                    |
-|   lastvisit_date    |                                    share                                    |
-|       counter       |                                    share                                    |
-|     max_counter     |                                    share                                    |
-|    allow_stream     |                                    share                                    |
-|   allow_download    |                                    share                                    |
-|       expire        |                                    share                                    |
-|        album        |                                    song                                     |
-|     album_disk      |                                    song                                     |
-|        disk         |                                    song                                     |
-|       license       |                                    song                                     |
-|        top50        |                                    song                                     |
-|       access        |                                    user                                     |
-|      disabled       |                                    user                                     |
-
-## Available sort... sorts
-
-Check out the object pages for available sorts and filters
+| Filter                | Browse types                                                                                                                                                                                            |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `access`              | `user`                                                                                                                                                                                                  |
+| `add_gt`              | `album`, `album_disk`, `artist`, `podcast_episode`, `song`, `video`                                                                                                                                     |
+| `add_lt`              | `album`, `album_disk`, `artist`, `podcast_episode`, `song`, `video`                                                                                                                                     |
+| `album`               | `album_disk`, `song`                                                                                                                                                                                    |
+| `album_artist`        | `album`, `album_disk`, `artist`                                                                                                                                                                         |
+| `album_disk`          | `song`                                                                                                                                                                                                  |
+| `alpha_match`         | `album`, `album_disk`, `artist`, `catalog`, `folder`, `genre`, `label`, `license`, `live_stream`, `playlist`, `playlist_search`, `podcast`, `podcast_episode`, `smartplaylist`, `song`, `user`, `video` |
+| `artist`              | `album`, `album_disk`, `song`                                                                                                                                                                           |
+| `catalog`             | `album`, `album_disk`, `artist`, `live_stream`, `podcast`, `podcast_episode`, `song`, `video`                                                                                                           |
+| `catalog_enabled`     | `album`, `album_disk`, `artist`, `live_stream`, `podcast`, `podcast_episode`, `song`, `video`                                                                                                           |
+| `disabled`            | `user`                                                                                                                                                                                                  |
+| `disk`                | `song`                                                                                                                                                                                                  |
+| `enabled`             | `catalog`, `song`                                                                                                                                                                                       |
+| `equal`               | `album`, `album_disk`, `artist`, `catalog`, `folder`, `genre`, `label`, `license`, `live_stream`, `playlist`, `playlist_search`, `podcast`, `podcast_episode`, `smartplaylist`, `song`, `user`, `video` |
+| `exact_match`         | `album`, `album_disk`, `artist`, `catalog`, `folder`, `genre`, `label`, `license`, `live_stream`, `playlist`, `playlist_search`, `podcast`, `podcast_episode`, `smartplaylist`, `song`, `user`, `video` |
+| `follow_user`         | `follower`                                                                                                                                                                                              |
+| `gather_type`         | `catalog`                                                                                                                                                                                               |
+| `gather_types`        | `catalog`                                                                                                                                                                                               |
+| `genre`               | `album`, `album_disk`, `artist`, `genre`, `song`, `video`                                                                                                                                               |
+| `hidden`              | `genre`, `license`                                                                                                                                                                                      |
+| `hide_dupe_smartlist` | `playlist_search`                                                                                                                                                                                       |
+| `id`                  | `album`, `album_disk`, `artist`, `catalog`, `folder`, `genre`, `label`, `license`, `live_stream`, `playlist`, `playlist_search`, `podcast`, `podcast_episode`, `smartplaylist`, `song`, `user`, `video` |
+| `int_id`              | `folder`                                                                                                                                                                                                |
+| `label`               | `artist`                                                                                                                                                                                                |
+| `license`             | `song`                                                                                                                                                                                                  |
+| `like`                | `album`, `album_disk`, `artist`, `catalog`, `folder`, `genre`, `label`, `license`, `live_stream`, `playlist`, `playlist_search`, `podcast`, `podcast_episode`, `smartplaylist`, `song`, `user`, `video` |
+| `no_genre`            | `album`, `album_disk`, `artist`, `song`, `video`                                                                                                                                                        |
+| `no_tag`              | `album`, `album_disk`, `artist`, `song`, `video`                                                                                                                                                        |
+| `not_like`            | `album`, `album_disk`, `artist`, `catalog`, `folder`, `genre`, `label`, `license`, `live_stream`, `playlist`, `playlist_search`, `podcast`, `podcast_episode`, `smartplaylist`, `song`, `user`, `video` |
+| `not_starts_with`     | `album`, `album_disk`, `artist`, `catalog`, `folder`, `genre`, `label`, `license`, `live_stream`, `playlist`, `playlist_search`, `podcast`, `podcast_episode`, `smartplaylist`, `song`, `user`, `video` |
+| `object_type`         | `genre`                                                                                                                                                                                                 |
+| `playlist_open`       | `playlist`, `playlist_search`, `smartplaylist`                                                                                                                                                          |
+| `playlist_type`       | `playlist`, `playlist_search`, `smartplaylist`                                                                                                                                                          |
+| `playlist_user`       | `playlist`, `playlist_search`, `smartplaylist`                                                                                                                                                          |
+| `podcast`             | `podcast_episode`                                                                                                                                                                                       |
+| `regex_match`         | `album`, `album_disk`, `artist`, `catalog`, `folder`, `genre`, `label`, `license`, `live_stream`, `playlist`, `playlist_search`, `podcast`, `podcast_episode`, `smartplaylist`, `song`, `user`, `video` |
+| `regex_not_match`     | `album`, `album_disk`, `artist`, `catalog`, `folder`, `genre`, `label`, `license`, `live_stream`, `playlist`, `playlist_search`, `podcast`, `podcast_episode`, `smartplaylist`, `song`, `user`, `video` |
+| `smartlist`           | `playlist_search`                                                                                                                                                                                       |
+| `song_artist`         | `album`, `album_disk`, `artist`                                                                                                                                                                         |
+| `starts_with`         | `album`, `album_disk`, `artist`, `catalog`, `folder`, `genre`, `label`, `license`, `live_stream`, `playlist`, `playlist_search`, `podcast`, `podcast_episode`, `smartplaylist`, `song`, `user`, `video` |
+| `tag`                 | `album`, `album_disk`, `artist`, `genre`, `song`, `video`                                                                                                                                               |
+| `top50`               | `song`                                                                                                                                                                                                  |
+| `unplayed`            | `album`, `album_disk`, `artist`, `podcast`, `podcast_episode`, `song`                                                                                                                                   |
+| `update_gt`           | `album`, `album_disk`, `artist`, `song`, `video`                                                                                                                                                        |
+| `update_lt`           | `album`, `album_disk`, `artist`, `song`, `video`                                                                                                                                                        |
+| `user`                | `catalog`, `follower`                                                                                                                                                                                   |
+| `user_catalog`        | `album`, `album_disk`, `artist`, `live_stream`, `podcast`, `podcast_episode`, `song`, `video`                                                                                                           |
+| `user_flag`           | `album`, `album_disk`, `artist`, `folder`, `live_stream`, `playlist`, `playlist_search`, `podcast`, `podcast_episode`, `smartplaylist`, `song`, `video`                                                 |
+| `user_rating`         | `album`, `album_disk`, `artist`, `folder`, `live_stream`, `playlist`, `playlist_search`, `podcast`, `podcast_episode`, `smartplaylist`, `song`, `video`                                                 |

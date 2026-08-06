@@ -6,43 +6,33 @@ description: "API documentation"
 
 ## Share Browse
 
-This page focuses on a single object type.
+This page lists the filters and sorts the `share` browse accepts. Refer to the main [Api Browse methods](https://ampache.org/api/api-browse) page for how to send them.
 
-Refer to the main [Api Browse methods](/api/api-browse) page for further information regarding the other Browse types method.
+**NOTE** The share browse accepts no filters at all, so `cond` is ignored by the `shares` method. Users only ever see their own shares unless they are an admin.
+
+## API methods using this browse
+
+`shares`
 
 ## Available browse filters
 
-You can filter responses by the object name using the following conditions.
-
-e.g. `cond=like,unplayed+tracks`
-
-* Name/Title string filters
-  * like
-  * not_like
-  * equal
-  * regex_match
-  * regex_not_match
-  * starts_with
-  * not_starts_with
-
-```PHP
-    public const array FILTERS = [
-    ];
-```
+This browse takes no filters, so a `cond` parameter sent with it is ignored.
 
 ## Available browse sorts
 
-```PHP
-    protected array $sorts = [
-        'allow_download',
-        'allow_stream',
-        'counter',
-        'creation_date',
-        'expire',
-        'lastvisit_date',
-        'max_counter',
-        'object_type',
-        'object',
-        'user',
-    ];
-```
+Send a single sort in the `sort` parameter as `name,order`, where order is `ASC` or `DESC`.
+
+e.g. `sort=allow_download,DESC`
+
+| Sort             | Description                               |
+|------------------|-------------------------------------------|
+| `allow_download` | Whether the share allows downloads.       |
+| `allow_stream`   | Whether the share allows streaming.       |
+| `counter`        | How many times the share has been used.   |
+| `creation_date`  | When it was created.                      |
+| `expire`         | How many days the share lasts.            |
+| `lastvisit_date` | When the share was last opened.           |
+| `max_counter`    | The share's maximum allowed uses.         |
+| `object`         | Shared object type, then object id.       |
+| `object_type`    | The type of object the row points at.     |
+| `user`           | The id of the user who created the share. |
