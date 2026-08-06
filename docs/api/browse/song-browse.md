@@ -61,8 +61,8 @@ e.g. `sort=name,DESC`
 | Sort               | Description                                                                                                              |
 |--------------------|--------------------------------------------------------------------------------------------------------------------------|
 | `addition_time`    | When it was added to the catalog.                                                                                        |
-| `album`            | Album name, then disk and track number.                                                                                  |
-| `album_disk`       | Album name, then disk and track number.                                                                                  |
+| `album`            | Album name, then the song's own disk and track number.                                                                   |
+| `album_disk`       | Album name, then the album disk's number and the track number.                                                           |
 | `artist`           | Artist name. This is the song artist, not the album artist.                                                              |
 | `catalog`          | The catalog id it belongs to.                                                                                            |
 | `composer`         | Composer tag.                                                                                                            |
