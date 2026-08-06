@@ -247,13 +247,33 @@ In your server conf you can bypass that security measure by enabling `ap_trust_c
 </Directory>
 ```
 
+If you would rather start from a complete vhost, [docs/examples/apache-site.conf](https://github.com/ampache/ampache/blob/develop/docs/examples/apache-site.conf) is a working one.
+
+It carries the `ap_trust_cgilike_cl` setting above, php-fpm and websocket wiring, and the rules that keep `config`, `src` and `vendor` from being served.
+
+Those last ones matter most if you installed from a release zip, where the whole install sits in the web root rather than a level above it.
+
+They are in `public/.htaccess.dist` as well, so a vhost with `AllowOverride All` gets them either way, as long as you copied that file.
+
+```shell
+cp public/.htaccess.dist public/.htaccess
+```
+
+[Rewrite Rules](/docs/installation/rewrite-rules) covers what is blocked and how to check it.
+
 ### Nginx
 
 Working Nginx configuration sample for Ampache.
 If Ampache is served behind a reverse proxy using SSL, you will have to uncomment `fastcgi_param HTTPS on;` to prevent mixed content to be served.
 
+The canonical copy of this block is [docs/examples/nginx-site.conf](https://github.com/ampache/ampache/blob/develop/docs/examples/nginx-site.conf) in the Ampache repository.
+
+Check it against your config after an upgrade, because REST paths change between releases.
+
 ```Nginx
 server {
+    # EXAMPLE TAKEN FROM
+    # https://ampache.org/docs/installation/#nginx
 
     # listen to
     listen  [::]:used_port; #ssl; ipv6 optional with ssl enabled
@@ -292,19 +312,55 @@ server {
     add_header X-Download-Options noopen;
     add_header X-Permitted-Cross-Domain-Policies none;
     add_header X-Frame-Options "SAMEORIGIN" always;
-    add_header Referrer-Policy "same-origin";
+    add_header Referrer-Policy "no-referrer";
     add_header Content-Security-Policy "script-src 'self' 'unsafe-inline' 'unsafe-eval'; frame-src 'self'; object-src 'self'";
 
     # Avoid information leak
     server_tokens off;
     fastcgi_hide_header X-Powered-By;
 
+    # Point this at the web root, which depends on the layout you installed:
+    #   git checkout / composer install  -> /path/to/ampache/public
+    #   release zip (squashed)           -> /path/to/ampache
     root /path/to/ampache/root/directory;
     index index.php;
 
-    # Rewrite rule for Channels
-    if (!-d $request_filename){
-      rewrite ^/channel/([0-9]+)/(.*)$ /channel/index.php?channel=$1&target=$2 last;
+    # Somebody said this helps, in my setup it doesn't prevent temporary saving in files
+    proxy_max_temp_file_size 0;
+
+    # Rewrite rules for the Ampache REST API and the Subsonic backend.
+    # These mirror public/rest/.htaccess.dist; keep the two in sync when adding a route.
+    # Order matters: the versioned REST routes must be matched before the Subsonic catch-alls.
+    if ( !-e $request_filename ) {
+        # /{version}/{format}/catalogs/{catalog_id}/browse/{object_type}/{object_id}
+        rewrite ^/rest/(3|4|5|6|8)/(json|xml)/catalogs/(-?[0-9]+)/browse/([^/]+)/(-?[0-9]+)/?$ /server/$2.rest.php?version=$1&action=browse&filter=$5&type=$4&catalog=$3 last;
+        # /{version}/{format}/me/(playlists|smartlists)
+        rewrite ^/rest/(3|4|5|6|8)/(json|xml)/me/(playlists|smartlists)/?$ /server/$2.rest.php?version=$1&action=user_$3 last;
+        # /{version}/{format}/me/(now-playing|last-shouts|friends-timeline|lost-password)
+        rewrite ^/rest/(3|4|5|6|8)/(json|xml)/me/(now-playing|last-shouts|friends-timeline|lost-password)/?$ /server/$2.rest.php?version=$1&action=$3 last;
+        # /{version}/{format}/preferences/(system|user)
+        rewrite ^/rest/(3|4|5|6|8)/(json|xml)/preferences/(system|user)/?$ /server/$2.rest.php?version=$1&action=$3_preferences last;
+        # /{version}/{format}/{type}/(deleted|stats|search|system|user)
+        rewrite ^/rest/(3|4|5|6|8)/(json|xml)/([^/]+)/(deleted|stats|search|system|user)/?$ /server/$2.rest.php?version=$1&action=$4&type=$3 last;
+        # /{version}/{format}/folders/{integer}
+        rewrite ^/rest/(3|4|5|6|8)/(json|xml)/folders/(-?[0-9]+)/?$ /server/$2.rest.php?version=$1&action=folders&filter=$3 last;
+        # /{version}/{format}/folders{path}
+        rewrite ^/rest/(3|4|5|6|8)/(json|xml)/folders(.+)/?$ /server/$2.rest.php?version=$1&action=folders&filter=$3 last;
+        # /{version}/{format}/localplay/songs -> its own action (a sub-resource, not a `localplay/{command}`)
+        rewrite ^/rest/(3|4|5|6|8)/(json|xml)/localplay/songs/?$ /server/$2.rest.php?version=$1&action=localplay_songs last;
+        # /{version}/{format}/{type}/{filter}/{action}
+        rewrite ^/rest/(3|4|5|6|8)/(json|xml)/([^/]+)/([^/]+)/([^/]+)/?$ /server/$2.rest.php?version=$1&action=$5&type=$3&filter=$4 last;
+        # /{version}/{format}/{action}/{filter}
+        rewrite ^/rest/(3|4|5|6|8)/(json|xml)/([^/]+)/([^/]+)/?$ /server/$2.rest.php?version=$1&action=$3&filter=$4 last;
+        # /{version}/{format}/{action}
+        rewrite ^/rest/(3|4|5|6|8)/(json|xml)/([^/]+)/?$ /server/$2.rest.php?version=$1&action=$3 last;
+        # /{version}/{format} with no resource at all (e.g. opening the api url in a browser); the handler pings
+        rewrite ^/rest/(3|4|5|6|8)/(json|xml)/?$ /server/$2.rest.php?version=$1 last;
+        # subsonic clients using *.view
+        rewrite ^/rest/([^/]+)\.view$ /rest/index.php?ssaction=$1 last;
+        # some subsonic clients don't use *.view
+        rewrite ^/rest/([^/]+)/?$ /rest/index.php?ssaction=$1 last;
+        rewrite ^/rest/fake/(.+)$ /play/$1 last;
     }
 
     # Beautiful URL Rewriting
@@ -320,26 +376,39 @@ server {
 
     # the following line was needed for me to get downloads of single songs to work
     rewrite ^/play/ssid/(.*)/type/(.*)/oid/([0-9]+)/uid/([0-9]+)/action/(.*)/name/(.*)$ /play/index.php?ssid=$1&type=$2&oid=$3&uid=$4action=$5&name=$6 last;
+    # These mirror public/play/.htaccess.dist; keep the two in sync.
     location /play {
         if (!-e $request_filename) {
-            rewrite ^/play/art/([^/]+)/([^/]+)/([0-9]+)/thumb([0-9]*)\.([a-z]+)$ /image.php?object_type=$2&object_id=$3&auth=$1 last;
+            rewrite ^/play/art/([^/]+)/user/([0-9]+)/thumb([0-9]*)\.([a-z]+)$ /image.php?action=show_user_avatar&object_id=$2&auth=$1&thumb=$3 last;
+            rewrite ^/play/art/([^/]+)/user/([0-9]+)/size([0-9]+x[0-9]+)\.([a-z]+)$ /image.php?action=show_user_avatar&object_id=$2&auth=$1&size=$3 last;
+            rewrite ^/play/art/([^/]+)/([^/]+)/([0-9]+)/thumb([0-9]*)\.([a-z]+)$ /image.php?object_type=$2&object_id=$3&auth=$1&thumb=$4&name=art.jpg last;
+            rewrite ^/play/art/([^/]+)/([^/]+)/([0-9]+)/size([0-9]+x[0-9]+)\.([a-z]+)$ /image.php?object_type=$2&object_id=$3&auth=$1&size=$4&name=art.jpg last;
         }
 
+        rewrite ^/([^/]+)/([^/]+)/([^/]+)/([^/]+)(/.*)?$ /play/$5?$1=$2&$3=$4;
         rewrite ^/([^/]+)/([^/]+)(/.*)?$ /play/$3?$1=$2;
         rewrite ^/(/[^/]+|[^/]+/|/?)$ /play/index.php last;
         break;
     }
 
+   # The REST API maps PUT to *_create, PATCH to *_edit and DELETE to *_delete,
+   # so those verbs have to be allowed through as well as GET/POST.
    location /rest {
-      limit_except GET POST {
+      limit_except GET POST PUT PATCH DELETE HEAD {
          deny all;
       }
-      # Rewrite rule for Subsonic backend
-      if ( !-e $request_filename ) {
-          rewrite ^/rest/fake/(.+)$ /play/$1 last;
-          rewrite ^/rest/(.*).view$ /rest/index.php?ssaction=$1;
-          rewrite ^/rest/(.*)$ /rest/index.php?ssaction=$1;
-      }
+   }
+
+   # Catalog updates report progress over server-sent events; buffering breaks the stream.
+   location = /server/sse.server.php {
+      fastcgi_buffering off;
+      gzip off;
+      fastcgi_read_timeout 3600s;
+
+      include fastcgi_params;
+      fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+      fastcgi_param HTTP_PROXY "";
+      fastcgi_pass unix:/var/run/php-fpm.sock;
    }
 
    location ^~ /bin/ {
@@ -352,8 +421,32 @@ server {
       return 403;
    }
 
+   # Only reachable in the squashed (release zip) layout, where the repo root is also the
+   # web root. Harmless to keep when serving from public/.
+   location ~ ^/(docker|docs|locale|node_modules|resources|src|tests|vendor)(/|$) {
+      deny all;
+      return 403;
+   }
+
+   location ~ ^/(composer\.(json|lock)|package(-lock)?\.json|phpunit\.xml|rector\.php|vite\.config\.js)$ {
+      deny all;
+      return 403;
+   }
+
+   # Dotted paths (.git, .env, .idea) at any depth, leaving the acme-challenge webroot reachable so certbot can renew.
+   location ~ /\.(?!well-known) {
+      deny all;
+      return 403;
+   }
+
+   # Editor and backup leftovers beside a real file, and ampache.cfg.php if php ever stops running.
+   location ~ \.cfg\.php$|\.(bak|old|orig|save|swp|swo|sql|log|ini|neon|sh|dist|cache|md|lock)$ {
+      deny all;
+      return 403;
+   }
+
    location / {
-      limit_except GET POST HEAD{
+      limit_except GET POST HEAD {
          deny all;
       }
    }
@@ -378,9 +471,6 @@ server {
         # chose as your php-fpm is configured to listen on
         fastcgi_pass unix:/var/run/php-fpm.sock;
         # fastcgi_pass 127.0.0.1:8000/;
-
-        # Prevents buffering to a temp file. May increase memory usage
-        fastcgi_buffering off;
    }
 
    # Rewrite rule for WebSocket

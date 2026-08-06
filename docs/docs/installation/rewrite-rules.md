@@ -42,7 +42,7 @@ Three parts of Ampache depend on rewriting.
 |---|---|---|
 | `/rest/` | Subsonic and OpenSubsonic clients, and the Ampache REST API | Every client request returns 404, login usually fails outright |
 | `/play/` | Streaming and downloads | Browsing works, but nothing plays |
-| `/` | A few redirects and security filters | Mostly cosmetic, some bot and query filtering stops working |
+| `/` | A few redirects, and the rules that keep private files out of the web root | Bot and query filtering stops working, and `config`, `src` and `vendor` are served if they sit in your web root |
 
 **NOTE** The REST API added in Ampache8 lives under `/rest/` too, so it needs the same rules as Subsonic.
 
@@ -54,9 +54,10 @@ Ampache ships the rules it needs, so you rarely have to write any yourself.
 
 | File | Covers |
 |---|---|
-| [public/.htaccess.dist](https://github.com/ampache/ampache/blob/develop/public/.htaccess.dist) | The web root, redirects and optional bot filtering |
+| [public/.htaccess.dist](https://github.com/ampache/ampache/blob/develop/public/.htaccess.dist) | The web root, redirects, private file blocking and optional bot filtering |
 | [public/play/.htaccess.dist](https://github.com/ampache/ampache/blob/develop/public/play/.htaccess.dist) | Streaming and art URLs |
 | [public/rest/.htaccess.dist](https://github.com/ampache/ampache/blob/develop/public/rest/.htaccess.dist) | Subsonic, OpenSubsonic and the REST API |
+| [docs/examples/apache-site.conf](https://github.com/ampache/ampache/blob/develop/docs/examples/apache-site.conf) | A complete Apache vhost, for running with `AllowOverride None` |
 | [docs/examples/nginx-site.conf](https://github.com/ampache/ampache/blob/develop/docs/examples/nginx-site.conf) | The same rules written for nginx |
 
 The `.dist` files are templates.
@@ -105,7 +106,7 @@ The web installer offers to write the `play` and `rest` files for you, and it ca
 If you installed another way, or deleted them, generate the same two from the CLI.
 
 ```shell
-php bin/cli htaccess -e
+php bin/installer htaccess -e
 ```
 
 **NOTE** Neither the installer nor that command touches the web root file, so copy that one yourself.
@@ -157,6 +158,49 @@ Read `public/rest/.htaccess.dist` and `public/play/.htaccess.dist` and reproduce
 
 Community guides for IIS and other setups are under [Installation Guides](/docs/installation/guides/).
 
+## Keeping private files out of the web root
+
+The same rules do a second job: refusing requests for files that are none of a visitor's business.
+
+How much this matters depends on which layout you installed.
+
+| Layout | Web root | What sits in it |
+|---|---|---|
+| git checkout, or `composer install` | `/path/to/ampache/public` | Only files meant to be served. `config`, `src` and `vendor` are one level above it and unreachable |
+| release zip (squashed) | `/path/to/ampache` | The whole install, so `config/`, `src/`, `vendor/`, `bin/` and `composer.json` are siblings of `index.php` |
+
+On the release zip layout, a request for `/config/ampache.cfg.php` reaches a real file on disk.
+
+PHP is what stops it being readable: the config starts with `;#<?php exit(); ?>##`, so PHP runs it and exits before printing anything.
+
+That protection lasts exactly as long as PHP keeps handling `.php` files in that directory.
+
+A misconfigured vhost, a disabled PHP module during an upgrade, or an editor backup at `ampache.cfg.php.bak` all leave your database password readable over HTTP.
+
+`public/.htaccess.dist` refuses the lot, whichever layout you use.
+
+* The directories `bin`, `config`, `docker`, `docs`, `locale`, `node_modules`, `resources`, `src`, `tests` and `vendor`
+* Dotted paths at any depth, such as `.git`, `.env` and `.idea`
+* `composer.json`, `composer.lock`, `package.json`, `phpunit.xml`, `rector.php` and `vite.config.js`
+* Backup and editor leftovers: `.bak`, `.old`, `.orig`, `.save`, `.swp`, `.sql`, `.log`, `.dist` and friends
+* Anything named `*.cfg.php`, from a rule that works without `mod_rewrite`
+
+`/.well-known/acme-challenge/` is deliberately left reachable, so certbot can still renew your certificate.
+
+**NOTE** These rules are new in Ampache8 and live in the web root file, which no installer or CLI command writes for you.
+
+```shell
+cp public/.htaccess.dist public/.htaccess
+```
+
+Upgrading from an older Ampache without doing that leaves you on your previous rules.
+
+If you run Apache with `AllowOverride None`, no `.htaccess` file is read at all, so put the equivalent blocks in your vhost instead.
+
+[docs/examples/apache-site.conf](https://github.com/ampache/ampache/blob/develop/docs/examples/apache-site.conf) is a complete vhost that already contains them.
+
+nginx users get the same set from [docs/examples/nginx-site.conf](https://github.com/ampache/ampache/blob/develop/docs/examples/nginx-site.conf).
+
 ## Checking it works
 
 Ask the server for a URL that only exists through rewriting.
@@ -173,6 +217,18 @@ Test streaming separately, since it uses different rules.
 
 Play a song in the web interface and confirm audio actually starts.
 
+Then check that the private paths are refused.
+
+```shell
+for path in /config/ampache.cfg.php /src/Config/Init.php /vendor/autoload.php /.git/config /composer.json; do
+  printf '%-30s %s\n' "$path" "$(curl -s -o /dev/null -w '%{http_code}' "http://your-server$path")"
+done
+```
+
+Every line should print `403`, or `404` if that path does not exist in your layout.
+
+A `200` on any of them means the web root rules are not being read.
+
 ## Common problems
 
 **Everything 404s under `/rest/`.**
@@ -181,7 +237,7 @@ Rewriting is off, or `.htaccess` is being ignored. Check `mod_rewrite` and `Allo
 
 **Subsonic works but the REST API does not.**
 
-Your `public/rest/.htaccess` predates Ampache8. Regenerate it with `bin/cli htaccess -e`.
+Your `public/rest/.htaccess` predates Ampache8. Regenerate it with `bin/installer htaccess -e`.
 
 **Browsing works but nothing plays.**
 
