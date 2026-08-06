@@ -1,6 +1,6 @@
 ---
-title: "Ampache REST API"
-metaTitle: "Ampache REST API"
+title: "REST API"
+metaTitle: "REST API"
 description: "REST API documentation"
 ---
 

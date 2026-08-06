@@ -175,6 +175,7 @@ const sidebars = {
         'rest/index',
         'api/api-xml-methods',
         'api/api-json-methods',
+        {type: 'link', label: 'Swagger API Spec', href: 'https://ampache.org/rest/swagger/'},
         'api/api-errors',
         'api/api-examples',
         'api/api-changelog',
