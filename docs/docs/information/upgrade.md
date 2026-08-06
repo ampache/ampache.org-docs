@@ -37,8 +37,9 @@ You can extract over the top of your current install if you want but we'll follo
 * Move the old folder out of the way.
   * `mv /var/www/ampache /var/www/ampache.old`
 * Grab the release you want from the [releases](https://github.com/ampache/ampache/releases) page
-* Extract the new version.
-  * `unzip ampache-X.X.X_all.zip -d /var/www/ampache`
+* Extract the new version. ([which zip?](/docs/information/which-zip))
+  * `unzip ampache-X.X.X_phpX.X.zip -d /var/www/ampache`
+  * Releases before Ampache9 also ship this zip as `ampache-X.X.X_all_phpX.X.zip`; the two are identical.
 * Copy your config file from the old install to the new directory
   * `cp /var/www/ampache.old/config/ampache.cfg.php /var/www/ampache/config/`
 

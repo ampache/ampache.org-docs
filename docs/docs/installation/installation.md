@@ -111,7 +111,7 @@ These commands will check out the latest Ampache code without having to download
 
 Download it and install it (e.g: `mv composer.phar /usr/local/bin/composer`)
 
-If you cannot use Composer, you should download the release archive *ampache-x.x.x_all.zip* which contains all dependencies.
+If you cannot use Composer, you should download the release archive *ampache-x.x.x_phpx.x.zip* (named *ampache-x.x.x_all_phpx.x.zip* before Ampache9, see [which zip](/docs/information/which-zip)) which contains all dependencies.
 
 For Mac users (High Sierra & Mojave) - brew install composer
 
