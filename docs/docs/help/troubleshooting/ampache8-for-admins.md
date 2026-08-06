@@ -160,6 +160,25 @@ If you can't move your server yet, stay on the `patch7` or `release7` branch by 
 git checkout patch7
 ```
 
+## Release zip names are changing
+
+The `public` structure has been the default for a long time, but its zips still carried a `_public` or `_all` marker naming it. From Ampache9 the default drops both.
+
+| Old name | New name |
+| --- | --- |
+| `ampache-%VERSION%_public.zip` | `ampache-%VERSION%.zip` |
+| `ampache-%VERSION%_all_%PHP_VERSION%.zip` | `ampache-%VERSION%_%PHP_VERSION%.zip` |
+
+Ampache8 releases ship **both** names so nothing breaks while you move over. Each pair is an identical copy of the same zip and the release notes list the same checksum for both, so it makes no difference which one you download.
+
+Because Ampache8 is PHP8.5 only, there is one all-in-one build per release and it is `ampache-%VERSION%_php8.5.zip`.
+
+The `_squashed` and `_client` releases are unchanged and keep their suffixes.
+
+If you have a script, an Ansible task or a cron job that fetches a release by filename, point it at the new names now — the old ones go away in Ampache9.
+
+See [Which zip?](/docs/information/which-zip) for the full breakdown of the build types.
+
 ## PHP fileinfo extension is required
 
 To make sure the new Captcha works, the core php fileinfo module is being used.

@@ -252,6 +252,23 @@ Previews now come from iTunes and Deezer, giving you the usual 30 second sample.
 
 Neither service knows Ampache's MusicBrainz ids, so a track is found by artist and title. A track nothing close is found for simply has no preview, rather than playing you a different song.
 
+## If you download Ampache yourself, the zip names are changing
+
+This only matters if you run your own server and grab the release zips; nothing changes for you if someone else looks after it.
+
+The default download has always been the `public` build, but its filename still said so. From Ampache9 it won't.
+
+| Old name | New name |
+| --- | --- |
+| `ampache-%VERSION%_public.zip` | `ampache-%VERSION%.zip` |
+| `ampache-%VERSION%_all_%PHP_VERSION%.zip` | `ampache-%VERSION%_%PHP_VERSION%.zip` |
+
+Ampache8 releases include both names, and each pair is the same zip with the same checksum, so pick whichever you like. The `_squashed` and `_client` downloads are unchanged.
+
+The one you probably want is `ampache-%VERSION%_php8.5.zip` - it has everything included and needs no extra install steps.
+
+[Which zip?](/docs/information/which-zip) explains the rest, and there is more detail on the [Ampache8 for Admins](/docs/help/troubleshooting/ampache8-for-admins#release-zip-names-are-changing) page.
+
 ## Smaller fixes you might notice
 
 * Adding songs to a playlist skips duplicates correctly again
