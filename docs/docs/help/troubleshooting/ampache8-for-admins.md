@@ -48,7 +48,7 @@ git reset --hard origin/develop
 Then after the reset make sure you run composer and NPM.
 
 ```shell
-composer update --no-dev --prefer-source
+composer update --no-dev --prefer-dist
 npm install
 npm run build
 ```

@@ -67,7 +67,7 @@ If you've been downloading tar.gz source archives, it's probably better to switc
 ```shell
 cd /var/www/ampache
 git pull
-composer install --no-dev --prefer-source --no-interaction
+composer install --no-dev --prefer-dist --no-interaction
 npm install
 npm run build
 ```

@@ -63,7 +63,7 @@ Then do the following in a command shell:
 cd C:\inetpub\wwwroot
 git clone https://github.com/ampache/ampache.git ampache
 cd ampache
-composer install --prefer-source --no-interaction
+composer install --prefer-dist --no-interaction
 ```
 
 To enable the charts, an additional install step is needed see [Chart FAQ](/docs/help/troubleshooting/chart-faq):

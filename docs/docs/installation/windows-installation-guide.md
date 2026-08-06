@@ -108,7 +108,7 @@ The final step is to run Composer. This will download some other software needed
 
 Run this command in the PowerShell window the same as before:
 
-* `composer install --prefer-source --no-interaction`
+* `composer install --prefer-dist --no-interaction`
 
 This will likely take some time, you may see some warnings about files not being up to date. These are safe to ignore.
 

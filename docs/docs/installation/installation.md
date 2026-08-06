@@ -142,7 +142,7 @@ When you're updating from git add the npm commands to the end of your scripts.
 ```shell
 cd /var/www/ampache
 git pull
-composer install --no-dev --prefer-source --no-interaction
+composer install --no-dev --prefer-dist --no-interaction
 npm install
 npm run build
 ```
