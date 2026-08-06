@@ -253,11 +253,13 @@ It carries the `ap_trust_cgilike_cl` setting above, php-fpm and websocket wiring
 
 Those last ones matter most if you installed from a release zip, where the whole install sits in the web root rather than a level above it.
 
-They are in `public/.htaccess.dist` as well, so a vhost with `AllowOverride All` gets them either way, as long as you copied that file.
+They are in `public/.htaccess.dist` as well, so a vhost with `AllowOverride All` gets them either way, once you ask for that file.
 
 ```shell
-cp public/.htaccess.dist public/.htaccess
+php bin/installer htaccess -e -p
 ```
+
+This one is optional. Ampache runs the same without it, so skip it if the layout puts nothing private in your web root.
 
 [Rewrite Rules](/docs/installation/rewrite-rules) covers what is blocked and how to check it.
 
@@ -487,95 +489,363 @@ server {
 
 ### Lighttpd
 
-```ApacheConf
-$HTTP["host"] == "example.com" {
-    server.document-root = "/srv/http/vhosts/example.com/public/"
-    url.rewrite-if-not-file += (
-        "^/(.*)\.(css|js|jpg|png|gif)$" => "$0",
-        "^/rest/(.+)\.view$" => "/rest/index.php?ssaction=$1",
+Working lighttpd 1.4 configuration sample for Ampache.
+
+The canonical copy of this block is [docs/examples/lighttpd-site.conf](https://github.com/ampache/ampache/blob/develop/docs/examples/lighttpd-site.conf) in the Ampache repository.
+
+It needs `mod_rewrite`, `mod_access` and `mod_fastcgi` loaded in `lighttpd.conf`.
+
+```lighttpd
+# EXAMPLE TAKEN FROM
+# https://ampache.org/docs/installation/#lighttpd
+#
+# lighttpd 1.4. Include it from lighttpd.conf, or paste the block into it.
+# These modules have to be loaded first:
+#   server.modules += ( "mod_rewrite", "mod_access", "mod_fastcgi" )
+
+$HTTP["host"] == "ampache.example.com" {
+
+    # Point this at the web root, which depends on the layout you installed:
+    #   git checkout / composer install  -> /path/to/ampache/public
+    #   release zip (squashed)           -> /path/to/ampache
+    server.document-root = "/path/to/ampache/public"
+
+    index-file.names = ( "index.php" )
+
+    # PRIVATE PATHS
+    # Only reachable in the squashed (release zip) layout, where the install root is also the
+    # web root. Serving from public/ these paths do not exist and the rules cost nothing.
+    $HTTP["url"] =~ "^/(bin|config|docker|docs|locale|node_modules|resources|src|tests|vendor)/" {
+        url.access-deny = ("")
+    }
+
+    $HTTP["url"] =~ "^/(composer\.(json|lock)|package(-lock)?\.json|phpunit\.xml|rector\.php|vite\.config\.js)$" {
+        url.access-deny = ("")
+    }
+
+    # Dotted paths (.git, .env, .idea) at any depth, leaving the acme-challenge webroot reachable so certbot can renew.
+    $HTTP["url"] =~ "/\.(?!well-known)" {
+        url.access-deny = ("")
+    }
+
+    # Editor and backup leftovers beside a real file, and ampache.cfg.php if php ever stops running.
+    url.access-deny = (".bak", ".old", ".orig", ".save", ".swp", ".swo", ".sql", ".log", ".ini", ".neon", ".sh", ".dist", ".cache", ".md", ".lock", ".cfg.php")
+
+    # These mirror public/rest/.htaccess.dist and public/play/.htaccess.dist; keep them in sync.
+    # Order matters: the versioned REST routes must be matched before the Subsonic catch-alls.
+    url.rewrite-if-not-file = (
+        # /{version}/{format}/catalogs/{catalog_id}/browse/{object_type}/{object_id}
+        "^/rest/(3|4|5|6|8)/(json|xml)/catalogs/(-?[0-9]+)/browse/([^/]+)/(-?[0-9]+)/?$" => "/server/$2.rest.php?version=$1&action=browse&filter=$5&type=$4&catalog=$3",
+        # /{version}/{format}/me/(playlists|smartlists)
+        "^/rest/(3|4|5|6|8)/(json|xml)/me/(playlists|smartlists)/?$" => "/server/$2.rest.php?version=$1&action=user_$3",
+        # /{version}/{format}/me/(now-playing|last-shouts|friends-timeline|lost-password)
+        "^/rest/(3|4|5|6|8)/(json|xml)/me/(now-playing|last-shouts|friends-timeline|lost-password)/?$" => "/server/$2.rest.php?version=$1&action=$3",
+        # /{version}/{format}/preferences/(system|user)
+        "^/rest/(3|4|5|6|8)/(json|xml)/preferences/(system|user)/?$" => "/server/$2.rest.php?version=$1&action=$3_preferences",
+        # /{version}/{format}/{type}/(deleted|stats|search|system|user)
+        "^/rest/(3|4|5|6|8)/(json|xml)/([^/]+)/(deleted|stats|search|system|user)/?$" => "/server/$2.rest.php?version=$1&action=$4&type=$3",
+        # /{version}/{format}/folders/{integer}
+        "^/rest/(3|4|5|6|8)/(json|xml)/folders/(-?[0-9]+)/?$" => "/server/$2.rest.php?version=$1&action=folders&filter=$3",
+        # /{version}/{format}/folders{path}
+        "^/rest/(3|4|5|6|8)/(json|xml)/folders(.+)/?$" => "/server/$2.rest.php?version=$1&action=folders&filter=$3",
+        # /{version}/{format}/localplay/songs -> its own action (a sub-resource, not a `localplay/{command}`)
+        "^/rest/(3|4|5|6|8)/(json|xml)/localplay/songs/?$" => "/server/$2.rest.php?version=$1&action=localplay_songs",
+        # /{version}/{format}/{type}/{filter}/{action}
+        "^/rest/(3|4|5|6|8)/(json|xml)/([^/]+)/([^/]+)/([^/]+)/?$" => "/server/$2.rest.php?version=$1&action=$5&type=$3&filter=$4",
+        # /{version}/{format}/{action}/{filter}
+        "^/rest/(3|4|5|6|8)/(json|xml)/([^/]+)/([^/]+)/?$" => "/server/$2.rest.php?version=$1&action=$3&filter=$4",
+        # /{version}/{format}/{action}
+        "^/rest/(3|4|5|6|8)/(json|xml)/([^/]+)/?$" => "/server/$2.rest.php?version=$1&action=$3",
+        # /{version}/{format} with no resource at all (e.g. opening the api url in a browser); the handler pings
+        "^/rest/(3|4|5|6|8)/(json|xml)/?$" => "/server/$2.rest.php?version=$1",
+        # subsonic clients using *.view
+        "^/rest/([^/]+)\.view$" => "/rest/index.php?ssaction=$1",
+        # some subsonic clients don't use *.view
+        "^/rest/([^/]+)/?$" => "/rest/index.php?ssaction=$1",
         "^/rest/fake/(.+)$" => "/play/$1",
+
+        # Art and avatar urls
+        "^/play/art/([^/]+)/user/([0-9]+)/thumb([0-9]*)\.([a-z]+)$" => "/image.php?action=show_user_avatar&object_id=$2&auth=$1&thumb=$3",
+        "^/play/art/([^/]+)/user/([0-9]+)/size([0-9]+x[0-9]+)\.([a-z]+)$" => "/image.php?action=show_user_avatar&object_id=$2&auth=$1&size=$3",
         "^/play/art/([^/]+)/([^/]+)/([0-9]+)/thumb([0-9]*)\.([a-z]+)$" => "/image.php?object_type=$2&object_id=$3&auth=$1&thumb=$4&name=art.jpg",
+        "^/play/art/([^/]+)/([^/]+)/([0-9]+)/size([0-9]+x[0-9]+)\.([a-z]+)$" => "/image.php?object_type=$2&object_id=$3&auth=$1&size=$4&name=art.jpg",
+
+        # Beautiful URL Rewriting. lighttpd applies one rewrite per request, so each shape is
+        # listed in full rather than peeling off one key/value pair at a time like Apache does.
+        "^/play/ssid/(\w+)/type/(\w+)/oid/([0-9]+)/uid/([0-9]+)/name/(.*)$" => "/play/index.php?ssid=$1&type=$2&oid=$3&uid=$4&name=$5",
+        "^/play/ssid/(\w+)/type/(\w+)/oid/([0-9]+)/uid/([0-9]+)/client/(\w+)/name/(.*)$" => "/play/index.php?ssid=$1&type=$2&oid=$3&uid=$4&client=$5&name=$6",
+        "^/play/ssid/(\w+)/type/(\w+)/oid/([0-9]+)/uid/([0-9]+)/client/(\w+)/player/(.*)/name/(.*)$" => "/play/index.php?ssid=$1&type=$2&oid=$3&uid=$4&client=$5&player=$6&name=$7",
+        "^/play/ssid/(\w+)/type/(\w+)/oid/([0-9]+)/uid/([0-9]+)/client/(\w+)/bitrate/([0-9]+)/player/(.*)/name/(.*)$" => "/play/index.php?ssid=$1&type=$2&oid=$3&uid=$4&client=$5&bitrate=$6&player=$7&name=$8",
+        "^/play/ssid/(\w+)/type/(\w+)/oid/([0-9]+)/uid/([0-9]+)/client/(\w+)/transcode_to/(\w+)/bitrate/([0-9]+)/player/(.*)/name/(.*)$" => "/play/index.php?ssid=$1&type=$2&oid=$3&uid=$4&client=$5&transcode_to=$6&bitrate=$7&player=$8&name=$9",
+        "^/play/ssid/(\w+)/type/(\w+)/oid/([0-9]+)/uid/([0-9]+)/client/(\w+)/noscrobble/([0-1])/name/(.*)$" => "/play/index.php?ssid=$1&type=$2&oid=$3&uid=$4&client=$5&noscrobble=$6&name=$7",
+        "^/play/ssid/(\w+)/type/(\w+)/oid/([0-9]+)/uid/([0-9]+)/client/(\w+)/noscrobble/([0-1])/player/(.*)/name/(.*)$" => "/play/index.php?ssid=$1&type=$2&oid=$3&uid=$4&client=$5&noscrobble=$6&player=$7&name=$8",
+        "^/play/ssid/(\w+)/type/(\w+)/oid/([0-9]+)/uid/([0-9]+)/client/(\w+)/noscrobble/([0-1])/bitrate/([0-9]+)/player/(.*)/name/(.*)$" => "/play/index.php?ssid=$1&type=$2&oid=$3&uid=$4&client=$5&noscrobble=$6&bitrate=$7&player=$8&name=$9",
+        "^/play/ssid/(\w+)/type/(\w+)/oid/([0-9]+)/uid/([0-9]+)/client/(\w+)/noscrobble/([0-1])/transcode_to/(\w+)/bitrate/([0-9]+)/player/(.*)/name/(.*)$" => "/play/index.php?ssid=$1&type=$2&oid=$3&uid=$4&client=$5&noscrobble=$6&transcode_to=$7&bitrate=$8&player=$9&name=$10",
+        "^/play/ssid/(.*)/type/(.*)/oid/([0-9]+)/uid/([0-9]+)/action/(.*)/name/(.*)$" => "/play/index.php?ssid=$1&type=$2&oid=$3&uid=$4&action=$5&name=$6",
+
+        # Anything else under /play/ that is not a real file
         "^/play/([^/]+)/([^/]+)/([^/]+)/([^/]+)(/.*)?$" => "/play/$5?$1=$2&$3=$4",
         "^/play/([^/]+)/([^/]+)(/.*)?$" => "/play/$3?$1=$2",
-        "^/play(/[^/]+|[^/]+/|/?)$" => "/play/index.php",
-        "^/channel/([0-9]+)/(.*)$" => "/channel/index.php?channel=$1&target=$2"
+        "^/play(/[^/]+|[^/]+/|/?)$" => "/play/index.php"
+    )
+
+    # Chose as your php-fpm is configured to listen on. "broken-scriptfilename" is required,
+    # php-fpm needs the full path in SCRIPT_FILENAME or every request answers "File not found".
+    fastcgi.server = ( ".php" =>
+        ( "php-fpm" => (
+            "socket" => "/run/php/php8.5-fpm.sock",
+            "broken-scriptfilename" => "enable"
+        ))
     )
 }
 ```
 
-### Caddy v1
+### Caddy
 
-Working caddy configuration sample for Ampache. It was converted using the nginx config.
+Working Caddy v2 configuration sample for Ampache.
 
-```Conf
-ampache.domain.com {
-    root /home/caddy/web/ampache.domain.com
+The canonical copy of this block is [docs/examples/caddy-site.conf](https://github.com/ampache/ampache/blob/develop/docs/examples/caddy-site.conf) in the Ampache repository.
 
-    log /home/caddy/web/log/ampache.domain.com.access.log {
-        rotate_size 100  # Rotate after 100 MB
-        rotate_age  14   # Keep log files for 14 days
-        rotate_keep 10   # keep maximum of 10 lof files
-    }
+**NOTE** Caddy v1 reached end of life in 2020 and its configuration does not convert: `fastcgi`, `rewrite ... to` and `proxy` were all replaced in v2.
 
-    errors /home/caddy/web/log/ampache.domain.com.error.log
+Caddy only reads a file called `Caddyfile` by default, so name it explicitly if you keep the example filename.
 
-    index index.php
+```shell
+caddy run --config caddy-site.conf --adapter caddyfile
+```
 
-    gzip
+```caddy
+# EXAMPLE TAKEN FROM
+# https://ampache.org/docs/installation/#caddy
+#
+# Caddy v2. Caddy only reads a file called Caddyfile by default, so either rename this or
+# name it explicitly: caddy run --config caddy-site.conf --adapter caddyfile
+#
+# Caddy v1 configurations do not convert: `fastcgi`, `rewrite ... to` and `proxy` were all
+# replaced in v2, which has been the only supported release since 2020.
 
-    fastcgi / unix:/var/run/php/php7.0-fpm.sock php
+ampache.example.com {
 
-    # Rewrite rules for Subsonic backend
-    rewrite /rest {
-        r ^/rest/(.*).view$
-        to {path}/ /rest/index.php?action={1}
-    }
-    rewrite /rest/fake {
-        r ^/rest/fake/(.+)$
-        to {path}/ /play/{1}
-    }
+	# Point this at the web root, which depends on the layout you installed:
+	#   git checkout / composer install  -> /path/to/ampache/public
+	#   release zip (squashed)           -> /path/to/ampache
+	root * /path/to/ampache/public
 
-    # Rewrite rule for Channels
-    rewrite /channel {
-        r ^/channel/([0-9]+)/(.*)$
-        to /channel/index.php?channel={1&}target={2} last;
-    }
+	encode gzip
 
-    # Beautiful URL Rewriting
-    rewrite /play/ssid {
-        r ^/play/ssid/(\w+)/type/(\w+)/oid/([0-9]+)/uid/([0-9]+)/name/(.*)$
-        to /play/index.php?ssid={1}&type={2}&oid={3}&uid={4}&name={5}
+	log {
+		output file /var/log/ampache/access.log
+	}
 
-        r ^/play/ssid/(\w+)/type/(\w+)/oid/([0-9]+)/uid/([0-9]+)/client/(.*)/noscrobble/([0-1])/name/(.*)$
-        to /play/index.php?ssid={1}&type={2}&oid={3}&uid={4}&client={5}&noscrobble={6}&name={7}
+	# Use secure headers to avoid XSS and many other things
+	header {
+		X-Content-Type-Options nosniff
+		X-Robots-Tag none
+		X-Download-Options noopen
+		X-Permitted-Cross-Domain-Policies none
+		X-Frame-Options SAMEORIGIN
+		Referrer-Policy no-referrer
+		Content-Security-Policy "script-src 'self' 'unsafe-inline' 'unsafe-eval'; frame-src 'self'; object-src 'self'"
+		-Server
+	}
 
-        r ^/play/ssid/(.*)/type/(.*)/oid/([0-9]+)/uid/([0-9]+)/client/(.*)/noscrobble/([0-1])/player/(.*)/name/(.*)$
-        to /play/index.php?ssid={1}&type={2}&oid={3}&uid={4}&client={5}&noscrobble={6}&player={7}&name={8}
+	# PRIVATE PATHS
+	# Optional hardening, not needed for Ampache to work. Only reachable in the squashed
+	# (release zip) layout, where the install root is also the web root.
+	@private path /bin/* /config/* /docker/* /docs/* /locale/* /node_modules/* /resources/* /src/* /tests/* /vendor/* /composer.json /composer.lock /package.json /package-lock.json /phpunit.xml /rector.php /vite.config.js
+	handle @private {
+		respond 403
+	}
 
-        r ^/play/ssid/(.*)/type/(.*)/oid/([0-9]+)/uid/([0-9]+)/client/(.*)/noscrobble/([0-1])/transcode_to/(\w+)/bitrate/([0-9]+)/player/(.*)/name/(.*)$
-        to /play/index.php?ssid={1}&type={2}&oid={3}&uid={4}&client={5&}noscrobble={6}&transcode_to={7}&bitrate={8}&player={9}&name={10}
+	# Claimed before the dotted-path rule below so certbot can still renew. handle blocks are
+	# mutually exclusive and run in the order written, which is how the exception is expressed
+	# here: Caddy matches with RE2 and has no negative lookahead to write it as one rule.
+	handle /.well-known/* {
+		file_server
+	}
 
-        r ^/play/ssid/(.*)/type/(.*)/oid/([0-9]+)/uid/([0-9]+)/action/(.*)/name/(.*)$
-        to /play/index.php?ssid={1}&type={2}&oid={3}&uid={4}action={5}&name={6}
-    }
+	# Dotted paths (.git, .env, .idea) at any depth
+	@dotted path_regexp /\.
+	handle @dotted {
+		respond 403
+	}
 
-    # the following line was needed for me to get downloads of single songs to work
-    rewrite /play {
-        r ^/play/art/([^/]+)/([^/]+)/([0-9]+)/thumb([0-9]*)\.([a-z]+)$
-        to /image.php?object_type={2}&object_id={3}&auth={1}
+	# Editor and backup leftovers beside a real file, and ampache.cfg.php if php ever stops running.
+	@leftovers path_regexp \.cfg\.php$|\.(bak|old|orig|save|swp|swo|sql|log|ini|neon|sh|dist|cache|md|lock)$
+	handle @leftovers {
+		respond 403
+	}
 
-        r ^/([^/]+)/([^/]+)(/.*)?$
-        to /play/{3}?{1}={2}
+	handle {
+		# These mirror public/rest/.htaccess.dist; keep the two in sync when adding a route.
+		# Order matters: the versioned REST routes must be matched before the Subsonic catch-alls.
+		# {query} carries any extra query string through, the way Apache's QSA flag does.
 
-        r ^/(/[^/]+|[^/]+/|/?)$
-        to /play/index.php
-    }
+		# /{version}/{format}/catalogs/{catalog_id}/browse/{object_type}/{object_id}
+		@rest_catalogs {
+			not file
+			path_regexp rc ^/rest/(3|4|5|6|8)/(json|xml)/catalogs/(-?[0-9]+)/browse/([^/]+)/(-?[0-9]+)/?$
+		}
+		rewrite @rest_catalogs /server/{re.rc.2}.rest.php?version={re.rc.1}&action=browse&filter={re.rc.5}&type={re.rc.4}&catalog={re.rc.3}&{query}
 
-    proxy /ws 127.0.0.1:8100 {
-        transparent
-        websocket
-        without /ws
-    }
+		# /{version}/{format}/me/(playlists|smartlists)
+		@rest_me_lists {
+			not file
+			path_regexp rml ^/rest/(3|4|5|6|8)/(json|xml)/me/(playlists|smartlists)/?$
+		}
+		rewrite @rest_me_lists /server/{re.rml.2}.rest.php?version={re.rml.1}&action=user_{re.rml.3}&{query}
+
+		# /{version}/{format}/me/(now-playing|last-shouts|friends-timeline|lost-password)
+		@rest_me {
+			not file
+			path_regexp rm ^/rest/(3|4|5|6|8)/(json|xml)/me/(now-playing|last-shouts|friends-timeline|lost-password)/?$
+		}
+		rewrite @rest_me /server/{re.rm.2}.rest.php?version={re.rm.1}&action={re.rm.3}&{query}
+
+		# /{version}/{format}/preferences/(system|user)
+		@rest_prefs {
+			not file
+			path_regexp rp ^/rest/(3|4|5|6|8)/(json|xml)/preferences/(system|user)/?$
+		}
+		rewrite @rest_prefs /server/{re.rp.2}.rest.php?version={re.rp.1}&action={re.rp.3}_preferences&{query}
+
+		# /{version}/{format}/{type}/(deleted|stats|search|system|user)
+		@rest_type_action {
+			not file
+			path_regexp rta ^/rest/(3|4|5|6|8)/(json|xml)/([^/]+)/(deleted|stats|search|system|user)/?$
+		}
+		rewrite @rest_type_action /server/{re.rta.2}.rest.php?version={re.rta.1}&action={re.rta.4}&type={re.rta.3}&{query}
+
+		# /{version}/{format}/folders/{integer}
+		@rest_folder_id {
+			not file
+			path_regexp rfi ^/rest/(3|4|5|6|8)/(json|xml)/folders/(-?[0-9]+)/?$
+		}
+		rewrite @rest_folder_id /server/{re.rfi.2}.rest.php?version={re.rfi.1}&action=folders&filter={re.rfi.3}&{query}
+
+		# /{version}/{format}/folders{path}
+		@rest_folder_path {
+			not file
+			path_regexp rfp ^/rest/(3|4|5|6|8)/(json|xml)/folders(.+)/?$
+		}
+		rewrite @rest_folder_path /server/{re.rfp.2}.rest.php?version={re.rfp.1}&action=folders&filter={re.rfp.3}&{query}
+
+		# /{version}/{format}/localplay/songs -> its own action (a sub-resource, not a `localplay/{command}`)
+		@rest_localplay_songs {
+			not file
+			path_regexp rls ^/rest/(3|4|5|6|8)/(json|xml)/localplay/songs/?$
+		}
+		rewrite @rest_localplay_songs /server/{re.rls.2}.rest.php?version={re.rls.1}&action=localplay_songs&{query}
+
+		# /{version}/{format}/{type}/{filter}/{action}
+		@rest_type_filter_action {
+			not file
+			path_regexp rtfa ^/rest/(3|4|5|6|8)/(json|xml)/([^/]+)/([^/]+)/([^/]+)/?$
+		}
+		rewrite @rest_type_filter_action /server/{re.rtfa.2}.rest.php?version={re.rtfa.1}&action={re.rtfa.5}&type={re.rtfa.3}&filter={re.rtfa.4}&{query}
+
+		# /{version}/{format}/{action}/{filter}
+		@rest_action_filter {
+			not file
+			path_regexp raf ^/rest/(3|4|5|6|8)/(json|xml)/([^/]+)/([^/]+)/?$
+		}
+		rewrite @rest_action_filter /server/{re.raf.2}.rest.php?version={re.raf.1}&action={re.raf.3}&filter={re.raf.4}&{query}
+
+		# /{version}/{format}/{action}
+		@rest_action {
+			not file
+			path_regexp ra ^/rest/(3|4|5|6|8)/(json|xml)/([^/]+)/?$
+		}
+		rewrite @rest_action /server/{re.ra.2}.rest.php?version={re.ra.1}&action={re.ra.3}&{query}
+
+		# /{version}/{format} with no resource at all (e.g. opening the api url in a browser); the handler pings
+		@rest_root {
+			not file
+			path_regexp rr ^/rest/(3|4|5|6|8)/(json|xml)/?$
+		}
+		rewrite @rest_root /server/{re.rr.2}.rest.php?version={re.rr.1}&{query}
+
+		# subsonic clients using *.view
+		@subsonic_view {
+			not file
+			path_regexp sv ^/rest/([^/]+)\.view$
+		}
+		rewrite @subsonic_view /rest/index.php?ssaction={re.sv.1}&{query}
+
+		# some subsonic clients don't use *.view
+		@subsonic_plain {
+			not file
+			path_regexp sp ^/rest/([^/]+)/?$
+		}
+		rewrite @subsonic_plain /rest/index.php?ssaction={re.sp.1}&{query}
+
+		@subsonic_fake {
+			not file
+			path_regexp sf ^/rest/fake/(.+)$
+		}
+		rewrite @subsonic_fake /play/{re.sf.1}?{query}
+
+		# These mirror public/play/.htaccess.dist; keep the two in sync.
+		@art_user_thumb path_regexp aut ^/play/art/([^/]+)/user/([0-9]+)/thumb([0-9]*)\.([a-z]+)$
+		rewrite @art_user_thumb /image.php?action=show_user_avatar&object_id={re.aut.2}&auth={re.aut.1}&thumb={re.aut.3}
+
+		@art_user_size path_regexp aus ^/play/art/([^/]+)/user/([0-9]+)/size([0-9]+x[0-9]+)\.([a-z]+)$
+		rewrite @art_user_size /image.php?action=show_user_avatar&object_id={re.aus.2}&auth={re.aus.1}&size={re.aus.3}
+
+		@art_thumb path_regexp at ^/play/art/([^/]+)/([^/]+)/([0-9]+)/thumb([0-9]*)\.([a-z]+)$
+		rewrite @art_thumb /image.php?object_type={re.at.2}&object_id={re.at.3}&auth={re.at.1}&thumb={re.at.4}&name=art.jpg
+
+		@art_size path_regexp asz ^/play/art/([^/]+)/([^/]+)/([0-9]+)/size([0-9]+x[0-9]+)\.([a-z]+)$
+		rewrite @art_size /image.php?object_type={re.asz.2}&object_id={re.asz.3}&auth={re.asz.1}&size={re.asz.4}&name=art.jpg
+
+		# Beautiful URL Rewriting. Caddy applies one rewrite per request, so each shape is
+		# listed in full rather than peeling off one key/value pair at a time like Apache does.
+		@play_name path_regexp pn ^/play/ssid/(\w+)/type/(\w+)/oid/([0-9]+)/uid/([0-9]+)/name/(.*)$
+		rewrite @play_name /play/index.php?ssid={re.pn.1}&type={re.pn.2}&oid={re.pn.3}&uid={re.pn.4}&name={re.pn.5}
+
+		@play_client path_regexp pc ^/play/ssid/(\w+)/type/(\w+)/oid/([0-9]+)/uid/([0-9]+)/client/(\w+)/name/(.*)$
+		rewrite @play_client /play/index.php?ssid={re.pc.1}&type={re.pc.2}&oid={re.pc.3}&uid={re.pc.4}&client={re.pc.5}&name={re.pc.6}
+
+		@play_player path_regexp pp ^/play/ssid/(\w+)/type/(\w+)/oid/([0-9]+)/uid/([0-9]+)/client/(\w+)/player/(.*)/name/(.*)$
+		rewrite @play_player /play/index.php?ssid={re.pp.1}&type={re.pp.2}&oid={re.pp.3}&uid={re.pp.4}&client={re.pp.5}&player={re.pp.6}&name={re.pp.7}
+
+		@play_bitrate path_regexp pb ^/play/ssid/(\w+)/type/(\w+)/oid/([0-9]+)/uid/([0-9]+)/client/(\w+)/bitrate/([0-9]+)/player/(.*)/name/(.*)$
+		rewrite @play_bitrate /play/index.php?ssid={re.pb.1}&type={re.pb.2}&oid={re.pb.3}&uid={re.pb.4}&client={re.pb.5}&bitrate={re.pb.6}&player={re.pb.7}&name={re.pb.8}
+
+		@play_transcode path_regexp pt ^/play/ssid/(\w+)/type/(\w+)/oid/([0-9]+)/uid/([0-9]+)/client/(\w+)/transcode_to/(\w+)/bitrate/([0-9]+)/player/(.*)/name/(.*)$
+		rewrite @play_transcode /play/index.php?ssid={re.pt.1}&type={re.pt.2}&oid={re.pt.3}&uid={re.pt.4}&client={re.pt.5}&transcode_to={re.pt.6}&bitrate={re.pt.7}&player={re.pt.8}&name={re.pt.9}
+
+		@play_noscrobble path_regexp pns ^/play/ssid/(\w+)/type/(\w+)/oid/([0-9]+)/uid/([0-9]+)/client/(\w+)/noscrobble/([0-1])/name/(.*)$
+		rewrite @play_noscrobble /play/index.php?ssid={re.pns.1}&type={re.pns.2}&oid={re.pns.3}&uid={re.pns.4}&client={re.pns.5}&noscrobble={re.pns.6}&name={re.pns.7}
+
+		@play_action path_regexp pa ^/play/ssid/(.*)/type/(.*)/oid/([0-9]+)/uid/([0-9]+)/action/(.*)/name/(.*)$
+		rewrite @play_action /play/index.php?ssid={re.pa.1}&type={re.pa.2}&oid={re.pa.3}&uid={re.pa.4}&action={re.pa.5}&name={re.pa.6}
+
+		# Anything else under /play/ that is not a real file
+		@play_pairs {
+			not file
+			path_regexp pp4 ^/play/([^/]+)/([^/]+)/([^/]+)/([^/]+)(/.*)?$
+		}
+		rewrite @play_pairs /play{re.pp4.5}?{re.pp4.1}={re.pp4.2}&{re.pp4.3}={re.pp4.4}
+
+		@play_pair {
+			not file
+			path_regexp pp2 ^/play/([^/]+)/([^/]+)(/.*)?$
+		}
+		rewrite @play_pair /play{re.pp2.3}?{re.pp2.1}={re.pp2.2}
+
+		# Chose as your php-fpm is configured to listen on
+		php_fastcgi unix//run/php/php8.5-fpm.sock
+
+		file_server
+	}
+
+	# Rewrite rule for WebSocket
+	@websocket path /ws/*
+	handle @websocket {
+		uri strip_prefix /ws
+		reverse_proxy 127.0.0.1:8100
+	}
 }
 ```
 

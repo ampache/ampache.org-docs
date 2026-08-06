@@ -27,6 +27,8 @@ Commands are grouped by a prefix that describes what they touch:
 * `print:` — read-only reports printed to the terminal
 * `show:` — read-only information about the installation
 
+Two more commands live in a separate binary, `bin/installer`, because they have to run before there is a config file to read. They are listed at the [end of this page](#bininstaller--before-ampache-has-a-config).
+
 Most `admin:` and `run:` commands change your database, so treat them with the same care as the equivalent page in the web interface.
 
 ![image](/img/1305249/627484330-3bd72794-03b9-496f-9909-1e7cedfca044.png)
@@ -255,3 +257,41 @@ php bin/cli show:debug
 ```
 
 ![image](/img/1305249/627484975-37d10b88-f984-42a1-8eda-5e9df2859ecd.png)
+
+## bin/installer — before Ampache has a config
+
+`bin/installer` is a second, smaller binary. Its two commands run before there is a config file or a database, which is why they are not in `bin/cli` and why `bin/cli htaccess` does not exist.
+
+| Command    | What it does                                                                                                    |
+|------------|------------------------------------------------------------------------------------------------------------------|
+| `install`  | Create and populate the database and write `config/ampache.cfg.php`. See [Installation](/docs/installation).     |
+| `htaccess` | Write the `.htaccess` files Apache reads. Nothing happens without `-e`, which is a dry run guard, not a default. |
+
+`htaccess -e` writes the two files Ampache needs, `public/play/.htaccess` and `public/rest/.htaccess`.
+
+Without them, streaming returns 404 and every Subsonic or REST client fails.
+
+| Option           | What it adds                                                                                     |
+|------------------|----------------------------------------------------------------------------------------------------|
+| `-e\|--execute`  | Actually write the files. Without it the command only prints its help.                            |
+| `-p\|--public`   | Also write `public/.htaccess`, which is optional hardening rather than something Ampache needs.   |
+
+```shell
+# the two files Ampache needs
+php bin/installer htaccess -e
+
+# and the optional web root file as well
+php bin/installer htaccess -e -p
+```
+
+The web root file carries a user art redirect, blocking for private paths such as `config/` and `.git`, and a commented-out bot filter. Ampache behaves identically without it.
+
+**NOTE** `-p` overwrites `public/.htaccess`. If you uncommented the bot filtering or edited it in any other way, back it up first.
+
+[Rewrite Rules](/docs/installation/rewrite-rules) covers what each file does, what the web root file blocks, and how to check the rules are being read.
+
+```shell
+php bin/installer install -U root -P mypassword -H localhost -d ampache -u ampache -p ampachepassword -w /ampache -f
+```
+
+**NOTE** `install` takes `-p|--ampachedbpassword`, which is a different option to `htaccess`'s `-p|--public`. The two commands do not share options.

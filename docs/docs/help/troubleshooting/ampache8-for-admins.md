@@ -395,6 +395,28 @@ show_mini_player = "false"
 
 `/m/` itself stays reachable by url either way.
 
+## Optional web root rules for private files
+
+`public/.htaccess.dist` now refuses requests for things a visitor has no business fetching: `bin`, `config`, `docker`, `docs`, `locale`, `node_modules`, `resources`, `src`, `tests` and `vendor`, dotted paths such as `.git` and `.env`, `composer.json` and friends, and backup leftovers such as `.bak` and `.swp`.
+
+This is hardening, not a requirement. Ampache runs exactly the same without it.
+
+It matters most if you installed from a release zip, where the whole install sits in the web root instead of a level above it, so `config/ampache.cfg.php` is a real path a browser can ask for.
+
+The file is optional, so `bin/installer htaccess -e` still leaves it alone. Ask for it with `-p`.
+
+```shell
+php bin/installer htaccess -e -p
+```
+
+**NOTE** `-p` overwrites `public/.htaccess`, so back it up first if you uncommented the bot filtering or edited it.
+
+`/.well-known/acme-challenge/` stays reachable, so certbot renewals are unaffected.
+
+nginx, lighttpd and Caddy do not read `.htaccess` files, so their examples in `docs/examples` carry the same rules. The Caddy sample is now v2; the old v1 syntax has not been valid since 2020.
+
+See [Rewrite Rules](/docs/installation/rewrite-rules) for the full list and how to check it.
+
 ## The play2 stream action has been removed
 
 The alternative `play2` playback action has been merged into the normal `play` action.

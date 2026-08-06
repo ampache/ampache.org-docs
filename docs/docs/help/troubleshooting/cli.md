@@ -161,7 +161,7 @@ This is the full list of `./bin/cli` commands. Every command supports `-h|--help
 | Command    | Description                                                   | Arguments / Options                                                                                                                                                  |
 |------------|---------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `install`  | Install the database (see [Installation](/docs/installation)) | `-U\|--dbuser`, `-P\|--dbpassword`, `-H\|--dbhost`, `-o\|--dbport`, `-d\|--dbname`, `-u\|--ampachedbuser`, `-p\|--ampachedbpassword`, `-w\|--webpath`, `-f\|--force` |
-| `htaccess` | Create `.htaccess` files                                      | `-e\|--execute`                                                                                                                                                      |
+| `htaccess` | Create `.htaccess` files                                      | `-e\|--execute`, `-p\|--public`                                                                                                                                       |
 
 Usage examples:
 
@@ -169,3 +169,13 @@ Usage examples:
 ./bin/installer install -U root -P mypassword -H localhost -d ampache -u ampache -p ampachepassword -w /ampache -f
 ./bin/installer htaccess -e
 ```
+
+`htaccess -e` writes `public/play/.htaccess` and `public/rest/.htaccess`, the two Ampache needs to stream and to serve the APIs.
+
+`-p` adds `public/.htaccess`, which is optional hardening rather than a requirement: a user art redirect, blocking for private paths such as `config/` and `.git`, and the commented-out bot filter.
+
+```shell
+./bin/installer htaccess -e -p
+```
+
+**NOTE** `-p` overwrites `public/.htaccess`, so back it up first if you edited it. See [Rewrite Rules](/docs/installation/rewrite-rules) for what the file blocks.

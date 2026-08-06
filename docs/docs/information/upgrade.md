@@ -79,7 +79,20 @@ Ampache 3.4 Introduces a new config format. Still follow the basic instructions 
 Make sure you don't forget to re-copy over the htaccess rules if you're using Apache.
 
 ```shell
+php bin/installer htaccess -e
+```
+
+That writes the two files Ampache needs, `public/rest/.htaccess` and `public/play/.htaccess`.
+
+Add `-p` to also rewrite the optional `public/.htaccess`, which carries the private path blocking and the bot filter. It overwrites your copy, so back it up if you edited it.
+
+```shell
+php bin/installer htaccess -e -p
+```
+
+Copying them by hand does the same thing.
+
+```shell
 cp /var/www/ampache/public/rest/.htaccess.dist /var/www/ampache/public/rest/.htaccess
 cp /var/www/ampache/public/play/.htaccess.dist /var/www/ampache/public/play/.htaccess
-cp /var/www/ampache/public/channel/.htaccess.dist /var/www/ampache/public/channel/.htaccess
 ```

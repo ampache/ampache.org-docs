@@ -36,13 +36,13 @@ Without the rule the webserver looks for a file named `ping.view`, does not find
 
 ## What breaks without it
 
-Three parts of Ampache depend on rewriting.
+Two parts of Ampache depend on rewriting. A third file is optional.
 
 | Path | Used by | Symptom when rewriting is missing |
 |---|---|---|
 | `/rest/` | Subsonic and OpenSubsonic clients, and the Ampache REST API | Every client request returns 404, login usually fails outright |
 | `/play/` | Streaming and downloads | Browsing works, but nothing plays |
-| `/` | A few redirects, and the rules that keep private files out of the web root | Bot and query filtering stops working, and `config`, `src` and `vendor` are served if they sit in your web root |
+| `/` | A user art redirect, optional bot filtering, and the private file rules | Nothing stops working. Ampache runs perfectly well without this file |
 
 **NOTE** The REST API added in Ampache8 lives under `/rest/` too, so it needs the same rules as Subsonic.
 
@@ -54,11 +54,13 @@ Ampache ships the rules it needs, so you rarely have to write any yourself.
 
 | File | Covers |
 |---|---|
-| [public/.htaccess.dist](https://github.com/ampache/ampache/blob/develop/public/.htaccess.dist) | The web root, redirects, private file blocking and optional bot filtering |
 | [public/play/.htaccess.dist](https://github.com/ampache/ampache/blob/develop/public/play/.htaccess.dist) | Streaming and art URLs |
 | [public/rest/.htaccess.dist](https://github.com/ampache/ampache/blob/develop/public/rest/.htaccess.dist) | Subsonic, OpenSubsonic and the REST API |
+| [public/.htaccess.dist](https://github.com/ampache/ampache/blob/develop/public/.htaccess.dist) | Optional: a user art redirect, private file blocking and bot filtering |
 | [docs/examples/apache-site.conf](https://github.com/ampache/ampache/blob/develop/docs/examples/apache-site.conf) | A complete Apache vhost, for running with `AllowOverride None` |
 | [docs/examples/nginx-site.conf](https://github.com/ampache/ampache/blob/develop/docs/examples/nginx-site.conf) | The same rules written for nginx |
+| [docs/examples/lighttpd-site.conf](https://github.com/ampache/ampache/blob/develop/docs/examples/lighttpd-site.conf) | The same rules written for lighttpd 1.4 |
+| [docs/examples/caddy-site.conf](https://github.com/ampache/ampache/blob/develop/docs/examples/caddy-site.conf) | The same rules written for Caddy v2 |
 
 The `.dist` files are templates.
 
@@ -109,18 +111,20 @@ If you installed another way, or deleted them, generate the same two from the CL
 php bin/installer htaccess -e
 ```
 
-**NOTE** Neither the installer nor that command touches the web root file, so copy that one yourself.
+The web root file is optional, so it is left alone unless you ask for it with `-p`.
 
 ```shell
-cp public/.htaccess.dist public/.htaccess
+php bin/installer htaccess -e -p
 ```
 
-You can copy all three by hand instead if you prefer.
+**NOTE** `-p` overwrites `public/.htaccess`. If you uncommented the bot filtering in it, or edited it in any other way, back it up first.
+
+You can copy the files by hand instead if you prefer.
 
 ```shell
-cp public/.htaccess.dist public/.htaccess
 cp public/play/.htaccess.dist public/play/.htaccess
 cp public/rest/.htaccess.dist public/rest/.htaccess
+cp public/.htaccess.dist public/.htaccess
 ```
 
 **NOTE** If Ampache runs in a subdirectory such as `/ampache/`, edit the paths inside these files to match.
@@ -160,9 +164,11 @@ Community guides for IIS and other setups are under [Installation Guides](/docs/
 
 ## Keeping private files out of the web root
 
-The same rules do a second job: refusing requests for files that are none of a visitor's business.
+The web root file does a second job: refusing requests for files that are none of a visitor's business.
 
-How much this matters depends on which layout you installed.
+This is hardening, not a requirement. Ampache works exactly the same with or without it, and nothing in the interface, the API or streaming depends on it.
+
+How much it is worth depends on which layout you installed.
 
 | Layout | Web root | What sits in it |
 |---|---|---|
@@ -187,19 +193,19 @@ A misconfigured vhost, a disabled PHP module during an upgrade, or an editor bac
 
 `/.well-known/acme-challenge/` is deliberately left reachable, so certbot can still renew your certificate.
 
-**NOTE** These rules are new in Ampache8 and live in the web root file, which no installer or CLI command writes for you.
+**NOTE** These rules are new in Ampache8, and the web installer does not write this file. Ask for it explicitly.
 
 ```shell
-cp public/.htaccess.dist public/.htaccess
+php bin/installer htaccess -e -p
 ```
 
-Upgrading from an older Ampache without doing that leaves you on your previous rules.
+Upgrading from an older Ampache without doing that leaves you on your previous rules, which is a working install either way.
 
 If you run Apache with `AllowOverride None`, no `.htaccess` file is read at all, so put the equivalent blocks in your vhost instead.
 
 [docs/examples/apache-site.conf](https://github.com/ampache/ampache/blob/develop/docs/examples/apache-site.conf) is a complete vhost that already contains them.
 
-nginx users get the same set from [docs/examples/nginx-site.conf](https://github.com/ampache/ampache/blob/develop/docs/examples/nginx-site.conf).
+The [nginx](https://github.com/ampache/ampache/blob/develop/docs/examples/nginx-site.conf), [lighttpd](https://github.com/ampache/ampache/blob/develop/docs/examples/lighttpd-site.conf) and [Caddy](https://github.com/ampache/ampache/blob/develop/docs/examples/caddy-site.conf) examples carry the same set, since none of those read `.htaccess` files at all.
 
 ## Checking it works
 
