@@ -99,17 +99,17 @@ Albums, album disks, artists, genres, labels, live streams, playlists, podcasts,
 
 A **Create Collection** button on the collections browse makes one. You choose its name, whether it is public or private, and whether it is pinned to a single kind of thing or left mixed. (The playlists browse gained the same **Create Playlist** button, so a playlist no longer has to come into existence as a side effect of adding something to one.)
 
-**TODO IMAGE** the Create Collection dialog, showing the name, public/private and pinned-type fields.
+![image](/img/1305249/632645862-17246034-7ea8-45e7-b371-0b8646f1563a.png)
 
 You can leave a collection mixed or pin it to a single kind of thing, after which it refuses anything else.
 
 Opening a mixed collection shows one ordered list, each row naming its own type. A collection pinned to a single type is handed to that type's own browse instead, so a collection of albums looks like any other album view.
 
-**TODO IMAGE** an open mixed collection, showing rows of different types side by side with the type named on each row.
+![image](/img/1305249/628337996-fd1ce4ef-b221-4b43-97a2-b1db7b71f67c.png)
 
 The **Add to playlist / collection** menu now offers collections as well as playlists, under their own headings. Only the halves that can take what you are adding are shown, so a genre offers collections alone - a playlist stores the media an item expands to, and a genre expands to nothing on its own. Genres and labels gained that menu for the first time.
 
-**TODO IMAGE** the Add to playlist / collection menu with both the "Playlists" and "Collections" headings visible.
+![image](/img/1305249/632645856-6d93909f-2683-4085-b980-30a2624cdf74.png)
 
 Adding a smartlist adds the songs it currently matches, since a smartlist is a rule rather than a thing that can be stored in a list.
 
@@ -137,9 +137,9 @@ The **View** menu on a browse has a new **Multi-Select** option that turns check
 * `Ctrl`/`Cmd`+click toggles a row and `Shift`+click selects a range, anywhere on the row that is not itself a button or a link
 * A bar stays in view while you scroll, offering Play, Play Next, Play Last, add to the temporary playlist, add to another playlist, and remove from the list
 
-**TODO IMAGE** the View menu open with the Multi-Select option in it.
+![image](/img/1305249/632645852-e7f46d85-4497-40da-b461-2c3a6ce22c21.png)
 
-**TODO IMAGE** a browse with several rows checked and the action bar pinned in view.
+![image](/img/1305249/632645850-11fe84cd-2d0d-4b9e-9e76-92fd1c0586c1.png)
 
 Removing a selection is one request rather than one per row, so a long selection no longer takes a visible moment per entry.
 
@@ -155,7 +155,7 @@ Old `#` bookmarks still work and quietly upgrade themselves to the real url when
 
 Clicking the page you are already on no longer re-fetches it.
 
-**TODO IMAGE** the browser address bar showing a real page url such as `/browse.php?action=album` instead of `/index.php`.
+![image](/img/1305249/632645846-83d53fc2-3a6e-417d-a018-babfefe234c1.png)
 
 ## The top menu carries everything the sidebar does
 
@@ -163,7 +163,7 @@ If your server uses the optional top menu it now holds the same entries as the l
 
 `Smartlists` follows the `Hide the search menu in the sidebar` preference, and `Radio` only appears when live streams are enabled.
 
-**TODO IMAGE** the top menu with the new Albums, Smartlists, Radio and Log out entries.
+![image](/img/1305249/632645843-6334cb8c-59b9-4f1d-b226-824883716e6c.png)
 
 ## A mini player for small screens and simple accounts
 
@@ -173,15 +173,15 @@ If your admin locks your account into it you'll only ever see that page (your no
 
 Logging in always sends you back to whatever page you originally asked for, so old bookmarked links keep working either way.
 
-**TODO IMAGE** the `/m/` mini player page.
+![image](/img/1305249/632645833-1f222392-135d-4ff8-8fe8-72fb8ceb849d.png)
 
-**TODO IMAGE** the login form showing the Mini player button beside Register and Lost Password.
+![image](/img/1305249/632645839-77eeeb84-3f8b-45b8-905b-d81a125b0d98.png)
 
 ## Your playlist art can be a mosaic now
 
 Automatically generated playlist covers can now be a grid of up to nine covers from the playlist, instead of a single random cover. Playlists with fewer than four distinct covers still get the old single-cover behaviour. Your admin can turn this off if they'd rather keep the single-cover look.
 
-**TODO IMAGE** a playlists browse showing several mosaic covers.
+![image](/img/1305249/632647246-1c4cd48f-4579-40d0-83bc-97b56c66c9f3.png)
 
 ## Per-player transcoding preferences
 
@@ -189,7 +189,7 @@ Your default transcode output format and bitrate live in your Options under **St
 
 **NOTE** every bitrate on this page is now in **bits per second**, not kilobits. `576000` is 576kbps.
 
-**TODO IMAGE** the Streaming -> Transcoding section of the Options page with the new per-player format and bitrate rows.
+![image](/img/1305249/632645826-e93f0404-47c1-431d-bb8a-88512c22def9.png)
 
 ## Ampache on your phone
 
@@ -311,7 +311,6 @@ Removed:
 * `Ajax page load` (`ajax_load`)
 
 **TODO IMAGE** the Options page showing the new Ampache8 preferences.
-
 
 ## If you download Ampache yourself, the zip names are changing
 
