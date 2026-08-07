@@ -152,7 +152,38 @@ You can use the following to test the pattern (note that the input data should b
 
 ### Configure scheduled tasks
 
-tbd.
+Windows has no cron, so the jobs Ampache expects to run on a schedule go in **Task Scheduler** instead. Each one is the same `php bin/cli` command a Linux install would run from a systemd timer.
+
+Create a task with **Task Scheduler -> Create Task** (not *Create Basic Task*, which does not offer the options below):
+
+* **General** — give it a name, tick **Run whether user is logged on or not**, and run it as the account that can read your media. The IIS `IUSR` account has no password and cannot be used here, so use a normal account with read access to the catalog directories.
+* **Triggers** — **New -> Daily**, then tick **Repeat task every** if you want it more often than once a day.
+* **Actions** — **New -> Start a program**:
+  * **Program/script**: `C:\php\php.exe` (wherever your PHP is)
+  * **Add arguments**: `bin\cli run:updateCatalog`
+  * **Start in**: `C:\inetpub\wwwroot\ampache`
+* **Settings** — tick **Stop the task if it runs longer than** and give it something generous; a first catalog scan on a large library takes hours.
+
+The **Start in** field is not optional. Ampache resolves its config and its autoloader relative to the working directory, so a task without it fails immediately with no useful output.
+
+Worth scheduling, in rough order of usefulness:
+
+| Arguments | What it does | Suggested interval |
+|---|---|---|
+| `bin\cli run:updateCatalog` | Add, clean and verify every catalog | Daily |
+| `bin\cli run:cronProcess` | Preload the cached counts used by the `cron_cache` preference | Hourly |
+| `bin\cli run:updateCatalog podcasts -a -g -i` | Fetch new episodes for a podcast catalog named `podcasts` | Hourly |
+
+Rather than filling the dialog in by hand, `docs/examples/ampache_cron.xml` in your install is an exported Task Scheduler task for `run:cronProcess`, set to repeat hourly. Import it with **Task Scheduler -> Import Task**, then correct the **Command**, **Working directory** and the user it runs as — the export has `C:\php\php.exe` and `C:\ampache`, which are unlikely to both match your install.
+
+To check a task actually works, run the same command by hand from a `cmd` prompt first. Task Scheduler only reports an exit code, so a PHP error is invisible until you have seen the command succeed on its own.
+
+```shell
+cd C:\inetpub\wwwroot\ampache
+C:\php\php.exe bin\cli run:updateCatalog
+```
+
+[Cron](/docs/configuration/cron) covers what each job does and why the cached counts are worth it, and `php bin/cli` on its own lists every command.
 
 ## Todo/open issues
 

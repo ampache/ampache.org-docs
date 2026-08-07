@@ -33,7 +33,7 @@ Most `admin:` and `run:` commands change your database, so treat them with the s
 
 ![image](/img/1305249/627484330-3bd72794-03b9-496f-9909-1e7cedfca044.png)
 
-## admin: — server administration
+## admin: server administration
 
 Many of these commands mirror an action on an **Admin** page in the web interface and call the same code underneath, so a change made on the command line shows up in the browser and vice versa.
 
@@ -111,7 +111,7 @@ php bin/cli admin:mailUsers users --subject "Maintenance" --message "The server 
 | `admin:clearCache`                  | Clear a cache by `[type]`. Only `perpetual_api_session` has a lasting effect (it removes stored perpetual API sessions); the `song`, `artist` and `album` object caches live only for a single process. |
 | `admin:exportSchema`                | Regenerate the `resources/sql/ampache.sql` seed dump from the current database. A development/release tool; it refuses to run when migrations are pending.                                              |
 
-## run: — catalogs and background processes
+## run: catalogs and background processes
 
 ### Catalogs
 
@@ -150,7 +150,7 @@ The `-v` verify switch from Ampache 4 is now `-e`; see [Command changes](/docs/h
 | `run:websocket`        | Run the WebSocket server used by the now-playing broadcast feature. `--port` defaults to 8100.                     |
 | `run:updateDb`         | Update the database collation and character set. Dry run until `-x\|--execute`.                                    |
 
-## cleanup: — housekeeping
+## cleanup: housekeeping
 
 | Command                    | What it does                                                                                                                     |
 |----------------------------|----------------------------------------------------------------------------------------------------------------------------------|
@@ -173,7 +173,7 @@ See [Play history consolidation](/docs/help/troubleshooting/ampache8-for-admins#
 
 **NOTE** There is no CLI command for clearing play statistics or the now-playing list. Use **Clear Stats** on the **Admin → Manage Catalogs** page and **Clear Now Playing** in the admin sidebar.
 
-## export: — writing files to disk
+## export: writing files to disk
 
 | Command              | What it does                                                                                                                             |
 |----------------------|------------------------------------------------------------------------------------------------------------------------------------------|
@@ -186,14 +186,14 @@ See [Play history consolidation](/docs/help/troubleshooting/ampache8-for-admins#
 php bin/cli export:catalog /backup/library.csv csv
 ```
 
-## print: — terminal reports
+## print: terminal reports
 
 | Command            | What it does                                                                          |
 |--------------------|---------------------------------------------------------------------------------------|
 | `print:duplicates` | Print possible duplicate albums, artists or songs. `-t\|--type` selects what to look for (default `album`). |
 | `print:tags`       | Print the tags Ampache reads from a media `<filename>`.                                                     |
 
-## show: — installation information
+## show: installation information
 
 | Command        | What it does                                                                                                                                                                                                     |
 |----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
