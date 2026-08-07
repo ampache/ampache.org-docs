@@ -40,6 +40,7 @@ const sidebars = {
             'docs/installation/rewrite-rules',
             // Deliberately hidden from the sidebar, still reachable at /docs/information/TV-Shows-and-Movies
             // 'docs/information/TV-Shows-and-Movies',
+            'docs/installation/install-ampache-on-ubuntu2604',
             'docs/installation/install-ampache-on-ubuntu2204',
             'docs/installation/windows-installation-guide',
             {

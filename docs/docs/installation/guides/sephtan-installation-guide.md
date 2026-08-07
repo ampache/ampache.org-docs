@@ -6,6 +6,10 @@ description: "Sephten's Install guide"
 
 ## Guide to setup Ampache server using APACHE2 or NGINX with PHP7.4-FPM
 
+**NOTE** this is an unfinished user guide written for Debian 10 and PHP 7.4-FPM, and it is kept for the per-vHost PHP-FPM isolation and ModSecurity setup rather than the versions. Ampache8 requires PHP 8.5, so read `php7.4` as `php8.5` throughout (the socket name in the vhost below becomes `ampache-fpm85.sock`, or whatever you name your pool).
+
+The current, maintained webserver examples live in [Installing Ampache](/docs/installation#web-server-configuration) and [Rewrite Rules](/docs/installation/rewrite-rules) — the vhost below predates the `/rest/` and `/play/` rules that Ampache now needs, so take those from there.
+
 This my first guide i write for other people, mainly i do such things only for myself in my personal DokuWiki.
 As english isn't my first language so be leniant with me when some writings here reads unusual for you.
 

@@ -12,6 +12,16 @@ This page shows the steps needed to install Ampache on IIS7.5 (Server 2008R2) in
 
 **WARNING**: This is my first installation of Ampache, most stuff I wanted is working * but likely not everything.
 
+**NOTE** this is a user guide written against Ampache V5 on Server 2008R2, and it is kept for the IIS-specific parts (folder security, URL Rewrite, PHP Manager) which still apply. The versions it names do not:
+
+* Server 2008R2 and IIS7.5 are long out of support. The steps work the same on later IIS versions
+* The Web Platform Installer was retired by Microsoft in 2022. Install PHP from [windows.php.net](https://windows.php.net/download/) (Thread Safe build) and the [URL Rewrite module](https://www.iis.net/downloads/microsoft/url-rewrite) directly
+* PHP 7.4 is dead. Ampache8 needs **PHP 8.5**, Ampache7 needs 7.4 to 8.4
+* The `/rest/` rewrite rule below only covers Subsonic. Ampache8 also serves its REST API from `/rest/`, which needs the full rule set from [public/rest/.htaccess.dist](https://github.com/ampache/ampache/blob/develop/public/rest/.htaccess.dist), and `/play/` needs rules too or nothing streams. [Rewrite Rules](/docs/installation/rewrite-rules) explains what each one does
+* Downloading a release zip instead of cloning avoids the composer and npm build entirely — see [Which zip?](/docs/information/which-zip)
+
+For a current Windows install, start with the [Windows Installation Guide](/docs/installation/windows-installation-guide).
+
 ## What works
 
 Everything I need, especially:
@@ -66,11 +76,13 @@ cd ampache
 composer install --prefer-dist --no-interaction
 ```
 
-To enable the charts, an additional install step is needed see [Chart FAQ](/docs/help/troubleshooting/chart-faq):
+On Ampache7 the charts need an extra library, see [Chart FAQ](/docs/help/troubleshooting/chart-faq):
 
 ```shell
 composer require szymach/c-pchart "2.*"
 ```
+
+Ampache8 ships its charting library as a normal dependency, so that step is no longer needed.
 
 For whatever reason (likely file access), I could not get the Web-based Installer to successfull write the config file, so I changed the relevant settings manually: rename `config\ampache.cfg.php.dist` to `config\ampache.cfg.php` and edit it.
 
@@ -145,17 +157,19 @@ tbd.
 ## Todo/open issues
 
 * To add a catalog, IIS needs read access * file system security must be changed accordingly
-* Catalog indexing seems to not work from within ampache (requires scheduled task?). As a workaround, run the following commands from a shell:
+* Catalog indexing seems to not work from within ampache (requires scheduled task?). As a workaround, run the catalog update from a shell.
+
+The `bin/catalog_update.inc` script this guide originally used was replaced by `bin/cli`:
 
 ```shell
-cd C:\inetpub\wwwroot\ampache\bin
-php catalog_update.inc
+cd C:\inetpub\wwwroot\ampache
+php bin/cli run:updateCatalog
 ```
 
-Unfortunately this still does not pick up all music files * but might also be related to my music not correctly be tagged.
-
-Alternatively you can run a add, update, gather art as follows
+Alternatively you can run clean, add and gather art on a single catalog:
 
 ```shell
-php -f /var/www/ampache/bin/catalog_update.inc -* -cag
+php bin/cli run:updateCatalog music -cag
 ```
+
+`php bin/cli run:updateCatalog --help` lists the current options, and [Cron](/docs/configuration/cron) covers the other jobs worth scheduling.
