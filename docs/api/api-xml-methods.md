@@ -1744,15 +1744,17 @@ Returns a `collection` list.
 
 Each `collection` entry ([CollectionObject](#collections)):
 
-| Field       | Type    | Nullable | Optional | Notes |
-|-------------|---------|:--------:|:--------:|-------|
-| id          | string  |    NO    |    NO    |       |
-| name        | string  |    NO    |    NO    |       |
-| owner       | string  |   YES    |    NO    |       |
-| type        | string  |   YES    |    NO    |       |
-| object_type | string  |   YES    |    NO    |       |
-| items       | integer |    NO    |    NO    |       |
-| has_art     | boolean |    NO    |    NO    |       |
+| Field                      | Type    | Nullable | Optional | Notes |
+|----------------------------|---------|:--------:|:--------:|-------|
+| id                         | string  |    NO    |    NO    |       |
+| name                       | string  |    NO    |    NO    |       |
+| owner                      | string  |   YES    |    NO    |       |
+| type                       | string  |   YES    |    NO    |       |
+| object_type                | string  |   YES    |    NO    |       |
+| items                      | integer |    NO    |    NO    |       |
+| has_art                    | boolean |    NO    |    NO    |       |
+| playlist_folder_id         | string  |    NO    |   YES    |       |
+| playlist_folder_sort_order | integer |    NO    |   YES    |       |
 <!-- GENERATED:RESPONSE:END -->
 
 * throws
@@ -1786,15 +1788,17 @@ Returns a `collection` list.
 
 Each `collection` entry ([CollectionObject](#collections)):
 
-| Field       | Type    | Nullable | Optional | Notes |
-|-------------|---------|:--------:|:--------:|-------|
-| id          | string  |    NO    |    NO    |       |
-| name        | string  |    NO    |    NO    |       |
-| owner       | string  |   YES    |    NO    |       |
-| type        | string  |   YES    |    NO    |       |
-| object_type | string  |   YES    |    NO    |       |
-| items       | integer |    NO    |    NO    |       |
-| has_art     | boolean |    NO    |    NO    |       |
+| Field                      | Type    | Nullable | Optional | Notes |
+|----------------------------|---------|:--------:|:--------:|-------|
+| id                         | string  |    NO    |    NO    |       |
+| name                       | string  |    NO    |    NO    |       |
+| owner                      | string  |   YES    |    NO    |       |
+| type                       | string  |   YES    |    NO    |       |
+| object_type                | string  |   YES    |    NO    |       |
+| items                      | integer |    NO    |    NO    |       |
+| has_art                    | boolean |    NO    |    NO    |       |
+| playlist_folder_id         | string  |    NO    |   YES    |       |
+| playlist_folder_sort_order | integer |    NO    |   YES    |       |
 <!-- GENERATED:RESPONSE:END -->
 
 * throws
@@ -1841,9 +1845,9 @@ Positions are dense and 1-based. They are renumbered whenever a member is added,
 
 Returns a single object.
 
-| Field      | Type   | Nullable | Optional | Notes                                                            |
-|------------|--------|:--------:|:--------:|------------------------------------------------------------------|
-| collection | object |    NO    |    NO    | `{id, name, owner, type, object_type, items, has_art, contents}` |
+| Field      | Type   | Nullable | Optional | Notes                                                                                                            |
+|------------|--------|:--------:|:--------:|------------------------------------------------------------------------------------------------------------------|
+| collection | object |    NO    |    NO    | `{id, name, owner, type, object_type, items, has_art, playlist_folder_id, playlist_folder_sort_order, contents}` |
 <!-- GENERATED:RESPONSE:END -->
 
 * throws
@@ -3723,24 +3727,26 @@ Returns a `playlist` list.
 
 Each `playlist` entry ([PlaylistObject](#playlist)):
 
-| Field           | Type                           | Nullable | Optional | Notes                                  |
-|-----------------|--------------------------------|:--------:|:--------:|----------------------------------------|
-| id              | string                         |    NO    |    NO    |                                        |
-| name            | string                         |   YES    |    NO    |                                        |
-| owner           | string                         |   YES    |    NO    |                                        |
-| user            | [UserSummaryObject](#users)    |    NO    |    NO    | see [UserSummaryObject](#users) fields |
-| items           | array&lt;object&gt; \| integer |    NO    |    NO    |                                        |
-| type            | string                         |   YES    |    NO    |                                        |
-| art             | string                         |   YES    |    NO    |                                        |
-| has_access      | boolean                        |    NO    |    NO    |                                        |
-| has_collaborate | boolean                        |    NO    |    NO    |                                        |
-| has_art         | boolean                        |    NO    |    NO    |                                        |
-| flag            | boolean                        |    NO    |    NO    |                                        |
-| rating          | integer                        |   YES    |    NO    |                                        |
-| averagerating   | number                         |   YES    |    NO    |                                        |
-| md5             | string                         |   YES    |    NO    |                                        |
-| last_update     | integer                        |   YES    |    NO    |                                        |
-| time            | integer                        |    NO    |    NO    |                                        |
+| Field                      | Type                           | Nullable | Optional | Notes                                  |
+|----------------------------|--------------------------------|:--------:|:--------:|----------------------------------------|
+| id                         | string                         |    NO    |    NO    |                                        |
+| name                       | string                         |   YES    |    NO    |                                        |
+| owner                      | string                         |   YES    |    NO    |                                        |
+| user                       | [UserSummaryObject](#users)    |    NO    |    NO    | see [UserSummaryObject](#users) fields |
+| items                      | array&lt;object&gt; \| integer |    NO    |    NO    |                                        |
+| type                       | string                         |   YES    |    NO    |                                        |
+| art                        | string                         |   YES    |    NO    |                                        |
+| has_access                 | boolean                        |    NO    |    NO    |                                        |
+| has_collaborate            | boolean                        |    NO    |    NO    |                                        |
+| has_art                    | boolean                        |    NO    |    NO    |                                        |
+| flag                       | boolean                        |    NO    |    NO    |                                        |
+| rating                     | integer                        |   YES    |    NO    |                                        |
+| averagerating              | number                         |   YES    |    NO    |                                        |
+| md5                        | string                         |   YES    |    NO    |                                        |
+| last_update                | integer                        |   YES    |    NO    |                                        |
+| time                       | integer                        |    NO    |    NO    |                                        |
+| playlist_folder_id         | string                         |    NO    |   YES    |                                        |
+| playlist_folder_sort_order | integer                        |    NO    |   YES    |                                        |
 <!-- GENERATED:RESPONSE:END -->
 
 * throws
@@ -3770,24 +3776,26 @@ This returns a single playlist
 
 Returns a single object.
 
-| Field           | Type                           | Nullable | Optional | Notes                                  |
-|-----------------|--------------------------------|:--------:|:--------:|----------------------------------------|
-| id              | string                         |    NO    |    NO    |                                        |
-| name            | string                         |   YES    |    NO    |                                        |
-| owner           | string                         |   YES    |    NO    |                                        |
-| user            | [UserSummaryObject](#users)    |    NO    |    NO    | see [UserSummaryObject](#users) fields |
-| items           | array&lt;object&gt; \| integer |    NO    |    NO    |                                        |
-| type            | string                         |   YES    |    NO    |                                        |
-| art             | string                         |   YES    |    NO    |                                        |
-| has_access      | boolean                        |    NO    |    NO    |                                        |
-| has_collaborate | boolean                        |    NO    |    NO    |                                        |
-| has_art         | boolean                        |    NO    |    NO    |                                        |
-| flag            | boolean                        |    NO    |    NO    |                                        |
-| rating          | integer                        |   YES    |    NO    |                                        |
-| averagerating   | number                         |   YES    |    NO    |                                        |
-| md5             | string                         |   YES    |    NO    |                                        |
-| last_update     | integer                        |   YES    |    NO    |                                        |
-| time            | integer                        |    NO    |    NO    |                                        |
+| Field                      | Type                           | Nullable | Optional | Notes                                  |
+|----------------------------|--------------------------------|:--------:|:--------:|----------------------------------------|
+| id                         | string                         |    NO    |    NO    |                                        |
+| name                       | string                         |   YES    |    NO    |                                        |
+| owner                      | string                         |   YES    |    NO    |                                        |
+| user                       | [UserSummaryObject](#users)    |    NO    |    NO    | see [UserSummaryObject](#users) fields |
+| items                      | array&lt;object&gt; \| integer |    NO    |    NO    |                                        |
+| type                       | string                         |   YES    |    NO    |                                        |
+| art                        | string                         |   YES    |    NO    |                                        |
+| has_access                 | boolean                        |    NO    |    NO    |                                        |
+| has_collaborate            | boolean                        |    NO    |    NO    |                                        |
+| has_art                    | boolean                        |    NO    |    NO    |                                        |
+| flag                       | boolean                        |    NO    |    NO    |                                        |
+| rating                     | integer                        |   YES    |    NO    |                                        |
+| averagerating              | number                         |   YES    |    NO    |                                        |
+| md5                        | string                         |   YES    |    NO    |                                        |
+| last_update                | integer                        |   YES    |    NO    |                                        |
+| time                       | integer                        |    NO    |    NO    |                                        |
+| playlist_folder_id         | string                         |    NO    |   YES    |                                        |
+| playlist_folder_sort_order | integer                        |    NO    |   YES    |                                        |
 <!-- GENERATED:RESPONSE:END -->
 
 * throws
@@ -5237,24 +5245,26 @@ Returns a `playlist` list.
 
 Each `playlist` entry ([PlaylistObject](#playlist)):
 
-| Field           | Type                           | Nullable | Optional | Notes                                  |
-|-----------------|--------------------------------|:--------:|:--------:|----------------------------------------|
-| id              | string                         |    NO    |    NO    |                                        |
-| name            | string                         |   YES    |    NO    |                                        |
-| owner           | string                         |   YES    |    NO    |                                        |
-| user            | [UserSummaryObject](#users)    |    NO    |    NO    | see [UserSummaryObject](#users) fields |
-| items           | array&lt;object&gt; \| integer |    NO    |    NO    |                                        |
-| type            | string                         |   YES    |    NO    |                                        |
-| art             | string                         |   YES    |    NO    |                                        |
-| has_access      | boolean                        |    NO    |    NO    |                                        |
-| has_collaborate | boolean                        |    NO    |    NO    |                                        |
-| has_art         | boolean                        |    NO    |    NO    |                                        |
-| flag            | boolean                        |    NO    |    NO    |                                        |
-| rating          | integer                        |   YES    |    NO    |                                        |
-| averagerating   | number                         |   YES    |    NO    |                                        |
-| md5             | string                         |   YES    |    NO    |                                        |
-| last_update     | integer                        |   YES    |    NO    |                                        |
-| time            | integer                        |    NO    |    NO    |                                        |
+| Field                      | Type                           | Nullable | Optional | Notes                                  |
+|----------------------------|--------------------------------|:--------:|:--------:|----------------------------------------|
+| id                         | string                         |    NO    |    NO    |                                        |
+| name                       | string                         |   YES    |    NO    |                                        |
+| owner                      | string                         |   YES    |    NO    |                                        |
+| user                       | [UserSummaryObject](#users)    |    NO    |    NO    | see [UserSummaryObject](#users) fields |
+| items                      | array&lt;object&gt; \| integer |    NO    |    NO    |                                        |
+| type                       | string                         |   YES    |    NO    |                                        |
+| art                        | string                         |   YES    |    NO    |                                        |
+| has_access                 | boolean                        |    NO    |    NO    |                                        |
+| has_collaborate            | boolean                        |    NO    |    NO    |                                        |
+| has_art                    | boolean                        |    NO    |    NO    |                                        |
+| flag                       | boolean                        |    NO    |    NO    |                                        |
+| rating                     | integer                        |   YES    |    NO    |                                        |
+| averagerating              | number                         |   YES    |    NO    |                                        |
+| md5                        | string                         |   YES    |    NO    |                                        |
+| last_update                | integer                        |   YES    |    NO    |                                        |
+| time                       | integer                        |    NO    |    NO    |                                        |
+| playlist_folder_id         | string                         |    NO    |   YES    |                                        |
+| playlist_folder_sort_order | integer                        |    NO    |   YES    |                                        |
 <!-- GENERATED:RESPONSE:END -->
 
 * throws
@@ -5284,24 +5294,26 @@ This returns a single smartlist
 
 Returns a single object.
 
-| Field           | Type                           | Nullable | Optional | Notes                                  |
-|-----------------|--------------------------------|:--------:|:--------:|----------------------------------------|
-| id              | string                         |    NO    |    NO    |                                        |
-| name            | string                         |   YES    |    NO    |                                        |
-| owner           | string                         |   YES    |    NO    |                                        |
-| user            | [UserSummaryObject](#users)    |    NO    |    NO    | see [UserSummaryObject](#users) fields |
-| items           | array&lt;object&gt; \| integer |    NO    |    NO    |                                        |
-| type            | string                         |   YES    |    NO    |                                        |
-| art             | string                         |   YES    |    NO    |                                        |
-| has_access      | boolean                        |    NO    |    NO    |                                        |
-| has_collaborate | boolean                        |    NO    |    NO    |                                        |
-| has_art         | boolean                        |    NO    |    NO    |                                        |
-| flag            | boolean                        |    NO    |    NO    |                                        |
-| rating          | integer                        |   YES    |    NO    |                                        |
-| averagerating   | number                         |   YES    |    NO    |                                        |
-| md5             | string                         |   YES    |    NO    |                                        |
-| last_update     | integer                        |   YES    |    NO    |                                        |
-| time            | integer                        |    NO    |    NO    |                                        |
+| Field                      | Type                           | Nullable | Optional | Notes                                  |
+|----------------------------|--------------------------------|:--------:|:--------:|----------------------------------------|
+| id                         | string                         |    NO    |    NO    |                                        |
+| name                       | string                         |   YES    |    NO    |                                        |
+| owner                      | string                         |   YES    |    NO    |                                        |
+| user                       | [UserSummaryObject](#users)    |    NO    |    NO    | see [UserSummaryObject](#users) fields |
+| items                      | array&lt;object&gt; \| integer |    NO    |    NO    |                                        |
+| type                       | string                         |   YES    |    NO    |                                        |
+| art                        | string                         |   YES    |    NO    |                                        |
+| has_access                 | boolean                        |    NO    |    NO    |                                        |
+| has_collaborate            | boolean                        |    NO    |    NO    |                                        |
+| has_art                    | boolean                        |    NO    |    NO    |                                        |
+| flag                       | boolean                        |    NO    |    NO    |                                        |
+| rating                     | integer                        |   YES    |    NO    |                                        |
+| averagerating              | number                         |   YES    |    NO    |                                        |
+| md5                        | string                         |   YES    |    NO    |                                        |
+| last_update                | integer                        |   YES    |    NO    |                                        |
+| time                       | integer                        |    NO    |    NO    |                                        |
+| playlist_folder_id         | string                         |    NO    |   YES    |                                        |
+| playlist_folder_sort_order | integer                        |    NO    |   YES    |                                        |
 <!-- GENERATED:RESPONSE:END -->
 
 * throws
@@ -6376,24 +6388,26 @@ Returns a `playlist` list.
 
 Each `playlist` entry ([PlaylistObject](#playlist)):
 
-| Field           | Type                           | Nullable | Optional | Notes                                  |
-|-----------------|--------------------------------|:--------:|:--------:|----------------------------------------|
-| id              | string                         |    NO    |    NO    |                                        |
-| name            | string                         |   YES    |    NO    |                                        |
-| owner           | string                         |   YES    |    NO    |                                        |
-| user            | [UserSummaryObject](#users)    |    NO    |    NO    | see [UserSummaryObject](#users) fields |
-| items           | array&lt;object&gt; \| integer |    NO    |    NO    |                                        |
-| type            | string                         |   YES    |    NO    |                                        |
-| art             | string                         |   YES    |    NO    |                                        |
-| has_access      | boolean                        |    NO    |    NO    |                                        |
-| has_collaborate | boolean                        |    NO    |    NO    |                                        |
-| has_art         | boolean                        |    NO    |    NO    |                                        |
-| flag            | boolean                        |    NO    |    NO    |                                        |
-| rating          | integer                        |   YES    |    NO    |                                        |
-| averagerating   | number                         |   YES    |    NO    |                                        |
-| md5             | string                         |   YES    |    NO    |                                        |
-| last_update     | integer                        |   YES    |    NO    |                                        |
-| time            | integer                        |    NO    |    NO    |                                        |
+| Field                      | Type                           | Nullable | Optional | Notes                                  |
+|----------------------------|--------------------------------|:--------:|:--------:|----------------------------------------|
+| id                         | string                         |    NO    |    NO    |                                        |
+| name                       | string                         |   YES    |    NO    |                                        |
+| owner                      | string                         |   YES    |    NO    |                                        |
+| user                       | [UserSummaryObject](#users)    |    NO    |    NO    | see [UserSummaryObject](#users) fields |
+| items                      | array&lt;object&gt; \| integer |    NO    |    NO    |                                        |
+| type                       | string                         |   YES    |    NO    |                                        |
+| art                        | string                         |   YES    |    NO    |                                        |
+| has_access                 | boolean                        |    NO    |    NO    |                                        |
+| has_collaborate            | boolean                        |    NO    |    NO    |                                        |
+| has_art                    | boolean                        |    NO    |    NO    |                                        |
+| flag                       | boolean                        |    NO    |    NO    |                                        |
+| rating                     | integer                        |   YES    |    NO    |                                        |
+| averagerating              | number                         |   YES    |    NO    |                                        |
+| md5                        | string                         |   YES    |    NO    |                                        |
+| last_update                | integer                        |   YES    |    NO    |                                        |
+| time                       | integer                        |    NO    |    NO    |                                        |
+| playlist_folder_id         | string                         |    NO    |   YES    |                                        |
+| playlist_folder_sort_order | integer                        |    NO    |   YES    |                                        |
 <!-- GENERATED:RESPONSE:END -->
 
 * throws
@@ -6484,24 +6498,26 @@ Returns a `playlist` list.
 
 Each `playlist` entry ([PlaylistObject](#playlist)):
 
-| Field           | Type                           | Nullable | Optional | Notes                                  |
-|-----------------|--------------------------------|:--------:|:--------:|----------------------------------------|
-| id              | string                         |    NO    |    NO    |                                        |
-| name            | string                         |   YES    |    NO    |                                        |
-| owner           | string                         |   YES    |    NO    |                                        |
-| user            | [UserSummaryObject](#users)    |    NO    |    NO    | see [UserSummaryObject](#users) fields |
-| items           | array&lt;object&gt; \| integer |    NO    |    NO    |                                        |
-| type            | string                         |   YES    |    NO    |                                        |
-| art             | string                         |   YES    |    NO    |                                        |
-| has_access      | boolean                        |    NO    |    NO    |                                        |
-| has_collaborate | boolean                        |    NO    |    NO    |                                        |
-| has_art         | boolean                        |    NO    |    NO    |                                        |
-| flag            | boolean                        |    NO    |    NO    |                                        |
-| rating          | integer                        |   YES    |    NO    |                                        |
-| averagerating   | number                         |   YES    |    NO    |                                        |
-| md5             | string                         |   YES    |    NO    |                                        |
-| last_update     | integer                        |   YES    |    NO    |                                        |
-| time            | integer                        |    NO    |    NO    |                                        |
+| Field                      | Type                           | Nullable | Optional | Notes                                  |
+|----------------------------|--------------------------------|:--------:|:--------:|----------------------------------------|
+| id                         | string                         |    NO    |    NO    |                                        |
+| name                       | string                         |   YES    |    NO    |                                        |
+| owner                      | string                         |   YES    |    NO    |                                        |
+| user                       | [UserSummaryObject](#users)    |    NO    |    NO    | see [UserSummaryObject](#users) fields |
+| items                      | array&lt;object&gt; \| integer |    NO    |    NO    |                                        |
+| type                       | string                         |   YES    |    NO    |                                        |
+| art                        | string                         |   YES    |    NO    |                                        |
+| has_access                 | boolean                        |    NO    |    NO    |                                        |
+| has_collaborate            | boolean                        |    NO    |    NO    |                                        |
+| has_art                    | boolean                        |    NO    |    NO    |                                        |
+| flag                       | boolean                        |    NO    |    NO    |                                        |
+| rating                     | integer                        |   YES    |    NO    |                                        |
+| averagerating              | number                         |   YES    |    NO    |                                        |
+| md5                        | string                         |   YES    |    NO    |                                        |
+| last_update                | integer                        |   YES    |    NO    |                                        |
+| time                       | integer                        |    NO    |    NO    |                                        |
+| playlist_folder_id         | string                         |    NO    |   YES    |                                        |
+| playlist_folder_sort_order | integer                        |    NO    |   YES    |                                        |
 <!-- GENERATED:RESPONSE:END -->
 
 * throws
@@ -6983,4 +6999,13 @@ Player state. The exact fields come from the configured Localplay controller (MP
 | name     | string |   YES    |    NO    |       |
 | prefix   | string |   YES    |    NO    |       |
 | basename | string |   YES    |    NO    |       |
+
+### PlaylistFolderItemObject
+
+One list filed in a playlist folder. `object_type` is `playlist`, `smartlist` or `collection` and the property of the same name carries that type's own object, e.g. `{"sort_order": 1, "object_type": "playlist", "playlist": {...}}`. `sort_order` is client-assigned and shared with the sibling folders, so ties are broken by name.
+
+| Field       | Type    | Nullable | Optional | Notes |
+|-------------|---------|:--------:|:--------:|-------|
+| sort_order  | integer |    NO    |    NO    |       |
+| object_type | string  |    NO    |    NO    |       |
 <!-- GENERATED:SHARED-REFS:END -->
