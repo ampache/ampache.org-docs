@@ -216,7 +216,7 @@ Click to open, click an item or anywhere else to close.
 
 This makes the menus usable on touch screens and stops them vanishing when your mouse slips.
 
-**TODO IMAGE** the right sidebar with the Add-to-playlist submenu open.
+![image](/img/1305249/632676040-5b14fd44-d781-41dd-88ab-ab4c93e80255.png)
 
 ## Direct play is capped for very large items
 
@@ -258,13 +258,13 @@ Finding songs that sound alike is also supported, but it needs the AudioMuse plu
 
 You no longer need to hand your API key to a Subsonic client as its "password". Set a separate **Subsonic Password** from your account page and use that instead - it's stored encrypted rather than hashed so token-based Subsonic auth keeps working, and your API key still works too if you'd rather keep using that.
 
-**TODO IMAGE** the Subsonic Password field on the account page.
+![image](/img/1305249/632678080-67c16356-59d6-4725-a644-03c1254eabde.png)
 
 ## Statistics graphs are sharper and load without an extra install
 
 The charts on catalog/statistics pages are now SVG instead of PNG, so they scale to the page and stay sharp on a high-dpi screen. They also no longer depend on your admin having installed an optional non-free library.
 
-**TODO IMAGE** a statistics page graph, ideally beside the old PNG version for comparison.
+![image](/img/1305249/632676039-617f649b-afa3-4117-a1b9-2e60d4ddad8c.png)
 
 ## Upload page folder tree fixed
 
@@ -280,7 +280,7 @@ Previews now come from iTunes and Deezer, giving you the usual 30 second sample.
 
 Neither service knows Ampache's MusicBrainz ids, so a track is found by artist and title. A track nothing close is found for simply has no preview, rather than playing you a different song.
 
-**TODO IMAGE** a wanted album track list with the preview play buttons working.
+![image](/img/1305249/632680632-09a8117b-5d63-42a8-b299-09c949bd1695.png)
 
 ## Smaller fixes you might notice
 
@@ -309,8 +309,6 @@ Removed:
 * `Use an alternative playback action for streaming` (`use_play2`)
 * `Authorize HTML5 Web Player` (`webplayer_html5`) - the player is HTML5 unconditionally now
 * `Ajax page load` (`ajax_load`)
-
-**TODO IMAGE** the Options page showing the new Ampache8 preferences.
 
 ## If you download Ampache yourself, the zip names are changing
 
