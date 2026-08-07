@@ -19,12 +19,12 @@ Log in with username `demo`, password `demodemo`, or point a client at the API w
 
 ## Which install option?
 
-| Option | Good for | Start here |
-| --- | --- | --- |
-| [Docker](#docker) | The quickest working server, upgrades by pulling a new image | [Docker](/docker) |
-| [Release zip](#release-zips) | A normal web server you already run, no build tools needed | [Installing Ampache](/docs/installation) |
-| [Git checkout](#git-checkout) | Staying on the latest code, or contributing | [Download Ampache](/docs/installation#download-ampache) |
-| [One-click hosting](#one-click-and-platform-installs) | Letting a platform manage the server for you | [User Guides](/docs/installation/guides) |
+| Option                                                | Good for                                                     | Start here                                              |
+|-------------------------------------------------------|--------------------------------------------------------------|---------------------------------------------------------|
+| [Docker](#docker)                                     | The quickest working server, upgrades by pulling a new image | [Docker](/docker)                                       |
+| [Release zip](#release-zips)                          | A normal web server you already run, no build tools needed   | [Installing Ampache](/docs/installation)                |
+| [Git checkout](#git-checkout)                         | Staying on the latest code, or contributing                  | [Download Ampache](/docs/installation#download-ampache) |
+| [One-click hosting](#one-click-and-platform-installs) | Letting a platform manage the server for you                 | [User Guides](/docs/installation/guides)                |
 
 Whichever you pick, read the [Prerequisites](/docs/installation#prerequisites) first. The short version: a web server (Apache gets the most testing, nginx, lighttpd, Caddy and IIS all work), **PHP 8.5+ for Ampache8**, and MySQL 8.x or MariaDB 10.x or later.
 
