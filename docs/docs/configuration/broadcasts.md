@@ -13,9 +13,9 @@ Listeners cannot interact with their web player which is controlled according to
 
 Broadcasting is the one Ampache feature that needs a **second long-running process** as well as the web server. That is usually why it appears not to work: the interface is there, the browser tries to open a socket, nothing is listening, and nothing is reported on the page.
 
-| Piece | What it does |
-| --- | --- |
-| The web server | serves Ampache as usual |
+| Piece                   | What it does                                                   |
+|-------------------------|----------------------------------------------------------------|
+| The web server          | serves Ampache as usual                                        |
 | `bin/cli run:websocket` | the websocket server the players connect to; must stay running |
 
 ## Ampache settings

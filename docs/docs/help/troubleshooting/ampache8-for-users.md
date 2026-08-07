@@ -316,9 +316,9 @@ This only matters if you run your own server and grab the release zips; nothing 
 
 The default download has always been the `public` build, but its filename still said so. From Ampache9 it won't.
 
-| Old name | New name |
-| --- | --- |
-| `ampache-%VERSION%_public.zip` | `ampache-%VERSION%.zip` |
+| Old name                                  | New name                              |
+|-------------------------------------------|---------------------------------------|
+| `ampache-%VERSION%_public.zip`            | `ampache-%VERSION%.zip`               |
 | `ampache-%VERSION%_all_%PHP_VERSION%.zip` | `ampache-%VERSION%_%PHP_VERSION%.zip` |
 
 Ampache8 releases include both names, and each pair is the same zip with the same checksum, so pick whichever you like. The `_squashed` and `_client` downloads are unchanged.

@@ -162,9 +162,9 @@ git checkout patch7
 
 The `public` structure has been the default for a long time, but its zips still carried a `_public` or `_all` marker naming it. From Ampache9 the default drops both.
 
-| Old name | New name |
-| --- | --- |
-| `ampache-%VERSION%_public.zip` | `ampache-%VERSION%.zip` |
+| Old name                                  | New name                              |
+|-------------------------------------------|---------------------------------------|
+| `ampache-%VERSION%_public.zip`            | `ampache-%VERSION%.zip`               |
 | `ampache-%VERSION%_all_%PHP_VERSION%.zip` | `ampache-%VERSION%_%PHP_VERSION%.zip` |
 
 Ampache8 releases ship **both** names so nothing breaks while you move over. Each pair is an identical copy of the same zip and the release notes list the same checksum for both, so it makes no difference which one you download.

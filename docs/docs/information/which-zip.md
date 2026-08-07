@@ -50,9 +50,9 @@ e.g. ampache-8.0.0.zip
 
 The `public` structure is the default, so from Ampache9 its zips drop the `_public` and `_all` markers from the filename.
 
-| Old name | New name |
-| --- | --- |
-| `ampache-%VERSION%_public.zip` | `ampache-%VERSION%.zip` |
+| Old name                                  | New name                              |
+|-------------------------------------------|---------------------------------------|
+| `ampache-%VERSION%_public.zip`            | `ampache-%VERSION%.zip`               |
 | `ampache-%VERSION%_all_%PHP_VERSION%.zip` | `ampache-%VERSION%_%PHP_VERSION%.zip` |
 
 Ampache 8 releases ship **both** names. The pairs are identical copies of the same zip with matching checksums, so you can download either one; only the filename differs.

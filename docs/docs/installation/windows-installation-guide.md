@@ -12,11 +12,11 @@ This guide covers getting Ampache up and running on a Windows system. It is inte
 
 ## Pick your approach
 
-| Approach | Effort | Good for |
-| --- | --- | --- |
-| [Docker Desktop](#docker-desktop) | Lowest | Just wanting a working server on your PC |
-| [XAMPP](/docs/installation/guides/tutorial-to-install-ampache-on-xampp) | Low | A quick local test install |
-| [Apache + PHP + MariaDB by hand](#manual-wamp-stack) | Higher | A real server you control every part of |
+| Approach                                                                  | Effort | Good for                                    |
+|---------------------------------------------------------------------------|--------|---------------------------------------------|
+| [Docker Desktop](#docker-desktop)                                         | Lowest | Just wanting a working server on your PC    |
+| [XAMPP](/docs/installation/guides/tutorial-to-install-ampache-on-xampp)   | Low    | A quick local test install                  |
+| [Apache + PHP + MariaDB by hand](#manual-wamp-stack)                      | Higher | A real server you control every part of     |
 | [IIS](/docs/installation/guides/windows-installation-on-iis7.5-from-he99) | Higher | Windows Server where IIS is already running |
 
 Whichever you choose, Ampache8 needs **PHP 8.5**. Ampache7 runs on PHP 7.4 to 8.4. Check what your stack ships before you download Ampache.
