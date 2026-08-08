@@ -108,6 +108,61 @@ Following these tips prior to raising a pull request will speed up the review cy
 * We use PSR12 code style
 * We follow the [`SOLID`](https://en.wikipedia.org/wiki/SOLID) principles
 
+### Templates and views
+
+User interface code is a **typed view class plus a paired template**. There is no longer any
+`Ui::show()`, and no `.inc.php` templates: a view extends `Ampache\Gui\View\AbstractView`, takes its
+data through a typed constructor, and names its template from `templateFile()`. `render()` buffers and
+`require`s that file, so the template runs in the view's own `$this` scope — nothing is extracted into
+it and no caller's local variables are visible.
+
+```php
+final class ExampleView extends AbstractView
+{
+    public function __construct(private readonly string $name) {}
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    #[Override]
+    protected function templateFile(): string
+    {
+        return $this->findTemplate('example/example.phtml');
+    }
+}
+```
+
+```php
+// example/example.phtml -- rendered by Ampache\Gui\Example\ExampleView
+
+/** @var Ampache\Gui\Example\ExampleView $this */
+?>
+<h1><?php echo $this->e($this->getName()); ?></h1>
+```
+
+Four rules a new view has to follow:
+
+* **Escaping is a seam, not a habit.** `$this->e()` escapes a value; `$this->raw()` declares that a
+  value is already html. Every echoed string must go through one of them —
+  `tests/Gui/View/TemplateEscapingTest.php` walks the php tokens of every template to prove it, and
+  resolves the view class from the `@var … $this` docblock, so **every template needs that docblock**.
+* **Do not escape twice.** Some model getters escape internally (`playlist_object::getFullname()`,
+  `PrivateMsg::getSubjectFormatted()`), so calling `e()` on one prints the entities instead of the
+  text. Prefer the unescaped sibling (`get_fullname()`, `getSubject()`) and let the template escape.
+  `tests/Gui/View/TemplateDoubleEscapingTest.php` guards this.
+* **Keep templates free of layout-dependent paths.** Ampache ships in three on-disk layouts, and
+  `resources/templates` is not rewritten when they are generated. A template that resolves the web path
+  itself breaks the `client` layout, so ask the view for it (`$this->getWebPath()`).
+  `tests/Gui/View/TemplateStructureNeutralityTest.php` guards this.
+* **A view must not reach into the container.** `Access::check()` and `Ajax::*` resolve services at
+  call time, which makes the view untestable; pass the decision in as a constructor argument instead.
+
+Javascript is the sharp edge. Anything interpolated into a `<script>` block must go out as a json
+literal (`json_encode` with `JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT`), never
+through `addslashes()`, which leaves `</script>` and newlines untouched.
+
 ### Submitting your changes
 
 Once your changes are ready to submit for review you need to:
@@ -192,7 +247,9 @@ This is the public web root for Ampache and where your webserver should point to
 
 #### `resources`
 
-Fonts, scripts, templates and non-code resources that are required by Ampache.
+Fonts, scripts, templates and non-code resources that are required by Ampache. `resources/templates`
+holds the `.phtml` templates the view classes render; the shipped webserver config denies that
+directory, so a template can never be requested as a url.
 
 #### `src`
 
@@ -207,10 +264,10 @@ Api-related code which didn't fit into existing domains within the Module folder
 
 Application bootstrapping and config initialization related code.
 
-##### src->Gui (deprecated)
+##### src->Gui
 
-Contains code related to the upcoming templating system. This namespace is deprecated, the code
-will be merged into domains within the Module folder.
+The templating system. Every page is a view class here paired with a `.phtml` template under
+`resources/templates`; see [Templates and views](#templates-and-views) below.
 
 ##### src->Module
 
