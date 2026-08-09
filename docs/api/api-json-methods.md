@@ -598,6 +598,7 @@ Each `song` entry ([SongObject](#song)):
 | track                 | integer                                        |    NO    |    NO    |                                              |
 | filename              | string                                         |   YES    |    NO    |                                              |
 | genre                 | array&lt;[GenreReference](#genrereference)&gt; |    NO    |    NO    | see [GenreReference](#genrereference) fields |
+| mood                  | array&lt;object&gt;                            |    NO    |    NO    | `{id, name}`                                 |
 | playlisttrack         | integer                                        |    NO    |    NO    |                                              |
 | time                  | integer                                        |    NO    |    NO    |                                              |
 | year                  | integer                                        |    NO    |    NO    |                                              |
@@ -799,6 +800,7 @@ Each `song` entry ([SongObject](#song)):
 | track                 | integer                                        |    NO    |    NO    |                                              |
 | filename              | string                                         |   YES    |    NO    |                                              |
 | genre                 | array&lt;[GenreReference](#genrereference)&gt; |    NO    |    NO    | see [GenreReference](#genrereference) fields |
+| mood                  | array&lt;object&gt;                            |    NO    |    NO    | `{id, name}`                                 |
 | playlisttrack         | integer                                        |    NO    |    NO    |                                              |
 | time                  | integer                                        |    NO    |    NO    |                                              |
 | year                  | integer                                        |    NO    |    NO    |                                              |
@@ -1056,6 +1058,7 @@ Each `song` entry ([SongObject](#song)):
 | track                 | integer                                        |    NO    |    NO    |                                              |
 | filename              | string                                         |   YES    |    NO    |                                              |
 | genre                 | array&lt;[GenreReference](#genrereference)&gt; |    NO    |    NO    | see [GenreReference](#genrereference) fields |
+| mood                  | array&lt;object&gt;                            |    NO    |    NO    | `{id, name}`                                 |
 | playlisttrack         | integer                                        |    NO    |    NO    |                                              |
 | time                  | integer                                        |    NO    |    NO    |                                              |
 | year                  | integer                                        |    NO    |    NO    |                                              |
@@ -2400,6 +2403,7 @@ Each `song` entry ([SongObject](#song)):
 | track                 | integer                                        |    NO    |    NO    |                                              |
 | filename              | string                                         |   YES    |    NO    |                                              |
 | genre                 | array&lt;[GenreReference](#genrereference)&gt; |    NO    |    NO    | see [GenreReference](#genrereference) fields |
+| mood                  | array&lt;object&gt;                            |    NO    |    NO    | `{id, name}`                                 |
 | playlisttrack         | integer                                        |    NO    |    NO    |                                              |
 | time                  | integer                                        |    NO    |    NO    |                                              |
 | year                  | integer                                        |    NO    |    NO    |                                              |
@@ -2643,6 +2647,7 @@ Each `song` entry ([SongObject](#song)):
 | track                 | integer                                        |    NO    |    NO    |                                              |
 | filename              | string                                         |   YES    |    NO    |                                              |
 | genre                 | array&lt;[GenreReference](#genrereference)&gt; |    NO    |    NO    | see [GenreReference](#genrereference) fields |
+| mood                  | array&lt;object&gt;                            |    NO    |    NO    | `{id, name}`                                 |
 | playlisttrack         | integer                                        |    NO    |    NO    |                                              |
 | time                  | integer                                        |    NO    |    NO    |                                              |
 | year                  | integer                                        |    NO    |    NO    |                                              |
@@ -3042,6 +3047,7 @@ Each `song` entry ([SongObject](#song)):
 | track                 | integer                                        |    NO    |    NO    |                                              |
 | filename              | string                                         |   YES    |    NO    |                                              |
 | genre                 | array&lt;[GenreReference](#genrereference)&gt; |    NO    |    NO    | see [GenreReference](#genrereference) fields |
+| mood                  | array&lt;object&gt;                            |    NO    |    NO    | `{id, name}`                                 |
 | playlisttrack         | integer                                        |    NO    |    NO    |                                              |
 | time                  | integer                                        |    NO    |    NO    |                                              |
 | year                  | integer                                        |    NO    |    NO    |                                              |
@@ -3673,6 +3679,7 @@ Each `song` entry ([SongObject](#song)):
 | track                 | integer                                        |    NO    |    NO    |                                              |
 | filename              | string                                         |   YES    |    NO    |                                              |
 | genre                 | array&lt;[GenreReference](#genrereference)&gt; |    NO    |    NO    | see [GenreReference](#genrereference) fields |
+| mood                  | array&lt;object&gt;                            |    NO    |    NO    | `{id, name}`                                 |
 | playlisttrack         | integer                                        |    NO    |    NO    |                                              |
 | time                  | integer                                        |    NO    |    NO    |                                              |
 | year                  | integer                                        |    NO    |    NO    |                                              |
@@ -3821,6 +3828,7 @@ Each `song` entry ([SongObject](#song)):
 | track                 | integer                                        |    NO    |    NO    |                                              |
 | filename              | string                                         |   YES    |    NO    |                                              |
 | genre                 | array&lt;[GenreReference](#genrereference)&gt; |    NO    |    NO    | see [GenreReference](#genrereference) fields |
+| mood                  | array&lt;object&gt;                            |    NO    |    NO    | `{id, name}`                                 |
 | playlisttrack         | integer                                        |    NO    |    NO    |                                              |
 | time                  | integer                                        |    NO    |    NO    |                                              |
 | year                  | integer                                        |    NO    |    NO    |                                              |
@@ -4922,6 +4930,7 @@ Each `song` entry ([SongObject](#song)):
 | track                 | integer                                        |    NO    |    NO    |                                              |
 | filename              | string                                         |   YES    |    NO    |                                              |
 | genre                 | array&lt;[GenreReference](#genrereference)&gt; |    NO    |    NO    | see [GenreReference](#genrereference) fields |
+| mood                  | array&lt;object&gt;                            |    NO    |    NO    | `{id, name}`                                 |
 | playlisttrack         | integer                                        |    NO    |    NO    |                                              |
 | time                  | integer                                        |    NO    |    NO    |                                              |
 | year                  | integer                                        |    NO    |    NO    |                                              |
@@ -5035,6 +5044,7 @@ Each `song` entry ([SongObject](#song)):
 | track                 | integer                                        |    NO    |    NO    |                                              |
 | filename              | string                                         |   YES    |    NO    |                                              |
 | genre                 | array&lt;[GenreReference](#genrereference)&gt; |    NO    |    NO    | see [GenreReference](#genrereference) fields |
+| mood                  | array&lt;object&gt;                            |    NO    |    NO    | `{id, name}`                                 |
 | playlisttrack         | integer                                        |    NO    |    NO    |                                              |
 | time                  | integer                                        |    NO    |    NO    |                                              |
 | year                  | integer                                        |    NO    |    NO    |                                              |
@@ -5109,6 +5119,7 @@ Returns a single object.
 | track                 | integer                                        |    NO    |    NO    |                                              |
 | filename              | string                                         |   YES    |    NO    |                                              |
 | genre                 | array&lt;[GenreReference](#genrereference)&gt; |    NO    |    NO    | see [GenreReference](#genrereference) fields |
+| mood                  | array&lt;object&gt;                            |    NO    |    NO    | `{id, name}`                                 |
 | playlisttrack         | integer                                        |    NO    |    NO    |                                              |
 | time                  | integer                                        |    NO    |    NO    |                                              |
 | year                  | integer                                        |    NO    |    NO    |                                              |
@@ -5640,6 +5651,7 @@ Each `song` entry ([SongObject](#song)):
 | track                 | integer                                        |    NO    |    NO    |                                              |
 | filename              | string                                         |   YES    |    NO    |                                              |
 | genre                 | array&lt;[GenreReference](#genrereference)&gt; |    NO    |    NO    | see [GenreReference](#genrereference) fields |
+| mood                  | array&lt;object&gt;                            |    NO    |    NO    | `{id, name}`                                 |
 | playlisttrack         | integer                                        |    NO    |    NO    |                                              |
 | time                  | integer                                        |    NO    |    NO    |                                              |
 | year                  | integer                                        |    NO    |    NO    |                                              |
