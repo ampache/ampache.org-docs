@@ -91,6 +91,13 @@ API version **8** joins the concurrent live surfaces (3/4/5/6 — version 7 rema
   * New `mood` rule for `advanced_search`, text, on song, album and artist
   * New `mood` browse filter on the song, album, artist and video browses, taking a mood id
   * Album and artist moods are derived from their songs, so they answer *which moods are on this album* rather than naming a tag of their own
+* `advanced_search` (API4 and above), `search_group` (API6 and API8)
+  * A `user` search takes new `name`, `fullname` and `email` rules; `name` matches the username, full name or email at once, the same three columns the `user` browse searches
+  * A `user` search accepts `title` as `name`, so the generic rule `search_group` sends returns matching users instead of every account
+* `shares` (API4 and above)
+  * `filter`/`exact` and the `cond` text filters match the title of the shared object; the share browse ignored every filter it was sent before
+  * New `name` sort ordering shares by the title of the object they point at, with `title` as an alias. It is the sort `shares` asks for by default, so the default order changes from insertion order to alphabetical
+  * New `object_type` and `user` filters, taking a share type (`album`, `album_disk`, `artist`, `playlist`, `podcast`, `podcast_episode`, `search`, `song`, `video`) and a user id
 * REST
   * Multi-word resources and actions may be spelled with a dash anywhere in a path (`album-disks/{id}/songs`); the dashed form is folded onto the canonical snake_case action by a single rule rather than a per-name alias list
   * New `albums/{album_id}/disks`, `album-disks/{album_disk_id}`, `album-disks/{album_disk_id}/songs`, plus `art`/`flag`/`rate`/`search`/`stats` on `album-disks`
@@ -128,6 +135,14 @@ API version **8** joins the concurrent live surfaces (3/4/5/6 — version 7 rema
 
 ### Fixed (800000)
 
+* `playlists`/`list`/`index`/`stats` (API4 and above)
+  * `sort=last_count` answered with an error instead of a list. The combined playlist and smartlist browse never carried the column it sorts on, though both tables have it
+* `followers` (API4 and above)
+  * The returned ids are the accounts doing the following. They were the ids of the follow records, which line up with real accounts only by coincidence, so `following` and `followers` disagreed about the same relationship
+* ALL
+  * Sorts a browse implemented but never offered, so asking for one did nothing: `id` on broadcast, private message, share, shoutbox and wanted, `release_date` on video, `title` on genre and mood, and `genre` on genre
+  * The private message browse sorts on `from_user` and takes the `equal`/`exact_match` filters it already implemented, and the follower browse sorts on `username`, `last_seen` and `create_date`
+  * `wanted` dropped its `username` sort, which named a column the table does not have
 * API5, API6
   * advanced_search: `type=album_disk` returned album disk ids rendered as songs, so a client read a disk id as a song id. Neither version has an album disk formatter, so both now return an empty result instead. `search` is affected too, being an alias. API8 returns the album disks. **NOTE** the same fix landed in Ampache7, which serves these versions as well
   * API3 and API4 are unchanged: neither validates the search `type` at all, so every unsupported type there already falls through to the song output
@@ -135,6 +150,8 @@ API version **8** joins the concurrent live surfaces (3/4/5/6 — version 7 rema
   * `Json8_Data`/`Xml8_Data` skip an object that no longer exists rather than returning it as an entry of empty fields, and a missing object no longer ends the list it appeared in. **NOTE** the same fix landed in Ampache7 for API3-6, which it serves as well
 * `preference_edit` (API6 and API8)
   * preference_edit: `default=1` now writes the server default — the system user's value, and the value a new account is seeded from — instead of the calling user's own value, and reports that value back. Existing accounts are still only changed by `all=1`. **NOTE** the same fix landed in Ampache7, which serves API6 as well
+* `live_stream_create`/`live_stream_edit` (API6 and API8)
+  * live_stream_create, live_stream_edit: `codec` no longer has its digits stripped, so `mp3` is stored as `mp3` instead of `mp`. A radio station created or edited through the API before this keeps the truncated codec until it is set again. **NOTE** the same fix landed in Ampache7, which serves API6 as well
 
 ## API 6.9.2 Build 4
 
