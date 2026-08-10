@@ -11,167 +11,198 @@
 
 // @ts-check
 
+/**
+ * A labelled separator. It groups the items that follow it without nesting them inside another
+ * category, so a reader sees the grouping but still reaches every page in one click.
+ * @param {string} label
+ */
+const section = (label) => ({
+  type: 'html',
+  value: `<div class="sidebar-section">${label}</div>`,
+  defaultStyle: false,
+  className: 'sidebar-section-item',
+});
+
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
-  api: [
-    'index',
+  // The standalone pages. They are the navbar destinations, and they share a sidebar of their own so
+  // the home page is not left without one -- the wiki and API trees stay out of it.
+  site: [
+    {type: 'doc', id: 'index', label: 'Home'},
     'demo',
     'donate',
     'docker',
     'download',
+    // links rather than doc ids: both pages head their own sidebar, and a document belongs to one
+    {type: 'link', label: 'Wiki', href: '/docs'},
+    {type: 'link', label: 'API', href: '/api'},
+    'links',
+  ],
+  // The wiki. Sections sit at the top level in the order an admin meets them -- install, configure,
+  // use, get help, contribute -- with the archived material last. The standalone pages (the home
+  // page, demo, donate, docker, download, links) are in no sidebar and are reached from the navbar.
+  wiki: [
+    {type: 'link', label: 'Home', href: '/'},
+    'docs/docs',
+    'docs/information/ampache-use-cases',
+    {
+      type: 'link',
+      label: 'Screenshots',
+      href: '/#preview',
+    },
+    section('Setup'),
     {
       type: 'category',
-      label: 'Wiki',
-      link: {type: 'doc', id: 'docs/docs'},
+      label: 'Installation',
+      link: {type: 'doc', id: 'docs/installation/installation'},
       items: [
-        'docs/information/ampache-use-cases',
-        {
-          type: 'link',
-          label: 'Screenshots',
-          href: '/#preview',
-        },
-        {
-          type: 'category',
-          label: 'Installation',
-          link: {type: 'doc', id: 'docs/installation/installation'},
-          items: [
-            'docs/information/which-zip',
-            'docs/installation/catalog',
-            'docs/installation/rewrite-rules',
-            // Deliberately hidden from the sidebar, still reachable at /docs/information/TV-Shows-and-Movies
-            // 'docs/information/TV-Shows-and-Movies',
-            'docs/installation/install-ampache-on-ubuntu2604',
-            'docs/installation/install-ampache-on-ubuntu2204',
-            'docs/installation/windows-installation-guide',
-            {
-              type: 'category',
-              label: 'User Guides',
-              link: {type: 'doc', id: 'docs/installation/guides/guides'},
-              items: [
-                'docs/installation/guides/tutorial-to-install-ampache-on-xampp',
-                'docs/installation/guides/sephtan-installation-guide',
-                'docs/installation/guides/windows-installation-on-iis7.5-from-he99',
-                'docs/installation/guides/cloudron-installation-guide',
-              ],
-            },
-          ],
-        },
+        'docs/information/which-zip',
+        'docs/installation/catalog',
+        'docs/installation/rewrite-rules',
+        // Deliberately hidden from the sidebar, still reachable at /docs/information/TV-Shows-and-Movies
+        // 'docs/information/TV-Shows-and-Movies',
+        'docs/installation/install-ampache-on-ubuntu2604',
+        'docs/installation/install-ampache-on-ubuntu2204',
+        'docs/installation/windows-installation-guide',
         {
           type: 'category',
-          label: 'Configuration',
-          link: {type: 'doc', id: 'docs/configuration/configuration'},
+          label: 'User Guides',
+          link: {type: 'doc', id: 'docs/installation/guides/guides'},
           items: [
-            'docs/information/upgrade',
-            'docs/configuration/remote-catalogs',
-            'docs/configuration/catalog-filters',
-            'docs/help/upload-catalogs',
-            'docs/configuration/acl',
-            'docs/configuration/ldap',
-            'docs/configuration/oidc',
-            'docs/configuration/api',
-            'docs/configuration/subsonic',
-            'docs/configuration/cron',
-            {
-              type: 'category',
-              label: 'Localplay',
-              link: {type: 'doc', id: 'docs/configuration/localplay/localplay'},
-              items: [
-                'docs/configuration/localplay/mpd',
-                'docs/configuration/localplay/kodi',
-                'docs/configuration/localplay/upnp',
-                'docs/configuration/localplay/vlc',
-                'docs/configuration/localplay/httpq',
-                'docs/configuration/localplay/localplay-api',
-                'docs/configuration/localplay/Sample-MPD-Config-For-Ampache',
-                'docs/configuration/localplay/Sample-Config-With-ALSA-and-Raspberry-PI',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Transcoding',
-              link: {type: 'doc', id: 'docs/configuration/transcoding/transcoding'},
-              items: [
-                'docs/configuration/transcoding/transcode-caching',
-              ],
-            },
-            'docs/configuration/democratic',
-            'docs/configuration/multi-artist',
-            'docs/configuration/broadcasts',
-            'docs/configuration/podcasts',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Clients',
-          link: {type: 'doc', id: 'docs/clients/clients'},
-          items: [
-            'docs/information/Web-Interface',
-            'docs/clients/api',
-            'docs/clients/demo-server',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Plugins',
-          link: {type: 'doc', id: 'docs/plugins/plugins'},
-          items: [
-            'docs/plugins/plugins-options',
-            'docs/plugins/audiomuse',
-            'docs/plugins/writing-plugins',
-          ],
-        },
-        'docs/themes',
-        {
-          type: 'category',
-          label: 'Development',
-          link: {type: 'doc', id: 'docs/development/development'},
-          items: [
-            'docs/development/CONTRIBUTING',
-            'docs/development/TRANSLATIONS',
-            'docs/development/branch-layout',
-            'docs/development/issue-template',
-            'docs/development/enhancement-requests',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Help',
-          link: {type: 'doc', id: 'docs/help/help'},
-          items: [
-            'docs/help/troubleshooting/ampache8-for-admins',
-            'docs/help/troubleshooting/ampache8-for-users',
-            'docs/help/troubleshooting/ampache7-for-admins',
-            'docs/help/troubleshooting/ampache7-for-users',
-            'docs/help/preferences-explained',
-            'docs/help/troubleshooting/faq',
-            'docs/help/troubleshooting/cli',
-            'docs/help/troubleshooting/cli-commands',
-            'docs/help/cli-update-warning',
-            'docs/help/troubleshooting/chart-faq',
-            'docs/help/import-lastfm-data',
-            'docs/configuration/Ampache-Icecast-and-Liquidsoap',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Old Information',
-          link: {type: 'doc', id: 'docs/old-information/old-information'},
-          items: [
-            'docs/old-information/ampache6-details',
-            'docs/old-information/ampache6-for-users',
-            'docs/old-information/ampache5-changes',
-            'docs/old-information/ampache5-for-users',
-            'docs/old-information/installation-v4',
-            'docs/old-information/mysql-faq',
-            'docs/old-information/ampache-laravel-next-generation-preview',
+            'docs/installation/guides/tutorial-to-install-ampache-on-xampp',
+            'docs/installation/guides/sephtan-installation-guide',
+            'docs/installation/guides/windows-installation-on-iis7.5-from-he99',
+            'docs/installation/guides/cloudron-installation-guide',
           ],
         },
       ],
     },
     {
       type: 'category',
+      label: 'Configuration',
+      link: {type: 'doc', id: 'docs/configuration/configuration'},
+      items: [
+        'docs/information/upgrade',
+        'docs/configuration/remote-catalogs',
+        'docs/configuration/catalog-filters',
+        'docs/help/upload-catalogs',
+        'docs/configuration/acl',
+        'docs/configuration/ldap',
+        'docs/configuration/oidc',
+        'docs/configuration/api',
+        'docs/configuration/subsonic',
+        'docs/configuration/cron',
+        {
+          type: 'category',
+          label: 'Localplay',
+          link: {type: 'doc', id: 'docs/configuration/localplay/localplay'},
+          items: [
+            'docs/configuration/localplay/mpd',
+            'docs/configuration/localplay/kodi',
+            'docs/configuration/localplay/upnp',
+            'docs/configuration/localplay/vlc',
+            'docs/configuration/localplay/httpq',
+            'docs/configuration/localplay/localplay-api',
+            'docs/configuration/localplay/Sample-MPD-Config-For-Ampache',
+            'docs/configuration/localplay/Sample-Config-With-ALSA-and-Raspberry-PI',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Transcoding',
+          link: {type: 'doc', id: 'docs/configuration/transcoding/transcoding'},
+          items: [
+            'docs/configuration/transcoding/transcode-caching',
+          ],
+        },
+        'docs/configuration/democratic',
+        'docs/configuration/multi-artist',
+        'docs/configuration/broadcasts',
+        'docs/configuration/podcasts',
+      ],
+    },
+    section('Using Ampache'),
+    {
+      type: 'category',
+      label: 'Clients',
+      link: {type: 'doc', id: 'docs/clients/clients'},
+      items: [
+        'docs/information/Web-Interface',
+        'docs/clients/api',
+        'docs/clients/demo-server',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Plugins',
+      link: {type: 'doc', id: 'docs/plugins/plugins'},
+      items: [
+        'docs/plugins/plugins-options',
+        'docs/plugins/audiomuse',
+        'docs/plugins/writing-plugins',
+      ],
+    },
+    'docs/themes',
+    section('Getting help'),
+    {
+      type: 'category',
+      label: 'Help',
+      link: {type: 'doc', id: 'docs/help/help'},
+      items: [
+        'docs/help/troubleshooting/ampache8-for-admins',
+        'docs/help/troubleshooting/ampache8-for-users',
+        'docs/help/troubleshooting/ampache7-for-admins',
+        'docs/help/troubleshooting/ampache7-for-users',
+        'docs/help/preferences-explained',
+        'docs/help/troubleshooting/faq',
+        'docs/help/troubleshooting/cli',
+        'docs/help/troubleshooting/cli-commands',
+        'docs/help/cli-update-warning',
+        'docs/help/troubleshooting/chart-faq',
+        'docs/help/import-lastfm-data',
+        'docs/configuration/Ampache-Icecast-and-Liquidsoap',
+      ],
+    },
+    section('Contributing'),
+    {
+      type: 'category',
+      label: 'Development',
+      link: {type: 'doc', id: 'docs/development/development'},
+      items: [
+        'docs/development/CONTRIBUTING',
+        'docs/development/TRANSLATIONS',
+        'docs/development/branch-layout',
+        'docs/development/issue-template',
+        'docs/development/enhancement-requests',
+      ],
+    },
+    section('Archive'),
+    {
+      type: 'category',
+      label: 'Old Information',
+      link: {type: 'doc', id: 'docs/old-information/old-information'},
+      items: [
+        'docs/old-information/ampache6-details',
+        'docs/old-information/ampache6-for-users',
+        'docs/old-information/ampache5-changes',
+        'docs/old-information/ampache5-for-users',
+        'docs/old-information/installation-v4',
+        'docs/old-information/mysql-faq',
+        'docs/old-information/ampache-laravel-next-generation-preview',
+      ],
+    },
+  ],
+  // The API reference. It is its own sidebar so an API page does not have to carry the whole wiki
+  // beside it. Pages that live in the wiki tree (the ACL guide) appear here as plain links, so each
+  // document still belongs to exactly one sidebar.
+  api: [
+    {type: 'link', label: 'Home', href: '/'},
+    {
+      type: 'category',
       label: 'API',
       link: {type: 'doc', id: 'api/index'},
+      collapsible: false,
+      collapsed: false,
       items: [
         'api/api-standards',
         'rest/index',
@@ -181,7 +212,7 @@ const sidebars = {
         'api/api-errors',
         'api/api-examples',
         'api/api-changelog',
-        'docs/configuration/acl',
+        {type: 'link', label: 'Access Control Lists', href: '/docs/configuration/acl'},
         'api/api-media-methods',
         {
           type: 'category',
@@ -226,6 +257,7 @@ const sidebars = {
           ],
         },
         'api/subsonic',
+        section('Older versions'),
         {
           type: 'category',
           label: 'API6',
@@ -273,7 +305,6 @@ const sidebars = {
         }
       ],
     },
-    'links',
   ]
 };
 

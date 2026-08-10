@@ -135,7 +135,7 @@ php bin/cli run:updateCatalog music -s
 php bin/cli run:disableCatalog 3
 ```
 
-The `-v` verify switch from Ampache 4 is now `-e`; see [Command changes](/docs/help/troubleshooting/cli#command-changes).
+The `-v` verify switch from Ampache 4 is now `-e`.
 
 ### Background processes
 
