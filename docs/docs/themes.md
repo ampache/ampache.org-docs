@@ -6,40 +6,60 @@ description: "Ampache Themes"
 
 ## Ampache Themes
 
-Ampache has an integrated theme system that allows users to modify the CSS/images and can be configured on a per user basis. Official themes are available under the **/themes** directory.
+Ampache has an integrated theme system that allows users to modify the CSS/images and can be configured on a per user basis.
+
+Themes live in **public/themes/** in a git checkout. A packaged release copies the contents of `public/` to the webroot, so on an installed server the same directory is simply **themes/**. Paths on this page are given from the source tree.
 
 ## Theme Directory Structure
 
 The theme directory is fairly straightforward.
 
-Only `theme.cfg.php` is mandatory. Ampache finds themes by globbing `themes/*/theme.cfg.php`, so a directory without one is not a theme and never appears in the list. Everything else falls back — an image, an icon or a template your theme does not carry is served from Ampache's own copy, so a theme only needs the files it actually changes.
+Only `theme.cfg.php` is mandatory for Ampache to *see* a theme: it globs `public/themes/*/theme.cfg.php`, so a directory without one is not a theme and never appears in the list.
+
+Most other files fall back — an image, an icon or a template your theme does not carry is served from Ampache's own copy, so a theme only needs the files it actually changes.
 
 ```text
-Theme Name
+public/themes/<theme name>/
 ├─ images/
-│  ├─ icons/
-│  │  └─ icon_*.png
-│  ├─ ratings/
-│  │  └─ star_rating.png
-│  └─ *.png
+│  ├─ ampache-dark.png            one per colour, required
+│  ├─ ampache-light.png
+│  ├─ ajax-loader.gif             required
+│  ├─ ajax-loader-light.gif       required if you offer a "light" colour
+│  ├─ icons/                      optional
+│  │  └─ icon_*.svg | icon_*.png
+│  └─ *.svg | *.png               optional overrides
 ├─ templates/
-│  ├─ fonts/
-│  │  ├─ *.css
-│  │  ├─ *.ttf
-│  │  └─ *.etc
-│  ├─ dark.css
-│  ├─ default.css
-│  └─ light.css
-└─ theme.cfg.php
+│  ├─ fonts/                      optional
+│  │  ├─ *.css
+│  │  ├─ *.ttf
+│  │  └─ *.etc
+│  ├─ default.css                 named by the `base` key
+│  ├─ dark.css                    one per `colors` entry
+│  ├─ light.css
+│  └─ rtl.css                     optional
+└─ theme.cfg.php                  required
 ```
+
+### Files with no fallback
+
+Two groups are built as direct paths into your theme with no check that the file exists. Omit them and you get a broken image rather than Ampache's version.
+
+* `images/ampache-<colour>.png` — the logo, one per entry in `colors`. `colors = "Dark,Light"` means `ampache-dark.png` and `ampache-light.png`.
+* `images/ajax-loader.gif` — the mini player's loading spinner. `ajax-loader-light.gif` is used when `theme_color` is exactly `light`; every other colour gets the unsuffixed file.
 
 ### Images
 
-The **images/** directory contains all images that will be used by Ampache. Image files at the root of that folder are accessed through several different ways. For example some files like **ajax-loader.gif** are accessed directly through the CSS, **Ampache-dark.png** is accessed via the function `UI::get_logo_url('dark')`, and other image files within are fetched by using the function `UI::get_image('filename')`.
+The **images/** directory contains all images that will be used by Ampache. Files at the root of that folder are reached in three different ways.
+
+* **From your own CSS, by relative path.** Reborn's `dark.css` points `../images/ajax-loader.gif`, `../images/missing.png` and `../images/videoplay.svg` at files here. These are entirely yours — Ampache never looks at them.
+* **From PHP, by a direct theme path.** `Ui::get_logo_url('dark')` builds `images/ampache-dark.png` and the mini player builds `images/ajax-loader.gif`. Neither checks the file exists, which is why they are listed under [Files with no fallback](#files-with-no-fallback) above.
+* **Through `Ui::get_image('filename')`,** which does fall back. It prefers `.svg` over `.png` and searches your theme first, then `resources/images/`, then `public/images/`.
 
 #### Icons
 
-Within images, is the **icons/** directory. All files in the folder are prefixed with **icon_**. These are all of the various icons found in the Ampache interface, such as the nav buttons in the sidebar, and the play/play next/add to playlist icons, etc. These are fetched using `get_icon($name, $title)`, where `$name` is the part of the filename after **icon_**, and `$title` is the title/alt text that shows when you hover over it.
+Within images, is the optional **icons/** directory. All files in the folder are prefixed with **icon_**. These are the older icons found in the Ampache interface, fetched using `get_icon($name, $title)`, where `$name` is the part of the filename after **icon_**, and `$title` is the title/alt text that shows when you hover over it.
+
+Lookup prefers `icon_<name>.svg` over `icon_<name>.png`, and searches your theme first, then `resources/images/`, then `public/images/`. A name that matches nothing logs a runtime error and renders `icon_error.svg`. Reborn ships no `icons/` directory at all — every icon it uses comes from Ampache's own copies, so you only need this folder for the ones you actually replace.
 
 If the icon is an SVG, then it will return the entire `<svg>` tag within the icon's file. Otherwise, for .png, .jpg, etc. it will return an `<img>` tag.
 
@@ -47,7 +67,7 @@ The reason SVGs are not using the `<img>` tag, is so that styles can be applied 
 
 ##### ID and Class Attributes
 
-Some icons will also provide an ID or Class attribute that will be assigned to the image's tag. If none is provided, then for SVGs by default the `id` attribute is set to **icon-name**, and the `class` attribute is set to **icon**. PNGs do not get a default value.
+Some icons will also provide an ID or Class attribute that will be assigned to the image's tag. For SVGs no `id` is set unless one is passed, and the `class` defaults to `icon icon-<name>` — so `get_icon('play')` renders `class="icon icon-play"`, giving you both a hook for every icon and one for that specific icon. PNGs get neither attribute unless it is passed.
 
 ##### Material Symbols
 
@@ -59,7 +79,7 @@ Because they are plain SVG paths that inherit `currentColor`, you restyle them f
 
 #### Ratings
 
-This folder just includes a .gif, and .png for the star ratings. These are applied using CSS.
+Reborn still carries an `images/ratings/` folder holding `star_rating.gif` and `star_rating.png`, but nothing in Ampache or in the theme's own stylesheets references either file any more. Ratings are drawn with Material Symbols. Do not add this folder to a new theme.
 
 ### Templates
 
@@ -107,14 +127,15 @@ The config file is an INI file with a `<?php exit(); ?>` guard on the second lin
 
 `theme_name` and `theme_color` are per-user preferences with an access level of **Default**, so every user — including a guest — can pick their own unless an admin raises the level. See [Preferences](/docs/help/preferences-explained#interface---theme).
 
-If the stored theme directory has been deleted, Ampache drops the preference and falls back to `reborn` rather than rendering an unstyled page.
+If the stored theme directory has been deleted, Ampache ignores the stored value for that request and falls back to `reborn` rather than rendering an unstyled page. The same happens per colour: if `templates/<theme_color>.css` is missing, it falls back to the first entry in the theme's `colors` list. Neither case rewrites the database, so restoring the directory restores the user's choice.
 
 ## Creating a New Ampache Theme
 
-If you're interested in creating your own theme, the easiest way is to copy an existing theme in **themes/**, and edit the files as needed. Once you have edited the name field inside the **theme.cfg.php** file, it should automatically populate in your Ampache install as an available theme.
+If you're interested in creating your own theme, the easiest way is to copy an existing theme in **public/themes/**, and edit the files as needed. Once you have edited the name field inside the **theme.cfg.php** file, it should automatically populate in your Ampache install as an available theme.
 
 A few things worth knowing before you start:
 
 * The directory name is the identity. Renaming a theme's folder orphans every user who had it selected; changing `name` in the config file is safe.
+* Adding a colour means adding files. Each name in `colors` needs both `templates/<colour>.css` and `images/ampache-<colour>.png`; the stylesheet has a fallback and the logo does not.
 * `reborn` is desktop-first. Its mobile support is a single `@media (max-width: 768px)` block at the end of `default.css`, and the colour files only carry mobile drawer/toast backgrounds. If you fork it, keep that split.
 * Test both colours. A rule you add to `default.css` applies to every colour; one you add to `dark.css` does not.
