@@ -124,8 +124,9 @@ const sidebars = {
         {
           type: 'category',
           label: 'Development',
-          link: {type: 'doc', id: 'docs/development/CONTRIBUTING'},
+          link: {type: 'doc', id: 'docs/development/development'},
           items: [
+            'docs/development/CONTRIBUTING',
             'docs/development/TRANSLATIONS',
             'docs/development/branch-layout',
             'docs/development/issue-template',
