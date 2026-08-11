@@ -129,6 +129,38 @@ Public or private and the collaborator list work just like playlists, so a colla
 
 You can hide the link with the new `Show 'Collections' link in the main sidebar` preference. The link no longer waits for a collection to exist before it appears, so there is a way in from a fresh install.
 
+## Moods: browse and tag by feeling
+
+Ampache can now read a mood straight from your files - id3v2 `TMOO`, Vorbis/APE `MOOD`, or an AcousticBrainz `ab:mood` comment - the same way it already reads genres. A file with more than one of these gets every mood it lists.
+
+There's a new **Moods** browse (a cloud, like Genres) once your admin has rescanned your catalog. You can hide the link with the new `Show 'Moods' link in the main sidebar` preference.
+
+Songs, albums, album disks, artists and videos can show a **Moods** column on their browse rows - it's hidden by default since most libraries don't have mood tags yet, but there's a preference to turn it on.
+
+Album and artist pages show the moods gathered from their songs; there's no mood of its own to set on an album or artist, so removing a mood from every song on an album removes it there too.
+
+Editing a song, album or artist gets a **Moods** field next to Genres, and moods can be searched and built into smartlists with the new `Mood` search rule.
+
+If your admin has `write_tags` turned on, a mood you set by hand is written back into the file - just like a genre.
+
+## Your hand-set tags and moods survive a rescan
+
+Genres and moods you add or remove yourself in the edit dialog used to disappear the next time your catalog was rescanned, because a scan reads mood/genre only from the file and throws away anything it didn't find there.
+
+That no longer happens for anything a person set through the interface or API. A tag or mood is marked as yours when you add it, and a rescan now only touches tags and moods nobody has explicitly set - it leaves your own alone even if your file doesn't have them.
+
+You can tell which ones are yours: a tag or mood set by hand shows a small `*` next to it, with a "User set" tooltip. Editing the list yourself and removing a tag still removes it, same as before - it's only the automatic scan that now leaves hand-set entries in place.
+
+## Track tempo (BPM)
+
+Ampache now reads a track's BPM (beats per minute) from its tags - id3v2 `TBPM`, the QuickTime `tmpo` atom, or a Vorbis/APE `BPM` comment - and shows it on the song page next to Channels. There's a new numeric `BPM` rule for smartlists and advanced search.
+
+## Organize your playlists into folders (compatible clients only, for now)
+
+There's a new private folder tree for organizing your playlists, smartlists and collections - where you file something is personal to you, so filing someone else's shared playlist doesn't move it for them.
+
+There's no web interface for this yet; it's reachable through the new API8 playlist-folder methods, so you'll need a client that has added support for it.
+
 ## Multi-Select: act on several rows at once
 
 The **View** menu on a browse has a new **Multi-Select** option that turns checkboxes on. They stay hidden until you ask for them.
@@ -287,6 +319,13 @@ Neither service knows Ampache's MusicBrainz ids, so a track is found by artist a
 * Adding songs to a playlist skips duplicates correctly again
 * Democratic play shows the configured base playlist when the queue is empty
 * Downloads work again on password protected streams
+* Podcast pages, rows and episodes show a starting notification when you click **Sync**, since it can take a while and used to look like nothing happened
+* A podcast's own page gets an **Update details from the feed** button to refresh its title, art and description without doing a full sync
+* Podcast descriptions show as normal text instead of raw `<p>`/`<br>` markup
+* Folders and Podcasts each get their own placeholder image now, instead of Podcasts borrowing the Folders one
+* Filters and sorts that used to silently do nothing now work on the Folder, Share, Video, Podcast Episode, Follower, Genre, Broadcast, Mood, Smartlist, User and Wanted browses; you can filter the User browse by username, full name and email
+* Artist grid view (and a few other pages) no longer cuts off partway down the page
+* Your display name and shout messages are now safely escaped everywhere they're shown, closing two cross-site-scripting issues
 
 ## New Database Options / User preferences
 
@@ -295,6 +334,8 @@ Added:
 * `Allow Ampache API8 responses` - enable or disable the new API8 per user
 * `Show 'Folders' link in the main sidebar` - show or hide the Folders browse link
 * `Show 'Collections' link in the main sidebar` - show or hide the Collections browse link
+* `Show 'Moods' link in the main sidebar` - show or hide the Moods browse link
+* A preference to hide the new Moods column in browse tables, on by default since most libraries don't have moods tagged yet
 * `Require a session to listen to my broadcasts` - on by default; turn it off to let anyone with the link listen along
 * `Transcode output format - Audio Default` / `- Video Default` / `- Web Player (overrides default)` / `- API (overrides default)` - per-player transcode format overrides
 * `Maximum transcode bitrate for dynamic downsampling in bps (0 = disabled)` / `Minimum transcode bitrate for dynamic downsampling in bps` - caps for your own dynamic downsampling

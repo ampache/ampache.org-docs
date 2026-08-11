@@ -238,7 +238,7 @@ Graphs render as SVG instead of PNG, so they scale to the page and stay sharp on
 
 ## Database changes for Ampache8
 
-Ampache8 brings the first new database updates since the version split. They run as migrations `800000` to `800044`.
+Ampache8 brings the first new database updates since the version split. They run as migrations `800000` to `800048`.
 
 `php bin/cli admin:updateDatabase` prints the whole list for your install without writing anything; add `-e` when you are ready to apply it.
 
@@ -247,6 +247,8 @@ Ampache8 brings the first new database updates since the version split. They run
 * `folder` and `folder_map`, holding a virtual folder tree for each catalog
 * `object_count_summary` and `object_count_archive`, for [play history consolidation](#play-history-consolidation)
 * `collection` and `collection_map`, holding [collections](#collections-curate-a-list-of-anything)
+* `mood` and `mood_map`, holding [moods](#moods-a-new-tag-type)
+* `playlist_folder` and `playlist_folder_map`, holding [playlist folders](#playlist-folders-api8-only)
 
 ### New and changed columns
 
@@ -256,6 +258,8 @@ Ampache8 brings the first new database updates since the version split. They run
 * New `artist`.`lastfm_url` column keeping the last.fm page url with the rest of the cached artist info
 * `label_asso` gains a nullable `album` column and its `artist` column becomes nullable, so a label can be associated with an album as well as an artist
 * `song_preview`.`file` widened to `varchar(4096)` so the signed preview urls from [iTunes and Deezer](#song-previews-come-from-itunes-and-deezer) are not truncated
+* New `song_data`.`bpm` column - see [BPM](#bpm)
+* `tag_map`.`user` (and the new `mood_map`.`user`) is now populated instead of always `0` - see [Hand-set tags and moods survive a rescan](#hand-set-tags-and-moods-survive-a-rescan)
 * `object_count`, `user_activity`, `user_data` and `now_playing` accept the system user (`-1`) on databases where the `user` column was `UNSIGNED`. Existing `share.php` plays are re-attributed from user `0` to `-1`
 
 ### `object_type` enum changes
@@ -281,6 +285,8 @@ Ampache8 brings the first new database updates since the version split. They run
 * `broadcast_private` (Require a session to listen to my broadcasts) — per user, on by default
 * `cron_cache_live_count` (Add live plays to the cached count for accurate stats) — admin-only, off by default. With `cron_cache` enabled the played counters are read from the cache and only refreshed by the cron task, so they lag until the next run; this adds the plays recorded since the last run to the cached value at the cost of an extra query per count
 * Per-user transcoding preferences `encode_target`, `encode_video_target`, `encode_player_webplayer_target`, `encode_player_api_target`, `max_bit_rate`, `min_bit_rate`, `transcode_bitrate_webplayer` and `transcode_bitrate_api` — see [Transcoding preferences moved per-user](#transcoding-preferences-moved-per-user)
+* `show_mood` (Show 'Moods' link in the main sidebar)
+* `hide_moods` (hide the Moods column in browses) — on by default
 
 ### Preferences removed
 
@@ -442,6 +448,73 @@ Adding is through the same add-to-list dialog as playlists, which now offers bot
 
 API access is covered by the [API8 collection methods](/api); the REST paths are under `collections/`.
 
+## Moods: a new tag type
+
+Ampache8 adds moods alongside genres. Two new tables, `mood` and `mood_map`, mirror the shape of `tag`/`tag_map` (migration `800047`). A scan reads mood the same way it reads genre: id3v2 `TMOO`, Vorbis/APE `MOOD`, and now also AcousticBrainz's `ab:mood` comment, split on `additional_genre_delimiters`. Album, album disk and artist moods are derived from their songs rather than stored against the container itself, so a mood only ever leaves an album when it's removed from every song on it.
+
+New preferences: `show_mood` gates the sidebar **Moods** browse link (it only appears once something has been scanned), and `hide_moods` hides the new Moods browse column - on by default, since most libraries don't carry mood tags yet (migration `800048`).
+
+## BPM
+
+`song_data` gains a `bpm` column (`decimal(6,2)`, migration `800046`), read from id3v2 `TBPM`, the QuickTime `tmpo` atom, or a Vorbis/APE `BPM` comment, keeping whatever fraction the tagging tool wrote. API8 reports it as a float; OpenSubsonic rounds it to an integer to match the spec.
+
+## Hand-set tags and moods survive a rescan
+
+`tag_map` (and now `mood_map`) has always had a `user` column, but nothing ever populated it - every row was written with `user = 0`, so `Tag::update_tag_list()` treated every genre/mood as file-sourced and deleted anything a rescan didn't find again, including a tag a user had added by hand through the interface or API.
+
+That's fixed. `Tag::add()`/`add_tag_map()` now stamp a map row with the acting user's id (the session user for an interface/API edit, `0` - `Tag::NO_USER` - for a CLI or cron scan). `Tag::update_tag_list()` takes a new `from_file_tags` flag: when a scan calls it, any existing map row with `user > 0` is treated as still present even if the file doesn't have it, so it's never swept. A manual edit through the UI still removes whatever you remove, hand-set or not - it's only the automatic file-tag sweep that now leaves user-set entries alone.
+
+`TagRepository::removeAllMaps()`/`removeMap()` take an optional user id: `null` clears every map (used when the object itself is deleted), a specific id clears only that user's maps, which is what the scan path now uses.
+
+A hand-set tag or mood renders with a `*` and a "User set" tooltip in the web interface; plain-text output (edit inputs, DAAP, UPnP) is unaffected.
+
+If you maintain a custom theme or plugin that reads `tag_map`/`mood_map` directly, be aware the `user` column is now meaningful rather than always `0`.
+
+## Playlist Folders (API8 only)
+
+New `playlist_folder`/`playlist_folder_map` tables (migration `800045`) give each user a private folder tree for organizing their playlists, smartlists and collections. Folder placement belongs to the (user, list) pair rather than the list itself, so filing another user's shared playlist only affects your own view of it. The root folder is implicit and holds anything unfiled; `sort_order` is assigned by the client and shared between subfolders and filed lists at the same level.
+
+New API8 methods: `playlist_folders`, `playlist_folder`, `playlist_folder_items`, `playlist_folder_create`, `playlist_folder_edit`, `playlist_folder_delete`, `playlist_folder_add` and `playlist_folder_remove` (REST paths under `playlist-folders/`). There is no web interface for this yet - it's there for compatible API clients to use.
+
+## PHPTAL is gone - templates are now plain PHP
+
+The last of the old PHPTAL `.xhtml` templates have been converted to `.phtml` files rendered by dedicated `Ampache\Gui\...\*View` classes, and the `scn/phptal` dependency has been dropped entirely.
+
+Pages are meant to look exactly the same, but the conversion surfaced (and fixed) a real tail of display bugs - see [Smaller fixes you might notice](#smaller-fixes-you-might-notice) below.
+
+**If you run a custom theme or plugin that hand-edits `.xhtml` templates, or that hooks `TalFactory`/`TalView` directly, it will not work on Ampache8.** There's nothing left to hook - move any customization to a `.phtml` override instead.
+
+## Security fixes in this window
+
+Two real cross-site-scripting issues were fixed while converting old templates:
+
+* The page header printed a logged-in user's full name completely unescaped on every page (also affected art titles, genre links, the right sidebar lists, and four-box titles) - a stored value with the right characters in it would have executed as script
+* Shoutbox text was rendered as raw HTML rather than escaped, which was a persistent XSS vector via any shout
+
+Both are fixed - user-supplied text is escaped and line breaks are preserved where they should be.
+
+Separately, a new `UrlValidator` now checks the host of every remote URL Ampache is asked to fetch before requesting it - art image URLs, podcast feed URLs and episode downloads, and the Lyrist/RSS-view plugins - hardening against a user or admin pointing one of those at an internal address.
+
+## Podcasts: fewer surprises when you sync
+
+* **Sync** buttons (podcast page, podcast row, and single episode) now fire a starting notification immediately, since a sync can run for minutes with no other feedback
+* A podcast's page gets an **Update details from the feed** action (content managers only, confirms first) that refreshes title, website, description, language, copyright, generator and art from the feed - previously those were only ever read once, at creation
+* Feed title/description text is cleaned to plain text (paragraphs become line breaks, tags stripped, entities decoded) instead of showing raw markup, and a re-sync now updates an existing episode's description if the feed's changed it
+* Episode matching no longer collides on a blank guid
+* Ampache's own library-item RSS feed (`rss.php`) is a properly valid podcast feed now - iTunes namespace tags, category and image, Podcasting 2.0 `guid`/`remoteItem`, per-item description and a real `pubDate` - and no longer triggers on-the-fly transcoding, which could exhaust server resources if the feed was pulled by an aggressive client. The `rsstoken` query parameter is also no longer added to RSS links when `use_auth` is off, so it can't leak into a link served on a public server
+* The pregenerate-transcode-cache catalog action is faster (skips a tag re-parse when the source is older than the cache, writes to a `.tmp` file and only promotes it on success) and a missing source file no longer aborts the whole run
+
+## Smaller fixes you might notice
+
+* Garbage Collection is no longer offered as a per-catalog row action (it's a whole-database operation); it's on the Manage Catalogs page instead. The per-catalog **Update File Tags** action was also silently calling the wrong "update all catalogs" routine - fixed
+* Dynamic transcode downsampling no longer advertises a resample it can't actually run when the matching `encode_args_<codec>` isn't configured
+* A user whose transcode preference was never explicitly set no longer has the config-seeded default blanked out
+* Connect/read timeouts were added to UPnP device requests, so a dead UPnP device can't hang Localplay
+* `live_stream_create`/`live_stream_edit` stopped stripping digits from a codec name (`mp3` was becoming `mp`)
+* `preference_edit` with `default=1` now correctly writes the server default rather than the calling user's own value
+* Filters and sorts that used to silently do nothing now work on the Folder, Share, Video, Podcast Episode, Follower, Genre, Broadcast, Mood, Smartlist, User and Wanted browses
+* About 20 unused legacy icon files were removed and several admin pages moved to the SVG icon set
+
 ## Mini player
 
 There's a new stripped-down `/m/` page showing only the `home` category plugins and the web player, aimed at small screens and simple accounts.
@@ -507,6 +580,11 @@ If you send a version 7 API call you will now receive an access denied error.
 * New collection methods `collections`, `collection`, `collection_items`, `collection_create`, `collection_edit`, `collection_delete`, `collection_add` and `collection_remove`
 * Album disks are reachable at last: `album_disks`, `album_disk` and `album_disk_songs`, plus `album_disk` support in `index`, `list`, `browse`, `stats` and `get_art`. With the per-user `album_group` preference off the web interface browses album disks, and until now the API had no way to see the same objects
 * New `sonic_match` method (REST `songs/{song_id}/sonic-match`) returning songs that sound like a given song, each with a similarity score on the same 0.0-1.0 scale as the OpenSubsonic `sonicMatch` field. It needs a sonic analysis plugin, and refuses the request rather than returning an empty list when none is enabled
+* New `mood` field on song responses (`{id,name}[]`, shaped like `genre`), plus a `mood` advanced-search rule and browse filter
+* New `bpm` field on song responses (a float; OpenSubsonic rounds it to an integer)
+* New Playlist Folder methods — see [Playlist Folders](#playlist-folders-api8-only)
+* Sending `password` (`register`/`user_create`/`user_edit`/`catalog_add`) or the handshake `auth` key in the query string is now deprecated in favor of a request body or an `Authorization: Bearer` header — both still work
+* `preference_edit` with `default=1` now correctly writes the server default rather than the calling user's own value
 
 **NOTE** `album_disk`, `sonic_match` and `random` are API8 only. API6 is served by both Ampache7 and Ampache8 and has to stay identical between them, so anything new lands on API8 alone.
 
@@ -660,6 +738,7 @@ Two defaults flipped, so a config file that never set them behaves differently a
 
 * `memory_cache` now defaults to **`"true"`** (it was `"false"`). It batches the per-object lookups a page would otherwise repeat, roughly halving the query count on a large browse, at the cost of higher memory use. Set it to `"false"` if you have a big catalog and a low PHP memory limit
 * `statistical_graphs` now defaults to **`"true"`** (it was `"false"`) and is no longer commented out in the dist file, because the graph library is a normal dependency now — see [Statistical Graphs no longer need `ext-gd`](#statistical-graphs-no-longer-need-ext-gd)
+* `transcode_flac`, `transcode_mpc`, `transcode_ogg`, `transcode_oga`, `transcode_opus`, `transcode_wav`, `transcode_wma`, `transcode_aif`, `transcode_aiff`, `transcode_ape` and `transcode_shn` now default to `"allowed"` instead of `"required"`, matching `transcode_mp3`'s existing default
 
 `max_bit_rate` and `min_bit_rate` are still in the config file but are now only read **once**, at upgrade time, to seed each user's new per-user preference. Their unit changed from kilobits to bits per second at the same time (`576` became `576000`). After the upgrade the config values are ignored; leave them commented out and change the preference instead.
 
