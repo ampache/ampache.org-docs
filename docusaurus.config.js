@@ -27,7 +27,7 @@ const config = {
     locales: ['en'],
   },
 
-  //plugins: [require.resolve('docusaurus-plugin-image-zoom')],
+  plugins: [require.resolve('docusaurus-plugin-image-zoom')],
 
   markdown: {
     hooks: {
@@ -131,7 +131,6 @@ const config = {
         },
         config: {
           // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
-          container: '.zoomable'
         }
       }
     }),
