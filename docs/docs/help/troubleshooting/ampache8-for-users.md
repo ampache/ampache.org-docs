@@ -137,9 +137,11 @@ There's a new **Moods** browse (a cloud, like Genres) once your admin has rescan
 
 Songs, albums, album disks, artists and videos can show a **Moods** column on their browse rows - it's hidden by default since most libraries don't have mood tags yet, but there's a preference to turn it on.
 
+A video carries its own moods, read from its file when your catalog is scanned, the same as a song does.
+
 Album and artist pages show the moods gathered from their songs; there's no mood of its own to set on an album or artist, so removing a mood from every song on an album removes it there too.
 
-Editing a song, album or artist gets a **Moods** field next to Genres, and moods can be searched and built into smartlists with the new `Mood` search rule.
+Editing a song, album, artist or video gets a **Moods** field next to Genres, and moods can be searched and built into smartlists with the new `Mood` search rule.
 
 If your admin has `write_tags` turned on, a mood you set by hand is written back into the file - just like a genre.
 
