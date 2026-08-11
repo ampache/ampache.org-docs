@@ -470,6 +470,27 @@ A hand-set tag or mood renders with a `*` and a "User set" tooltip in the web in
 
 If you maintain a custom theme or plugin that reads `tag_map`/`mood_map` directly, be aware the `user` column is now meaningful rather than always `0`.
 
+## The artist and album selects in the edit dialog
+
+`show_artist_select()` and `show_album_select()` (`src/Config/functions.php`) ran an unbounded
+`SELECT ... FROM artist|album ORDER BY name` and emitted one `<option>` per row, twice per song dialog. Three things
+changed:
+
+* Both queries go through `Catalog::get_user_filter()`, so a user restricted to a catalog filter group no longer
+  receives every artist and album in the database.
+* The artist query sorted on a computed `LTRIM(CONCAT(prefix, ' ', name))` that no index could serve. Both now
+  `ORDER BY name` and rebuild the prefix in php, which turns `type: ALL` with `Using filesort` into an indexed read.
+* Past `SELECT_LIST_LIMIT` rows (1000, a constant in the same file) the control becomes a search field instead of a
+  select. It queries the existing ajax search endpoint (`page=search&action=search`, `target=artist|album`), which now
+  returns each result's `id` alongside its link.
+
+The search field posts the same keys the select always did. Picking a suggestion sends `artist`/`album` (an id) and
+typing a name sends `artist_name`/`album_name`, which `Song::update()` already resolves through `Artist::check()` /
+`Album::check()`. Only one of the two is ever submitted - the visible box carries no `name` of its own and the unused
+hidden field is disabled, which `serializeArray()` leaves out.
+
+Raise or lower `SELECT_LIST_LIMIT` if the threshold doesn't suit your library.
+
 ## Playlist Folders (API8 only)
 
 New `playlist_folder`/`playlist_folder_map` tables (migration `800045`) give each user a private folder tree for organizing their playlists, smartlists and collections. Folder placement belongs to the (user, list) pair rather than the list itself, so filing another user's shared playlist only affects your own view of it. The root folder is implicit and holds anything unfiled; `sort_order` is assigned by the client and shared between subfolders and filed lists at the same level.

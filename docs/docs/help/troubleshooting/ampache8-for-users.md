@@ -151,6 +151,18 @@ That no longer happens for anything a person set through the interface or API. A
 
 You can tell which ones are yours: a tag or mood set by hand shows a small `*` next to it, with a "User set" tooltip. Editing the list yourself and removing a tag still removes it, same as before - it's only the automatic scan that now leaves hand-set entries in place.
 
+## Picking an artist or album on a big library
+
+The **Artist** and **Album** fields in the edit dialog used to be a dropdown holding every artist and every album you
+could see. On a large library that is thousands of entries to build, send and scroll through every time you open the
+dialog, and finding the one you want meant a lot of scrolling.
+
+Nothing changes for most libraries: under a thousand entries you still get the same dropdown.
+
+Above that, the field becomes a search box instead. Type two or more letters and the matches appear underneath; pick one
+and the item is filed under it. Typing a name that isn't in the list creates it, exactly like the old **Add New** option,
+so you can still move a song to something that doesn't exist yet.
+
 ## Track tempo (BPM)
 
 Ampache now reads a track's BPM (beats per minute) from its tags - id3v2 `TBPM`, the QuickTime `tmpo` atom, or a Vorbis/APE `BPM` comment - and shows it on the song page next to Channels. There's a new numeric `BPM` rule for smartlists and advanced search.
