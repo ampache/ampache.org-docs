@@ -36,12 +36,13 @@ Without the rule the webserver looks for a file named `ping.view`, does not find
 
 ## What breaks without it
 
-Two parts of Ampache depend on rewriting. A third file is optional.
+Three parts of Ampache depend on rewriting. A fourth file is optional.
 
 | Path | Used by | Symptom when rewriting is missing |
 |---|---|---|
 | `/rest/` | Subsonic and OpenSubsonic clients, and the Ampache REST API | Every client request returns 404, login usually fails outright |
 | `/play/` | Streaming and downloads | Browsing works, but nothing plays |
+| `/jellyfin/` | The [Jellyfin-compatible API](/docs/configuration/jellyfin) | Every client request returns 404, a client cannot even add the server |
 | `/` | A user art redirect, optional bot filtering, and the private file rules | Nothing stops working. Ampache runs perfectly well without this file |
 
 **NOTE** The REST API added in Ampache8 lives under `/rest/` too, so it needs the same rules as Subsonic.
@@ -56,6 +57,7 @@ Ampache ships the rules it needs, so you rarely have to write any yourself.
 |---|---|
 | [public/play/.htaccess.dist](https://github.com/ampache/ampache/blob/develop/public/play/.htaccess.dist) | Streaming and art URLs |
 | [public/rest/.htaccess.dist](https://github.com/ampache/ampache/blob/develop/public/rest/.htaccess.dist) | Subsonic, OpenSubsonic and the REST API |
+| [public/jellyfin/.htaccess.dist](https://github.com/ampache/ampache/blob/develop/public/jellyfin/.htaccess.dist) | The Jellyfin-compatible API |
 | [public/.htaccess.dist](https://github.com/ampache/ampache/blob/develop/public/.htaccess.dist) | Optional: a user art redirect, private file blocking and bot filtering |
 | [docs/examples/apache-site.conf](https://github.com/ampache/ampache/blob/develop/docs/examples/apache-site.conf) | A complete Apache vhost, for running with `AllowOverride None` |
 | [docs/examples/nginx-site.conf](https://github.com/ampache/ampache/blob/develop/docs/examples/nginx-site.conf) | The same rules written for nginx |
@@ -103,9 +105,9 @@ With `AllowOverride None`, Apache reads no `.htaccess` file at all and silently 
 
 ### Creating the .htaccess files
 
-The web installer offers to write the `play` and `rest` files for you, and it can fill in your web path while it does.
+The web installer offers to write the `play`, `rest` and `jellyfin` files for you, and it can fill in your web path while it does.
 
-If you installed another way, or deleted them, generate the same two from the CLI.
+If you installed another way, or deleted them, generate the same three from the CLI.
 
 ```shell
 php bin/installer htaccess -e
@@ -124,6 +126,7 @@ You can copy the files by hand instead if you prefer.
 ```shell
 cp public/play/.htaccess.dist public/play/.htaccess
 cp public/rest/.htaccess.dist public/rest/.htaccess
+cp public/jellyfin/.htaccess.dist public/jellyfin/.htaccess
 cp public/.htaccess.dist public/.htaccess
 ```
 
@@ -139,12 +142,18 @@ The rules go directly in your site config instead.
 
 Copy them from [docs/examples/nginx-site.conf](https://github.com/ampache/ampache/blob/develop/docs/examples/nginx-site.conf), which is a complete working server block.
 
-The important parts are the `location /rest/` block and the `/play/` rewrites.
+The important parts are the `location /rest/` block, the `/play/` rewrites, and `location /jellyfin`.
 
 ```nginx
 location /rest/ {
     rewrite ^/rest/([^/]+)\.view$ /rest/index.php?ssaction=$1 last;
     rewrite ^/rest/fake/(.+)$ /play/$1 last;
+}
+
+location /jellyfin {
+    if (!-e $request_filename) {
+        rewrite ^/jellyfin/(.+)$ /jellyfin/index.php?jf_path=$1 last;
+    }
 }
 ```
 
@@ -219,6 +228,15 @@ A working setup returns `200` and a small JSON body containing `"status": "ok"`.
 
 A missing rewrite returns `404`, usually with your webserver's own error page rather than anything from Ampache.
 
+If you use the Jellyfin API, check its path too:
+
+```shell
+curl -i 'http://your-server/jellyfin/System/Ping'
+```
+
+A working setup returns `200`. A `503` means rewriting is fine but the backend itself is disabled — see the
+[Jellyfin API](/docs/configuration/jellyfin) page. A `404` means the rewrite rule is missing.
+
 Test streaming separately, since it uses different rules.
 
 Play a song in the web interface and confirm audio actually starts.
@@ -244,6 +262,13 @@ Rewriting is off, or `.htaccess` is being ignored. Check `mod_rewrite` and `Allo
 **Subsonic works but the REST API does not.**
 
 Your `public/rest/.htaccess` predates Ampache8. Regenerate it with `bin/installer htaccess -e`.
+
+**A Jellyfin client cannot add the server, or everything under `/jellyfin/` 404s.**
+
+Same cause as the REST API case above: rewriting is missing for that path. Regenerate it with
+`bin/installer htaccess -e`, and check the [Jellyfin API](/docs/configuration/jellyfin) page has the backend
+enabled too — a disabled backend answers with `503`, not `404`, so a `404` there always means the rewrite
+rule itself.
 
 **Browsing works but nothing plays.**
 

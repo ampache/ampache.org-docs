@@ -57,6 +57,12 @@ Refer to the [Subsonic](/api/subsonic) wiki pages for information about how Ampa
 
 In Dsub, if you have trouble browsing your library, you may try enabling the "Browse By Tags" option in your server settings.
 
+## Jellyfin API clients
+
+Ampache provides a [Jellyfin-compatible](https://jellyfin.org/) API backend for audio clients. This makes it compatible with Jellyfin music apps such as [Finamp](https://github.com/jmshrv/finamp), [Symfonium](https://symfonium.app/) and [gelly](https://f-droid.org/en/packages/oss.krtaozz.music/), without needing to run a Jellyfin server.
+
+See the [Jellyfin API](/docs/configuration/jellyfin) page for how to enable it and connect a client.
+
 ## UPnP/DLNA clients
 
 Ampache provides a [UPnP/DLNA](https://en.wikipedia.org/wiki/Universal_Plug_and_Play) backend. This makes it compatible with any UPnP/DLNA client. Visit Wikipedia to view a list of [UPnP players](https://en.wikipedia.org/wiki/List_of_UPnP_AV_media_servers_and_clients#UPnP_control_points_and_player_software).

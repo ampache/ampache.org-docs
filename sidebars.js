@@ -91,6 +91,7 @@ const sidebars = {
         'docs/configuration/oidc',
         'docs/configuration/api',
         'docs/configuration/subsonic',
+        'docs/configuration/jellyfin',
         'docs/configuration/cron',
         {
           type: 'category',
