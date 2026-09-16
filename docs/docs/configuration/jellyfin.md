@@ -6,16 +6,13 @@ description: "Ampache Jellyfin-compatible API"
 
 ## Ampache Jellyfin API
 
-Ampache8 can emulate enough of the Jellyfin server protocol for **Jellyfin audio clients** to
-browse and stream your Ampache catalog, without running Jellyfin itself.
+Ampache8 can emulate enough of the Jellyfin server protocol for **Jellyfin audio clients** to browse and stream your Ampache catalog, without running Jellyfin itself.
 
 This is **audio only**. No video, no podcasts, no live TV and no plugin support.
 
-Direct play always works. The server can also transcode when it makes sense — for example when your admin
-has configured a different streaming format, or when a client asks for a lower bitrate than the source file
-— using the same transcoding engine as the rest of Ampache. See [Transcoding](/docs/configuration/transcoding)
-for how to configure formats and bitrates; this uses your existing settings rather than needing separate
-Jellyfin-specific ones.
+Direct play always works. The server can also transcode when it makes sense using the same transcoding engine as the rest of Ampache.
+
+See [Transcoding](/docs/configuration/transcoding) for how to configure formats and bitrates; this uses your existing settings rather than needing separate Jellyfin-specific ones.
 
 Confirmed working clients:
 
@@ -65,9 +62,9 @@ use. If a client cannot find the server at all, or every request 404s, check you
 [Rewrite Rules](/docs/installation/rewrite-rules) for how to set this up on Apache, nginx and other
 webservers.
 
-If rewriting is fine but the client still cannot connect, confirm the backend is actually enabled: a request
-to `/jellyfin/System/Ping` returns `503 Service Unavailable` with the message `Jellyfin backend is disabled`
-until you turn on **Use Jellyfin backend** above.
+If rewriting is fine but the client still cannot connect, confirm the backend is actually enabled.
+
+A request to `/jellyfin/System/Ping` returns `503 Service Unavailable` with the message `Jellyfin backend is disabled` until you turn on **Use Jellyfin backend** above.
 
 ```shell
 curl -i https://demo.ampache.dev/jellyfin/System/Ping
