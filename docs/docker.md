@@ -316,6 +316,12 @@ The automated builds for the official repo are now built for linux/amd64, linux/
 
 Building [tinysub](#tinysub) inside the container is slow on ARM boards. Use `TINYSUB_DIST` to install a copy you built elsewhere if the first start takes too long.
 
+## Easypanel
+
+[Easypanel](https://easypanel.io/) can deploy Ampache with one click using its [official template](https://easypanel.io/templates/ampache), which runs this Docker image for you and mounts persistent volumes for config, logs, and MySQL data automatically. You'll still need to point it at a media directory and complete the [web-based installer](#installation) below on first run.
+
+![image](/img/easypanel_deployed.png)
+
 ## Installation
 
 1. Open [http://localhost/install.php](http://localhost/install.php) and click **Start Configuration**, then **Continue**
