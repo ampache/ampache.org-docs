@@ -49,7 +49,7 @@ interface (not your API key).
 Some Jellyfin clients can request a short numeric code instead of asking for a password, and let you approve
 the sign-in from somewhere you are already logged in. To allow this:
 
-1. In **Admin > Server Config > System > Backend**, enable **Use Jellyfin QuickConnect**.
+1. In **Admin > Server Config > System > Backend**, enable **Enable QuickConnect service**.
 2. On the device you are signing in, choose QuickConnect and note the code it shows.
 3. From your own account, open **Preferences > QuickConnect** and enter that code, then **Approve**.
 
