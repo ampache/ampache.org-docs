@@ -167,7 +167,7 @@ what plays next or driving a separate player like MPD.
 
 ### The wanted list
 
-Ampache has a [Wanted list](/docs/plugins/plugins#wanted-plugins): if a MusicBrainz release you own is
+Ampache has a [Wanted list](/docs/plugins/#wanted-plugins): if a MusicBrainz release you own is
 missing tracks, you can mark it as wanted, and an optional plugin like Headphones can pick that up and
 fetch the rest automatically. Navidrome doesn't have an equivalent feature.
 
@@ -177,7 +177,7 @@ Both servers have a plugin system, aimed at different things. Ampache's plugins 
 grouped into categories: metadata and lyrics lookups, album art sources, scrobbling (Last.FM, Libre.FM,
 ListenBrainz), sharing to external sites, URL shorteners, homepage widgets, avatars, geolocation, wanted-list
 handling, song previews and per-user stream limits, alongside the sonic analysis category the AudioMuse
-plugin uses and catalog/Localplay modules for new backends. See [Ampache Plugins](/docs/plugins/plugins)
+plugin uses and catalog/Localplay modules for new backends. See [Ampache Plugins](/docs/plugins)
 for the full list. Navidrome's plugins are newer and run sandboxed in WebAssembly, currently covering
 metadata agents, scrobblers, scheduled tasks and event handlers, a narrower but growing set of extension
 points.
