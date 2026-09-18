@@ -7,7 +7,7 @@ description: "Ampache.org"
 <div class="article">
 <p class="article-p text--center">
 A web based audio/video streaming application and file manager.<br/>
-Allowing you to access your music &amp; videos from anywhere, using almost any internet enabled device.
+Allowing you to access your music and videos from anywhere, using almost any internet enabled device.
 </p>
 </div>
 
@@ -51,6 +51,48 @@ Allowing you to access your music &amp; videos from anywhere, using almost any i
     </p>
     <p class="article-p">
     <a class="box--link" href="/docs/clients" title="read more">read more</a>
+    </p>
+  </div>
+</div>
+
+<div class="display--flex">
+  <div class="article--box">
+    ### One server, every client protocol
+    <p class="article-p">
+    Ampache doesn't lock you into one app. The same catalog is served over its native API, a full <a href="/api/subsonic">Subsonic and OpenSubsonic</a> backend, a <a href="/docs/configuration/jellyfin">Jellyfin-compatible</a> backend, DAAP and UPnP/DLNA, all at once. Point Finamp, Symfonium, DSub, Sonixd, iTunes or your TV's DLNA player at the same server and they all just work.
+    </p>
+    <p class="article-p">
+    <a class="box--link" href="/docs/clients" title="read more">read more</a>
+    </p>
+  </div>
+  <div class="article--box">
+    ### More than music
+    <p class="article-p">
+    Video lives in the same catalog as your music. Podcasts sync on a schedule, live radio streams play alongside your library, and Collections let you group anything (songs, albums, videos, playlists) into a single browsable shelf.
+    </p>
+    <p class="article-p">
+    <a class="box--link" href="/docs/configuration" title="read more">read more</a>
+    </p>
+  </div>
+</div>
+
+<div class="display--flex">
+  <div class="article--box">
+    ### Sonic similarity and smart discovery
+    <p class="article-p">
+    Go beyond last.fm-style metadata matches. With the <a href="/docs/plugins/audiomuse">AudioMuse</a> plugin Ampache can find tracks that actually *sound* alike and build a listening path between two songs, exposed through the OpenSubsonic <code>sonicSimilarity</code> extension and the native API. Combine that with Moods, BPM tagging and dynamic smart playlists to keep discovering your own library.
+    </p>
+    <p class="article-p">
+    <a class="box--link" href="/docs/plugins/audiomuse" title="read more">read more</a>
+    </p>
+  </div>
+  <div class="article--box">
+    ### Built for real libraries
+    <p class="article-p">
+    Multi-disc albums, box sets, real folder browsing, multi-artist tagging, catalog filters per user, and remote catalogs pulled in from another Ampache server, a Subsonic server, Beets or SoundCloud. Democratic playback and Localplay let a whole room vote on and control what plays next on shared speakers.
+    </p>
+    <p class="article-p">
+    <a class="box--link" href="/docs/information/ampache-vs-navidrome" title="see how Ampache compares">see how Ampache compares</a>
     </p>
   </div>
 </div>

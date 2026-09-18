@@ -38,8 +38,8 @@ Point your Jellyfin client at your server's `/jellyfin` path, for example:
 https://demo.ampache.dev/jellyfin
 ```
 
-The `/jellyfin` part matters — Ampache serves this protocol from a subpath rather than the site root, so it
-has to be part of the server address you give the client, not just the hostname.
+The `/jellyfin` part matters, since Ampache serves this protocol from a subpath rather than the site root,
+so it has to be part of the server address you give the client, not just the hostname.
 
 Log in with your normal Ampache **username and password**, the same credentials you use for the web
 interface (not your API key).
@@ -58,7 +58,7 @@ The device signs in automatically once approved.
 ## Errors connecting
 
 Everything under `/jellyfin` is served through URL rewriting, the same mechanism Subsonic and the REST API
-use. If a client cannot find the server at all, or every request 404s, check your rewrite rules first — see
+use. If a client cannot find the server at all, or every request 404s, check your rewrite rules first, see
 [Rewrite Rules](/docs/installation/rewrite-rules) for how to set this up on Apache, nginx and other
 webservers.
 

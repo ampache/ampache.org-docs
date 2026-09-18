@@ -45,6 +45,7 @@ const sidebars = {
     {type: 'link', label: 'Home', href: '/'},
     'docs/docs',
     'docs/information/ampache-use-cases',
+    'docs/information/ampache-vs-navidrome',
     {
       type: 'link',
       label: 'Screenshots',

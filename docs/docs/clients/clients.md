@@ -10,6 +10,8 @@ Ampache runs on a web interface allowing you to play media directly from your we
 
 Thanks to its API, Ampache has also been integrated and can be used with many clients on several platforms. You should take a look at the [API](/docs/clients/api) page for details on how to setup these APIs.
 
+Unlike most self-hosted music servers, Ampache doesn't make you pick a single protocol. The native API, Subsonic and OpenSubsonic, the Jellyfin-compatible backend, UPnP/DLNA, and DAAP are all served from the same catalog at the same time, so whichever app you or your users already have installed will work. See [how Ampache compares](/docs/information/ampache-vs-navidrome) to other servers for more on this.
+
 ## Playlist only clients
 
 Ampache can generate a URL to stream everything you can play on the site to be used anywhere that supports HTTP streams.
@@ -51,17 +53,33 @@ Check out the [API Client](/api) page for information about the clients, librari
 
 ## Subsonic API clients
 
-Ampache provides a [Subsonic](http://www.subsonic.org/pages/index.jsp) API backend. This makes it compatible with any Subsonic client. Check out the official list of [Subsonic Apps](http://www.subsonic.org/pages/apps.jsp).
+Ampache provides a [Subsonic](http://www.subsonic.org/pages/index.jsp) API backend, implementing the full Subsonic specification as well as the full [OpenSubsonic](https://opensubsonic.netlify.app/) specification, not just a subset. This makes it compatible with any Subsonic or OpenSubsonic client. Check out the official list of [Subsonic Apps](http://www.subsonic.org/pages/apps.jsp).
 
-Refer to the [Subsonic](/api/subsonic) wiki pages for information about how Ampache implements the API.
+Refer to the [Subsonic](/api/subsonic) wiki pages for information about how Ampache implements the API, including the OpenSubsonic extensions it reports.
+
+If you install the [AudioMuse plugin](/docs/plugins/audiomuse), OpenSubsonic clients that support the `sonicSimilarity` extension can also use Ampache to find songs that sound alike, not just songs that share metadata.
 
 In Dsub, if you have trouble browsing your library, you may try enabling the "Browse By Tags" option in your server settings.
 
 ## Jellyfin API clients
 
-Ampache provides a [Jellyfin-compatible](https://jellyfin.org/) API backend for audio clients. This makes it compatible with Jellyfin music apps such as [Finamp](https://github.com/jmshrv/finamp), [Symfonium](https://symfonium.app/) and [gelly](https://f-droid.org/en/packages/oss.krtaozz.music/), without needing to run a Jellyfin server.
+Ampache provides a [Jellyfin-compatible](https://jellyfin.org/) API backend for audio clients, so Jellyfin
+music apps can browse and stream your Ampache catalog without a real Jellyfin server running anywhere.
+It's audio only (no video, podcasts, live TV or Jellyfin plugin support), and direct play as well as
+server-side transcoding both work using Ampache's normal transcoding settings.
 
-See the [Jellyfin API](/docs/configuration/jellyfin) page for how to enable it and connect a client.
+Confirmed working clients:
+
+|                          Client Name                          | Operating Systems |                     Description                      |
+|:--------------------------------------------------------------:|:------------------:|:-----------------------------------------------------:|
+|        [Finamp](https://github.com/jmshrv/finamp)             |   Android / iOS   |      Jellyfin music player built for offline use      |
+|          [Symfonium](https://symfonium.app/)                  |      Android      | Feature-rich Jellyfin/Subsonic/Emby music player      |
+| [gelly](https://f-droid.org/en/packages/oss.krtaozz.music/)   |      Android      |         Lightweight Jellyfin music client             |
+
+Any other Jellyfin-compatible audio client should work too, since Ampache answers the same API calls a real
+Jellyfin server does for browsing and streaming music.
+
+See the [Jellyfin API](/docs/configuration/jellyfin) page for how to enable the backend and connect a client.
 
 ## UPnP/DLNA clients
 

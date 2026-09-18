@@ -24,7 +24,9 @@ There are some great options out there for streaming you media. However, they us
 
 ### Powerful API and streaming to any client
 
-If you use Plex, you're stuck with their proprietary apps. You would be hard-pressed to find a music client not compatible with Ampache. By default, you can use the web interface which requires nothing! Otherwise you have the option of a number of native Ampache apps, playlist streaming to apps like VLC, WinAMP, Foobar2000, Windows Media Player, Subsonic API allowing use of all Subsonic clients, UPnP/DLNA, and DAAP with iTunes. Visit the [clients page/docs/clients) for more information.
+If you use Plex, you're stuck with their proprietary apps. You would be hard-pressed to find a music client not compatible with Ampache. By default, you can use the web interface which requires nothing! Otherwise you have the option of a number of native Ampache apps, playlist streaming to apps like VLC, WinAMP, Foobar2000, Windows Media Player, a full [Subsonic and OpenSubsonic API](/docs/configuration/subsonic) allowing use of any Subsonic client, a [Jellyfin-compatible API](/docs/configuration/jellyfin) for Jellyfin audio apps like Finamp and Symfonium, UPnP/DLNA, and DAAP with iTunes. Ampache serves every one of these protocols from the same catalog at the same time, so you're never limited to a single ecosystem of apps. Visit the [clients page](/docs/clients) for more information.
+
+Ampache8 implements the **entire** OpenSubsonic specification, not just a subset, including extensions like `playbackReport`, `topSongsByArtistId`, `transcodeOffset` and, with the AudioMuse plugin installed, `sonicSimilarity`. See the [Subsonic API docs](/api/subsonic) for the full extension list.
 
 ### Flexible catalogs
 
@@ -52,27 +54,41 @@ Originally released in 2001, Ampache has maintained a somewhat small but fiercel
 
 ## Features
 
-* Modern HTML5 [Web Player](/docs/information/web-player) (embedded or popup)
-* [Subsonic Backend](/docs/configuration/subsonic) - Compatibility with any Subsonic client
-* [DAAP Backend](/docs/configuration/api#daap-api)
-* [UPnP Backend](/docs/configuration/api#upnp--dlna-api)
-* [Localplay for Httpq/MPD/VLC/XBMC](/docs/configuration/localplay) and [Democratic Playlists](/docs/configuration/democratic)
-* Live streams/radio
-* Subsonic remote catalog (you can import music coming from an existing Subsonic instance)
-* SoundCloud remote catalog
-* Second Ampache instance as a remote catalog
-* Song lyrics from ChartLyrics and LyricsWiki
-* Metadata from MusicBrainz
-* Get similar artists/biography/pictures asynchronously from Last.FM
-* Transcoding (Live transcoding fully configurable using ffmpeg, avconv, neatokeen or any other command)
+### Clients and protocols
+
+* Modern HTML5 [Web Player](/docs/information/web-player) (embedded or popup) with a built-in equalizer, visualizer and a dedicated mini player for phones
+* [Subsonic and OpenSubsonic Backend](/docs/configuration/subsonic) - the full specification, not a subset, so any Subsonic/OpenSubsonic client works
+* [Jellyfin-compatible Backend](/docs/configuration/jellyfin) for Jellyfin audio clients such as Finamp, Symfonium and gelly, without running a Jellyfin server
+* [DAAP Backend](/docs/configuration/api#daap-api) for iTunes and other DAAP clients
+* [UPnP/DLNA Backend](/docs/configuration/api#upnp--dlna-api) for TVs, receivers and other UPnP players
+* Native [JSON/XML API](/api) and a fully documented [REST/OpenAPI](/rest) surface, versioned so old clients keep working across upgrades
+* [Localplay for Httpq/MPD/VLC/XBMC](/docs/configuration/localplay) and [Democratic Playlists](/docs/configuration/democratic) so a room full of users can vote on and control shared speakers
+
+### Library and discovery
+
+* Video alongside your music in the same catalog
+* Real folder browsing of your catalog, not just a tag-simulated view
+* Collections - group anything (songs, albums, videos, playlists) into a single browsable shelf
+* Moods and track BPM tagging, both searchable and both survive a rescan once hand-set
+* Sonic similarity via the [AudioMuse plugin](/docs/plugins/audiomuse) - find tracks that actually sound alike and build a listening path between two songs, on top of the usual Last.FM-style similar artists/biography/pictures
+* Dynamic/smart playlists based on search results which update as your catalog updates, plus Playlist Folders to organize them
+* Live streams/radio, [Podcasts](/docs/configuration/podcasts) that sync on a schedule, and [Broadcasting/channels](/docs/configuration/broadcasts)
+* Subsonic, Beets and SoundCloud remote catalogs, plus importing from a second Ampache instance
+* Song lyrics from ChartLyrics and LyricsWiki, metadata from MusicBrainz and TheAudioDB
+
+### Playback and access control
+
+* Transcoding (Live transcoding fully configurable using ffmpeg, avconv, neatokeen or any other command), configurable per user/player
 * Configurable automatic downsampling based on bandwidth usage
 * Album art gathered from Amazon, a specified url, or from the filesystem
-* Dynamic playlists based on search results which update as your catalog updates
 * Per user theme preference and easy theming interface
-* Several authentication methods, can be turned off completely for internal instances
-* Per User statistics of song/album/artist/genre played
-* Democratic Playback based on communal votes from your users to a single output source.
+* Several authentication methods - MySQL, LDAP, HTTP, PAM, OpenID Connect (OIDC), or other external methods - can be turned off completely for internal instances
+* Per User statistics of song/album/artist/genre played, with sharper statistics graphs
 * ... And more!
+
+## How does Ampache compare?
+
+Curious how Ampache stacks up against other self-hosted music servers like Navidrome? Read the [feature-by-feature comparison](/docs/information/ampache-vs-navidrome).
 
 ## Is Ampache Right for Me?
 
