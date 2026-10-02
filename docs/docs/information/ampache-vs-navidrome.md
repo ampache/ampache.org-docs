@@ -38,7 +38,7 @@ Navidrome moves fast too, so if something below is out of date, please [open an 
 | Command-line administration | Yes, `bin/cli` (users, catalogs, plugins, database, exports) | Yes, `navidrome` subcommands (users, scans, backups, plugins) |
 | Localplay (control an MPD/VLC/Kodi/httpq output) | Yes | Jukebox mode (server-side audio device only) |
 | WebDAV access (mount your library as a network drive) | Yes, built in | No |
-| Wanted list (track missing albums via MusicBrainz, optionally auto-download) | Yes | No |
+| Wanted list (track missing albums via MusicBrainz) | Yes | No |
 | Democratic/voted playback | Yes | No |
 | Podcasts | Yes, with scheduled sync | No |
 | Live broadcast/listen-along (multiple users hear the same playback in sync) | Yes | No |
@@ -82,7 +82,7 @@ Navidrome supports OpenSubsonic too, currently covering a smaller set of the ext
 
 Navidrome is a music server by design and doesn't catalog video. Ampache catalogs and streams video
 alongside music, so one server can cover a household's music *and* video library instead of needing a
-second application like Jellyfin or Plex for video.
+second application like Jellyfin or Plex for video. **BUT** Jellyfin is a much better TV and Movie platform.
 
 ### Two ways to browse your library
 
@@ -90,8 +90,7 @@ Navidrome deliberately organizes everything by tags rather than by filesystem fo
 design choice explained on their [FAQ](https://www.navidrome.org/docs/faq/#can-you-add-a-browsing-by-folder-optionmode-to-navidrome):
 a strict tag-only model keeps their album/artist grouping logic simple and predictable, at the cost of not
 helping libraries that aren't consistently tagged. Ampache takes the other approach and gives you both: the
-usual tag-based browsing, plus a real filesystem folder view of your catalog, which is useful if your files
-aren't neatly tagged or you organize by folder on purpose.
+usual tag-based browsing, plus a real filesystem folder view of your catalog, which is useful if you organize by folder.
 
 ### Uploads, tag writing and file management
 
@@ -107,6 +106,8 @@ them (off by default, an admin turns it on), and can rename or move files on dis
 naming pattern, either automatically on scan or with the `cleanup:sortSongs` command. If you'd rather your
 library stayed completely untouched by the server, Navidrome's stance is the safer default; if you want to
 manage uploading, tagging and renaming from the same place you stream from, Ampache can do that too.
+
+**NOTE** That all these features are optional in Ampache. You can disable these options and keep your catalogs read only without issue.
 
 ### Smart playlists with a built-in UI
 

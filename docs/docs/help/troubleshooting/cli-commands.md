@@ -148,7 +148,7 @@ The `-v` verify switch from Ampache 4 is now `-e`.
 | `run:convertFilenames` | Convert file names in the database to a different character set. `--charset` picks the target.                     |
 | `run:broadcast`        | Run a UPnP broadcast.                                                                                              |
 | `run:websocket`        | Run the WebSocket server used by the now-playing broadcast feature. `--port` defaults to 8100.                     |
-| `run:updateDb`         | Update the database collation and character set. Dry run until `-x\|--execute`.                                    |
+| `run:updateDb`         | Check, and only fix, database/table/column charset, collation and engine mismatches against `resources/sql/ampache.sql` (engine against your config). Dry run until `-x\|--execute`. |
 
 ## cleanup: housekeeping
 
