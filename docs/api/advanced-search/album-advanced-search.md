@@ -87,6 +87,7 @@ Select the type of search based on the type of data you are searching for. (song
 | image_height              | Image Height                        | numeric           |
 | recent_added              | Recently Added                      | recent_added      |
 | days_added                | Added                               | days              |
+| days_updated              | Updated                             | days              |
 | possible_duplicate        | Possible Duplicate                  | is_true           |
 | possible_duplicate_album  | (*Alias of possible_duplicate)      | is_true           |
 | duplicate_tracks          | Duplicate Album Tracks              | is_true           |
