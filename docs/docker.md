@@ -14,13 +14,11 @@ description: "Run Ampache with docker"
 
 ### Ampache8 images
 
-The images on this page build Ampache7, which is the current stable release. Official Ampache8 images will start being built closer to the Ampache8 release.
+Ampache 8 has released with a config change to be aware of. We now default `memory_cache` to true.
 
-If you want to run Ampache8 code before then, the [`preview`](#ampachepreview) and [`nosql-preview`](#ampachenosql-develop-and-ampachenosql-preview) tags are built from the Ampache `develop8` branch. These are development builds, so expect them to break.
+This means that Ampache 8 uses more memory than Ampache 7 by default.
 
-The `docker-compose.yml` in the [Ampache repository](https://github.com/ampache/ampache) itself is a full Ampache8 development stack: it builds `docker/Dockerfilephp85` (PHP 8.5) alongside a MariaDB service, and can install the database and create the admin user on first run. See [Ampache8 for Admins](/docs/help/troubleshooting/ampache8-for-admins#docker) for the environment variables it takes.
-
-That is a different file to the `docker-compose.yml` in the ampache-docker repository described below.
+The default memory limit of the images has been increased from 128M to 512M to compensate.
 
 ### Debian Trixie
 
@@ -187,6 +185,36 @@ Optionally, the media directory should be writable as if you wish to allow uploa
 ```shell
 chgrp 33 ./data/media && chmod g+w ./data/media
 ```
+
+## Backups
+
+The image ships `backup-db.sh`, which dumps your Ampache database using the credentials already stored in `ampache.cfg.php`. It needs no arguments:
+
+```shell
+docker exec ampache backup-db.sh
+```
+
+Each run writes a dated SQL file to `/var/www/backup`, e.g. `/var/www/backup/2026-10-12.sql`.
+
+With `docker-compose.yml` this is already bind mounted via `./data/backup`, so dumps land on the host. If you're using `docker run` instead, add the mount yourself:
+
+```shell
+docker run --name=ampache -d -v ./data/backup:/var/www/backup -v /path/to/your/music:/media:ro -p 80:80 ampache/ampache
+```
+
+Schedule it from the host with cron for regular backups, for example nightly at 3am:
+
+```shell
+0 3 * * * docker exec ampache backup-db.sh
+```
+
+To restore a dump, pipe it into `mysql` using the same database credentials from `ampache.cfg.php`:
+
+```shell
+docker exec -i ampache mysql -u<database_username> -p<database_password> <database_name> < ./data/backup/2026-10-12.sql
+```
+
+Only the database is backed up this way. Your Ampache configuration (`./data/config`) and media (`./data/media`) are your own bind mounts, so back those up separately with your usual host backup tooling.
 
 ## Image Variants
 
