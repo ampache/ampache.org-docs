@@ -257,6 +257,16 @@ In your server conf you can bypass that security measure by enabling `ap_trust_c
 </Directory>
 ```
 
+Catalog updates report progress over Server-Sent Events, which Apache's `mod_proxy_fcgi` buffers by default: progress arrives all at once when the scan finishes instead of live, or not at all until the connection times out.
+
+Add `flushpackets=on` to the same php-fpm worker your `SetHandler`/`ProxyPassMatch` directive already connects through:
+
+```conf
+<Proxy "unix:/run/php/php8.5-fpm.sock|fcgi://localhost">
+    ProxySet flushpackets=on
+</Proxy>
+```
+
 If you would rather start from a complete vhost, [docs/examples/apache-site.conf](https://github.com/ampache/ampache/blob/develop/docs/examples/apache-site.conf) is a working one.
 
 It carries the `ap_trust_cgilike_cl` setting above, php-fpm and websocket wiring, and the rules that keep `config`, `src` and `vendor` from being served.
