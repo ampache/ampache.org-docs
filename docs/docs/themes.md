@@ -10,6 +10,102 @@ Ampache has an integrated theme system that allows users to modify the CSS/image
 
 Themes live in **public/themes/** in a git checkout. A packaged release copies the contents of `public/` to the webroot, so on an installed server the same directory is simply **themes/**. Paths on this page are given from the source tree.
 
+## Reborn colors
+
+Ampache ships one theme, **reborn**, with various colors to choose from under **Preferences → Interface → Theme color**.
+
+<table>
+<tr>
+<td align="center">
+
+![Dark](/img/themes/theme-dark.png)<br/>**Dark**
+
+</td>
+<td align="center">
+
+![Light](/img/themes/theme-light.png)<br/>**Light**
+
+</td>
+<td align="center">
+
+![Dusk](/img/themes/theme-dusk.png)<br/>**Dusk**
+
+</td>
+</tr>
+<tr>
+<td align="center">
+
+![Dawn](/img/themes/theme-dawn.png)<br/>**Dawn**
+
+</td>
+<td align="center">
+
+![Sepia](/img/themes/theme-sepia.png)<br/>**Sepia**
+
+</td>
+<td align="center">
+
+![High-Contrast](/img/themes/theme-high-contrast.png)<br/>**High-Contrast**
+
+</td>
+</tr>
+<tr>
+<td align="center">
+
+![Nord](/img/themes/theme-nord.png)<br/>**Nord**
+
+</td>
+<td align="center">
+
+![Dracula](/img/themes/theme-dracula.png)<br/>**Dracula**
+
+</td>
+<td align="center">
+
+![Gruvbox](/img/themes/theme-gruvbox.png)<br/>**Gruvbox**
+
+</td>
+</tr>
+<tr>
+<td align="center">
+
+![Catppuccin Mocha](/img/themes/theme-catppuccin-mocha.png)<br/>**Catppuccin Mocha**
+
+</td>
+<td align="center">
+
+![Tokyo Night](/img/themes/theme-tokyo-night.png)<br/>**Tokyo Night**
+
+</td>
+<td align="center">
+
+![Monokai](/img/themes/theme-monokai.png)<br/>**Monokai**
+
+</td>
+</tr>
+<tr>
+<td align="center">
+
+![Rosé Pine](/img/themes/theme-rose-pine.png)<br/>**Rosé Pine**
+
+</td>
+<td align="center">
+
+![Solarized Dark](/img/themes/theme-solarized-dark.png)<br/>**Solarized Dark**
+
+</td>
+<td align="center">
+
+![Solarized Light](/img/themes/theme-solarized-light.png)<br/>**Solarized Light**
+
+</td>
+</tr>
+</table>
+
+Dark, Light, Dusk, Dawn, Sepia and High-Contrast are based on reborn's own palettes.
+
+Nord, Dracula, Gruvbox, Catppuccin Mocha, Tokyo Night, Monokai, Rosé Pine and the Solarized pair follow the same well-known community color schemes you may recognize from terminals, editors and other self-hosted music clients such as Navidrome.
+
 ## Theme Directory Structure
 
 The theme directory is fairly straightforward.

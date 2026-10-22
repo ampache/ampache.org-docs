@@ -506,16 +506,18 @@ Just add 1 to the rule value to create a new group of rules.
 * Optional (Metadata searches **only**)
   * rule_1_subtype
 
-| Input    | Type    | Description                                            | Optional |
-|----------|---------|--------------------------------------------------------|---------:|
-| operator | string  | and, or (whether to match one rule or all)             |       NO |
-| rule_*   | array   | [`rule_1`, `rule_1_operator`, `rule_1_input`]          |       NO |
-| rule_*   | array   | [`rule_2`, `rule_2_operator`, `rule_2_input`], [etc]   |      YES |
-| type     | string  | `song`, `album`, `artist`, `label`, `playlist`         |       NO |
-|          |         | `podcast`, `podcast_episode`, `genre`, `user`, `video` |          |
-| random   | boolean | `0`, `1` (random order of results; default to 0)       |      YES |
-| 'offset' | integer | Return results starting from this index position       |      YES |
-| 'limit'  | integer | Maximum number of results to return                    |      YES |
+| Input            | Type    | Description                                                           | Optional |
+|------------------|---------|-----------------------------------------------------------------------|---------:|
+| operator         | string  | and, or (whether to match one rule or all)                            |       NO |
+| rule_*           | array   | [`rule_1`, `rule_1_operator`, `rule_1_input`]                         |       NO |
+| rule_*           | array   | [`rule_2`, `rule_2_operator`, `rule_2_input`], [etc]                  |      YES |
+| rule_*_group     | integer | Group id for this rule, to combine it with other rules sharing the id |      YES |
+| group_*_operator | string  | `and`, `or` (operator joining the rules assigned to that group id)    |      YES |
+| type             | string  | `song`, `album`, `artist`, `label`, `playlist`                        |       NO |
+|                  |         | `podcast`, `podcast_episode`, `genre`, `user`, `video`                |          |
+| random           | boolean | `0`, `1` (random order of results; default to 0)                      |      YES |
+| 'offset'         | integer | Return results starting from this index position                      |      YES |
+| 'limit'          | integer | Maximum number of results to return                                   |      YES |
 
 * return array
 
@@ -2735,7 +2737,7 @@ Return Database lyrics or search with plugins by Song id
 * return object
 
 <!-- GENERATED:RESPONSE:BEGIN -->
-`plugin` is keyed by lyric source (`database` plus any lyric-retriever plugin that answered). When nothing answered it is serialised as an empty array, not an empty object.
+`plugin` is keyed by lyric source (`database` plus any lyric-retriever plugin that answered). When nothing answered it is serialized as an empty array, not an empty object.
 
 | Field       | Type         | Nullable | Optional | Notes                   |
 |-------------|--------------|:--------:|:--------:|-------------------------|
@@ -3509,7 +3511,7 @@ Return the `now_playing` state when completed
 |----------|---------|------------------------------------------------------|---------:|
 | 'filter' | string  | $object_id currently playing/stopping                |       NO |
 | 'type'   | string  | `song`, `video`, `podcast_episode` (Default: `song`) |      YES |
-| 'state'  | string  | `play`, `stop` (Default: `play`)                     |      YES |
+| 'state'  | string  | `play`, `pause`, `stop` (Default: `play`)            |      YES |
 | 'time'   | integer | current play time in whole seconds (Default: 0)      |      YES |
 | 'client' | string  | agent/client name                                    |      YES |
 
@@ -4054,7 +4056,7 @@ Each `song` entry ([SongObject](#song)):
 
 ### playlist_folders
 
-A playlist folder organises playlists, smartlists and collections into a private tree. The tree belongs to the calling user alone and is never visible to another user, so filing someone else's public playlist changes nothing for them.
+A playlist folder organizes playlists, smartlists and collections into a private tree. The tree belongs to the calling user alone and is never visible to another user, so filing someone else's public playlist changes nothing for them. Other users' top-level public folders are appended after it; `hidden` marks the ones this caller has chosen to hide from their own root, without dropping them from the list.
 
 This returns the whole tree as a flat list; rebuild the hierarchy from each folder's `parent`, where 0 is the root.
 
@@ -4082,6 +4084,8 @@ Each `playlist_folder` entry ([PlaylistFolderObject](#playlist_folders)):
 | name       | string  |    NO    |    NO    |       |
 | parent     | string  |    NO    |    NO    |       |
 | sort_order | integer |    NO    |    NO    |       |
+| type       | string  |    NO    |    NO    |       |
+| hidden     | boolean |    NO    |    NO    |       |
 | items      | integer |    NO    |    NO    |       |
 <!-- GENERATED:RESPONSE:END -->
 
@@ -4118,6 +4122,8 @@ Each `playlist_folder` entry ([PlaylistFolderObject](#playlist_folders)):
 | name       | string  |    NO    |    NO    |       |
 | parent     | string  |    NO    |    NO    |       |
 | sort_order | integer |    NO    |    NO    |       |
+| type       | string  |    NO    |    NO    |       |
+| hidden     | boolean |    NO    |    NO    |       |
 | items      | integer |    NO    |    NO    |       |
 <!-- GENERATED:RESPONSE:END -->
 
@@ -4136,8 +4142,9 @@ Create a folder in the calling user's tree. The name may not contain a `/`, beca
 | 'name'       | string  | Folder name                           |       NO |
 | 'parent'     | string  | Parent folder as an id or a name path |      YES |
 | 'sort_order' | integer | Position among its siblings           |      YES |
+| 'type'       | string  | `private`, `public`                   |      YES |
 
-`parent` defaults to the root when omitted; `sort_order` defaults to appended (last among its siblings) when omitted.
+`parent` defaults to the root when omitted; `sort_order` defaults to appended (last among its siblings) when omitted; `type` defaults to `private` when omitted and setting `public` requires Content Manager access (level 50).
 
 * return array
 
@@ -4158,6 +4165,8 @@ Each `playlist_folder` entry ([PlaylistFolderObject](#playlist_folders)):
 | name       | string  |    NO    |    NO    |       |
 | parent     | string  |    NO    |    NO    |       |
 | sort_order | integer |    NO    |    NO    |       |
+| type       | string  |    NO    |    NO    |       |
+| hidden     | boolean |    NO    |    NO    |       |
 | items      | integer |    NO    |    NO    |       |
 <!-- GENERATED:RESPONSE:END -->
 
@@ -4169,14 +4178,15 @@ Each `playlist_folder` entry ([PlaylistFolderObject](#playlist_folders)):
 
 ### playlist_folder_edit
 
-Change a folder's name, parent or position. Anything not sent is left as it is; at least one of `name`, `parent` or `sort_order` must be sent. Moving a folder into its own subtree is refused, because it would detach the branch from the tree.
+Change a folder's name, parent, position or visibility. Anything not sent is left as it is; at least one of `name`, `parent`, `sort_order` or `type` must be sent. Moving a folder into its own subtree is refused, because it would detach the branch from the tree.
 
-| Input        | Type    | Description                                             | Optional |
-|--------------|---------|---------------------------------------------------------|---------:|
-| 'filter'     | string  | The folder, as an id or a name path                     |       NO |
-| 'name'       | string  | New name                                                |      YES |
-| 'parent'     | string  | New parent as an id or a name path, or `0` for the root |      YES |
-| 'sort_order' | integer | New position among its siblings                         |      YES |
+| Input        | Type    | Description                                                                      | Optional |
+|--------------|---------|----------------------------------------------------------------------------------|---------:|
+| 'filter'     | string  | The folder, as an id or a name path                                              |       NO |
+| 'name'       | string  | New name                                                                         |      YES |
+| 'parent'     | string  | New parent as an id or a name path, or `0` for the root                          |      YES |
+| 'sort_order' | integer | New position among its siblings                                                  |      YES |
+| 'type'       | string  | `private`, `public`; setting `public` requires Content Manager access (level 50) |      YES |
 
 * return array
 
@@ -4197,6 +4207,8 @@ Each `playlist_folder` entry ([PlaylistFolderObject](#playlist_folders)):
 | name       | string  |    NO    |    NO    |       |
 | parent     | string  |    NO    |    NO    |       |
 | sort_order | integer |    NO    |    NO    |       |
+| type       | string  |    NO    |    NO    |       |
+| hidden     | boolean |    NO    |    NO    |       |
 | items      | integer |    NO    |    NO    |       |
 <!-- GENERATED:RESPONSE:END -->
 
@@ -4241,9 +4253,9 @@ The playlists, smartlists and collections filed in one folder. The root is not a
 <!-- GENERATED:RESPONSE:BEGIN -->
 Returns a single object.
 
-| Field           | Type   | Nullable | Optional | Notes                                             |
-|-----------------|--------|:--------:|:--------:|---------------------------------------------------|
-| playlist_folder | object |    NO    |    NO    | `{id, name, parent, sort_order, items, contents}` |
+| Field           | Type   | Nullable | Optional | Notes                                                           |
+|-----------------|--------|:--------:|:--------:|-----------------------------------------------------------------|
+| playlist_folder | object |    NO    |    NO    | `{id, name, parent, sort_order, type, hidden, items, contents}` |
 <!-- GENERATED:RESPONSE:END -->
 
 * throws object
@@ -4828,16 +4840,18 @@ This is the current name for the [advanced_search](#advanced_search) method; par
 
 Refer to the [Advanced Search](https://ampache.org/api/api-advanced-search) page for details about creating searches.
 
-| Input    | Type    | Description                                            | Optional |
-|----------|---------|--------------------------------------------------------|---------:|
-| operator | string  | and, or (whether to match one rule or all)             |       NO |
-| rule_*   | array   | [`rule_1`, `rule_1_operator`, `rule_1_input`]          |       NO |
-| rule_*   | array   | [`rule_2`, `rule_2_operator`, `rule_2_input`], [etc]   |      YES |
-| type     | string  | `song`, `album`, `artist`, `label`, `playlist`         |       NO |
-|          |         | `podcast`, `podcast_episode`, `genre`, `user`, `video` |          |
-| random   | boolean | `0`, `1` (random order of results; default to 0)       |      YES |
-| 'offset' | integer | Return results starting from this index position       |      YES |
-| 'limit'  | integer | Maximum number of results to return                    |      YES |
+| Input            | Type    | Description                                                           | Optional |
+|------------------|---------|-----------------------------------------------------------------------|---------:|
+| operator         | string  | and, or (whether to match one rule or all)                            |       NO |
+| rule_*           | array   | [`rule_1`, `rule_1_operator`, `rule_1_input`]                         |       NO |
+| rule_*           | array   | [`rule_2`, `rule_2_operator`, `rule_2_input`], [etc]                  |      YES |
+| rule_*_group     | integer | Group id for this rule, to combine it with other rules sharing the id |      YES |
+| group_*_operator | string  | `and`, `or` (operator joining the rules assigned to that group id)    |      YES |
+| type             | string  | `song`, `album`, `artist`, `label`, `playlist`                        |       NO |
+|                  |         | `podcast`, `podcast_episode`, `genre`, `user`, `video`                |          |
+| random           | boolean | `0`, `1` (random order of results; default to 0)                      |      YES |
+| 'offset'         | integer | Return results starting from this index position                      |      YES |
+| 'limit'          | integer | Maximum number of results to return                                   |      YES |
 
 * return array
 
@@ -5722,7 +5736,7 @@ Returns a single object.
 
 Songs that sound like the given song, most similar first.
 
-Similarity is derived from analysing the audio, which Ampache does not do itself, so this needs a sonic analysis plugin (e.g. AudioMuse) enabled for the user. With no plugin to ask, the method reports the feature as unavailable rather than returning an empty list.
+Similarity is derived from analyzing the audio, which Ampache does not do itself, so this needs a sonic analysis plugin (e.g. AudioMuse) enabled for the user. With no plugin to ask, the method reports the feature as unavailable rather than returning an empty list.
 
 Each entry carries the full song plus `similarity`, a `0.0`-`1.0` score where `1.0` is the same recording. A backend that gives no comparable score reports `-1`.
 
