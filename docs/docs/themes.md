@@ -14,6 +14,8 @@ Themes live in **public/themes/** in a git checkout. A packaged release copies t
 
 Ampache ships one theme, **reborn**, with various colors to choose from under **Preferences → Interface → Theme color**.
 
+Ampache 8.4.0 added 13 new color profiles for you to choose from on top of the older Dark and Light styles.
+
 <table>
 <tr>
 <td align="center">
