@@ -55,6 +55,6 @@ e.g. `sort=name,DESC`
 | `rename_pattern`   | The catalog's rename pattern.                                                                                            |
 | `sort_pattern`     | The catalog's sort pattern.                                                                                              |
 | `title`            | Alias of `name`.                                                                                                         |
-| `user_flag`        | When you added it to your favourites. This is a date, not a flag, so everything you have not favourited groups together. |
-| `user_flag_rating` | When you added it to your favourites, then your rating.                                                                  |
+| `user_flag`        | When you added it to your favorites. This is a date, not a flag, so everything you have not favorited groups together. |
+| `user_flag_rating` | When you added it to your favorites, then your rating.                                                                  |
 | `userflag`         | Alias of `user_flag`.                                                                                                    |

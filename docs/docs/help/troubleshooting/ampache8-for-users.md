@@ -225,7 +225,7 @@ Logging in always sends you back to whatever page you originally asked for, so o
 
 ## Your playlist art can be a mosaic now
 
-Automatically generated playlist covers can now be a grid of up to nine covers from the playlist, instead of a single random cover. Playlists with fewer than four distinct covers still get the old single-cover behaviour. Your admin can turn this off if they'd rather keep the single-cover look.
+Automatically generated playlist covers can now be a grid of up to nine covers from the playlist, instead of a single random cover. Playlists with fewer than four distinct covers still get the old single-cover behavior. Your admin can turn this off if they'd rather keep the single-cover look.
 
 ![image](/img/1305249/632647246-1c4cd48f-4579-40d0-83bc-97b56c66c9f3.png)
 

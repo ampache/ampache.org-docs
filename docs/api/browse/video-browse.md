@@ -42,7 +42,7 @@ e.g. `cond=starts_with,a;catalog,2`
 | `update_gt`       | UNIX timestamp | Only videos whose tags were last updated at or after this time.                                                                      |
 | `update_lt`       | UNIX timestamp | Only videos whose tags were last updated at or before this time.                                                                     |
 | `user_catalog`    | none           | Only videos in a catalog the current user is allowed to see. Needs no value.                                                         |
-| `user_flag`       | 0 or 1         | Send `1` for videos the current user has favourited, `0` for the ones they have not.                                                 |
+| `user_flag`       | 0 or 1         | Send `1` for videos the current user has favorited, `0` for the ones they have not.                                                 |
 | `user_rating`     | 0 to 5         | Only videos the current user rated this value. Send `0` for videos they have not rated at all.                                       |
 
 ## Available browse sorts
@@ -68,6 +68,6 @@ e.g. `sort=name,DESC`
 | `total_count`      | How many times it has been played.                                                                                       |
 | `total_skip`       | How many times it has been skipped.                                                                                      |
 | `update_time`      | When its tags were last updated.                                                                                         |
-| `user_flag`        | When you added it to your favourites. This is a date, not a flag, so everything you have not favourited groups together. |
-| `user_flag_rating` | When you added it to your favourites, then your rating.                                                                  |
+| `user_flag`        | When you added it to your favorites. This is a date, not a flag, so everything you have not favorited groups together. |
+| `user_flag_rating` | When you added it to your favorites, then your rating.                                                                  |
 | `userflag`         | Alias of `user_flag`.                                                                                                    |

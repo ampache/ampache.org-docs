@@ -90,7 +90,7 @@ If Ampache is really where you want your money to go then consider helping out s
 
 ### Linux Australia
 
-Linux Australia, depending on available budget, will from time to time make available funds for open source, open data, open government, open education, open hardware and open culture projects, as part of the organisation’s commitment to free and open source systems and communities in the region.
+Linux Australia, depending on available budget, will from time to time make available funds for open source, open data, open government, open education, open hardware and open culture projects, as part of the organization’s commitment to free and open source systems and communities in the region.
 
     <div class="text--center">
       <a class="box--link" href="https://linux.org.au/grants-program/" target="_blank" rel="noopener noreferrer" title="read more">read more</a>

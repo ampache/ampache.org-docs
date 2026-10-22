@@ -51,7 +51,7 @@ e.g. `cond=starts_with,a;catalog,2`
 | `update_gt`       | UNIX timestamp | Only disks with a song whose tags were updated at or after this time.                                                                     |
 | `update_lt`       | UNIX timestamp | Only disks with a song whose tags were updated at or before this time.                                                                    |
 | `user_catalog`    | none           | Only album disks in a catalog the current user is allowed to see. Needs no value.                                                         |
-| `user_flag`       | 0 or 1         | Send `1` for album disks the current user has favourited, `0` for the ones they have not.                                                 |
+| `user_flag`       | 0 or 1         | Send `1` for album disks the current user has favorited, `0` for the ones they have not.                                                 |
 | `user_rating`     | 0 to 5         | Only album disks the current user rated this value. Send `0` for album disks they have not rated at all.                                  |
 
 ## Available browse sorts
@@ -90,8 +90,8 @@ e.g. `sort=name,DESC`
 | `time`                    | Running time of the disk in seconds, then album name and disk number.                                                    |
 | `title`                   | Alias of `name`.                                                                                                         |
 | `total_count`             | How many times the disk has been played, then album name and disk number.                                                |
-| `user_flag`               | When you added it to your favourites. This is a date, not a flag, so everything you have not favourited groups together. |
-| `user_flag_rating`        | When you added it to your favourites, then your rating.                                                                  |
+| `user_flag`               | When you added it to your favorites. This is a date, not a flag, so everything you have not favorited groups together. |
+| `user_flag_rating`        | When you added it to your favorites, then your rating.                                                                  |
 | `userflag`                | Alias of `user_flag`.                                                                                                    |
 | `version`                 | Album version. Taken from the album, not the disk.                                                                       |
 | `year`                    | Release year, then when the album was added to the catalog.                                                              |

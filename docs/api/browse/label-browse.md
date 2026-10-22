@@ -49,6 +49,6 @@ e.g. `sort=name,DESC`
 | `rating`           | Your own rating, then when you set it. Labels you have not rated group together.                                         |
 | `title`            | Alias of `name`.                                                                                                         |
 | `user`             | The id of the user who added the label.                                                                                  |
-| `user_flag`        | When you added it to your favourites. This is a date, not a flag, so everything you have not favourited groups together. |
-| `user_flag_rating` | When you added it to your favourites, then your rating.                                                                  |
+| `user_flag`        | When you added it to your favorites. This is a date, not a flag, so everything you have not favorited groups together. |
+| `user_flag_rating` | When you added it to your favorites, then your rating.                                                                  |
 | `userflag`         | Alias of `user_flag`.                                                                                                    |

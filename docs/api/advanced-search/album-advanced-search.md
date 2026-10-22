@@ -37,7 +37,7 @@ Select the type of search based on the type of data you are searching for. (song
 | release_comment           | (*Alias of version)                 |                   |
 | subtitle                  | (*Alias of version)                 |                   |
 | barcode                   | Barcode                             | text              |
-| catalog_number            | Catalogue Number                    | text              |
+| catalog_number            | Catalog Number                    | text              |
 | disk_count                | Disk Count                          | numeric           |
 | song_count                | Song Count                          | numeric           |
 | id                        | Database ID                         | numeric           |
@@ -45,10 +45,10 @@ Select the type of search based on the type of data you are searching for. (song
 | rating                    | Rating (Average)                    | numeric           |
 | songrating                | My Rating (Song)                    | numeric           |
 | artistrating              | My Rating (Artist)                  | numeric           |
-| my_flagged_song           | My Favourite Songs                  | boolean           |
-| my_flagged_album          | My Favourite Albums                 | boolean           |
-| my_flagged_artist         | My Favourite Artists                | boolean           |
-| favorite                  | Favourites                          | text              |
+| my_flagged_song           | My Favorite Songs                  | boolean           |
+| my_flagged_album          | My Favorite Albums                 | boolean           |
+| my_flagged_artist         | My Favorite Artists                | boolean           |
+| favorite                  | Favorites                          | text              |
 | other_user                | Another User                        | user_numeric      |
 | played_times              | # Played                            | numeric           |
 | skipped_times             | # Skipped                           | numeric           |
@@ -92,7 +92,7 @@ Select the type of search based on the type of data you are searching for. (song
 | possible_duplicate_album  | (*Alias of possible_duplicate)      | is_true           |
 | duplicate_tracks          | Duplicate Album Tracks              | is_true           |
 | duplicate_mbid_group      | Duplicate MusicBrainz Release Group | is_true           |
-| catalog                   | Catalogue                           | boolean_numeric   |
+| catalog                   | Catalog                           | boolean_numeric   |
 | mbid                      | MusicBrainz ID                      | text              |
 | mbid_album                | (*Alias of mbid)                    |                   |
 | mbid_artist               | MusicBrainz ID (Artist)             | text              |

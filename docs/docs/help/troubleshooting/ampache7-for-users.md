@@ -38,7 +38,7 @@ This change removes the existing preference and will try to copy the existing pr
 
 The preference level defaults to Admin users but can be changed from the options page `preferences.php?action=admin&tab=options`
 
-Set your access level to allow users to replace their settings or use 'Apply to all' to keep existing behaviour.
+Set your access level to allow users to replace their settings or use 'Apply to all' to keep existing behavior.
 
 ![image](/img/1305249/5f3c6f0e-8d3e-4e39-9ccb-12342818cbbb.png)
 

@@ -55,7 +55,7 @@ e.g. `sort=name,DESC`
 | `song`             | How many songs carry this genre.                                                                                         |
 | `tag`              | Alias of `id`.                                                                                                           |
 | `title`            | Alias of `name`.                                                                                                         |
-| `user_flag`        | When you added it to your favourites. This is a date, not a flag, so everything you have not favourited groups together. |
-| `user_flag_rating` | When you added it to your favourites, then your rating.                                                                  |
+| `user_flag`        | When you added it to your favorites. This is a date, not a flag, so everything you have not favorited groups together. |
+| `user_flag_rating` | When you added it to your favorites, then your rating.                                                                  |
 | `userflag`         | Alias of `user_flag`.                                                                                                    |
 | `video`            | How many videos carry this genre.                                                                                        |

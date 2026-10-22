@@ -51,7 +51,7 @@ e.g. `cond=starts_with,a;catalog,2`
 | `update_gt`       | UNIX timestamp | Only artists with a song whose tags were updated at or after this time.                                                               |
 | `update_lt`       | UNIX timestamp | Only artists with a song whose tags were updated at or before this time.                                                              |
 | `user_catalog`    | none           | Only artists with something in a catalog the current user can see. Needs no value.                                                    |
-| `user_flag`       | 0 or 1         | Send `1` for artists the current user has favourited, `0` for the ones they have not.                                                 |
+| `user_flag`       | 0 or 1         | Send `1` for artists the current user has favorited, `0` for the ones they have not.                                                 |
 | `user_rating`     | 0 to 5         | Only artists the current user rated this value. Send `0` for artists they have not rated at all.                                      |
 
 ## Available browse sorts
@@ -74,7 +74,7 @@ e.g. `sort=name,DESC`
 | `time`             | Total running time of the artist's songs in seconds.                                                                     |
 | `title`            | Alias of `name`.                                                                                                         |
 | `total_count`      | How many times the artist's songs have been played.                                                                      |
-| `user_flag`        | When you added it to your favourites. This is a date, not a flag, so everything you have not favourited groups together. |
-| `user_flag_rating` | When you added it to your favourites, then your rating.                                                                  |
+| `user_flag`        | When you added it to your favorites. This is a date, not a flag, so everything you have not favorited groups together. |
+| `user_flag_rating` | When you added it to your favorites, then your rating.                                                                  |
 | `userflag`         | Alias of `user_flag`.                                                                                                    |
 | `yearformed`       | The year the artist formed.                                                                                              |

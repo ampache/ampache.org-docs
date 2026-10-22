@@ -37,7 +37,7 @@ e.g. `cond=starts_with,a`
 | `regex_match`     | regex   | The folder name or its full path matches this MySQL regular expression.                          |
 | `regex_not_match` | regex   | Neither the folder name nor its full path matches this MySQL regular expression.                 |
 | `starts_with`     | string  | The folder name or its full path starts with this value.                                         |
-| `user_flag`       | 0 or 1  | Send `1` for folders the current user has favourited, `0` for the ones they have not.            |
+| `user_flag`       | 0 or 1  | Send `1` for folders the current user has favorited, `0` for the ones they have not.            |
 | `user_rating`     | 0 to 5  | Only folders the current user rated this value. Send `0` for folders they have not rated at all. |
 
 ## Available browse sorts
@@ -62,6 +62,6 @@ e.g. `sort=name,DESC`
 | `total_count`      | Folders first, then how many times the folder has been played.                                                           |
 | `type`             | Alias of `object_type`.                                                                                                  |
 | `user`             | Folders first, then the id of the user who owns the folder.                                                              |
-| `user_flag`        | When you added it to your favourites. This is a date, not a flag, so everything you have not favourited groups together. |
-| `user_flag_rating` | When you added it to your favourites, then your rating.                                                                  |
+| `user_flag`        | When you added it to your favorites. This is a date, not a flag, so everything you have not favorited groups together. |
+| `user_flag_rating` | When you added it to your favorites, then your rating.                                                                  |
 | `userflag`         | Alias of `user_flag`.                                                                                                    |

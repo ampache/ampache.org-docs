@@ -41,12 +41,12 @@ Select the type of search based on the type of data you are searching for. (song
 | rating                    | Rating (Average)          | numeric           |
 | albumrating               | My Rating (Album)         | numeric           |
 | artistrating              | My Rating (Artist)        | numeric           |
-| my_flagged_song           | My Favourite Songs        | boolean           |
-| my_flagged_album          | My Favourite Albums       | boolean           |
-| my_flagged_artist         | My Favourite Artists      | boolean           |
-| favorite                  | Favourites                | text              |
-| favorite_album            | Favourites (Album)        | text              |
-| favorite_artist           | Favourites (Artist)       | text              |
+| my_flagged_song           | My Favorite Songs        | boolean           |
+| my_flagged_album          | My Favorite Albums       | boolean           |
+| my_flagged_artist         | My Favorite Artists      | boolean           |
+| favorite                  | Favorites                | text              |
+| favorite_album            | Favorites (Album)        | text              |
+| favorite_artist           | Favorites (Artist)       | text              |
 | other_user                | Another User              | user_numeric      |
 | other_user_album          | Another User (Album)      | user_numeric      |
 | other_user_artist         | Another User (Artist)     | user_numeric      |
@@ -95,7 +95,7 @@ Select the type of search based on the type of data you are searching for. (song
 | duplicate_tracks          | Duplicate Album Tracks    | is_true           |
 | possible_duplicate_album  | Possible Duplicate Albums | is_true           |
 | orphaned_album            | Orphaned Album            | is_true           |
-| catalog                   | Catalogue                 | boolean_numeric   |
+| catalog                   | Catalog                 | boolean_numeric   |
 | mbid                      | MusicBrainz ID            | text              |
 | mbid_album                | MusicBrainz ID (Album)    | text              |
 | mbid_artist               | MusicBrainz ID (Artist)   | text              |

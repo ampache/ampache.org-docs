@@ -161,7 +161,7 @@ That example file is kept in sync with the Apache rules.
 
 When you upgrade Ampache and REST paths change, re-check it against your config.
 
-**NOTE** The nginx rules mirror `public/rest/.htaccess.dist`, so if you have customised either one, keep both in step.
+**NOTE** The nginx rules mirror `public/rest/.htaccess.dist`, so if you have customized either one, keep both in step.
 
 ## Other webservers
 

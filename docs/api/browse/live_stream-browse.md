@@ -33,7 +33,7 @@ e.g. `cond=starts_with,a;catalog,2`
 | `regex_not_match` | regex      | The live stream name does not match this MySQL regular expression. Setting it clears any `regex_match` filter.                             |
 | `starts_with`     | string     | The live stream name starts with this value.                                                                                               |
 | `user_catalog`    | none       | Only live streams in a catalog the current user is allowed to see. Needs no value.                                                         |
-| `user_flag`       | 0 or 1     | Send `1` for live streams the current user has favourited, `0` for the ones they have not.                                                 |
+| `user_flag`       | 0 or 1     | Send `1` for live streams the current user has favorited, `0` for the ones they have not.                                                 |
 | `user_rating`     | 0 to 5     | Only live streams the current user rated this value. Send `0` for live streams they have not rated at all.                                 |
 
 ## Available browse sorts
@@ -53,6 +53,6 @@ e.g. `sort=name,DESC`
 | `site_url`         | The stream's home page.                                                                                                  |
 | `title`            | Alias of `name`.                                                                                                         |
 | `url`              | The stream URL.                                                                                                          |
-| `user_flag`        | When you added it to your favourites. This is a date, not a flag, so everything you have not favourited groups together. |
-| `user_flag_rating` | When you added it to your favourites, then your rating.                                                                  |
+| `user_flag`        | When you added it to your favorites. This is a date, not a flag, so everything you have not favorited groups together. |
+| `user_flag_rating` | When you added it to your favorites, then your rating.                                                                  |
 | `userflag`         | Alias of `user_flag`.                                                                                                    |

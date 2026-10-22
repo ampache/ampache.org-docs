@@ -34,7 +34,7 @@ e.g. `cond=starts_with,a;catalog,2`
 | `starts_with`     | string     | The podcast title starts with this value.                                                                                              |
 | `unplayed`        | 1          | Only podcasts that have never been played. The value must be `1`; anything else, including an empty value, is ignored.                 |
 | `user_catalog`    | none       | Only podcasts in a catalog the current user is allowed to see. Needs no value.                                                         |
-| `user_flag`       | 0 or 1     | Send `1` for podcasts the current user has favourited, `0` for the ones they have not.                                                 |
+| `user_flag`       | 0 or 1     | Send `1` for podcasts the current user has favorited, `0` for the ones they have not.                                                 |
 | `user_rating`     | 0 to 5     | Only podcasts the current user rated this value. Send `0` for podcasts they have not rated at all.                                     |
 
 ## Available browse sorts
@@ -54,7 +54,7 @@ e.g. `sort=name,DESC`
 | `rating`           | Your own rating, then when you set it. Podcasts you have not rated group together.                                       |
 | `title`            | Alias of `name`.                                                                                                         |
 | `total_count`      | How many times the podcast's episodes have been played.                                                                  |
-| `user_flag`        | When you added it to your favourites. This is a date, not a flag, so everything you have not favourited groups together. |
-| `user_flag_rating` | When you added it to your favourites, then your rating.                                                                  |
+| `user_flag`        | When you added it to your favorites. This is a date, not a flag, so everything you have not favorited groups together. |
+| `user_flag_rating` | When you added it to your favorites, then your rating.                                                                  |
 | `userflag`         | Alias of `user_flag`.                                                                                                    |
 | `website`          | Website address.                                                                                                         |

@@ -8,7 +8,7 @@ description: "API documentation"
 
 This page lists the filters and sorts the `user` browse accepts. Refer to the main [Api Browse methods](https://ampache.org/api/api-browse) page for how to send them.
 
-**NOTE** Users have no rating or favourite of their own, so this browse has no `user_flag` or `user_rating` filters.
+**NOTE** Users have no rating or favorite of their own, so this browse has no `user_flag` or `user_rating` filters.
 
 ## API methods using this browse
 

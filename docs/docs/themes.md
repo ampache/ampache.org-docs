@@ -21,10 +21,10 @@ Most other files fall back — an image, an icon or a template your theme does n
 ```text
 public/themes/<theme name>/
 ├─ images/
-│  ├─ ampache-dark.png            one per colour, required
+│  ├─ ampache-dark.png            one per color, required
 │  ├─ ampache-light.png
 │  ├─ ajax-loader.gif             required
-│  ├─ ajax-loader-light.gif       required if you offer a "light" colour
+│  ├─ ajax-loader-light.gif       required if you offer a light-based color
 │  ├─ icons/                      optional
 │  │  └─ icon_*.svg | icon_*.png
 │  └─ *.svg | *.png               optional overrides
@@ -44,8 +44,8 @@ public/themes/<theme name>/
 
 Two groups are built as direct paths into your theme with no check that the file exists. Omit them and you get a broken image rather than Ampache's version.
 
-* `images/ampache-<colour>.png` — the logo, one per entry in `colors`. `colors = "Dark,Light"` means `ampache-dark.png` and `ampache-light.png`.
-* `images/ajax-loader.gif` — the mini player's loading spinner. `ajax-loader-light.gif` is used when `theme_color` is exactly `light`; every other colour gets the unsuffixed file.
+* `images/ampache-<color>.png` — the logo, one per entry in `colors`. `colors = "Dark,Light"` means `ampache-dark.png` and `ampache-light.png`.
+* `images/ajax-loader.gif` — the mini player's loading spinner. `ajax-loader-light.gif` is used for any color whose `color_bases` entry is `light`; every color based on `dark` gets the unsuffixed file. A color's own name does not matter here — only its declared base does, which is what lets a theme add colors like `Dusk` or `Sepia` without touching this logic at all.
 
 ### Images
 
@@ -89,23 +89,23 @@ Three kinds of file live here.
 
 #### The base stylesheet
 
-Every file named in the `base` key of `theme.cfg.php` is loaded first, in order. This is the theme's layout: geometry, spacing, sizing, everything that is not a colour. Reborn ships one, `default.css`.
+Every file named in the `base` key of `theme.cfg.php` is loaded first, in order. This is the theme's layout: geometry, spacing, sizing, everything that is not a color. Reborn ships one, `default.css`.
 
 Each entry is `[css_path]|[media_type]`, so `default.css|screen` loads `default.css` for screen media. Separate multiple bases with `, `.
 
-Ampache's own `templates/base.css` is loaded **after** your base file and before the colour file, so a rule of yours at the same specificity loses to it. Raise the specificity rather than fighting it with `!important`.
+Ampache's own `templates/base.css` is loaded **after** your base file and before the color file, so a rule of yours at the same specificity loses to it. Raise the specificity rather than fighting it with `!important`.
 
-#### The colour stylesheets
+#### The color stylesheets
 
 One file per entry in the `colors` key, named in lower case — `colors = "Dark,Light"` means `dark.css` and `light.css`. Exactly one is loaded, chosen by the user's `theme_color` preference, and it is loaded **last** so it always wins.
 
-Keep colour in these files and geometry in the base file. A layout rule that only exists in `dark.css` is a layout rule the light theme does not have.
+Keep color in these files and geometry in the base file. A layout rule that only exists in `dark.css` is a layout rule the light theme does not have.
 
 #### Optional files
 
 * `rtl.css` — loaded only when the user's language is right-to-left. Ampache skips it silently if it does not exist.
 * `fonts/` — self-hosted webfonts and the `@font-face` CSS that declares them, referenced from your own stylesheets.
-* **Template overrides** — any file in `templates/` whose name matches one of Ampache's own templates replaces it for this theme. Non-PHP files are always allowed; PHP templates are only honoured when `allow_php_themes` is enabled in `config/ampache.cfg.php`, which is off by default because a theme that can overwrite PHP can run code.
+* **Template overrides** — any file in `templates/` whose name matches one of Ampache's own templates replaces it for this theme. Non-PHP files are always allowed; PHP templates are only honored when `allow_php_themes` is enabled in `config/ampache.cfg.php`, which is off by default because a theme that can overwrite PHP can run code.
 
 #### Cache busting
 
@@ -119,7 +119,8 @@ The config file is an INI file with a `<?php exit(); ?>` guard on the second lin
 |---|---|
 | `name` | The display name shown in the Theme preference. This is what a user picks, but the value stored is the **directory name** |
 | `base` | Comma-separated `file.css` + media-type list (`default.css\|screen`), loaded first and in order |
-| `colors` | Comma-separated colour names; each becomes a lower-case `<name>.css` in `templates/` and fills the Theme color preference |
+| `colors` | Comma-separated color names; each becomes a lower-case `<name>.css` in `templates/` and fills the Theme color preference. A multi-word name uses a hyphen (`High-Contrast`), never a space — the stored value and every filename built from it are `strtolower($name)` |
+| `color_bases` | Comma-separated `dark`/`light`, one per entry in `colors`, same order. Tells Ampache which family a color belongs to for everything that picks an asset or a highlight by light/dark (the mini player's loading spinner, the generated placeholder art, the web player's highlight color and ReplayGain icon) instead of matching the color's name. Optional per the parser, but a color with no entry here falls back to being treated as `dark` — unless the color's own name is literally `light`, kept for themes written before this key existed |
 | `author` | Theme author |
 | `maintainer` | Who to contact about it |
 
@@ -127,7 +128,7 @@ The config file is an INI file with a `<?php exit(); ?>` guard on the second lin
 
 `theme_name` and `theme_color` are per-user preferences with an access level of **Default**, so every user — including a guest — can pick their own unless an admin raises the level. See [Preferences](/docs/help/preferences-explained#interface---theme).
 
-If the stored theme directory has been deleted, Ampache ignores the stored value for that request and falls back to `reborn` rather than rendering an unstyled page. The same happens per colour: if `templates/<theme_color>.css` is missing, it falls back to the first entry in the theme's `colors` list. Neither case rewrites the database, so restoring the directory restores the user's choice.
+If the stored theme directory has been deleted, Ampache ignores the stored value for that request and falls back to `reborn` rather than rendering an unstyled page. The same happens per color: if `templates/<theme_color>.css` is missing, it falls back to the first entry in the theme's `colors` list. Neither case rewrites the database, so restoring the directory restores the user's choice.
 
 ## Creating a New Ampache Theme
 
@@ -136,6 +137,7 @@ If you're interested in creating your own theme, the easiest way is to copy an e
 A few things worth knowing before you start:
 
 * The directory name is the identity. Renaming a theme's folder orphans every user who had it selected; changing `name` in the config file is safe.
-* Adding a colour means adding files. Each name in `colors` needs both `templates/<colour>.css` and `images/ampache-<colour>.png`; the stylesheet has a fallback and the logo does not.
-* `reborn` is desktop-first. Its mobile support is a single `@media (max-width: 768px)` block at the end of `default.css`, and the colour files only carry mobile drawer/toast backgrounds. If you fork it, keep that split.
-* Test both colours. A rule you add to `default.css` applies to every colour; one you add to `dark.css` does not.
+* Adding a color means adding files. Each name in `colors` needs a matching entry in `color_bases` (`dark` or `light`), both `templates/<color>.css` and `images/ampache-<color>.png`; the stylesheet has a fallback and the logo does not.
+* Write the color file against the shared `--amp-*` CSS variables (`--amp-bg`, `--amp-text`, `--amp-accent`, and so on) rather than hardcoding every selector's color — most of reborn's own rules now live once in `default.css` and read these variables, so a new color file is mostly just a `:root` block declaring them, plus the handful of rules (confirm-dialog chrome, the native `<select>` popup) that still need an explicit value per color.
+* `reborn` is desktop-first. Its mobile support is a single `@media (max-width: 768px)` block at the end of `default.css`, and the color files only carry mobile drawer/toast backgrounds. If you fork it, keep that split.
+* Test every color you ship, not just the one you designed against. A rule you add to `default.css` applies to every color; one you add to `dark.css` does not.

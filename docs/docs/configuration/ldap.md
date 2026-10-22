@@ -22,7 +22,7 @@ The `auto_user` variable states what status one will obtain by connecting with a
 
 ### Configure Ampache's LDAP client
 
-You now need to set the `ldap_*` variables that will define the behaviour of Ampache against your LDAP server.
+You now need to set the `ldap_*` variables that will define the behavior of Ampache against your LDAP server.
 
 You **MUST** set the following variables:
 
@@ -37,7 +37,7 @@ If you want all your users to be in a specific group, you can provide the `ldap_
 
 If you want Ampache to automatically fetch the user's name and/or e-mail from your LDAP server, fill the `ldap_name_field` and `ldap_email_field` variables. `ldap_name_field` can reconstruct a name. If you have for instance the first names of your users in a `givenName` field, and their family name in a `sn` field, you can set `ldap_name_field` to `givenName sn`.
 
-By default, the LDAP protocol version used is **3**. You can customize this behaviour with the `ldap_protocol_version` variable.
+By default, the LDAP protocol version used is **3**. You can customize this behavior with the `ldap_protocol_version` variable.
 
 If your server can use StartTLS, you may want Ampache to use it. In that case, set the `ldap_start_tls` variable to `"true"`.
 

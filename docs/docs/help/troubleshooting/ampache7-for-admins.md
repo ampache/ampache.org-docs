@@ -187,7 +187,7 @@ https://music.com.au/image.php?action=show_user_avatar&object_id=1&thumb=4
 
 It's been decided to keep the `errorMessage` in US English and **NOT** translate the messages.
 
-This is a change in behaviour but is not considered breaking as the `errorMessage` could not be considered consistent.
+This is a change in behavior but is not considered breaking as the `errorMessage` could not be considered consistent.
 
 Now it can be used for more complicated error handling.
 

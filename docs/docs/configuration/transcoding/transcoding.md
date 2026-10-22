@@ -121,7 +121,7 @@ The `_rg` variants apply track ReplayGain in the transcode with a 6dB preamp; th
 
 Your **source files must already be tagged with ReplayGain** (use `loudgain` or `rsgain`), or the gain clauses do nothing.
 
-**NOTE** these formats are never written to the [transcode cache](/docs/configuration/transcoding/transcode-caching), because the normalisation is per-source. Keep `cache_target` set to a plain format such as `mp3` or `opus`.
+**NOTE** these formats are never written to the [transcode cache](/docs/configuration/transcoding/transcode-caching), because the normalization is per-source. Keep `cache_target` set to a plain format such as `mp3` or `opus`.
 
 `opus_rg`/`opus_car` will not play on iOS (Opus-in-Ogg). `mp3_rg`/`mp3_car` are cross-platform.
 

@@ -35,10 +35,10 @@ Select the type of search based on the type of data you are searching for. (song
 | rating                    | Rating (Average)          | numeric           |
 | songrating                | My Rating (Song)          | numeric           |
 | albumrating               | My Rating (Album)         | numeric           |
-| my_flagged_song           | My Favourite Songs        | boolean           |
-| my_flagged_album          | My Favourite Albums       | boolean           |
-| my_flagged_artist         | My Favourite Artists      | boolean           |
-| favorite                  | Favourites                | text              |
+| my_flagged_song           | My Favorite Songs        | boolean           |
+| my_flagged_album          | My Favorite Albums       | boolean           |
+| my_flagged_artist         | My Favorite Artists      | boolean           |
+| favorite                  | Favorites                | text              |
 | other_user                | Another User              | user_numeric      |
 | played_times              | # Played                  | numeric           |
 | skipped_times             | # Skipped                 | numeric           |
@@ -72,7 +72,7 @@ Select the type of search based on the type of data you are searching for. (song
 | days_added                | Added                     | days              |
 | possible_duplicate        | Possible Duplicate        | is_true           |
 | possible_duplicate_album  | Possible Duplicate Albums | is_true           |
-| catalog                   | Catalogue                 | boolean_numeric   |
+| catalog                   | Catalog                 | boolean_numeric   |
 | mbid                      | MusicBrainz ID            | text              |
 | mbid_artist               | (*Alias of mbid)          | text              |
 | mbid_album                | MusicBrainz ID (Album)    | text              |

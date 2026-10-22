@@ -160,7 +160,7 @@ Version: 000002
 
 Find songs that sound alike using the `get_sonic_similar_songs` method.
 
-These plugins work out similarity by analysing the audio itself, which Ampache does not do on its own.
+These plugins work out similarity by analyzing the audio itself, which Ampache does not do on its own.
 
 They back the OpenSubsonic `sonicSimilarity` extension, so `getSonicSimilarTracks` and `findSonicPath` only work while one is installed and enabled.
 
@@ -170,7 +170,7 @@ Description: Sonic similarity from an AudioMuse-AI server.
 
 Version: 000001
 
-You need a running [AudioMuse-AI](https://github.com/NeptuneHub/AudioMuse-AI) instance that has already analysed your library.
+You need a running [AudioMuse-AI](https://github.com/NeptuneHub/AudioMuse-AI) instance that has already analyzed your library.
 
 Set `AudioMuse-AI server URL` to its address, for example `http://localhost:8000`.
 

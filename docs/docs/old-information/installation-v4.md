@@ -213,7 +213,7 @@ Run:
 `a2enmod expires`
 `systemctl restart apache2.service`
 
-N.B. If you have issues in adding the source for the catalogue when setting up the webserver and the source is an external USB drive plugged into the Pi, this may be a permissions issue. Try the following to allow Ampache to read the drive correctly:
+N.B. If you have issues in adding the source for the catalog when setting up the webserver and the source is an external USB drive plugged into the Pi, this may be a permissions issue. Try the following to allow Ampache to read the drive correctly:
 `sudo chmod 777 /mnt/USB/media`
 (The above example assumes your USB drive is under the /mnt directory and your files are within a folder called USB/media. If this doesn't work, try a lower level folder i.e. /mnt/USB for the above example).
 

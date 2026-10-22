@@ -15,7 +15,7 @@ This document explains:
 * The differences between the RPC API and the RESTful API
 * Which OpenAPI specification to use for your API version
 * How resource path conversion works
-* Updated endpoint structure and behaviour
+* Updated endpoint structure and behavior
 * HTTP method alignment
 * Versioning model
 * Migration guidance
@@ -34,7 +34,7 @@ Both specs are OpenAPI 3.0.3, share the same `{ampacheUrl}/rest/{version}/{forma
 ### Which spec should I use?
 
 * Targeting **Ampache 8** and happy to require it — use `openapi.json`. It is the canonical document for the current API and the only one describing the API8-only paths.
-* Targeting **Ampache 7 and Ampache 8 from the same client** — use `openapi-6.json`. It is pinned to API version 6 and deliberately describes only the surface both servers honour.
+* Targeting **Ampache 7 and Ampache 8 from the same client** — use `openapi-6.json`. It is pinned to API version 6 and deliberately describes only the surface both servers honor.
 
 ### Differences in the API 6 specification
 
@@ -57,7 +57,7 @@ https://demo.ampache.dev/server/json.server.php?action={action_name}&parameter=v
 While functional, this approach:
 
 * Mixes transport and action logic
-* Encodes behaviour inside query parameters
+* Encodes behavior inside query parameters
 * Overloads GET for state-changing operations
 * Limits proper HTTP semantics
 * Reduces cache effectiveness
@@ -75,7 +75,7 @@ The new RESTful API resolves these issues by introducing structured, versioned r
 
 Characteristics:
 
-* Behaviour determined by the `action` parameter
+* Behavior determined by the `action` parameter
 * Primarily GET-based
 * Resources inferred indirectly
 * Verb-style operation naming
@@ -94,7 +94,7 @@ Key characteristics:
 
 * Resource-oriented URL design
 * Plural resource naming
-* Hierarchical relationship modelling
+* Hierarchical relationship modeling
 * Proper HTTP verb usage
 * OpenAPI-compliant specification
 * Clear separation between transport and intent
@@ -418,7 +418,7 @@ The RESTful API uses standard HTTP semantics:
 | PATCH  | Partial update                  | `/rest/8/json/songs/123`   |
 | DELETE | Remove resource                 | `/rest/8/json/playlists/9` |
 
-State-changing behaviour is no longer implemented via GET.
+State-changing behavior is no longer implemented via GET.
 
 ## Resource Naming Conventions
 
@@ -513,7 +513,7 @@ Works seamlessly with:
 ## Conversion Rules
 
 * RPC endpoints must remain accessible and fully functional
-* REST documentation reflects canonical behaviour
+* REST documentation reflects canonical behavior
 * Separate OpenAPI documentation is maintained for REST endpoints
 * New features must be implemented using RESTful resource paths only
 

@@ -314,7 +314,7 @@ The **Folders** link also needs the folder tables to have been scanned; the **Co
 
 ### Options
 
-Feature switches and API behaviour.
+Feature switches and API behavior.
 
 | Preference | Description | Default | Type | Access level |
 |---|---|---|---|---|

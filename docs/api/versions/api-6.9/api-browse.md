@@ -88,7 +88,7 @@ The following pages will list the available conditions and sort options for each
 * [Label Browses](/api/browse/label-browse) browses
   * labels
 * [License Browses](/api/browse/license-browse) browses
-  * licences
+  * licenses
 * [Live Stream Browses](/api/browse/live_stream-browse) browses
   * live_streams
 * [Playlist Browses](/api/browse/playlist-browse) browses

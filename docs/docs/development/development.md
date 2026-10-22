@@ -6,7 +6,7 @@ description: "Contributing code, translations and issues to Ampache"
 
 ## Development
 
-Ampache is developed in the open on [GitHub](https://github.com/ampache/ampache) and is happy to take contributions of any size — code, translations, documentation, or a well written bug report. These pages cover how the project is organised and what is expected of a change before it is merged.
+Ampache is developed in the open on [GitHub](https://github.com/ampache/ampache) and is happy to take contributions of any size — code, translations, documentation, or a well written bug report. These pages cover how the project is organized and what is expected of a change before it is merged.
 
 * [Contributing](/docs/development/CONTRIBUTING) — coding standards, the view and template system, how to prepare a pull request, and what the maintainers look for
 * [Branch Layout](/docs/development/branch-layout) — which branch to target for a fix or a new feature
@@ -29,7 +29,7 @@ new pattern; when you are fixing something old, you do not have to convert the w
 Two rules of thumb make the code much easier to read:
 
 * Almost everything is programmed against an interface (`FooInterface`) with a single final
-  implementation (`Foo`). If you are looking for behaviour, open the implementation; if you are looking
+  implementation (`Foo`). If you are looking for behavior, open the implementation; if you are looking
   for the contract, the interface has the docblocks.
 * The container is assembled from one `service_definition.php` per domain. To find out how a class is
   built, look for its entry there rather than for a `new` in the callers.
@@ -66,7 +66,7 @@ From there a request takes one of four routes:
   method, and `ApiHandler` resolves which version a request actually gets from the `version` parameter,
   the session, and the user's own preferences.
 * **The [REST API](/rest)** is a thin adapter: `mod_rewrite` rules turn a REST path into query
-  parameters, the entry script normalises the resource and action names, and the same `ApiHandler` does
+  parameters, the entry script normalizes the resource and action names, and the same `ApiHandler` does
   the work. A REST-only bug is usually in that name translation rather than in the method.
 * **[Subsonic and OpenSubsonic](/api/subsonic)** are a completely separate engine with their own output
   classes. None of the native API's versioning applies to them.
@@ -147,7 +147,7 @@ place** rather than patched by a follow-up migration.
 
 A change made to the version 8 method does not reach a client pinned to version 6, and several type lists
 are shared by every version — appending to one exposes a type on older versions where no formatter can
-render it. When you change API behaviour, decide explicitly which versions it applies to, and record it
+render it. When you change API behavior, decide explicitly which versions it applies to, and record it
 in the [API changelog](/api/api-changelog). New browse filters and sorts also need documenting, since the
 [browse reference](/api/api-browse) is generated and its check job fails when the pages drift.
 

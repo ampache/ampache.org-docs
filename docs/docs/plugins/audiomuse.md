@@ -12,9 +12,9 @@ This is not the same as the similar artists you may already get from last.fm.
 
 Last.fm similarity comes from what other people listened to, so it is really metadata and popularity.
 
-Sonic similarity comes from analysing the audio itself, so two tracks match because they share a sound.
+Sonic similarity comes from analyzing the audio itself, so two tracks match because they share a sound.
 
-Ampache does not analyse audio, so this plugin hands that job to an [AudioMuse-AI](https://github.com/NeptuneHub/AudioMuse-AI) server.
+Ampache does not analyze audio, so this plugin hands that job to an [AudioMuse-AI](https://github.com/NeptuneHub/AudioMuse-AI) server.
 
 ## What you get
 
@@ -42,7 +42,7 @@ It is not part of Ampache and Ampache does not install or manage it.
 
 Follow the install instructions in the [AudioMuse-AI repository](https://github.com/NeptuneHub/AudioMuse-AI).
 
-It needs access to your music so it can analyse it, and it keeps its own index of the results.
+It needs access to your music so it can analyze it, and it keeps its own index of the results.
 
 Run its analysis over your library before you expect any results in Ampache.
 
@@ -131,7 +131,7 @@ The plugin is activated and the server URL is set.
 
 Ampache can reach that URL, from inside its own container or host, not just from your browser.
 
-AudioMuse-AI has finished analysing your library.
+AudioMuse-AI has finished analyzing your library.
 
 AudioMuse-AI is pointed at the same library as Ampache, so the ids line up.
 

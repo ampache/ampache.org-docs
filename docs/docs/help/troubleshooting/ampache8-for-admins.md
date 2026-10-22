@@ -216,7 +216,7 @@ An explicit `format=` request parameter still always takes priority over the tar
 
 ## Playlist art mosaic
 
-Automatically generated playlist cover art can now be a mosaic of up to nine covers from the playlist instead of a single random cover. Playlists with fewer than four distinct covers keep the old single-cover behaviour.
+Automatically generated playlist cover art can now be a mosaic of up to nine covers from the playlist instead of a single random cover. Playlists with fewer than four distinct covers keep the old single-cover behavior.
 
 ```conf
 ; DEFAULT: "true"
