@@ -16,6 +16,8 @@ Ampache ships one theme, **reborn**, with various colors to choose from under **
 
 Ampache 8.4.0 added 13 new color profiles for you to choose from on top of the older Dark and Light styles.
 
+<div class="zoomable">
+
 <table>
 <tr>
 <td align="center">
@@ -103,6 +105,8 @@ Ampache 8.4.0 added 13 new color profiles for you to choose from on top of the o
 </td>
 </tr>
 </table>
+
+</div>
 
 Dark, Light, Dusk, Dawn, Sepia and High-Contrast are based on reborn's own palettes.
 
