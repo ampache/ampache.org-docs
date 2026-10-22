@@ -1,9 +1,11 @@
 *.env
 *DS_Store
 .cache
+.claude
 package-lock.json
 .docusaurus/
 .idea/
 build/
 node_modules/
 public/
+CLAUDE.md
