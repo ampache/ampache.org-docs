@@ -21,7 +21,7 @@ The category also decides where in the interface the plugin appears.
 * share — share buttons for external sites
 * shortener — URL shorteners for shared links
 * slideshow — external photos for slideshows
-* stream_control — per-user streaming limits
+* stream_control — per-user and per-IP streaming limits
 * wanted — act on the wanted list
 * geolocation — show a user's location
 * preview — find a short sample for a wanted track
@@ -308,7 +308,7 @@ Version: 000001
 
 ## Stream Control Plugins
 
-Manage limits for user streaming based on time, hits and bandwidth.
+Manage limits for user streaming based on time, hits and bandwidth. Each plugin can also cap a public share's anonymous visitors by source IP — see [Plugin Options](/docs/plugins/plugins-options) for the `_ip_max` preferences.
 
 ### Stream Bandwidth
 

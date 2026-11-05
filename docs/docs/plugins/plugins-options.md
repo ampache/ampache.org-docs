@@ -259,26 +259,31 @@ The flag rule uses the same `plays,skips` format to automatically "love" a song.
 Enforce a per-user streaming limit measured over a rolling history window: Ampache adds up the last _N_ days of activity and blocks new streams once the maximum is passed.
 A maximum below `0` (for example `-1`) means unlimited.
 
+Each plugin also has an `_ip_max` preference. It caps the same rolling window by **source IP** instead of by account, and only applies to a stream played through a public share link — a visitor who isn't logged in has no account of their own to cap, so Ampache falls back to limiting the IP they're streaming from. A direct, logged-in stream is never capped by IP, only by its own account's limit above. The per-IP count is kept in its own small table, separate from a user's play history and stats, so it never shows up in "recently played" or any report; it is cleaned up automatically, and nothing is tracked there at all unless at least one `_ip_max` is actually set below its unlimited default.
+
 ### Stream Bandwidth
 
-| Preference                      | Default | Set by          | Meaning                                                                                   |
-|---------------------------------|---------|-----------------|-------------------------------------------------------------------------------------------|
-| `stream_control_bandwidth_max`  | `1024`  | Content manager | Maximum bandwidth in **MB** allowed over the history window (the default `1024` is 1 GB). |
-| `stream_control_bandwidth_days` | `30`    | Content manager | The history window, in days, the limit is measured over.                                  |
+| Preference                        | Default | Set by          | Meaning                                                                                             |
+|------------------------------------|---------|-----------------|-------------------------------------------------------------------------------------------------------|
+| `stream_control_bandwidth_max`     | `1024`  | Content manager | Maximum bandwidth in **MB** allowed over the history window (the default `1024` is 1 GB).            |
+| `stream_control_bandwidth_days`    | `30`    | Content manager | The history window, in days, the limit is measured over.                                              |
+| `stream_control_bandwidth_ip_max`  | `-1`    | Content manager | Maximum bandwidth in **MB** allowed from one source IP over the history window, for public shares.   |
 
 ### Stream Hits
 
-| Preference                 | Default | Set by          | Meaning                                                    |
-|----------------------------|---------|-----------------|------------------------------------------------------------|
-| `stream_control_hits_max`  | `-1`    | Content manager | Maximum number of streams allowed over the history window. |
-| `stream_control_hits_days` | `30`    | Content manager | The history window, in days, the limit is measured over.   |
+| Preference                    | Default | Set by          | Meaning                                                                    |
+|---------------------------------|---------|-----------------|-------------------------------------------------------------------------------|
+| `stream_control_hits_max`      | `-1`    | Content manager | Maximum number of streams allowed over the history window.                   |
+| `stream_control_hits_days`     | `30`    | Content manager | The history window, in days, the limit is measured over.                     |
+| `stream_control_hits_ip_max`   | `-1`    | Content manager | Maximum number of streams allowed from one source IP, for public shares.     |
 
 ### Stream Time
 
-| Preference                 | Default | Set by          | Meaning                                                            |
-|----------------------------|---------|-----------------|--------------------------------------------------------------------|
-| `stream_control_time_max`  | `-1`    | Content manager | Maximum listening time in minutes allowed over the history window. |
-| `stream_control_time_days` | `30`    | Content manager | The history window, in days, the limit is measured over.           |
+| Preference                    | Default | Set by          | Meaning                                                                        |
+|---------------------------------|---------|-----------------|-----------------------------------------------------------------------------------|
+| `stream_control_time_max`      | `-1`    | Content manager | Maximum listening time in minutes allowed over the history window.               |
+| `stream_control_time_days`     | `30`    | Content manager | The history window, in days, the limit is measured over.                          |
+| `stream_control_time_ip_max`   | `-1`    | Content manager | Maximum listening time in minutes from one source IP, for public shares.         |
 
 ## Wanted Plugins
 

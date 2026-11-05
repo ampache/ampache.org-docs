@@ -130,7 +130,7 @@ With Ampache7 you can build your own API client and use it in the base url inste
 
 This will be documented and expanded further in time but you can use it right now if you're knowledgable enough with a web server
 
-[wiki](/docs/information/ampache7-client-structure-install-type)
+[wiki](/docs/information/ampache-client-structure-install-type)
 
 ## Clips, Movie, TV and Personal Video types have been removed
 

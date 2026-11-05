@@ -77,7 +77,7 @@ All zip releases use the `_squashed` suffix to denote the different structure.
 
 ### Client
 
-Documentation for the client release is available in the [wiki](/docs/information/ampache7-client-structure-install-type).
+Documentation for the client release is available in the [wiki](/docs/information/ampache-client-structure-install-type).
 
 This is the reverse of the squashed structure; putting the client website inside a subfolder in the public web root.
 

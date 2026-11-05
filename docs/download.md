@@ -45,7 +45,7 @@ Images are on [Docker Hub](https://hub.docker.com/r/ampache/ampache) and come in
 * `ampache:develop` — latest features, occasionally breaks
 * `ampache:preview` — unreleased Ampache8 code, expect it to break
 * `ampache:nosql*` — the same images without a built-in MySQL server, for when you supply your own
-* `ampache:client*` — [Client Structure](/docs/information/ampache7-client-structure-install-type) images that install a web client such as [Ample](https://github.com/mitchray/ample) or [tinysub](https://tangled.org/devins.page/tinysub) over the top of Ampache
+* `ampache:client*` — [Client Structure](/docs/information/ampache-client-structure-install-type) images that install a web client such as [Ample](https://github.com/mitchray/ample) or [tinysub](https://tangled.org/devins.page/tinysub) over the top of Ampache
 
 The container can install itself without touching the web installer if you set `DB_NAME`, `DB_HOST`, `AMPACHE_ADMIN_USER` and `AMPACHE_ADMIN_EMAIL`. The full list of environment variables, the ARM builds, reverse proxy settings and theme mounting are all on the [Docker](/docker) page.
 
@@ -61,7 +61,7 @@ Ampache ships more than one zip per release, so check [Which zip?](/docs/informa
 * `ampache-%VERSION%_%PHPVERSION%.zip` (e.g. `ampache-8.0.0_php8.5.zip`) — **the one most people want.** It has the composer and npm packages already built in, so you unzip it and run the installer
 * `ampache-%VERSION%.zip` — the same `public` code structure without dependencies. You run `composer install` and `npm install && npm run build` yourself
 * `ampache-%VERSION%_squashed.zip` — everything in the project root, the pre-Ampache5 layout. Only use this if your hosting cannot serve from a `public` subfolder
-* `ampache-%VERSION%_client.zip` — the [client structure](/docs/information/ampache7-client-structure-install-type), which puts an API client at the base URL and Ampache underneath it
+* `ampache-%VERSION%_client.zip` — the [client structure](/docs/information/ampache-client-structure-install-type), which puts an API client at the base URL and Ampache underneath it
 
 Unzip it into your web root, point the web server at the right folder (`public/` for the default structure) and open `install.php` in a browser. [Installing Ampache](/docs/installation) walks through the whole thing, including working vhost samples for Apache, nginx, lighttpd and Caddy.
 

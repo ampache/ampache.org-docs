@@ -256,7 +256,7 @@ The `develop` and `preview` images without a MySQL server built-in.
 
 ### `ampache:client`
 
-For advanced users, this provides an image using [Client Structure](/docs/information/ampache7-client-structure-install-type). This allows you to run your own API client inside the base of the web interface.
+For advanced users, this provides an image using [Client Structure](/docs/information/ampache-client-structure-install-type). This allows you to run your own API client inside the base of the web interface.
 
 This image uses [Ample](https://github.com/mitchray/ample) by default and can be changed to [tinysub](https://tangled.org/devins.page/tinysub) or your own client. (See [Web clients](#web-clients-1))
 
@@ -268,7 +268,7 @@ e.g. `ampache:client7`, `ampache:client7.10.1`
 
 ### `ampache:client-nosql`
 
-For advanced users, this provides a [Client Structure](/docs/information/ampache7-client-structure-install-type) image without a MySQL server built-in. You must provide your own MySQL server.
+For advanced users, this provides a [Client Structure](/docs/information/ampache-client-structure-install-type) image without a MySQL server built-in. You must provide your own MySQL server.
 
 ### `ampache:client-nosql<version>`
 

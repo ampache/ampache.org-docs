@@ -77,5 +77,5 @@ Finally, for the plugin to actually be useful one or more of the following hooks
 * save_rating(Rating $rating, integer $new_value)
 * set_flag(Song $song, boolean $flagged)
 * shortener(string $url)
-* stream_control(array $object_ids)
+* stream_control(array $object_ids, ?string $ip = null, bool $isGuest = false)
 * display_home() Display someting in the home page / index
