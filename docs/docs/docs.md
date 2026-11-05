@@ -50,7 +50,7 @@ Many different settings for customization are exposed through Ampache's configur
 
 ### Active development
 
-Originally released in 2001, Ampache has maintained a somewhat small but fiercely dedicated following of users and developers nearly 20 years later. As a result, Ampache is very reliable, secure, and loved by everyone that uses it. Even though leadership of the project has changed hands several times, there is always a very passionate and capable person to take the reins. The core goals of Ampache have stayed at the forefront of development, ensuring a fantastic user experience.
+Originally released in 2001, Ampache has maintained a somewhat small but fiercely dedicated following of users and developers over 25 years later. As a result, Ampache is very reliable, secure, and loved by everyone that uses it. Even though leadership of the project has changed hands several times, there is always a very passionate and capable person to take the reins. The core goals of Ampache have stayed at the forefront of development, ensuring a fantastic user experience.
 
 ## Features
 
