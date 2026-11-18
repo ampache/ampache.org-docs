@@ -37,16 +37,16 @@ Two rules of thumb make the code much easier to read:
 [Project layout](/docs/development/CONTRIBUTING#project-layout) lists what each top-level directory is
 for. The short version:
 
-| Directory | What is in it |
-|---|---|
+| Directory              | What is in it                                                                                        |
+|------------------------|------------------------------------------------------------------------------------------------------|
 | `src/Module/<Domain>/` | business logic, by domain — Album, Artist, Catalog, Playback, Api, User… this is where new code goes |
-| `src/Repository/` | database access, plus `Repository/Model/` for the entity classes themselves |
-| `src/Gui/` | view classes; one per template |
-| `resources/templates/` | the `.phtml` templates those views render |
-| `src/Config/` | bootstrap, the DI container and config reading |
-| `src/Plugin/` | third-party integrations, each implementing `AmpachePluginInterface` |
-| `public/` | the web root and the entry points |
-| `bin/cli` | the command line tools |
+| `src/Repository/`      | database access, plus `Repository/Model/` for the entity classes themselves                          |
+| `src/Gui/`             | view classes; one per template                                                                       |
+| `resources/templates/` | the `.phtml` templates those views render                                                            |
+| `src/Config/`          | bootstrap, the DI container and config reading                                                       |
+| `src/Plugin/`          | third-party integrations, each implementing `AmpachePluginInterface`                                 |
+| `public/`              | the web root and the entry points                                                                    |
+| `bin/cli`              | the command line tools                                                                               |
 
 ## How a request reaches your code
 

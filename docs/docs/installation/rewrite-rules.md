@@ -38,12 +38,12 @@ Without the rule the webserver looks for a file named `ping.view`, does not find
 
 Three parts of Ampache depend on rewriting. A fourth file is optional.
 
-| Path | Used by | Symptom when rewriting is missing |
-|---|---|---|
-| `/rest/` | Subsonic and OpenSubsonic clients, and the Ampache REST API | Every client request returns 404, login usually fails outright |
-| `/play/` | Streaming and downloads | Browsing works, but nothing plays |
-| `/jellyfin/` | The [Jellyfin-compatible API](/docs/configuration/jellyfin) | Every client request returns 404, a client cannot even add the server |
-| `/` | A user art redirect, optional bot filtering, and the private file rules | Nothing stops working. Ampache runs perfectly well without this file |
+| Path         | Used by                                                                 | Symptom when rewriting is missing                                     |
+|--------------|-------------------------------------------------------------------------|-----------------------------------------------------------------------|
+| `/rest/`     | Subsonic and OpenSubsonic clients, and the Ampache REST API             | Every client request returns 404, login usually fails outright        |
+| `/play/`     | Streaming and downloads                                                 | Browsing works, but nothing plays                                     |
+| `/jellyfin/` | The [Jellyfin-compatible API](/docs/configuration/jellyfin)             | Every client request returns 404, a client cannot even add the server |
+| `/`          | A user art redirect, optional bot filtering, and the private file rules | Nothing stops working. Ampache runs perfectly well without this file  |
 
 **NOTE** The REST API added in Ampache8 lives under `/rest/` too, so it needs the same rules as Subsonic.
 
@@ -53,16 +53,16 @@ If your Subsonic clients work but the REST API 404s, your `/rest/` rules are out
 
 Ampache ships the rules it needs, so you rarely have to write any yourself.
 
-| File | Covers |
-|---|---|
-| [public/play/.htaccess.dist](https://github.com/ampache/ampache/blob/develop/public/play/.htaccess.dist) | Streaming and art URLs |
-| [public/rest/.htaccess.dist](https://github.com/ampache/ampache/blob/develop/public/rest/.htaccess.dist) | Subsonic, OpenSubsonic and the REST API |
-| [public/jellyfin/.htaccess.dist](https://github.com/ampache/ampache/blob/develop/public/jellyfin/.htaccess.dist) | The Jellyfin-compatible API |
-| [public/.htaccess.dist](https://github.com/ampache/ampache/blob/develop/public/.htaccess.dist) | Optional: a user art redirect, private file blocking and bot filtering |
-| [docs/examples/apache-site.conf](https://github.com/ampache/ampache/blob/develop/docs/examples/apache-site.conf) | A complete Apache vhost, for running with `AllowOverride None` |
-| [docs/examples/nginx-site.conf](https://github.com/ampache/ampache/blob/develop/docs/examples/nginx-site.conf) | The same rules written for nginx |
-| [docs/examples/lighttpd-site.conf](https://github.com/ampache/ampache/blob/develop/docs/examples/lighttpd-site.conf) | The same rules written for lighttpd 1.4 |
-| [docs/examples/caddy-site.conf](https://github.com/ampache/ampache/blob/develop/docs/examples/caddy-site.conf) | The same rules written for Caddy v2 |
+| File                                                                                                                 | Covers                                                                 |
+|----------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------|
+| [public/play/.htaccess.dist](https://github.com/ampache/ampache/blob/develop/public/play/.htaccess.dist)             | Streaming and art URLs                                                 |
+| [public/rest/.htaccess.dist](https://github.com/ampache/ampache/blob/develop/public/rest/.htaccess.dist)             | Subsonic, OpenSubsonic and the REST API                                |
+| [public/jellyfin/.htaccess.dist](https://github.com/ampache/ampache/blob/develop/public/jellyfin/.htaccess.dist)     | The Jellyfin-compatible API                                            |
+| [public/.htaccess.dist](https://github.com/ampache/ampache/blob/develop/public/.htaccess.dist)                       | Optional: a user art redirect, private file blocking and bot filtering |
+| [docs/examples/apache-site.conf](https://github.com/ampache/ampache/blob/develop/docs/examples/apache-site.conf)     | A complete Apache vhost, for running with `AllowOverride None`         |
+| [docs/examples/nginx-site.conf](https://github.com/ampache/ampache/blob/develop/docs/examples/nginx-site.conf)       | The same rules written for nginx                                       |
+| [docs/examples/lighttpd-site.conf](https://github.com/ampache/ampache/blob/develop/docs/examples/lighttpd-site.conf) | The same rules written for lighttpd 1.4                                |
+| [docs/examples/caddy-site.conf](https://github.com/ampache/ampache/blob/develop/docs/examples/caddy-site.conf)       | The same rules written for Caddy v2                                    |
 
 The `.dist` files are templates.
 
@@ -179,10 +179,10 @@ This is hardening, not a requirement. Ampache works exactly the same with or wit
 
 How much it is worth depends on which layout you installed.
 
-| Layout | Web root | What sits in it |
-|---|---|---|
-| git checkout, or `composer install` | `/path/to/ampache/public` | Only files meant to be served. `config`, `src` and `vendor` are one level above it and unreachable |
-| release zip (squashed) | `/path/to/ampache` | The whole install, so `config/`, `src/`, `vendor/`, `bin/` and `composer.json` are siblings of `index.php` |
+| Layout                              | Web root                  | What sits in it                                                                                            |
+|-------------------------------------|---------------------------|------------------------------------------------------------------------------------------------------------|
+| git checkout, or `composer install` | `/path/to/ampache/public` | Only files meant to be served. `config`, `src` and `vendor` are one level above it and unreachable         |
+| release zip (squashed)              | `/path/to/ampache`        | The whole install, so `config/`, `src/`, `vendor/`, `bin/` and `composer.json` are siblings of `index.php` |
 
 On the release zip layout, a request for `/config/ampache.cfg.php` reaches a real file on disk.
 

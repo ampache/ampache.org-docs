@@ -259,6 +259,7 @@ Ampache8 brings the first new database updates since the version split. They run
 * `label_asso` gains a nullable `album` column and its `artist` column becomes nullable, so a label can be associated with an album as well as an artist
 * `song_preview`.`file` widened to `varchar(4096)` so the signed preview urls from [iTunes and Deezer](#song-previews-come-from-itunes-and-deezer) are not truncated
 * New `song_data`.`bpm` column - see [BPM](#bpm)
+* New `song_data`.`lyrics_source` column (`file`, `plugin` or `user`) - see [Lyrics: where they come from](#lyrics-where-they-come-from)
 * `tag_map`.`user` (and the new `mood_map`.`user`) is now populated instead of always `0` - see [Hand-set tags and moods survive a rescan](#hand-set-tags-and-moods-survive-a-rescan)
 * `object_count`, `user_activity`, `user_data` and `now_playing` accept the system user (`-1`) on databases where the `user` column was `UNSIGNED`. Existing `share.php` plays are re-attributed from user `0` to `-1`
 
@@ -308,6 +309,8 @@ Ampache8 brings the first new database updates since the version split. They run
 * The obsolete `update_counts` row is removed from `update_info`; it timed a sweep that no longer exists
 * `folder` rows whose `path_name` is a bare directory name are removed. The next catalog **Scan Folders** recreates them with their real path
 * `album`.`subtitle`, `folder`.`playable`, `folder`.`weight` and the `folder_map` name/catalog/path columns are restored on databases installed from a stale `ampache.sql`
+* Existing lyrics are marked as read from the file (`lyrics_source` = `file`)
+* `show_lyrics` is turned on for the system default and new users. Users who already have their own value keep it
 
 **NOTE** The `object_type` enum updates also delete orphaned rows that reference an invalid object type. This is bad data cleanup but it is destructive, so back up your database before updating.
 
@@ -469,6 +472,40 @@ That's fixed. `Tag::add()`/`add_tag_map()` now stamp a map row with the acting u
 A hand-set tag or mood renders with a `*` and a "User set" tooltip in the web interface; plain-text output (edit inputs, DAAP, UPnP) is unaffected.
 
 If you maintain a custom theme or plugin that reads `tag_map`/`mood_map` directly, be aware the `user` column is now meaningful rather than always `0`.
+
+## Lyrics: where they come from
+
+A song's lyrics are stored in `song_data`.`lyrics`, and from Ampache 8.5.0 `song_data`.`lyrics_source` records where they came from:
+
+| Source   | Written by                                                                                 | Replaced by a rescan?                                              |
+|----------|--------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
+| `file`   | a catalog scan, from the file's tags or a `.lrc` file                                      | yes, when the file's lyrics change; cleared when the file has none |
+| `plugin` | the first result a lyrics plugin returned to the API or a Subsonic client                  | only when the file now has lyrics of its own                       |
+| `user`   | a person typing lyrics in the edit dialog, or selecting a plugin result on the lyrics page | never                                                              |
+
+**Clear** on the lyrics page removes lyrics of any source, `user` included, after a warning. Lyrics then come back on their own: from the file on the next verify, or from a plugin after that.
+
+### `.lrc` files
+
+A catalog scan reads timed lyrics from a `.lrc` file beside the audio file:
+
+* The name must match the audio file exactly, with a `.lrc` or `.LRC` extension: `01 - Song.flac` reads `01 - Song.lrc`. Files named after the artist or title are not looked for
+* UTF-8, UTF-8 with a byte order mark, UTF-16 with a byte order mark and Windows-1252 files are all read. A file over 512 KB is ignored
+* A `.lrc` that is a symlink pointing outside the audio file's own folder is ignored
+* Timed lyrics win over plain ones: lyrics embedded with timings (an ID3 `SYLT` frame, or a lyrics tag holding LRC text), then the `.lrc` file, then plain embedded lyrics
+* The `.lrc` is stored at scan time, so it is searchable with the lyrics search rule and reaches every API. Like embedded tags, a new or edited `.lrc` needs a catalog **Verify** to be read; a catalog **Add** only looks for new audio files
+
+With `catalog_verify_by_time` enabled, a verify skips any song whose file has not changed since it was last read. A newer `.lrc` counts as a change to the song, so it is still picked up. Deleting a `.lrc` changes no file's time, so with that option on the old lyrics stay until the audio file changes or a verify runs without it.
+
+The LRC `[offset:]` tag and Enhanced LRC word timings are kept. OpenSubsonic returns the offset as `offset`, and a line's end time only when an Enhanced LRC line states one with a closing time tag.
+
+### Stored lyrics are now plain text
+
+Lyrics read from tags used to be stored with an HTML `<br />` on every line. They are now stored as plain lines, so the first full verify after upgrading rewrites the lyrics of every song that has them, once.
+
+### Downgrading to Ampache7
+
+The Ampache7 rollback drops `song_data`.`lyrics_source`; Ampache7 would otherwise read it as an unknown property of every song.
 
 ## The artist and album selects in the edit dialog
 

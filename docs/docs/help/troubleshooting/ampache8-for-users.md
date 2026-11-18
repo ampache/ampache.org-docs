@@ -153,6 +153,23 @@ That no longer happens for anything a person set through the interface or API. A
 
 You can tell which ones are yours: a tag or mood set by hand shows a small `*` next to it, with a "User set" tooltip. Editing the list yourself and removing a tag still removes it, same as before - it's only the automatic scan that now leaves hand-set entries in place.
 
+## Lyrics you can edit, follow and keep
+
+Every song page has a **Show Lyrics** action. The lyrics page shows timed (LRC) lyrics line by line, and highlights the current line while the song plays in the Web Player.
+
+If you can edit the song (a Content Manager, or the person who uploaded it), the lyrics page also has:
+
+* **Edit** - opens the song edit dialog, which now has a Lyrics field
+* **Refresh** - asks every lyrics plugin again and lists each result, even when lyrics are already stored
+* **Clear** - removes the stored lyrics, whatever set them. If they were set by hand you are warned that they will be lost
+* **Select** next to a plugin result - stores that result. Opening the lyrics page no longer saves the first plugin result on its own; you choose
+
+Lyrics you type in or select are marked **User set**, and a catalog rescan never replaces them, just like [hand-set tags and moods](#your-hand-set-tags-and-moods-survive-a-rescan).
+
+The Web Player's Lyrics button opens a panel that follows the playing song and can go full screen. See [Lyrics in the Web Player](/docs/information/web-player#lyrics).
+
+Your administrator can also add timed lyrics as `.lrc` files beside your music; they show up after the next catalog verify.
+
 ## Picking an artist or album on a big library
 
 The **Artist** and **Album** fields in the edit dialog used to be a dropdown holding every artist and every album you
@@ -354,6 +371,10 @@ Added:
 * `Transcode output format - Audio Default` / `- Video Default` / `- Web Player (overrides default)` / `- API (overrides default)` - per-player transcode format overrides
 * `Maximum transcode bitrate for dynamic downsampling in bps (0 = disabled)` / `Minimum transcode bitrate for dynamic downsampling in bps` - caps for your own dynamic downsampling
 * `Transcode bitrate - Web Player (overrides default)` / `- API (overrides default)` - per-player bitrate overrides
+
+Changed:
+
+* `Show lyrics` is on by default for new users from Ampache 8.5.0. If you already had your own setting it is kept
 
 Your admin may also set `Lock this user into the mini player interface` on your account; it is an admin-only preference, so it will not appear in your own Options.
 

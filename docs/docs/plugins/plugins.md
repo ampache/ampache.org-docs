@@ -138,6 +138,8 @@ Version: 000003
 
 Search for external lyrics using the `get_lyrics` method.
 
+On the web, someone who can edit a song sees every plugin's result on the song's lyrics page and picks the one to keep. Nothing is stored until they do. The API's `get_lyrics` and Subsonic clients still store the first result, marked as coming from a plugin, so the same song is not searched for again. The Web Player's lyrics panel never searches the plugins. See [Lyrics: where they come from](/docs/help/troubleshooting/ampache8-for-admins#lyrics-where-they-come-from).
+
 ### ChartLyrics
 
 Description: Get lyrics from ChartLyrics.

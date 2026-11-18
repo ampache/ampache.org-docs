@@ -168,11 +168,11 @@ The **Start in** field is not optional. Ampache resolves its config and its auto
 
 Worth scheduling, in rough order of usefulness:
 
-| Arguments | What it does | Suggested interval |
-|---|---|---|
-| `bin\cli run:updateCatalog` | Add, clean and verify every catalog | Daily |
-| `bin\cli run:cronProcess` | Preload the cached counts used by the `cron_cache` preference | Hourly |
-| `bin\cli run:updateCatalog podcasts -a -g -i` | Fetch new episodes for a podcast catalog named `podcasts` | Hourly |
+| Arguments                                     | What it does                                                  | Suggested interval |
+|-----------------------------------------------|---------------------------------------------------------------|--------------------|
+| `bin\cli run:updateCatalog`                   | Add, clean and verify every catalog                           | Daily              |
+| `bin\cli run:cronProcess`                     | Preload the cached counts used by the `cron_cache` preference | Hourly             |
+| `bin\cli run:updateCatalog podcasts -a -g -i` | Fetch new episodes for a podcast catalog named `podcasts`     | Hourly             |
 
 Rather than filling the dialog in by hand, `docs/examples/ampache_cron.xml` in your install is an exported Task Scheduler task for `run:cronProcess`, set to repeat hourly. Import it with **Task Scheduler -> Import Task**, then correct the **Command**, **Working directory** and the user it runs as — the export has `C:\php\php.exe` and `C:\ampache`, which are unlikely to both match your install.
 
