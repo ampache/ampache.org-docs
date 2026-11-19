@@ -130,6 +130,90 @@ so `"mysql, oidc"` would look for a method literally named `oidc`.
 5. **Navigate to a second page** and confirm you are still logged in — this is
    the check most likely to reveal a misconfiguration.
 
+## Example: Authentik
+
+Authentik splits OIDC into two linked objects — a **Provider** (the OAuth2/OpenID
+endpoints and secrets) and an **Application** (the tile users see, which points at
+that provider). Both are required; creating only the provider leaves nothing for a
+user to launch.
+
+### 1. Create the provider
+
+* In the Authentik admin interface, go to **Applications → Providers → Create**
+* Choose **OAuth2/OpenID Provider** (not "SAML Provider" or any of the proxy
+  providers — those are for a different purpose)
+* **Name**: a label for yourself, e.g. `Provider for laamp.dev`
+* **Authorization flow**: pick an explicit-consent flow (the default
+  `default-provider-authorization-explicit-consent` works)
+* **Client type**: **Confidential**
+* **Redirect URIs**: set the match type to **Strict** and enter your `web_path` +
+  `/oidc/`, e.g. `https://music.example.com/oidc/` (the trailing slash is required)
+* **Scopes**: make sure the `openid`, `email` and `profile` scope mappings are in
+  the selected list — they are included by default, but check if claims are
+  missing later
+* **Signing Key**: select a certificate (any valid one Authentik offers)
+* Click **Create**
+
+### 2. Create the application
+
+The provider on its own is not reachable by users — it has to be attached to an
+application:
+
+* Go to **Applications → Applications → Create**
+* **Name**: e.g. `Ampache`
+* **Slug**: auto-filled from the name; leave it unless you need a specific one
+* **Provider**: select the provider you created in step 1
+* Click **Create**
+
+### 3. Find your endpoints and secrets
+
+* Open the provider again (**Applications → Providers**, click it) and stay on
+  the **Overview** tab
+* **Client ID** and **Client Secret** are shown under **Info** → click **Edit**
+  on the provider if the secret is hidden, or re-open this overview page — unlike
+  some providers, Authentik keeps both visible for as long as the provider exists
+* The right-hand column lists every endpoint. You only need two values from it:
+  * **OpenID Configuration Issuer** — this is your `oidc_issuer` below, **with**
+    its trailing slash
+  * The same URL **without** the trailing slash is your `oidc_url`
+
+Note the asymmetry: Authentik's issuer claim ends in `/`, but Ampache appends
+`/.well-known/openid-configuration` directly onto `oidc_url` — so `oidc_url` must
+**not** have the trailing slash, while `oidc_issuer` must be set explicitly to the
+slashed form shown on the Overview page, or login fails on an issuer mismatch.
+
+### 4. Configure Ampache
+
+Edit `config/ampache.cfg.php`:
+
+```ini
+; enable the method (keep mysql!)
+auth_methods = "mysql,oidc"
+
+; --* OIDC ---
+oidc_url    = "https://auth.example.com/application/o/<application-slug>"
+oidc_issuer = "https://auth.example.com/application/o/<application-slug>/"
+
+oidc_client_id     = "<client-id>"
+oidc_client_secret = "<client-secret>"
+
+oidc_username_claim = "preferred_username"
+oidc_name_claim     = "name"
+oidc_email_claim    = "email"
+```
+
+`<application-slug>` is the slug from step 2, not the provider's name — Authentik
+builds every endpoint under `/application/o/<slug>/...`.
+
+### 5. Test
+
+1. Open `https://music.example.com/login.php`.
+2. Click **Sign in with OpenID Connect**.
+3. Authenticate at Authentik. If this is the first login for that user, consent
+   to the scopes.
+4. You should return to Ampache logged in.
+5. **Navigate to a second page** and confirm you are still logged in.
+
 ## Configuration reference
 
 Add `oidc` to `auth_methods` (keeping `mysql`), then set the keys below in
@@ -231,3 +315,8 @@ bundle. Set `oidc_cert_path` to a valid bundle. Do **not** use
 **The admin can't log in anymore.** `mysql` was removed from `auth_methods`. Put
 it back — you always need at least one local-account method for the admin and for
 API/Subsonic clients.
+
+**Issuer mismatch against Authentik.** Authentik's issuer claim always ends in a
+`/`, but `oidc_url` (the discovery base) must not, or the `.well-known` lookup
+gets a doubled slash. Set `oidc_issuer` explicitly to the slashed form shown on
+the provider's Overview page rather than relying on the `oidc_url` default.
